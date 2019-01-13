@@ -1,0 +1,47 @@
+.searchButton {
+    -fx-background-color:  #616161;
+    -fx-background-image: url(/com/setting/icon/button/Search.png);
+    -fx-background-size: 16px 16px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+.saveButton {
+    -fx-background-color:  #616161;
+    -fx-background-image: url(/com/setting/icon/button/Save.png);
+    -fx-background-size: 16px 16px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right;
+    -fx-text-fill: whitesmoke;
+    -fx-font-weight: bold;
+}
+
+.settingButton {
+    -fx-background-color:  #616161;
+    -fx-background-image: url(/com/setting/icon/button/Setting.png);
+    -fx-background-size: 16px 16px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-text-fill: whitesmoke;
+    -fx-font-weight: bold;
+}
+
+.menu-item .label {
+    -fx-text-fill: #c0c080;
+}
+
+.context-menu {
+  	-fx-background-color: #616161;
+ }
+ 
+ .menu-item:focused {
+     -fx-background-color: #808000;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: whitesmoke;
+}
+
+.menu-button > .arrow-button > .arrow {
+      -fx-background-color: transparent;
+}

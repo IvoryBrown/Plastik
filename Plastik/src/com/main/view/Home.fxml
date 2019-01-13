@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.main.controller.HomeController">
+   <children>
+      <AnchorPane layoutX="133.0" layoutY="121.0" prefHeight="700.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <SplitPane dividerPositions="0.1386748844375963" layoutX="109.0" layoutY="170.0" prefHeight="700.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
+                     <children>
+                        <AnchorPane prefHeight="698.0" prefWidth="165.0" style="-fx-background-color: #616161;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <StackPane fx:id="menuPane" layoutX="-26.0" layoutY="44.0" prefHeight="654.0" prefWidth="165.0" stylesheets="@menuItem.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="44.0" />
+                              <HBox prefHeight="49.0" prefWidth="165.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="50.0" prefWidth="400.0" text="Stanicli" textFill="OLIVE">
+                                       <font>
+                                          <Font name="System Bold" size="33.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <AnchorPane fx:id="homePane" prefHeight="698.0" prefWidth="1127.0" style="-fx-background-color: C0C0C0;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <AnchorPane fx:id="addNewClientPane" prefHeight="698.0" prefWidth="1127.0" style="-fx-background-color: C0C0C0;" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox layoutX="157.0" layoutY="102.0" prefHeight="30.0" prefWidth="1127.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label fx:id="addNewClientMessageLabel" alignment="CENTER" prefHeight="30.0" prefWidth="3000.0" text="Label" />
+                                 </children>
+                              </HBox>
+                              <AnchorPane layoutY="30.0" prefHeight="467.0" prefWidth="435.0">
+                                 <children>
+                                    <VBox layoutX="14.0" prefHeight="388.0" prefWidth="100.0" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="30.0">
+                                       <children>
+                                          <Label alignment="TOP_RIGHT" prefHeight="25.0" prefWidth="160.0" text="Név">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label alignment="TOP_RIGHT" prefHeight="25.0" prefWidth="160.0" text="Irányítószám">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label alignment="TOP_RIGHT" prefHeight="25.0" prefWidth="160.0" text="Helység">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label alignment="TOP_RIGHT" prefHeight="25.0" prefWidth="160.0" text="Utca, hsz">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label alignment="TOP_RIGHT" prefHeight="25.0" prefWidth="160.0" text="Mobil">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label alignment="TOP_RIGHT" prefHeight="25.0" prefWidth="160.0" text="Email">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label alignment="TOP_RIGHT" prefHeight="25.0" prefWidth="160.0" text="Megjegyzés">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox layoutX="109.0" layoutY="23.0" prefHeight="388.0" prefWidth="325.0" AnchorPane.bottomAnchor="49.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0">
+                                       <children>
+                                          <TextField fx:id="clientNameTxt" prefHeight="25.0" promptText="Balogh Lajos">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <TextField fx:id="clientPostcodeTxt" prefHeight="25.0" promptText="5647">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <TextField fx:id="clientCityTxt" prefHeight="25.0" promptText="Aprajafalva">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <TextField fx:id="clientStreetTxt" prefHeight="25.0" promptText="Csongradi utca 2.">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <TextField fx:id="clientPhoneTxt" prefHeight="25.0" promptText="+36 30 999 9999">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <TextField fx:id="clientMailTxt" prefHeight="25.0" promptText="Valaki@valaki.com">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <TextArea fx:id="clientCommentTxt" prefHeight="169.0" prefWidth="325.0">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </TextArea>
+                                       </children>
+                                    </VBox>
+                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="300.0" text="Ügyfél adatok">
+                                       <font>
+                                          <Font name="System Bold" size="19.0" />
+                                       </font>
+                                    </Label>
+                                    <Button layoutX="93.0" layoutY="425.0" mnemonicParsing="false" onAction="#addClient" prefHeight="25.0" prefWidth="100.0" styleClass="saveButton" stylesheets="@button.css" text="Mentés" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="clientTablePane" prefHeight="698.0" prefWidth="1127.0" style="-fx-background-color: C0C0C0;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <TableView fx:id="clientTableView" editable="true" layoutY="101.0" prefHeight="597.0" prefWidth="1127.0" stylesheets="@table.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="101.0" />
+                              <HBox prefHeight="30.0" prefWidth="1127.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label fx:id="clientTableMessageLabel" alignment="CENTER" prefHeight="30.0" prefWidth="3000.0" text="Label" />
+                                 </children>
+                              </HBox>
+                              <Button fx:id="clientFilteringBtn" layoutX="162.0" layoutY="72.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" styleClass="searchButton" stylesheets="@button.css" />
+                              <TextField fx:id="clientFilteringTxt" layoutX="14.0" layoutY="72.0" prefHeight="25.0" promptText="Név, Helység, Mobil" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="extruderPane" prefHeight="698.0" prefWidth="1115.0" style="-fx-background-color: C0C0C0;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox prefHeight="30.0" prefWidth="1127.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="3000.0" text="Label" />
+                                 </children>
+                              </HBox>
+                              <TabPane layoutX="75.0" layoutY="64.0" prefHeight="634.0" prefWidth="1115.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="64.0">
+                                <tabs>
+                                  <Tab text="Untitled Tab 1" />
+                                  <Tab text="Untitled Tab 2" />
+                                </tabs>
+                              </TabPane>
+                              <MenuButton fx:id="manufactureMenuBar" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" styleClass="settingButton" stylesheets="@button.css">
+                               
+                              </MenuButton>
+                           </children></AnchorPane>
+                        <AnchorPane fx:id="confectionPane" layoutX="10.0" layoutY="10.0" prefHeight="698.0" prefWidth="1115.0" visible="false" />
+                        <AnchorPane fx:id="regraPane" layoutX="20.0" layoutY="20.0" prefHeight="698.0" prefWidth="1115.0" visible="false" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
