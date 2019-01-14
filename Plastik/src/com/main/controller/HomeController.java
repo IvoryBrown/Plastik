@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 import com.client.controller.ClientController;
 import com.client.controller.ClientTableController;
 import com.client.pojo.Client;
-import com.menu.ManufactureController;
+import com.menu.calculations.CalculationsController;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -15,7 +15,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -60,7 +59,7 @@ public class HomeController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		setMenuTree();
-		new ManufactureController(manufactureMenuBar);
+		new CalculationsController(manufactureMenuBar);
 	}
 
 	@SuppressWarnings("unchecked")
