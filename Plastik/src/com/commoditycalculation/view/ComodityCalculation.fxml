@@ -13,7 +13,7 @@
    <children>
       <AnchorPane layoutX="258.0" layoutY="39.0" prefHeight="661.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox prefHeight="30.0" prefWidth="1127.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="173.0" AnchorPane.topAnchor="0.0">
+            <HBox prefHeight="30.0" prefWidth="1127.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label fx:id="commodityMessageLabel" alignment="CENTER" prefHeight="30.0" prefWidth="3000.0" text="Label" />
                </children>
@@ -161,48 +161,54 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <Button fx:id="nextCommodity" focusTraversable="false" layoutX="238.0" layoutY="452.0" mnemonicParsing="false" onAction="#nextCommodity" text="Következő" />
-                  <Button fx:id="backCommodity" layoutX="160.0" layoutY="452.0" mnemonicParsing="false" onAction="#backCommodity" text="Elöző" visible="false" />
                   <AnchorPane fx:id="percentagePane" layoutX="333.0" layoutY="38.0" prefHeight="383.0" prefWidth="277.0" visible="false">
                      <children>
-                        <VBox layoutY="6.0" prefHeight="372.0" prefWidth="121.0">
+                        <VBox layoutY="8.0" prefHeight="372.0" prefWidth="121.0">
                            <children>
-                              <TextField fx:id="commodityPercentage1Txt" alignment="CENTER" prefHeight="25.0" promptText="\%">
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="121.0" text="100%">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
                                  <VBox.margin>
-                                    <Insets top="56.0" />
+                                    <Insets top="17.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="commodityPercentage1Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
+                                 <VBox.margin>
+                                    <Insets top="13.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="commodityPercentage2Txt" alignment="CENTER" prefHeight="25.0" promptText="\%">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="commodityPercentage3Txt" alignment="CENTER" prefHeight="25.0" promptText="\%">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="commodityPercentage4Txt" alignment="CENTER" prefHeight="25.0" promptText="\%">
+                              <TextField fx:id="commodityPercentage2Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
                                  <VBox.margin>
                                     <Insets top="15.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="commodityPercentage5Txt" alignment="CENTER" prefHeight="25.0" promptText="\%">
+                              <TextField fx:id="commodityPercentage3Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
                                  <VBox.margin>
                                     <Insets top="15.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="commodityPercentage6Txt" alignment="CENTER" prefHeight="25.0" promptText="\%">
+                              <TextField fx:id="commodityPercentage4Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
                                  <VBox.margin>
                                     <Insets top="15.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="commodityPercentage7Txt" alignment="CENTER" prefHeight="25.0" promptText="\%">
+                              <TextField fx:id="commodityPercentage5Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
                                  <VBox.margin>
                                     <Insets top="15.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="commodityPercentage8Txt" alignment="CENTER" prefHeight="25.0" promptText="\%">
+                              <TextField fx:id="commodityPercentage6Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="commodityPercentage7Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="commodityPercentage8Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
                                  <VBox.margin>
                                     <Insets top="15.0" />
                                  </VBox.margin>
@@ -277,6 +283,13 @@
                               </Label>
                            </children>
                         </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="133.0" layoutY="432.0" prefHeight="58.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="nextCommodity" focusTraversable="false" layoutX="106.0" layoutY="17.0" mnemonicParsing="false" onAction="#nextCommodity" prefHeight="25.0" prefWidth="80.0" text="Következő" />
+                        <Button fx:id="backCommodity" focusTraversable="false" layoutY="17.0" mnemonicParsing="false" onAction="#backCommodity" prefHeight="25.0" prefWidth="80.0" text="Elöző" visible="false" />
+                        <Button fx:id="calculationCommodity" focusTraversable="false" layoutX="106.0" layoutY="17.0" mnemonicParsing="false" onAction="#calculationCommodity" prefHeight="25.0" prefWidth="80.0" text="Kalkuláció" visible="false" />
                      </children>
                   </AnchorPane>
                </children>
