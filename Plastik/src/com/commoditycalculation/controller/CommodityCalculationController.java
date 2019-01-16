@@ -14,7 +14,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class CommodityCalculationController implements Initializable {
 	@FXML
-	AnchorPane percentagePane;
+	AnchorPane percentagePane, calculationPane, calculationKgPane;
 	@FXML
 	private Label commodityMessageLabel;
 	@FXML
@@ -28,10 +28,15 @@ public class CommodityCalculationController implements Initializable {
 	private TextField commodityPercentage1Txt, commodityPercentage2Txt, commodityPercentage3Txt,
 			commodityPercentage4Txt, commodityPercentage5Txt, commodityPercentage6Txt, commodityPercentage7Txt,
 			commodityPercentage8Txt;
+	@FXML
+	private TextField commodityPercentageKg1Txt, commodityPercentageKg2Txt, commodityPercentageKg3Txt,
+			commodityPercentageKg4Txt, commodityPercentageKg5Txt, commodityPercentageKg6Txt, commodityPercentageKg7Txt,
+			commodityPercentageKg8Txt;
 	private MessageLabel message = new MessageLabel();
 	private NumberCheck numberCheck = new NumberCheck();
 	private TextFieldIsEmpty textFieldIsEmpty = new TextFieldIsEmpty();
-	Integer sum;
+	private Double sum;
+	private Double number1, number2, number3, number4, number5, number6, number7, number8;
 
 	private boolean setText() {
 		commodityPercentage2Txt.setStyle(null);
@@ -88,55 +93,56 @@ public class CommodityCalculationController implements Initializable {
 	}
 
 	private void getcommodityName() {
-		quantityTxt.setDisable(true);
-		commodityName1Txt.setDisable(true);
-		commodityName2Txt.setDisable(true);
-		commodityName3Txt.setDisable(true);
-		commodityName4Txt.setDisable(true);
-		commodityName5Txt.setDisable(true);
-		commodityName6Txt.setDisable(true);
-		commodityName7Txt.setDisable(true);
-		commodityName8Txt.setDisable(true);
+		quantityTxt.setEditable(false);
+		commodityName1Txt.setEditable(false);
+		commodityName2Txt.setEditable(false);
+		commodityName3Txt.setEditable(false);
+		commodityName4Txt.setEditable(false);
+		commodityName5Txt.setEditable(false);
+		commodityName6Txt.setEditable(false);
+		commodityName7Txt.setEditable(false);
+		commodityName8Txt.setEditable(false);
 		if (commodityName2Txt.getText().trim().isEmpty()) {
-			commodityPercentage2Txt.setDisable(true);
+			commodityPercentage2Txt.setEditable(false);
 		}
 		if (commodityName3Txt.getText().trim().isEmpty()) {
-			commodityPercentage3Txt.setDisable(true);
+			commodityPercentage3Txt.setEditable(false);
 		}
 		if (commodityName4Txt.getText().trim().isEmpty()) {
-			commodityPercentage4Txt.setDisable(true);
+			commodityPercentage4Txt.setEditable(false);
 		}
 		if (commodityName5Txt.getText().trim().isEmpty()) {
-			commodityPercentage5Txt.setDisable(true);
+			commodityPercentage5Txt.setEditable(false);
 		}
 		if (commodityName6Txt.getText().trim().isEmpty()) {
-			commodityPercentage6Txt.setDisable(true);
+			commodityPercentage6Txt.setEditable(false);
 		}
 		if (commodityName7Txt.getText().trim().isEmpty()) {
-			commodityPercentage7Txt.setDisable(true);
+			commodityPercentage7Txt.setEditable(false);
 		}
 		if (commodityName8Txt.getText().trim().isEmpty()) {
-			commodityPercentage8Txt.setDisable(true);
+			commodityPercentage8Txt.setEditable(false);
 		}
 	}
 
 	private void setcommodityName() {
-		quantityTxt.setDisable(false);
-		commodityName1Txt.setDisable(false);
-		commodityName2Txt.setDisable(false);
-		commodityName3Txt.setDisable(false);
-		commodityName4Txt.setDisable(false);
-		commodityName5Txt.setDisable(false);
-		commodityName6Txt.setDisable(false);
-		commodityName7Txt.setDisable(false);
-		commodityName8Txt.setDisable(false);
-		commodityPercentage2Txt.setDisable(false);
-		commodityPercentage3Txt.setDisable(false);
-		commodityPercentage4Txt.setDisable(false);
-		commodityPercentage5Txt.setDisable(false);
-		commodityPercentage6Txt.setDisable(false);
-		commodityPercentage7Txt.setDisable(false);
-		commodityPercentage8Txt.setDisable(false);
+		quantityTxt.setEditable(true);
+		commodityName1Txt.setEditable(true);
+		commodityName2Txt.setEditable(true);
+		commodityName3Txt.setEditable(true);
+		commodityName4Txt.setEditable(true);
+		commodityName5Txt.setEditable(true);
+		commodityName6Txt.setEditable(true);
+		commodityName7Txt.setEditable(true);
+		commodityName8Txt.setEditable(true);
+		commodityPercentage1Txt.setEditable(true);
+		commodityPercentage2Txt.setEditable(true);
+		commodityPercentage3Txt.setEditable(true);
+		commodityPercentage4Txt.setEditable(true);
+		commodityPercentage5Txt.setEditable(true);
+		commodityPercentage6Txt.setEditable(true);
+		commodityPercentage7Txt.setEditable(true);
+		commodityPercentage8Txt.setEditable(true);
 		commodityPercentage1Txt.clear();
 		commodityPercentage2Txt.clear();
 		commodityPercentage3Txt.clear();
@@ -157,45 +163,90 @@ public class CommodityCalculationController implements Initializable {
 
 	private boolean isSum() {
 		boolean ret = false;
-		sum = 0;
+		sum = 0.0;
 
 		if (!commodityPercentage1Txt.getText().trim().isEmpty()) {
-			Integer number = Integer.valueOf(commodityPercentage1Txt.getText());
-			sum += number;
+			number1 = Double.valueOf(commodityPercentage1Txt.getText());
+			sum += number1;
 		}
 		if (!commodityPercentage2Txt.getText().trim().isEmpty()) {
-			Integer number = Integer.valueOf(commodityPercentage2Txt.getText());
-			sum += number;
+			number2 = Double.valueOf(commodityPercentage2Txt.getText());
+			sum += number2;
 		}
 		if (!commodityPercentage3Txt.getText().trim().isEmpty()) {
-			Integer number = Integer.valueOf(commodityPercentage3Txt.getText());
-			sum += number;
+			number3 = Double.valueOf(commodityPercentage3Txt.getText());
+			sum += number3;
 		}
 		if (!commodityPercentage4Txt.getText().trim().isEmpty()) {
-			Integer number = Integer.valueOf(commodityPercentage4Txt.getText());
-			sum += number;
+			number4 = Double.valueOf(commodityPercentage4Txt.getText());
+			sum += number4;
 		}
 		if (!commodityPercentage5Txt.getText().trim().isEmpty()) {
-			Integer number = Integer.valueOf(commodityPercentage5Txt.getText());
-			sum += number;
+			number5 = Double.valueOf(commodityPercentage5Txt.getText());
+			sum += number5;
 		}
 		if (!commodityPercentage6Txt.getText().trim().isEmpty()) {
-			Integer number = Integer.valueOf(commodityPercentage6Txt.getText());
-			sum += number;
+			number6 = Double.valueOf(commodityPercentage6Txt.getText());
+			sum += number6;
 		}
 		if (!commodityPercentage7Txt.getText().trim().isEmpty()) {
-			Integer number = Integer.valueOf(commodityPercentage7Txt.getText());
-			sum += number;
+			number7 = Double.valueOf(commodityPercentage7Txt.getText());
+			sum += number7;
 		}
 		if (!commodityPercentage8Txt.getText().trim().isEmpty()) {
-			Integer number = Integer.valueOf(commodityPercentage8Txt.getText());
-			sum += number;
+			number8 = Double.valueOf(commodityPercentage8Txt.getText());
+			sum += number8;
 		}
-		System.out.println(sum);
 		if (sum == 100) {
 			ret = true;
 		}
 		return ret;
+	}
+
+	private void calculationKg() {
+		commodityPercentage1Txt.setEditable(false);
+		commodityPercentage2Txt.setEditable(false);
+		commodityPercentage3Txt.setEditable(false);
+		commodityPercentage4Txt.setEditable(false);
+		commodityPercentage5Txt.setEditable(false);
+		commodityPercentage6Txt.setEditable(false);
+		commodityPercentage7Txt.setEditable(false);
+		commodityPercentage8Txt.setEditable(false);
+
+		if (!commodityPercentage1Txt.getText().trim().isEmpty()) {
+			this.commodityPercentageKg1Txt.setText(String.valueOf(calculationSetText(this.number1)));
+		}
+		if (!commodityPercentage2Txt.getText().trim().isEmpty()) {
+			this.commodityPercentageKg2Txt.setText(String.valueOf(calculationSetText(this.number2)));
+		}
+		if (!commodityPercentage3Txt.getText().trim().isEmpty()) {
+			this.commodityPercentageKg3Txt.setText(String.valueOf(calculationSetText(this.number3)));
+		}
+		if (!commodityPercentage4Txt.getText().trim().isEmpty()) {
+			this.commodityPercentageKg4Txt.setText(String.valueOf(calculationSetText(this.number4)));
+		}
+		if (!commodityPercentage5Txt.getText().trim().isEmpty()) {
+			this.commodityPercentageKg5Txt.setText(String.valueOf(calculationSetText(this.number5)));
+		}
+		if (!commodityPercentage6Txt.getText().trim().isEmpty()) {
+			this.commodityPercentageKg6Txt.setText(String.valueOf(calculationSetText(this.number6)));
+		}
+		if (!commodityPercentage7Txt.getText().trim().isEmpty()) {
+			this.commodityPercentageKg7Txt.setText( String.valueOf(calculationSetText(this.number7)));
+		}
+		if (!commodityPercentage8Txt.getText().trim().isEmpty()) {
+			this.commodityPercentageKg8Txt.setText(String.valueOf(calculationSetText(this.number8)));
+		}
+
+	}
+
+	private double calculationSetText(Double n) {
+		double eredmeny = 0;
+		double egySzazalek = Double.valueOf(quantityTxt.getText()) / 100;
+		eredmeny = egySzazalek * n;
+		System.out.println(eredmeny + " : " + n + " : " + sum);
+		return eredmeny;
+
 	}
 
 	@FXML
@@ -226,11 +277,14 @@ public class CommodityCalculationController implements Initializable {
 						&& numberCheck.isNum(commodityPercentage5Txt) && numberCheck.isNum(commodityPercentage6Txt)
 						&& numberCheck.isNum(commodityPercentage7Txt) && numberCheck.isNum(commodityPercentage8Txt)) {
 					if (isSum()) {
-
+						calculationKg();
+						calculationKgPane.setVisible(true);
 						message.goodMessage("!!Üres a mező", commodityMessageLabel);
 					} else {
 
-						message.errorMessage("Számold újra! Az alapanyagok mennyisége 100% legyen! (Ezen számítás: "+sum+"%-os)", commodityMessageLabel);
+						message.errorMessage(
+								"Számold újra! Az alapanyagok mennyisége 100% legyen! (Ezen számítás: " + sum + "%-os)",
+								commodityMessageLabel);
 					}
 				} else {
 					message.errorMessage("Csak szám lehet és min.: 0.5 max.: 100", commodityMessageLabel);
@@ -253,6 +307,7 @@ public class CommodityCalculationController implements Initializable {
 		calculationCommodity.setVisible(false);
 		nextCommodity.setVisible(true);
 		commodityMessageLabel.setText("");
+		calculationKgPane.setVisible(false);
 	}
 
 	@Override

@@ -20,276 +20,405 @@
             </HBox>
             <AnchorPane layoutX="89.0" layoutY="208.0" prefHeight="700.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
                <children>
-                  <AnchorPane layoutX="14.0" layoutY="38.0" prefHeight="383.0" prefWidth="332.0">
+                  <AnchorPane prefHeight="494.0" prefWidth="452.0">
                      <children>
-                        <VBox layoutY="8.0" prefHeight="372.0" prefWidth="136.0">
+                        <Label layoutX="167.0" layoutY="21.0" prefHeight="25.0" prefWidth="277.0" text="Alapanyag számítás">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane layoutY="41.0" prefHeight="383.0" prefWidth="332.0">
                            <children>
-                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="260.0" text="Teljes Mennyiség">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="260.0" text="1.alapanyag neve">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="260.0" text="2.alapanyag neve">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="260.0" text="3.alapanyag neve">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="260.0" text="4.alapanyag neve">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="260.0" text="5.alapanyag neve">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="260.0" text="6.alapanyag neve">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="260.0" text="7.alapanyag neve">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="260.0" text="8.alapanyag neve">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </Label>
+                              <VBox layoutY="8.0" prefHeight="372.0" prefWidth="136.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="260.0" text="Teljes Mennyiség">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="260.0" text="1.alapanyag neve">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="260.0" text="2.alapanyag neve">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="260.0" text="3.alapanyag neve">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="260.0" text="4.alapanyag neve">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="260.0" text="5.alapanyag neve">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="260.0" text="6.alapanyag neve">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="260.0" text="7.alapanyag neve">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="260.0" text="8.alapanyag neve">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="136.0" layoutY="8.0" prefHeight="372.0" prefWidth="168.0">
+                                 <children>
+                                    <TextField fx:id="quantityTxt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="Mennyiség">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityName1Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="FD 243-51">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityName2Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="FC 243-55">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityName3Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="FS 471-05">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityName4Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="XP9200">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityName5Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="FB 216">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityName6Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="PT-15">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityName7Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="VLA-66">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityName8Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="Regra">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="304.0" layoutY="8.0" prefHeight="372.0" prefWidth="24.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="260.0" text="kg">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
-                        <VBox layoutX="136.0" layoutY="8.0" prefHeight="372.0" prefWidth="168.0">
+                        </AnchorPane>
+                        <AnchorPane fx:id="percentagePane" layoutX="305.0" layoutY="41.0" prefHeight="383.0" prefWidth="146.0" visible="false">
                            <children>
-                              <TextField fx:id="quantityTxt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="Mennyiség">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="commodityName1Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="FD 243-51">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="commodityName2Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="FC 243-55">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="commodityName3Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="FS 471-05">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="commodityName4Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="XP9200">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="commodityName5Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="FB 216">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="commodityName6Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="PT-15">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="commodityName7Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="VLA-66">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="commodityName8Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="Regra">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
+                              <VBox layoutY="8.0" prefHeight="372.0" prefWidth="121.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="25.0" prefWidth="121.0" text="100%">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="17.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextField fx:id="commodityPercentage1Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
+                                       <VBox.margin>
+                                          <Insets top="13.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityPercentage2Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityPercentage3Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityPercentage4Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityPercentage5Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityPercentage6Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityPercentage7Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityPercentage8Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="121.0" layoutY="6.0" prefHeight="372.0" prefWidth="24.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="260.0" text="\%">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="56.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label prefHeight="25.0" prefWidth="260.0" text="\%">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label prefHeight="25.0" prefWidth="260.0" text="\%">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label prefHeight="25.0" prefWidth="260.0" text="\%">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label prefHeight="25.0" prefWidth="260.0" text="\%">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label prefHeight="25.0" prefWidth="260.0" text="\%">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label prefHeight="25.0" prefWidth="260.0" text="\%">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label prefHeight="25.0" prefWidth="260.0" text="\%">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
-                        <VBox layoutX="304.0" layoutY="8.0" prefHeight="372.0" prefWidth="24.0">
+                        </AnchorPane>
+                        <AnchorPane layoutX="105.0" layoutY="424.0" prefHeight="58.0" prefWidth="200.0">
                            <children>
-                              <Label prefHeight="25.0" prefWidth="260.0" text="kg">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </Label>
+                              <Button fx:id="nextCommodity" focusTraversable="false" layoutX="106.0" layoutY="17.0" mnemonicParsing="false" onAction="#nextCommodity" prefHeight="25.0" prefWidth="80.0" text="Következő" />
+                              <Button fx:id="backCommodity" focusTraversable="false" layoutY="17.0" mnemonicParsing="false" onAction="#backCommodity" prefHeight="25.0" prefWidth="80.0" text="Elöző" visible="false" />
+                              <Button fx:id="calculationCommodity" focusTraversable="false" layoutX="106.0" layoutY="17.0" mnemonicParsing="false" onAction="#calculationCommodity" prefHeight="25.0" prefWidth="80.0" text="Kalkuláció" visible="false" />
                            </children>
-                        </VBox>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="percentagePane" layoutX="333.0" layoutY="38.0" prefHeight="383.0" prefWidth="277.0" visible="false">
+                  <AnchorPane fx:id="calculationKgPane" layoutX="452.0" prefHeight="494.0" prefWidth="823.0" visible="false">
                      <children>
-                        <VBox layoutY="8.0" prefHeight="372.0" prefWidth="121.0">
+                        <AnchorPane fx:id="calculationPane" layoutY="41.0" prefHeight="383.0" prefWidth="146.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="121.0" text="100%">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="17.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <TextField fx:id="commodityPercentage1Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
-                                 <VBox.margin>
-                                    <Insets top="13.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="commodityPercentage2Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="commodityPercentage3Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="commodityPercentage4Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="commodityPercentage5Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="commodityPercentage6Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="commodityPercentage7Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="commodityPercentage8Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
+                              <VBox layoutY="8.0" prefHeight="372.0" prefWidth="121.0">
+                                 <children>
+                                    <TextField fx:id="commodityPercentageKg1Txt" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" prefHeight="25.0" promptText="-">
+                                       <VBox.margin>
+                                          <Insets top="55.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityPercentageKg2Txt" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" prefHeight="25.0" promptText="-">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityPercentageKg3Txt" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" prefHeight="25.0" promptText="-">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityPercentageKg4Txt" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" prefHeight="25.0" promptText="-">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityPercentageKg5Txt" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" prefHeight="25.0" promptText="-">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityPercentageKg6Txt" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" prefHeight="25.0" promptText="-">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityPercentageKg7Txt" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" prefHeight="25.0" promptText="-">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="commodityPercentageKg8Txt" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" prefHeight="25.0" promptText="-">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="121.0" layoutY="6.0" prefHeight="372.0" prefWidth="24.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="260.0" text="kg">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="56.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label prefHeight="25.0" prefWidth="260.0" text="kg">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label prefHeight="25.0" prefWidth="260.0" text="kg">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label prefHeight="25.0" prefWidth="260.0" text="kg">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label prefHeight="25.0" prefWidth="260.0" text="kg">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label prefHeight="25.0" prefWidth="260.0" text="kg">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label prefHeight="25.0" prefWidth="260.0" text="kg">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label prefHeight="25.0" prefWidth="260.0" text="kg">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
-                        <VBox layoutX="121.0" layoutY="6.0" prefHeight="372.0" prefWidth="24.0">
-                           <children>
-                              <Label prefHeight="25.0" prefWidth="260.0" text="\%">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="56.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label prefHeight="25.0" prefWidth="260.0" text="\%">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label prefHeight="25.0" prefWidth="260.0" text="\%">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label prefHeight="25.0" prefWidth="260.0" text="\%">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label prefHeight="25.0" prefWidth="260.0" text="\%">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label prefHeight="25.0" prefWidth="260.0" text="\%">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label prefHeight="25.0" prefWidth="260.0" text="\%">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label prefHeight="25.0" prefWidth="260.0" text="\%">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </Label>
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="133.0" layoutY="432.0" prefHeight="58.0" prefWidth="200.0">
-                     <children>
-                        <Button fx:id="nextCommodity" focusTraversable="false" layoutX="106.0" layoutY="17.0" mnemonicParsing="false" onAction="#nextCommodity" prefHeight="25.0" prefWidth="80.0" text="Következő" />
-                        <Button fx:id="backCommodity" focusTraversable="false" layoutY="17.0" mnemonicParsing="false" onAction="#backCommodity" prefHeight="25.0" prefWidth="80.0" text="Elöző" visible="false" />
-                        <Button fx:id="calculationCommodity" focusTraversable="false" layoutX="106.0" layoutY="17.0" mnemonicParsing="false" onAction="#calculationCommodity" prefHeight="25.0" prefWidth="80.0" text="Kalkuláció" visible="false" />
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
                </children>
