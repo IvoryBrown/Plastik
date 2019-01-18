@@ -1,6 +1,8 @@
 package com.commoditycalculation.controller;
 
 import java.net.URL;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ResourceBundle;
 
 import com.setting.label.MessageLabel;
@@ -18,7 +20,7 @@ public class CommodityCalculationController implements Initializable {
 	@FXML
 	private Label commodityMessageLabel;
 	@FXML
-	private Button backCommodity, nextCommodity, calculationCommodity;
+	private Button backCommodity, nextCommodity, calculationCommodity, deleteBtn, saveBtn;
 	@FXML
 	private TextField quantityTxt;
 	@FXML
@@ -212,30 +214,31 @@ public class CommodityCalculationController implements Initializable {
 		commodityPercentage6Txt.setEditable(false);
 		commodityPercentage7Txt.setEditable(false);
 		commodityPercentage8Txt.setEditable(false);
+		NumberFormat formatter = new DecimalFormat("#0.00");
 
 		if (!commodityPercentage1Txt.getText().trim().isEmpty()) {
-			this.commodityPercentageKg1Txt.setText(String.valueOf(calculationSetText(this.number1)));
+			this.commodityPercentageKg1Txt.setText(String.valueOf(formatter.format(calculationSetText(this.number1))));
 		}
 		if (!commodityPercentage2Txt.getText().trim().isEmpty()) {
-			this.commodityPercentageKg2Txt.setText(String.valueOf(calculationSetText(this.number2)));
+			this.commodityPercentageKg2Txt.setText(String.valueOf(formatter.format(calculationSetText(this.number2))));
 		}
 		if (!commodityPercentage3Txt.getText().trim().isEmpty()) {
-			this.commodityPercentageKg3Txt.setText(String.valueOf(calculationSetText(this.number3)));
+			this.commodityPercentageKg3Txt.setText(String.valueOf(formatter.format(calculationSetText(this.number3))));
 		}
 		if (!commodityPercentage4Txt.getText().trim().isEmpty()) {
-			this.commodityPercentageKg4Txt.setText(String.valueOf(calculationSetText(this.number4)));
+			this.commodityPercentageKg4Txt.setText(String.valueOf(formatter.format(calculationSetText(this.number4))));
 		}
 		if (!commodityPercentage5Txt.getText().trim().isEmpty()) {
-			this.commodityPercentageKg5Txt.setText(String.valueOf(calculationSetText(this.number5)));
+			this.commodityPercentageKg5Txt.setText(String.valueOf(formatter.format(calculationSetText(this.number5))));
 		}
 		if (!commodityPercentage6Txt.getText().trim().isEmpty()) {
-			this.commodityPercentageKg6Txt.setText(String.valueOf(calculationSetText(this.number6)));
+			this.commodityPercentageKg6Txt.setText(String.valueOf(formatter.format(calculationSetText(this.number6))));
 		}
 		if (!commodityPercentage7Txt.getText().trim().isEmpty()) {
-			this.commodityPercentageKg7Txt.setText( String.valueOf(calculationSetText(this.number7)));
+			this.commodityPercentageKg7Txt.setText(String.valueOf(formatter.format(calculationSetText(this.number7))));
 		}
 		if (!commodityPercentage8Txt.getText().trim().isEmpty()) {
-			this.commodityPercentageKg8Txt.setText(String.valueOf(calculationSetText(this.number8)));
+			this.commodityPercentageKg8Txt.setText(String.valueOf(formatter.format(calculationSetText(this.number8))));
 		}
 
 	}
@@ -244,7 +247,6 @@ public class CommodityCalculationController implements Initializable {
 		double eredmeny = 0;
 		double egySzazalek = Double.valueOf(quantityTxt.getText()) / 100;
 		eredmeny = egySzazalek * n;
-		System.out.println(eredmeny + " : " + n + " : " + sum);
 		return eredmeny;
 
 	}
@@ -279,7 +281,9 @@ public class CommodityCalculationController implements Initializable {
 					if (isSum()) {
 						calculationKg();
 						calculationKgPane.setVisible(true);
-						message.goodMessage("!!Üres a mező", commodityMessageLabel);
+						backCommodity.setVisible(false);
+						calculationCommodity.setVisible(false);
+						message.goodMessage("Sikeres kalkuláció", commodityMessageLabel);
 					} else {
 
 						message.errorMessage(
@@ -301,6 +305,31 @@ public class CommodityCalculationController implements Initializable {
 
 	@FXML
 	private void backCommodity() {
+		setcommodityName();
+		percentagePane.setVisible(false);
+		backCommodity.setVisible(false);
+		calculationCommodity.setVisible(false);
+		nextCommodity.setVisible(true);
+		commodityMessageLabel.setText("");
+		calculationKgPane.setVisible(false);
+	}
+
+	@FXML
+	private void saveBtn() {
+		// TODO Save Project
+	}
+
+	@FXML
+	private void deleteBtn() {
+		quantityTxt.clear();
+		commodityName1Txt.clear();
+		commodityName2Txt.clear();
+		commodityName3Txt.clear();
+		commodityName4Txt.clear();
+		commodityName5Txt.clear();
+		commodityName6Txt.clear();
+		commodityName7Txt.clear();
+		commodityName8Txt.clear();
 		setcommodityName();
 		percentagePane.setVisible(false);
 		backCommodity.setVisible(false);

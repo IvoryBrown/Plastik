@@ -1,5 +1,5 @@
  .dialog-pane{
-  -fx-border-color:#FFB6C1;
+  -fx-border-color:#808000;
   -fx-border-width:2.0px;
   -fx-background-color:#616161;
   -fx-font-size:15.0px;
@@ -29,26 +29,26 @@
 
 /**Costumization of Buttons**/
 .dialog-pane .button{
-   -fx-background-color: linear-gradient(#2A5058, #61a2b1);
+   -fx-background-color: #616161;
    -fx-text-fill:whitesmoke;
    -fx-wrap-text: true;
    -fx-cursor:hand;
  }
 
 .dialog-pane .button:hover{     
-  -fx-background-color:linear-gradient( #61a2b1, #2A5058);
+  -fx-background-color: #616161;
  }
  
  .dialog-pane > .button-bar > .container > .details-button.more {
    -fx-background-radius: 30.0;
-   -fx-background-color: linear-gradient(#2A5058, #61a2b1);
+   -fx-background-color: #616161;
    -fx-font-size: 15.0px;
    -fx-text-fill:#FFB6C1;
 }
 
 .dialog-pane > .button-bar > .container > .details-button.less {
 	-fx-background-radius: 30.0;
-    -fx-background-color:linear-gradient( #61a2b1, #2A5058);
+    -fx-background-color: #616161;
     -fx-font-size: 15.0px;
     -fx-text-fill:#ADFF2F;
 }

@@ -15,10 +15,47 @@
     -fx-text-fill: whitesmoke;
     -fx-font-weight: bold;
 }
+.saveButtonCenter {
+    -fx-background-color:  #616161;
+    -fx-background-image: url(/com/setting/icon/button/Save.png);
+    -fx-background-size: 16px 16px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-text-fill: whitesmoke;
+    -fx-font-weight: bold;
+}
+.deleteButton {
+    -fx-background-color:  #616161;
+    -fx-background-image: url(/com/setting/icon/button/Delete.png);
+    -fx-background-size: 16px 16px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-text-fill: whitesmoke;
+    -fx-font-weight: bold;
+}
 
 .settingButton {
     -fx-background-color:  #616161;
     -fx-background-image: url(/com/setting/icon/button/Setting.png);
+    -fx-background-size: 16px 16px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-text-fill: whitesmoke;
+    -fx-font-weight: bold;
+}
+
+.rightButton {
+    -fx-background-color:  #616161;
+    -fx-background-image: url(/com/setting/icon/button/Right.png);
+    -fx-background-size: 16px 16px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-text-fill: whitesmoke;
+    -fx-font-weight: bold;
+}
+.leftButton {
+    -fx-background-color:  #616161;
+    -fx-background-image: url(/com/setting/icon/button/Left.png);
     -fx-background-size: 16px 16px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;

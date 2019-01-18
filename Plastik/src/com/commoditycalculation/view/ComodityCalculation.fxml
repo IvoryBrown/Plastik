@@ -292,16 +292,16 @@
                               </VBox>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="105.0" layoutY="424.0" prefHeight="58.0" prefWidth="200.0">
+                        <AnchorPane layoutX="105.0" layoutY="424.0" prefHeight="58.0" prefWidth="200.0" stylesheets="@../../main/view/button.css">
                            <children>
-                              <Button fx:id="nextCommodity" focusTraversable="false" layoutX="106.0" layoutY="17.0" mnemonicParsing="false" onAction="#nextCommodity" prefHeight="25.0" prefWidth="80.0" text="Következő" />
-                              <Button fx:id="backCommodity" focusTraversable="false" layoutY="17.0" mnemonicParsing="false" onAction="#backCommodity" prefHeight="25.0" prefWidth="80.0" text="Elöző" visible="false" />
-                              <Button fx:id="calculationCommodity" focusTraversable="false" layoutX="106.0" layoutY="17.0" mnemonicParsing="false" onAction="#calculationCommodity" prefHeight="25.0" prefWidth="80.0" text="Kalkuláció" visible="false" />
+                              <Button fx:id="nextCommodity" focusTraversable="false" layoutX="106.0" layoutY="17.0" mnemonicParsing="false" onAction="#nextCommodity" prefHeight="25.0" prefWidth="40.0" styleClass="rightButton" />
+                              <Button fx:id="backCommodity" focusTraversable="false" layoutY="17.0" mnemonicParsing="false" onAction="#backCommodity" prefHeight="25.0" prefWidth="40.0" styleClass="leftButton" visible="false" />
+                              <Button fx:id="calculationCommodity" focusTraversable="false" layoutX="106.0" layoutY="17.0" mnemonicParsing="false" onAction="#calculationCommodity" prefHeight="25.0" prefWidth="40.0" styleClass="rightButton" visible="false" />
                            </children>
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="calculationKgPane" layoutX="452.0" prefHeight="494.0" prefWidth="823.0" visible="false">
+                  <AnchorPane fx:id="calculationKgPane" layoutX="452.0" prefHeight="494.0" prefWidth="823.0" stylesheets="@../../main/view/button.css" visible="false">
                      <children>
                         <AnchorPane fx:id="calculationPane" layoutY="41.0" prefHeight="383.0" prefWidth="146.0">
                            <children>
@@ -419,6 +419,8 @@
                               </VBox>
                            </children>
                         </AnchorPane>
+                        <Button fx:id="saveBtn" layoutX="99.0" layoutY="437.0" mnemonicParsing="false" onAction="#saveBtn" prefHeight="25.0" prefWidth="50.0" styleClass="saveButtonCenter" />
+                        <Button fx:id="deleteBtn" layoutX="14.0" layoutY="437.0" mnemonicParsing="false" onAction="#deleteBtn" prefHeight="25.0" prefWidth="50.0" styleClass="deleteButton" />
                      </children>
                   </AnchorPane>
                </children>
