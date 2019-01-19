@@ -14,7 +14,7 @@ public class MainSetting {
 
 	public void start() {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/com/project/setting/view/Main.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/com/project/setting/view/Setting.fxml"));
 			Stage primaryStage = new Stage();
 			primaryStage.setWidth(1300);
 			primaryStage.setHeight(700);
