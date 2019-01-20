@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.project.setting.database.controller.DataBaseController;
-import com.setting.file.FolderWriter;
+import com.project.setting.worker.controller.WorkersController;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
@@ -31,6 +32,15 @@ public class MainController implements Initializable {
 	private TextField urlTxt, userNameTxt, passwordTxt;
 	@FXML
 	private Button saveBtn;
+	@FXML
+	private Label messageLbl;
+	DataBaseController dataBaseController = new DataBaseController();
+	
+	@FXML
+	private TextField workersName, workersNumber;
+	@FXML
+	private Button workersNumberGeneral,workersSave;
+	WorkersController workersController = new WorkersController();
 
 	private final String MENU_DATABASE = "Adatbázis";
 	private final String MENU_WORKERS = "Dolgozok";
@@ -72,7 +82,12 @@ public class MainController implements Initializable {
 						dataBasePane.setVisible(true);
 						workersProgramerPane.setVisible(false);
 						workersUserPane.setVisible(false);
-						new DataBaseController(urlTxt, userNameTxt, passwordTxt, saveBtn);
+						dataBaseController.setTexField(urlTxt, userNameTxt, passwordTxt, messageLbl);
+						break;
+					case MENU_WORKERS_USER:
+						dataBasePane.setVisible(false);
+						workersProgramerPane.setVisible(false);
+						workersUserPane.setVisible(true);
 						break;
 					}
 				}
@@ -81,10 +96,18 @@ public class MainController implements Initializable {
 
 	}
 
+	@FXML
+	private void saveBtn() {
+		dataBaseController.setDBtextField();
+	}
+	@FXML
+	private void workersSave() {
+		workersController.setTextField(workersName, workersNumber);
+	}
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		setMenuTree();
-		new FolderWriter();
 	}
 
 }

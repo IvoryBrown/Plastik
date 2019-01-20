@@ -46,10 +46,10 @@
                            <children>
                               <HBox prefHeight="30.0" prefWidth="1127.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="3000.0" text="Label" />
+                                    <Label fx:id="messageLbl" alignment="CENTER" prefHeight="30.0" prefWidth="3000.0" />
                                  </children>
                               </HBox>
-                              <AnchorPane fx:id="dataBasePane" prefHeight="698.0" prefWidth="1124.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                              <AnchorPane fx:id="dataBasePane" prefHeight="698.0" prefWidth="1124.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
                                  <children>
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
@@ -89,11 +89,31 @@
                                           </TextField>
                                        </children>
                                     </VBox>
-                                    <Button fx:id="saveBtn" layoutX="440.0" layoutY="43.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" styleClass="saveButtonCenter" stylesheets="@../../../main/view/button.css" />
+                                    <Button fx:id="saveBtn" layoutX="440.0" layoutY="43.0" mnemonicParsing="false" onAction="#saveBtn" prefHeight="25.0" prefWidth="47.0" styleClass="saveButtonCenter" stylesheets="@../../../main/view/button.css" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane fx:id="workersProgramerPane" layoutX="10.0" layoutY="10.0" prefHeight="698.0" prefWidth="1124.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
-                              <AnchorPane fx:id="workersUserPane" layoutX="20.0" layoutY="20.0" prefHeight="698.0" prefWidth="1124.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+                              <AnchorPane fx:id="workersUserPane" layoutX="20.0" layoutY="20.0" prefHeight="698.0" prefWidth="1124.0" stylesheets="@../../../main/view/button.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Név">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Azonosító">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <Button fx:id="workersNumberGeneral" layoutX="272.0" layoutY="44.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" styleClass="generalButton" />
+                                    <TextField fx:id="workersNumber" layoutX="100.0" layoutY="44.0" prefHeight="25.0" prefWidth="178.0" />
+                                    <TextField fx:id="workersName" layoutX="100.0" layoutY="14.0" prefHeight="25.0" prefWidth="224.0" />
+                                    <Button fx:id="workersSave" layoutX="145.0" layoutY="88.0" mnemonicParsing="false" onAction="#workersSave" prefHeight="25.0" prefWidth="52.0" styleClass="saveButtonCenter" />
+                                 </children></AnchorPane>
                            </children>
                         </AnchorPane>
                      </children></AnchorPane>

@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.setting.file.DBFileWriter;
 import com.setting.showinfo.ShowInfo;
 
 public class DataBaseLocal {
@@ -18,11 +19,14 @@ public class DataBaseLocal {
 	static Statement createStatement = null;
 
 	public static Connection getConnection() {
+		DBFileWriter.setDataBaseOutput();
 		try {
 			Class.forName(JDBC_DRIVER);
-			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+			conn = DriverManager.getConnection(
+					"jdbc:mysql://" + DBFileWriter.getDBOutput() + "?useUnicode=true&characterEncoding=UTF-8",
+					DBFileWriter.getNameOutput(), DBFileWriter.getPasswordOutput());
 		} catch (SQLException ex) {
-			System.out.println("Valami baj van a connection." +ex);
+			System.out.println("Valami baj van a connection." + ex);
 			new ShowInfo("Adatbázis Hiba", "", ex.getMessage());
 			return null;
 		} catch (ClassNotFoundException e) {

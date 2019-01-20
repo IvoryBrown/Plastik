@@ -1,8 +1,12 @@
 package com.setting.file;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class FolderWriter {
+	private String PER_R_N = "\r\n";
 	private File homeDirectory;
 	private File dBDirectory;
 	private String aplicationFloder = "\\AppData\\Local\\Stanicli\\";
@@ -44,6 +48,22 @@ public class FolderWriter {
 			if (result) {
 				System.out.println("DIR created");
 			}
+		}
+
+		try {
+		
+			if (DBFileWriter.outputDB().size() == 0) {
+
+				BufferedWriter output = new BufferedWriter(
+						new FileWriter(System.getProperty("user.home") + dataBaseFloder + "output.txt"));
+
+				String allSetting = "11" + PER_R_N + "112" + PER_R_N + "113";
+				output.write(allSetting);
+				output.close();
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 
 	}

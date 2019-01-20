@@ -42,7 +42,7 @@
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <AnchorPane fx:id="homePane" prefHeight="698.0" prefWidth="1127.0" style="-fx-background-color: C0C0C0;" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <AnchorPane fx:id="homePane" prefHeight="698.0" prefWidth="1127.0" style="-fx-background-color: C0C0C0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                         <AnchorPane fx:id="addNewClientPane" prefHeight="698.0" prefWidth="1127.0" style="-fx-background-color: C0C0C0;" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <HBox layoutX="157.0" layoutY="102.0" prefHeight="30.0" prefWidth="1127.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -173,7 +173,7 @@
                               <TextField fx:id="clientFilteringTxt" layoutX="14.0" layoutY="72.0" prefHeight="25.0" promptText="Név, Helység, Mobil" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="extruderPane" prefHeight="698.0" prefWidth="1115.0" style="-fx-background-color: C0C0C0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="extruderPane" prefHeight="698.0" prefWidth="1115.0" style="-fx-background-color: C0C0C0;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <HBox prefHeight="30.0" prefWidth="1127.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>

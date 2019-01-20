@@ -62,6 +62,15 @@
     -fx-text-fill: whitesmoke;
     -fx-font-weight: bold;
 }
+.generalButton {
+    -fx-background-color:  #616161;
+    -fx-background-image: url(/com/setting/icon/button/General.png);
+    -fx-background-size: 16px 16px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-text-fill: whitesmoke;
+    -fx-font-weight: bold;
+}
 
 .menu-item .label {
     -fx-text-fill: #c0c080;
