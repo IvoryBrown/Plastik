@@ -105,6 +105,11 @@ public class MainController implements Initializable {
 		workersController.setTextField(workersName, workersNumber);
 	}
 
+	@FXML
+	private void workersNumberGeneral() {
+
+
+	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		setMenuTree();

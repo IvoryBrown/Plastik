@@ -109,7 +109,7 @@
                                           </Label>
                                        </children>
                                     </VBox>
-                                    <Button fx:id="workersNumberGeneral" layoutX="272.0" layoutY="44.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" styleClass="generalButton" />
+                                    <Button fx:id="workersNumberGeneral" layoutX="272.0" layoutY="44.0" mnemonicParsing="false" onAction="#workersNumberGeneral" prefHeight="25.0" prefWidth="52.0" styleClass="generalButton" />
                                     <TextField fx:id="workersNumber" layoutX="100.0" layoutY="44.0" prefHeight="25.0" prefWidth="178.0" />
                                     <TextField fx:id="workersName" layoutX="100.0" layoutY="14.0" prefHeight="25.0" prefWidth="224.0" />
                                     <Button fx:id="workersSave" layoutX="145.0" layoutY="88.0" mnemonicParsing="false" onAction="#workersSave" prefHeight="25.0" prefWidth="52.0" styleClass="saveButtonCenter" />
