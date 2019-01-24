@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -110,9 +111,10 @@
                                        </children>
                                     </VBox>
                                     <Button fx:id="workersNumberGeneral" layoutX="272.0" layoutY="44.0" mnemonicParsing="false" onAction="#workersNumberGeneral" prefHeight="25.0" prefWidth="52.0" styleClass="generalButton" />
-                                    <TextField fx:id="workersNumber" layoutX="100.0" layoutY="44.0" prefHeight="25.0" prefWidth="178.0" />
+                                    <TextField fx:id="workersNumber" editable="false" layoutX="100.0" layoutY="44.0" prefHeight="25.0" prefWidth="178.0" />
                                     <TextField fx:id="workersName" layoutX="100.0" layoutY="14.0" prefHeight="25.0" prefWidth="224.0" />
                                     <Button fx:id="workersSave" layoutX="145.0" layoutY="88.0" mnemonicParsing="false" onAction="#workersSave" prefHeight="25.0" prefWidth="52.0" styleClass="saveButtonCenter" />
+                                    <TableView fx:id="workersTableView" layoutX="324.0" layoutY="123.0" prefHeight="545.0" prefWidth="1124.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="123.0" />
                                  </children></AnchorPane>
                            </children>
                         </AnchorPane>

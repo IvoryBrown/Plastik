@@ -5,6 +5,8 @@ import java.util.ResourceBundle;
 
 import com.project.setting.database.controller.DataBaseController;
 import com.project.setting.worker.controller.WorkersController;
+import com.project.setting.worker.pojo.Workers;
+import com.setting.identification.DeviceIdentificationGenereator;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -13,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
@@ -34,6 +37,8 @@ public class MainController implements Initializable {
 	private Button saveBtn;
 	@FXML
 	private Label messageLbl;
+	@FXML
+	private TableView<Workers> workersTableView;
 	DataBaseController dataBaseController = new DataBaseController();
 	
 	@FXML
@@ -102,13 +107,12 @@ public class MainController implements Initializable {
 	}
 	@FXML
 	private void workersSave() {
-		workersController.setTextField(workersName, workersNumber);
+		workersController.setTextField(workersName, workersNumber,messageLbl);
 	}
 
 	@FXML
 	private void workersNumberGeneral() {
-
-
+		workersNumber.setText(DeviceIdentificationGenereator.random());	
 	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
