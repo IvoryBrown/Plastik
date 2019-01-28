@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import com.client.controller.ClientController;
 import com.client.controller.ClientTableController;
 import com.client.pojo.Client;
+import com.menu.calculations.CalculationsController;
 import com.project.setting.main.MainSetting;
 
 import javafx.beans.value.ChangeListener;
@@ -60,7 +61,7 @@ public class HomeController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		setMenuTree();
-		// new CalculationsController(manufactureMenuBar);
+		 new CalculationsController(manufactureMenuBar);
 	}
 
 	@SuppressWarnings("unchecked")

@@ -5,8 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -26,7 +24,7 @@
                      <children>
                         <AnchorPane prefHeight="698.0" prefWidth="165.0" style="-fx-background-color: #616161;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <StackPane fx:id="menuPane" layoutX="-26.0" layoutY="44.0" prefHeight="654.0" prefWidth="165.0" stylesheets="@menuItem.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="44.0" />
+                              <StackPane fx:id="menuPane" layoutX="-26.0" layoutY="44.0" prefHeight="654.0" prefWidth="165.0" stylesheets="@css/menuItem.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="44.0" />
                               <HBox prefHeight="49.0" prefWidth="165.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <Label alignment="CENTER" prefHeight="50.0" prefWidth="400.0" text="Stanicli" textFill="OLIVE">
@@ -42,7 +40,7 @@
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <AnchorPane fx:id="homePane" prefHeight="698.0" prefWidth="1127.0" style="-fx-background-color: C0C0C0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <AnchorPane fx:id="homePane" prefHeight="698.0" prefWidth="1127.0" style="-fx-background-color: C0C0C0;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                         <AnchorPane fx:id="addNewClientPane" prefHeight="698.0" prefWidth="1127.0" style="-fx-background-color: C0C0C0;" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <HBox layoutX="157.0" layoutY="102.0" prefHeight="30.0" prefWidth="1127.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -156,51 +154,69 @@
                                           <Font name="System Bold" size="19.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="93.0" layoutY="425.0" mnemonicParsing="false" onAction="#addClient" prefHeight="25.0" prefWidth="100.0" styleClass="saveButton" stylesheets="@button.css" text="Mentés" />
+                                    <Button layoutX="93.0" layoutY="425.0" mnemonicParsing="false" onAction="#addClient" prefHeight="25.0" prefWidth="100.0" styleClass="saveButton" stylesheets="@css/button.css" text="Mentés" />
                                  </children>
                               </AnchorPane>
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="clientTablePane" prefHeight="698.0" prefWidth="1127.0" style="-fx-background-color: C0C0C0;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <TableView fx:id="clientTableView" editable="true" layoutY="101.0" prefHeight="597.0" prefWidth="1127.0" stylesheets="@table.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="101.0" />
+                              <TableView fx:id="clientTableView" editable="true" layoutY="101.0" prefHeight="597.0" prefWidth="1127.0" stylesheets="@css/table.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="101.0" />
                               <HBox prefHeight="30.0" prefWidth="1127.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <Label fx:id="clientTableMessageLabel" alignment="CENTER" prefHeight="30.0" prefWidth="3000.0" text="Label" />
                                  </children>
                               </HBox>
-                              <Button fx:id="clientFilteringBtn" layoutX="162.0" layoutY="72.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" styleClass="searchButton" stylesheets="@button.css" />
+                              <Button fx:id="clientFilteringBtn" layoutX="162.0" layoutY="72.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" styleClass="searchButton" stylesheets="@css/button.css" />
                               <TextField fx:id="clientFilteringTxt" layoutX="14.0" layoutY="72.0" prefHeight="25.0" promptText="Név, Helység, Mobil" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="extruderPane" prefHeight="698.0" prefWidth="1115.0" style="-fx-background-color: C0C0C0;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="extruderPane" prefHeight="698.0" prefWidth="1115.0" style="-fx-background-color: C0C0C0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <HBox prefHeight="30.0" prefWidth="1127.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <Label alignment="CENTER" prefHeight="30.0" prefWidth="3000.0" text="Label" />
                                  </children>
                               </HBox>
-                              <TabPane layoutX="75.0" layoutY="64.0" prefHeight="634.0" prefWidth="1115.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
-                                 <tabs>
-                                    <Tab fx:id="extruder1Tab" text="Untitled Tab">
-                                      <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                             <children>
-                                                <TableView fx:id="extruder1TableView" layoutY="41.0" prefHeight="564.0" prefWidth="1115.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0" />
-                                             </children>
-                                          </AnchorPane>
-                                      </content>
-                                    </Tab>
-                                    <Tab text="Untitled Tab">
-                                      <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                      </content>
-                                    </Tab>
-                                 </tabs>
-                              </TabPane>
-                              <MenuButton fx:id="manufactureMenuBar" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" styleClass="settingButton" stylesheets="@button.css">
+                              <MenuButton fx:id="manufactureMenuBar" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" styleClass="settingButton" stylesheets="@css/button.css">
                                
                               </MenuButton>
+                              <AnchorPane layoutY="30.0" prefHeight="668.0" prefWidth="1115.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                                 <children>
+                                    <AnchorPane layoutX="115.0" layoutY="143.0" prefHeight="197.0" prefWidth="158.0" style="-fx-border-color: #808000;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <VBox alignment="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="169.0" prefWidth="213.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Új munka" />
+                                                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="folyamatbalévő">
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </Button>
+                                                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="befejzett">
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </Button>
+                                                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Összes">
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </Button>
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="156.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="Gép Név" textFill="OLIVE">
+                                                   <font>
+                                                      <Font name="System Bold" size="15.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </children></AnchorPane>
                            </children></AnchorPane>
                         <AnchorPane fx:id="confectionPane" layoutX="10.0" layoutY="10.0" prefHeight="698.0" prefWidth="1115.0" visible="false" />
                         <AnchorPane fx:id="regraPane" layoutX="20.0" layoutY="20.0" prefHeight="698.0" prefWidth="1115.0" visible="false" />

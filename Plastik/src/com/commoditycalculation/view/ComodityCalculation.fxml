@@ -292,7 +292,7 @@
                               </VBox>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="105.0" layoutY="424.0" prefHeight="58.0" prefWidth="200.0" stylesheets="@../../main/view/button.css">
+                        <AnchorPane layoutX="105.0" layoutY="424.0" prefHeight="58.0" prefWidth="200.0" stylesheets="@../../main/view/css/button.css">
                            <children>
                               <Button fx:id="nextCommodity" focusTraversable="false" layoutX="106.0" layoutY="17.0" mnemonicParsing="false" onAction="#nextCommodity" prefHeight="25.0" prefWidth="40.0" styleClass="rightButton" />
                               <Button fx:id="backCommodity" focusTraversable="false" layoutY="17.0" mnemonicParsing="false" onAction="#backCommodity" prefHeight="25.0" prefWidth="40.0" styleClass="leftButton" visible="false" />
@@ -301,7 +301,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="calculationKgPane" layoutX="452.0" prefHeight="494.0" prefWidth="823.0" stylesheets="@../../main/view/button.css" visible="false">
+                  <AnchorPane fx:id="calculationKgPane" layoutX="452.0" prefHeight="494.0" prefWidth="823.0" stylesheets="@../../main/view/css/button.css" visible="false">
                      <children>
                         <AnchorPane fx:id="calculationPane" layoutY="41.0" prefHeight="383.0" prefWidth="146.0">
                            <children>

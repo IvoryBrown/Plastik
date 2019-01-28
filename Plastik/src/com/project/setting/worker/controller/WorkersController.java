@@ -15,7 +15,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
@@ -137,8 +136,16 @@ public class WorkersController {
 			final String value = i.getValue().getWorkersStatus();
 			return Bindings.createObjectBinding(() -> value);
 		});
-		workersStatusColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-		workersStatusColumn.setCellFactory(ComboBoxTableCell.forTableColumn("Aktív","Inaktív"));
+		workersStatusColumn.setCellFactory(ComboBoxTableCell.forTableColumn("Aktív", "Inaktív"));
+		workersStatusColumn.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Workers, String>>() {
+			@Override
+			public void handle(TableColumn.CellEditEvent<Workers, String> d) {
+				Workers device = (Workers) d.getTableView().getItems().get(d.getTablePosition().getRow());
+				device.setWorkersStatus(d.getNewValue());
+				workersDataBase.updateWorker(device);
+				message.goodMessage("Sikeres státusz!", messageLbl);
+			}
+		});
 
 		workersTableView.setItems(dataWorkers);
 		workersTableView.getColumns().addAll(workersIdColumn, workersNameColumn, workersPasswordColumn,

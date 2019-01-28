@@ -80,4 +80,30 @@ public class WorkersDataBase {
 			}
 		}
 	}
+
+	public void updateWorker(Workers workers) {
+		Connection conn = DataBaseLocal.getConnection();
+		PreparedStatement pr = null;
+		try {
+			String sqlClient = "UPDATE `dolgozok` SET dolgozok_aktiv = ? WHERE dolgozok_id = ?";
+			pr = conn.prepareStatement(sqlClient);
+			pr.setString(1, workers.getWorkersStatus());
+			pr.setInt(2, Integer.parseInt(workers.getWorkersId()));
+			pr.execute();
+		} catch (SQLException ex) {
+			System.out.println(ex);
+			new ShowInfo("Adatbázis Hiba", "", ex.getMessage());
+		} finally {
+			try {
+				if (pr != null) {
+					pr.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException ex) {
+				new ShowInfo("Adatbázis Hiba", "", ex.getMessage());
+			}
+		}
+	}
 }
