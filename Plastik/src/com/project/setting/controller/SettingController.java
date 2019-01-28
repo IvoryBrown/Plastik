@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.project.setting.database.controller.DataBaseController;
+import com.project.setting.machine.controller.MachineController;
+import com.project.setting.machine.pojo.Machine;
 import com.project.setting.worker.controller.WorkersController;
 import com.project.setting.worker.pojo.Workers;
 import com.setting.identification.DeviceIdentificationGenereator;
@@ -30,7 +32,7 @@ public class SettingController implements Initializable {
 	@FXML
 	private StackPane menuPane;
 	@FXML
-	private AnchorPane dataBasePane, workersProgramerPane, workersUserPane;
+	private AnchorPane dataBasePane, workersProgramerPane, workersUserPane, machineNamePane;
 	@FXML
 	private TextField urlTxt, userNameTxt, passwordTxt, workersFilteringTxt;
 	@FXML
@@ -39,6 +41,8 @@ public class SettingController implements Initializable {
 	private Label messageLbl;
 	@FXML
 	private TableView<Workers> workersTableView;
+	@FXML
+	private TableView<Machine> machineTableView;
 	DataBaseController dataBaseController = new DataBaseController();
 
 	@FXML
@@ -50,6 +54,7 @@ public class SettingController implements Initializable {
 	private final String MENU_WORKERS = "Dolgozok";
 	private final String MENU_WORKERS_PROGRAMER = "Hozzáférés";
 	private final String MENU_WORKERS_USER = "Dolgozok adatai";
+	private final String MENU_MACHINE_NAME = "Gép adatok";
 
 	@SuppressWarnings("unchecked")
 	private void setMenuTree() {
@@ -68,7 +73,9 @@ public class SettingController implements Initializable {
 		TreeItem<String> nodeItemB2 = new TreeItem<String>(MENU_WORKERS_USER);
 		nodeItemB.getChildren().addAll(nodeItemB1, nodeItemB2);
 
-		treeItemRoot1.getChildren().addAll(nodeItemA, nodeItemB);
+		TreeItem<String> nodeItemC = new TreeItem<String>(MENU_MACHINE_NAME);
+
+		treeItemRoot1.getChildren().addAll(nodeItemA, nodeItemB, nodeItemC);
 		menuPane.getChildren().add(settingTreeView);
 		mouseAction();
 	}
@@ -86,14 +93,23 @@ public class SettingController implements Initializable {
 						dataBasePane.setVisible(true);
 						workersProgramerPane.setVisible(false);
 						workersUserPane.setVisible(false);
+						machineNamePane.setVisible(false);
 						dataBaseController.setTexField(urlTxt, userNameTxt, passwordTxt, messageLbl);
 						break;
 					case MENU_WORKERS_USER:
 						dataBasePane.setVisible(false);
 						workersProgramerPane.setVisible(false);
 						workersUserPane.setVisible(true);
+						machineNamePane.setVisible(false);
 						new WorkersController(workersName, workersNumber, messageLbl, workersTableView,
 								workersFilteringTxt, workersFilteringBtn, workersSave);
+						break;
+					case MENU_MACHINE_NAME:
+						dataBasePane.setVisible(false);
+						workersProgramerPane.setVisible(false);
+						workersUserPane.setVisible(false);
+						machineNamePane.setVisible(true);
+						new MachineController(machineTableView);
 						break;
 					}
 				}
