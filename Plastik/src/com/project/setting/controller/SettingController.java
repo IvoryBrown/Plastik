@@ -24,7 +24,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 
-public class MainController implements Initializable {
+public class SettingController implements Initializable {
 	@FXML
 	private TreeView<String> settingTreeView;
 	@FXML
@@ -32,20 +32,19 @@ public class MainController implements Initializable {
 	@FXML
 	private AnchorPane dataBasePane, workersProgramerPane, workersUserPane;
 	@FXML
-	private TextField urlTxt, userNameTxt, passwordTxt;
+	private TextField urlTxt, userNameTxt, passwordTxt, workersFilteringTxt;
 	@FXML
-	private Button saveBtn;
+	private Button saveBtn, workersFilteringBtn;
 	@FXML
 	private Label messageLbl;
 	@FXML
 	private TableView<Workers> workersTableView;
 	DataBaseController dataBaseController = new DataBaseController();
-	
+
 	@FXML
 	private TextField workersName, workersNumber;
 	@FXML
-	private Button workersNumberGeneral,workersSave;
-	WorkersController workersController = new WorkersController();
+	private Button workersNumberGeneral, workersSave;
 
 	private final String MENU_DATABASE = "Adatbázis";
 	private final String MENU_WORKERS = "Dolgozok";
@@ -93,6 +92,8 @@ public class MainController implements Initializable {
 						dataBasePane.setVisible(false);
 						workersProgramerPane.setVisible(false);
 						workersUserPane.setVisible(true);
+						new WorkersController(workersName, workersNumber, messageLbl, workersTableView,
+								workersFilteringTxt, workersFilteringBtn, workersSave);
 						break;
 					}
 				}
@@ -105,15 +106,12 @@ public class MainController implements Initializable {
 	private void saveBtn() {
 		dataBaseController.setDBtextField();
 	}
-	@FXML
-	private void workersSave() {
-		workersController.setTextField(workersName, workersNumber,messageLbl);
-	}
 
 	@FXML
 	private void workersNumberGeneral() {
-		workersNumber.setText(DeviceIdentificationGenereator.random());	
+		workersNumber.setText(DeviceIdentificationGenereator.random());
 	}
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		setMenuTree();

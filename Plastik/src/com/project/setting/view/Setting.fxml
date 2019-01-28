@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.setting.controller.MainController">
+<AnchorPane prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.setting.controller.SettingController">
    <children>
       <AnchorPane layoutX="278.0" layoutY="157.0" prefHeight="700.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -113,8 +113,14 @@
                                     <Button fx:id="workersNumberGeneral" layoutX="272.0" layoutY="44.0" mnemonicParsing="false" onAction="#workersNumberGeneral" prefHeight="25.0" prefWidth="52.0" styleClass="generalButton" />
                                     <TextField fx:id="workersNumber" editable="false" layoutX="100.0" layoutY="44.0" prefHeight="25.0" prefWidth="178.0" />
                                     <TextField fx:id="workersName" layoutX="100.0" layoutY="14.0" prefHeight="25.0" prefWidth="224.0" />
-                                    <Button fx:id="workersSave" layoutX="145.0" layoutY="88.0" mnemonicParsing="false" onAction="#workersSave" prefHeight="25.0" prefWidth="52.0" styleClass="saveButtonCenter" />
-                                    <TableView fx:id="workersTableView" layoutX="324.0" layoutY="123.0" prefHeight="545.0" prefWidth="1124.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="123.0" />
+                                    <Button fx:id="workersSave" layoutX="145.0" layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" styleClass="saveButtonCenter" />
+                                    <TableView fx:id="workersTableView" editable="true" layoutX="324.0" layoutY="123.0" prefHeight="545.0" prefWidth="1124.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="123.0" />
+                                    <HBox alignment="TOP_RIGHT" layoutX="330.0" prefHeight="69.0" prefWidth="794.0" AnchorPane.bottomAnchor="599.0" AnchorPane.leftAnchor="330.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <TextField fx:id="workersFilteringTxt" prefHeight="25.0" promptText="Név, Azonosító" />
+                                          <Button fx:id="workersFilteringBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" styleClass="searchButton" stylesheets="@../../../main/view/button.css" />
+                                       </children>
+                                    </HBox>
                                  </children></AnchorPane>
                            </children>
                         </AnchorPane>
