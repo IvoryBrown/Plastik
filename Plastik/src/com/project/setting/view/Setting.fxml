@@ -126,7 +126,7 @@
                                  <children>
                                     <AnchorPane layoutX="30.0" layoutY="71.0" prefHeight="668.0" prefWidth="206.0" style="-fx-border-color: OLIVE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <TableView fx:id="machineTableView" layoutX="2.0" layoutY="25.0" prefHeight="643.0" prefWidth="204.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="24.0" />
+                                          <TableView fx:id="machineTableView" editable="true" layoutX="2.0" layoutY="25.0" prefHeight="643.0" prefWidth="204.0" stylesheets="@../../../main/view/css/table.css" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="24.0" />
                                           <HBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="204.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
                                              <children>
                                                 <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="Extruder" textFill="OLIVE">

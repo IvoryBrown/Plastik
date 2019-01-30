@@ -25,7 +25,7 @@ public class MachineDataBase {
 			machine = new ArrayList<>();
 
 			while (rs.next()) {
-				Machine actualMachine = new Machine(rs.getString("extruder_nev"));
+				Machine actualMachine = new Machine(rs.getInt("extruder_id"), rs.getString("extruder_nev"));
 				machine.add(actualMachine);
 			}
 		} catch (SQLException ex) {
@@ -54,9 +54,10 @@ public class MachineDataBase {
 		Connection conn = DataBaseLocal.getConnection();
 		PreparedStatement pr = null;
 		try {
-			String sqlClient = "UPDATE `extruder` SET WHERE extruder_nev = ?";
+			String sqlClient = "UPDATE `extruder` SET extruder_nev = ? WHERE  extruder_id = ?";
 			pr = conn.prepareStatement(sqlClient);
 			pr.setString(1, machine.getMachineName());
+			pr.setString(2, machine.getMachineId());
 			pr.execute();
 		} catch (SQLException ex) {
 			System.out.println(ex);

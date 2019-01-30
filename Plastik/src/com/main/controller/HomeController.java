@@ -7,6 +7,7 @@ import com.client.controller.ClientController;
 import com.client.controller.ClientTableController;
 import com.client.pojo.Client;
 import com.menu.calculations.CalculationsController;
+import com.project.setting.extrudername.controller.ExtruderNameController;
 import com.project.setting.main.MainSetting;
 
 import javafx.beans.value.ChangeListener;
@@ -47,6 +48,11 @@ public class HomeController implements Initializable {
 	private Button clientFilteringBtn;
 	@FXML
 	private MenuButton manufactureMenuBar;
+	@FXML
+	private Label extruder1NameLabel, extruder2NameLabel, extruder3NameLabel, extruder4NameLabel, extruder5NameLabel,
+			extruder6NameLabel, extruder7NameLabel, extruder8NameLabel, extruder9NameLabel, extruder10NameLabel,
+			extruder11NameLabel, extruder12NameLabel, extruder13NameLabel, extruder14NameLabel, extruder15NameLabel,
+			extruder16NameLabel, extruder17NameLabel, extruder18NameLabel;
 
 	private final String MENU_HOME = "Kezdőlap";
 	private final String MENU_CLIENT_HOME = "Ügyfelek";
@@ -61,7 +67,7 @@ public class HomeController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		setMenuTree();
-		 new CalculationsController(manufactureMenuBar);
+		new CalculationsController(manufactureMenuBar);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -144,6 +150,11 @@ public class HomeController implements Initializable {
 						extruderPane.setVisible(true);
 						confectionPane.setVisible(false);
 						regraPane.setVisible(false);
+						new ExtruderNameController(extruder1NameLabel, extruder2NameLabel, extruder3NameLabel,
+								extruder4NameLabel, extruder5NameLabel, extruder6NameLabel, extruder7NameLabel,
+								extruder8NameLabel, extruder9NameLabel, extruder10NameLabel, extruder11NameLabel,
+								extruder12NameLabel, extruder13NameLabel, extruder14NameLabel, extruder15NameLabel,
+								extruder16NameLabel, extruder17NameLabel, extruder18NameLabel);
 						break;
 					case MENU_MANUFACTURER_CONFECTION:
 						homePane.setVisible(false);

@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.main.controller.HomeController">
+<AnchorPane minHeight="600.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.main.controller.HomeController">
    <children>
       <AnchorPane layoutX="133.0" layoutY="121.0" prefHeight="700.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -183,39 +183,612 @@
                               </MenuButton>
                               <AnchorPane layoutY="30.0" prefHeight="668.0" prefWidth="1115.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
                                  <children>
-                                    <AnchorPane layoutX="115.0" layoutY="143.0" prefHeight="197.0" prefWidth="158.0" style="-fx-border-color: #808000;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <HBox layoutX="33.0" layoutY="214.0" prefHeight="200.0" prefWidth="1115.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <VBox alignment="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="169.0" prefWidth="213.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                          <AnchorPane prefHeight="190.0" prefWidth="185.0" style="-fx-border-color: #808000;">
                                              <children>
-                                                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Új munka" />
-                                                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="folyamatbalévő">
-                                                   <VBox.margin>
-                                                      <Insets top="10.0" />
-                                                   </VBox.margin>
-                                                </Button>
-                                                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="befejzett">
-                                                   <VBox.margin>
-                                                      <Insets top="10.0" />
-                                                   </VBox.margin>
-                                                </Button>
-                                                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Összes">
-                                                   <VBox.margin>
-                                                      <Insets top="10.0" />
-                                                   </VBox.margin>
-                                                </Button>
+                                                <VBox alignment="CENTER" layoutX="2.0" layoutY="27.0" prefHeight="140.0" prefWidth="372.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="25.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Új munka" />
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="folyamatbalévő">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="befejzett">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Összes">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="370.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                                                   <children>
+                                                      <Label fx:id="extruder1NameLabel" alignment="CENTER" prefHeight="25.0" prefWidth="700.0" text="Gép Név" textFill="OLIVE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
                                              </children>
-                                          </VBox>
-                                          <VBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="156.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="190.0" prefWidth="185.0" style="-fx-border-color: #808000;">
                                              <children>
-                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="Gép Név" textFill="OLIVE">
-                                                   <font>
-                                                      <Font name="System Bold" size="15.0" />
-                                                   </font>
-                                                </Label>
+                                                <VBox alignment="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="169.0" prefWidth="213.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Új munka" />
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="folyamatbalévő">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="befejzett">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Összes">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="156.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="extruder2NameLabel" alignment="CENTER" prefHeight="25.0" prefWidth="700.0" text="Gép Név" textFill="OLIVE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
                                              </children>
-                                          </VBox>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="190.0" prefWidth="185.0" style="-fx-border-color: #808000;">
+                                             <children>
+                                                <VBox alignment="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="169.0" prefWidth="213.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Új munka" />
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="folyamatbalévő">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="befejzett">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Összes">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="156.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="extruder3NameLabel" alignment="CENTER" prefHeight="25.0" prefWidth="700.0" text="Gép Név" textFill="OLIVE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="190.0" prefWidth="185.0" style="-fx-border-color: #808000;">
+                                             <children>
+                                                <VBox alignment="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="169.0" prefWidth="213.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Új munka" />
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="folyamatbalévő">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="befejzett">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Összes">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="156.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="extruder4NameLabel" alignment="CENTER" prefHeight="25.0" prefWidth="700.0" text="Gép Név" textFill="OLIVE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="190.0" prefWidth="185.0" style="-fx-border-color: #808000;">
+                                             <children>
+                                                <VBox alignment="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="169.0" prefWidth="213.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Új munka" />
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="folyamatbalévő">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="befejzett">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Összes">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="156.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="extruder5NameLabel" alignment="CENTER" prefHeight="25.0" prefWidth="700.0" text="Gép Név" textFill="OLIVE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="190.0" prefWidth="185.0" style="-fx-border-color: #808000;">
+                                             <children>
+                                                <VBox alignment="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="169.0" prefWidth="213.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Új munka" />
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="folyamatbalévő">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="befejzett">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Összes">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="156.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="extruder6NameLabel" alignment="CENTER" prefHeight="25.0" prefWidth="700.0" text="Gép Név" textFill="OLIVE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
                                        </children>
-                                    </AnchorPane>
+                                    </HBox>
+                                    <HBox layoutY="200.0" prefHeight="200.0" prefWidth="1115.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                       <children>
+                                          <AnchorPane prefHeight="197.0" prefWidth="185.0" style="-fx-border-color: #808000;">
+                                             <children>
+                                                <VBox alignment="CENTER" layoutX="2.0" layoutY="27.0" prefHeight="140.0" prefWidth="372.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="25.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Új munka" />
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="folyamatbalévő">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="befejzett">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Összes">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="370.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                                                   <children>
+                                                      <Label fx:id="extruder7NameLabel" alignment="CENTER" prefHeight="25.0" prefWidth="700.0" text="Gép Név" textFill="OLIVE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="197.0" prefWidth="185.0" style="-fx-border-color: #808000;">
+                                             <children>
+                                                <VBox alignment="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="169.0" prefWidth="213.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Új munka" />
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="folyamatbalévő">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="befejzett">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Összes">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="156.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="extruder8NameLabel" alignment="CENTER" prefHeight="25.0" prefWidth="700.0" text="Gép Név" textFill="OLIVE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="197.0" prefWidth="185.0" style="-fx-border-color: #808000;">
+                                             <children>
+                                                <VBox alignment="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="169.0" prefWidth="213.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Új munka" />
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="folyamatbalévő">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="befejzett">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Összes">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="156.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="extruder9NameLabel" alignment="CENTER" prefHeight="25.0" prefWidth="700.0" text="Gép Név" textFill="OLIVE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="197.0" prefWidth="185.0" style="-fx-border-color: #808000;">
+                                             <children>
+                                                <VBox alignment="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="169.0" prefWidth="213.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Új munka" />
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="folyamatbalévő">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="befejzett">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Összes">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="156.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="extruder10NameLabel" alignment="CENTER" prefHeight="25.0" prefWidth="700.0" text="Gép Név" textFill="OLIVE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="197.0" prefWidth="185.0" style="-fx-border-color: #808000;">
+                                             <children>
+                                                <VBox alignment="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="169.0" prefWidth="213.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Új munka" />
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="folyamatbalévő">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="befejzett">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Összes">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="156.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="extruder11NameLabel" alignment="CENTER" prefHeight="25.0" prefWidth="700.0" text="Gép Név" textFill="OLIVE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="197.0" prefWidth="185.0" style="-fx-border-color: #808000;">
+                                             <children>
+                                                <VBox alignment="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="169.0" prefWidth="213.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Új munka" />
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="folyamatbalévő">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="befejzett">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Összes">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="156.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="extruder12NameLabel" alignment="CENTER" prefHeight="25.0" prefWidth="700.0" text="Gép Név" textFill="OLIVE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutY="400.0" prefHeight="200.0" prefWidth="1115.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                       <children>
+                                          <AnchorPane prefHeight="197.0" prefWidth="185.0" style="-fx-border-color: #808000;">
+                                             <children>
+                                                <VBox alignment="CENTER" layoutX="2.0" layoutY="27.0" prefHeight="140.0" prefWidth="372.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="25.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Új munka" />
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="folyamatbalévő">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="befejzett">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Összes">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="370.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                                                   <children>
+                                                      <Label fx:id="extruder13NameLabel" alignment="CENTER" prefHeight="25.0" prefWidth="700.0" text="Gép Név" textFill="OLIVE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="197.0" prefWidth="185.0" style="-fx-border-color: #808000;">
+                                             <children>
+                                                <VBox alignment="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="169.0" prefWidth="213.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Új munka" />
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="folyamatbalévő">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="befejzett">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Összes">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="156.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="extruder14NameLabel" alignment="CENTER" prefHeight="25.0" prefWidth="700.0" text="Gép Név" textFill="OLIVE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="197.0" prefWidth="185.0" style="-fx-border-color: #808000;">
+                                             <children>
+                                                <VBox alignment="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="169.0" prefWidth="213.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Új munka" />
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="folyamatbalévő">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="befejzett">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Összes">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="156.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="extruder15NameLabel" alignment="CENTER" prefHeight="25.0" prefWidth="700.0" text="Gép Név" textFill="OLIVE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="197.0" prefWidth="185.0" style="-fx-border-color: #808000;">
+                                             <children>
+                                                <VBox alignment="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="169.0" prefWidth="213.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Új munka" />
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="folyamatbalévő">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="befejzett">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Összes">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="156.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="extruder16NameLabel" alignment="CENTER" prefHeight="25.0" prefWidth="700.0" text="Gép Név" textFill="OLIVE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="197.0" prefWidth="185.0" style="-fx-border-color: #808000;">
+                                             <children>
+                                                <VBox alignment="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="169.0" prefWidth="213.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Új munka" />
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="folyamatbalévő">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="befejzett">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Összes">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="156.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="extruder17NameLabel" alignment="CENTER" prefHeight="25.0" prefWidth="700.0" text="Gép Név" textFill="OLIVE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="197.0" prefWidth="185.0" style="-fx-border-color: #808000;">
+                                             <children>
+                                                <VBox alignment="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="169.0" prefWidth="213.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Új munka" />
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="folyamatbalévő">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="befejzett">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Összes">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="156.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="extruder18NameLabel" alignment="CENTER" prefHeight="25.0" prefWidth="700.0" text="Gép Név" textFill="OLIVE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </HBox>
                                  </children></AnchorPane>
                            </children></AnchorPane>
                         <AnchorPane fx:id="confectionPane" layoutX="10.0" layoutY="10.0" prefHeight="698.0" prefWidth="1115.0" visible="false" />

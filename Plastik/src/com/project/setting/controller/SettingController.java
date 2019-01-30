@@ -109,7 +109,7 @@ public class SettingController implements Initializable {
 						workersProgramerPane.setVisible(false);
 						workersUserPane.setVisible(false);
 						machineNamePane.setVisible(true);
-						new MachineController(machineTableView);
+						new MachineController(machineTableView, messageLbl);
 						break;
 					}
 				}
