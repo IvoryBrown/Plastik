@@ -23,7 +23,7 @@ public class DataBaseLocal {
 		try {
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(
-					"jdbc:mysql://" + DBFileWriter.getDBOutput() + "?useUnicode=true&characterEncoding=UTF-8",
+					"jdbc:mysql://" + DBFileWriter.getDBOutput() + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
 					DBFileWriter.getNameOutput(), DBFileWriter.getPasswordOutput());
 		} catch (SQLException ex) {
 			System.out.println("Valami baj van a connection." + ex);

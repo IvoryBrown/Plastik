@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane fx:id="extruderPane" layoutX="10.0" layoutY="10.0" prefHeight="708.0" prefWidth="1300.0" style="-fx-background-color: C0C0C0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="30.0" prefWidth="1127.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label fx:id="messageLbl" alignment="CENTER" prefHeight="30.0" prefWidth="3000.0" text="Label" />
+               </children>
+            </HBox>
+            <MenuButton fx:id="manufactureMenuBar" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" />
+            <AnchorPane layoutY="30.0" prefHeight="668.0" prefWidth="1115.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+               <children>
+                  <HBox alignment="CENTER" layoutX="80.0" layoutY="285.0" prefHeight="30.0" prefWidth="1220.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button fx:id="extruderNameBtn1" mnemonicParsing="false" prefHeight="30.0" text="Button" />
+                        <Button fx:id="extruderNameBtn2" mnemonicParsing="false" prefHeight="30.0" text="Button" />
+                        <Button fx:id="extruderNameBtn3" mnemonicParsing="false" prefHeight="30.0" text="Button" />
+                        <Button fx:id="extruderNameBtn4" mnemonicParsing="false" prefHeight="30.0" text="Button" />
+                        <Button fx:id="extruderNameBtn5" mnemonicParsing="false" prefHeight="30.0" text="Button" />
+                        <Button fx:id="extruderNameBtn6" mnemonicParsing="false" prefHeight="30.0" text="Button" />
+                        <Button fx:id="extruderNameBtn7" mnemonicParsing="false" prefHeight="30.0" text="Button" />
+                        <Button fx:id="extruderNameBtn8" mnemonicParsing="false" prefHeight="30.0" text="Button" />
+                        <Button fx:id="extruderNameBtn9" mnemonicParsing="false" prefHeight="30.0" text="Button" />
+                        <Button fx:id="extruderNameBtn10" mnemonicParsing="false" prefHeight="30.0" text="Button" />
+                        <Button fx:id="extruderNameBtn11" mnemonicParsing="false" prefHeight="30.0" text="Button" />
+                        <Button fx:id="extruderNameBtn12" mnemonicParsing="false" prefHeight="30.0" text="Button" />
+                        <Button fx:id="extruderNameBtn13" mnemonicParsing="false" prefHeight="30.0" text="Button" />
+                        <Button fx:id="extruderNameBtn14" mnemonicParsing="false" prefHeight="30.0" text="Button" />
+                     </children>
+                  </HBox>
+                  <TableView fx:id="extruderTableView" layoutX="359.0" layoutY="249.0" prefHeight="421.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="249.0" />
+                  <TextField fx:id="test" layoutX="100.0" layoutY="103.0" />
+               </children></AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

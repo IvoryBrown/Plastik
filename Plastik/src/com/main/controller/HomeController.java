@@ -6,8 +6,7 @@ import java.util.ResourceBundle;
 import com.client.controller.ClientController;
 import com.client.controller.ClientTableController;
 import com.client.pojo.Client;
-import com.menu.calculations.CalculationsController;
-import com.project.setting.extrudername.controller.ExtruderNameController;
+import com.extruder.main.ExtruderMain;
 import com.project.setting.main.MainSetting;
 
 import javafx.beans.value.ChangeListener;
@@ -17,7 +16,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -32,7 +30,7 @@ public class HomeController implements Initializable {
 	@FXML
 	private TreeView<String> homeTreeView;
 	@FXML
-	private AnchorPane homePane, addNewClientPane, clientTablePane, extruderPane, confectionPane, regraPane;
+	private AnchorPane homePane, addNewClientPane, clientTablePane, confectionPane, regraPane;
 	@FXML
 	private StackPane menuPane;
 	@FXML
@@ -46,13 +44,7 @@ public class HomeController implements Initializable {
 	private TableView<Client> clientTableView;
 	@FXML
 	private Button clientFilteringBtn;
-	@FXML
-	private MenuButton manufactureMenuBar;
-	@FXML
-	private Label extruder1NameLabel, extruder2NameLabel, extruder3NameLabel, extruder4NameLabel, extruder5NameLabel,
-			extruder6NameLabel, extruder7NameLabel, extruder8NameLabel, extruder9NameLabel, extruder10NameLabel,
-			extruder11NameLabel, extruder12NameLabel, extruder13NameLabel, extruder14NameLabel, extruder15NameLabel,
-			extruder16NameLabel, extruder17NameLabel, extruder18NameLabel;
+
 
 	private final String MENU_HOME = "Kezdőlap";
 	private final String MENU_CLIENT_HOME = "Ügyfelek";
@@ -67,7 +59,6 @@ public class HomeController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		setMenuTree();
-		new CalculationsController(manufactureMenuBar);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -119,7 +110,6 @@ public class HomeController implements Initializable {
 						homePane.setVisible(true);
 						addNewClientPane.setVisible(false);
 						clientTablePane.setVisible(false);
-						extruderPane.setVisible(false);
 						confectionPane.setVisible(false);
 						regraPane.setVisible(false);
 						break;
@@ -128,7 +118,6 @@ public class HomeController implements Initializable {
 						homePane.setVisible(false);
 						addNewClientPane.setVisible(true);
 						clientTablePane.setVisible(false);
-						extruderPane.setVisible(false);
 						confectionPane.setVisible(false);
 						regraPane.setVisible(false);
 						clientTextClear();
@@ -138,7 +127,6 @@ public class HomeController implements Initializable {
 						homePane.setVisible(false);
 						addNewClientPane.setVisible(false);
 						clientTablePane.setVisible(true);
-						extruderPane.setVisible(false);
 						confectionPane.setVisible(false);
 						regraPane.setVisible(false);
 						clientController();
@@ -147,20 +135,15 @@ public class HomeController implements Initializable {
 						homePane.setVisible(false);
 						addNewClientPane.setVisible(false);
 						clientTablePane.setVisible(false);
-						extruderPane.setVisible(true);
 						confectionPane.setVisible(false);
 						regraPane.setVisible(false);
-						new ExtruderNameController(extruder1NameLabel, extruder2NameLabel, extruder3NameLabel,
-								extruder4NameLabel, extruder5NameLabel, extruder6NameLabel, extruder7NameLabel,
-								extruder8NameLabel, extruder9NameLabel, extruder10NameLabel, extruder11NameLabel,
-								extruder12NameLabel, extruder13NameLabel, extruder14NameLabel, extruder15NameLabel,
-								extruder16NameLabel, extruder17NameLabel, extruder18NameLabel);
+						ExtruderMain actual = new ExtruderMain();
+						actual.start();
 						break;
 					case MENU_MANUFACTURER_CONFECTION:
 						homePane.setVisible(false);
 						addNewClientPane.setVisible(false);
 						clientTablePane.setVisible(false);
-						extruderPane.setVisible(false);
 						confectionPane.setVisible(true);
 						regraPane.setVisible(false);
 						break;
@@ -168,7 +151,6 @@ public class HomeController implements Initializable {
 						homePane.setVisible(false);
 						addNewClientPane.setVisible(false);
 						clientTablePane.setVisible(false);
-						extruderPane.setVisible(false);
 						confectionPane.setVisible(false);
 						regraPane.setVisible(true);
 						break;
