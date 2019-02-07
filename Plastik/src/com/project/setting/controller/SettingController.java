@@ -3,6 +3,8 @@ package com.project.setting.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.project.setting.commodityname.controller.CommodityNameController;
+import com.project.setting.commodityname.pojo.CommodityName;
 import com.project.setting.database.controller.DataBaseController;
 import com.project.setting.machine.controller.MachineController;
 import com.project.setting.machine.pojo.Machine;
@@ -32,18 +34,20 @@ public class SettingController implements Initializable {
 	@FXML
 	private StackPane menuPane;
 	@FXML
-	private AnchorPane dataBasePane, workersProgramerPane, workersUserPane, machineNamePane;
+	private AnchorPane dataBasePane, workersProgramerPane, workersUserPane, machineNamePane, commodityNamePane;
 	@FXML
-	private TextField urlTxt, userNameTxt, passwordTxt, workersFilteringTxt;
+	private TextField urlTxt, userNameTxt, passwordTxt, workersFilteringTxt, commodityNameTxt;
 	@FXML
-	private Button saveBtn, workersFilteringBtn;
+	private Button saveBtn, workersFilteringBtn, commodityNameBtn;
 	@FXML
 	private Label messageLbl;
 	@FXML
 	private TableView<Workers> workersTableView;
 	@FXML
 	private TableView<Machine> machineTableView;
-	DataBaseController dataBaseController = new DataBaseController();
+	private DataBaseController dataBaseController = new DataBaseController();
+	@FXML
+	private TableView<CommodityName> commodityNameTableView;
 
 	@FXML
 	private TextField workersName, workersNumber;
@@ -55,12 +59,17 @@ public class SettingController implements Initializable {
 	private final String MENU_WORKERS_PROGRAMER = "Hozzáférés";
 	private final String MENU_WORKERS_USER = "Dolgozok adatai";
 	private final String MENU_MACHINE_NAME = "Gép adatok";
+	private final String MENU_COMMODITY_NAME = "Alapanyag";
 
 	@SuppressWarnings("unchecked")
 	private void setMenuTree() {
 		Node dbNode = new ImageView(new Image(getClass().getResourceAsStream("/com/setting/icon/tree/DataBase.png")));
 		Node workersNode = new ImageView(
 				new Image(getClass().getResourceAsStream("/com/setting/icon/tree/Workers.png")));
+		Node machineNode = new ImageView(
+				new Image(getClass().getResourceAsStream("/com/setting/icon/tree/Device.png")));
+		Node commodityNameNode = new ImageView(
+				new Image(getClass().getResourceAsStream("/com/setting/icon/tree/CommondiName.png")));
 		TreeItem<String> treeItemRoot1 = new TreeItem<String>("Menü");
 		settingTreeView = new TreeView<>(treeItemRoot1);
 		settingTreeView.setShowRoot(false);
@@ -73,9 +82,11 @@ public class SettingController implements Initializable {
 		TreeItem<String> nodeItemB2 = new TreeItem<String>(MENU_WORKERS_USER);
 		nodeItemB.getChildren().addAll(nodeItemB1, nodeItemB2);
 
-		TreeItem<String> nodeItemC = new TreeItem<String>(MENU_MACHINE_NAME);
+		TreeItem<String> nodeItemC = new TreeItem<String>(MENU_MACHINE_NAME, machineNode);
 
-		treeItemRoot1.getChildren().addAll(nodeItemA, nodeItemB, nodeItemC);
+		TreeItem<String> nodeItemD = new TreeItem<String>(MENU_COMMODITY_NAME, commodityNameNode);
+
+		treeItemRoot1.getChildren().addAll(nodeItemA, nodeItemB, nodeItemC, nodeItemD);
 		menuPane.getChildren().add(settingTreeView);
 		mouseAction();
 	}
@@ -94,6 +105,7 @@ public class SettingController implements Initializable {
 						workersProgramerPane.setVisible(false);
 						workersUserPane.setVisible(false);
 						machineNamePane.setVisible(false);
+						commodityNamePane.setVisible(false);
 						dataBaseController.setTexField(urlTxt, userNameTxt, passwordTxt, messageLbl);
 						break;
 					case MENU_WORKERS_USER:
@@ -101,6 +113,7 @@ public class SettingController implements Initializable {
 						workersProgramerPane.setVisible(false);
 						workersUserPane.setVisible(true);
 						machineNamePane.setVisible(false);
+						commodityNamePane.setVisible(false);
 						new WorkersController(workersName, workersNumber, messageLbl, workersTableView,
 								workersFilteringTxt, workersFilteringBtn, workersSave);
 						break;
@@ -109,7 +122,17 @@ public class SettingController implements Initializable {
 						workersProgramerPane.setVisible(false);
 						workersUserPane.setVisible(false);
 						machineNamePane.setVisible(true);
+						commodityNamePane.setVisible(false);
 						new MachineController(machineTableView, messageLbl);
+						break;
+					case MENU_COMMODITY_NAME:
+						dataBasePane.setVisible(false);
+						workersProgramerPane.setVisible(false);
+						workersUserPane.setVisible(false);
+						machineNamePane.setVisible(false);
+						commodityNamePane.setVisible(true);
+						new CommodityNameController(commodityNameTxt, commodityNameBtn, messageLbl,
+								commodityNameTableView);
 						break;
 					}
 				}
