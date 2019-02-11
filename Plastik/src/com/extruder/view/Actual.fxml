@@ -22,7 +22,8 @@
                <children>
                   <HBox alignment="CENTER" layoutX="80.0" layoutY="285.0" prefHeight="30.0" prefWidth="1220.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Button fx:id="extruderNameBtn1" mnemonicParsing="false" prefHeight="30.0" text="Button" />
+                        <Button fx:id="extruderNewJobBtn" mnemonicParsing="false" onAction="#extruderNewJobBtn" prefHeight="30.0" text="Új felvétel" />
+                        <Button fx:id="extruderNameBtn1" mnemonicParsing="false" onAction="#extruderNameBtn1" prefHeight="30.0" text="Button" />
                         <Button fx:id="extruderNameBtn2" mnemonicParsing="false" prefHeight="30.0" text="Button" />
                         <Button fx:id="extruderNameBtn3" mnemonicParsing="false" prefHeight="30.0" text="Button" />
                         <Button fx:id="extruderNameBtn4" mnemonicParsing="false" prefHeight="30.0" text="Button" />
@@ -38,8 +39,18 @@
                         <Button fx:id="extruderNameBtn14" mnemonicParsing="false" prefHeight="30.0" text="Button" />
                      </children>
                   </HBox>
-                  <TableView fx:id="extruderTableView" layoutX="359.0" layoutY="249.0" prefHeight="421.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="249.0" />
-                  <TextField fx:id="test" layoutX="100.0" layoutY="103.0" />
+                  <AnchorPane fx:id="extruderNewJobsPane" layoutY="33.0" prefHeight="637.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
+                     <children>
+                        <TextField fx:id="extruderClientName" layoutX="104.0" layoutY="22.0" />
+                        <TableView fx:id="clientPopupTableView" editable="true" layoutX="104.0" layoutY="47.0" opacity="0.61" prefHeight="200.0" prefWidth="200.0" visible="false" />
+                        <TextField fx:id="test12" layoutX="322.0" layoutY="23.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="extruderActualJobsPane" layoutY="33.0" prefHeight="637.0" prefWidth="1300.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
+                     <children>
+                        <TableView fx:id="extruderTableView" layoutY="204.0" prefHeight="433.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="204.0" />
+                     </children>
+                  </AnchorPane>
                </children></AnchorPane>
          </children>
       </AnchorPane>

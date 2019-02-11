@@ -14,7 +14,7 @@ import com.setting.showinfo.ShowInfo;
 public class MachineDataBase {
 
 	public ArrayList<Machine> getAllMachine() {
-		String sql = "SELECT * FROM `extruder`";
+		String sql = "SELECT * FROM `extruder_nev`";
 		Connection con = DataBaseLocal.getConnection();
 		ArrayList<Machine> machine = null;
 		Statement createStatement = null;
@@ -54,7 +54,7 @@ public class MachineDataBase {
 		Connection conn = DataBaseLocal.getConnection();
 		PreparedStatement pr = null;
 		try {
-			String sqlClient = "UPDATE `extruder` SET extruder_nev = ? WHERE  extruder_id = ?";
+			String sqlClient = "UPDATE `extruder_nev` SET extruder_nev = ? WHERE  extruder_id = ?";
 			pr = conn.prepareStatement(sqlClient);
 			pr.setString(1, machine.getMachineName());
 			pr.setString(2, machine.getMachineId());
