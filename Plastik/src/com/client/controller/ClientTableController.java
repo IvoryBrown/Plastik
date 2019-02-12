@@ -76,7 +76,7 @@ public class ClientTableController {
 	@SuppressWarnings("unchecked")
 	private void clientTable() {
 		clientId = new TableColumn<>("ID");
-		clientId.setMinWidth(50);
+		clientId.setMinWidth(80);
 		clientId.setCellValueFactory(new PropertyValueFactory<Client, Integer>("clientId"));
 
 		clientName = new TableColumn<>("Név");
@@ -174,7 +174,7 @@ public class ClientTableController {
 		});
 
 		clientMail = new TableColumn<>("Email");
-		clientMail.setMinWidth(150);
+		clientMail.setMinWidth(200);
 		clientMail.setCellValueFactory(new PropertyValueFactory<Client, String>("clientMail"));
 		clientMail.setCellFactory(TextFieldTableCell.forTableColumn());
 		clientMail.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Client, String>>() {

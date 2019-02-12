@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -41,9 +45,129 @@
                   </HBox>
                   <AnchorPane fx:id="extruderNewJobsPane" layoutY="33.0" prefHeight="637.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
                      <children>
-                        <TextField fx:id="extruderClientName" layoutX="104.0" layoutY="22.0" />
-                        <TableView fx:id="clientPopupTableView" editable="true" layoutX="104.0" layoutY="47.0" opacity="0.61" prefHeight="200.0" prefWidth="200.0" visible="false" />
-                        <TextField fx:id="test12" layoutX="322.0" layoutY="23.0" />
+                        <VBox prefHeight="637.0" prefWidth="149.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Megrendelő">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Azonosító">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Határidő">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Alapanyag">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Tényleges méret">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Szélesség(mm)">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Hossz(mm)">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Vastagság(my)">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Zsák/Síklap (2/1)">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="g/m">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Megrendelt kg">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="149.0" prefHeight="637.0" prefWidth="149.0">
+                           <children>
+                              <TextField fx:id="extruderClientName" prefHeight="25.0">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="extruderClientName11" prefHeight="25.0">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <DatePicker prefHeight="25.0">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </DatePicker>
+                              <ComboBox prefHeight="25.0" prefWidth="150.0">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </ComboBox>
+                              <TextField fx:id="extruderClientName1" prefHeight="25.0">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="extruderClientName12" prefHeight="25.0">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="extruderClientName13" prefHeight="25.0">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="extruderClientName14" prefHeight="25.0">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <ComboBox prefHeight="25.0" prefWidth="150.0">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </ComboBox>
+                              <TextField fx:id="extruderClientName141" prefHeight="25.0">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="extruderClientName1411" prefHeight="25.0">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        <TableView fx:id="clientPopupTableView" editable="true" layoutY="27.0" opacity="0.8" prefHeight="200.0" prefWidth="633.0" stylesheets="@../../main/view/css/tablepopup.css" visible="false">
+                         <placeholder>
+                            <Label text="Nem található adat" />
+                          </placeholder>
+                          </TableView>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="extruderActualJobsPane" layoutY="33.0" prefHeight="637.0" prefWidth="1300.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
