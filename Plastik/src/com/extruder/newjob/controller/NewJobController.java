@@ -7,6 +7,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -19,21 +20,23 @@ public class NewJobController {
 	private final ObservableList<Client> dataClient = FXCollections.observableArrayList();
 	private ClientDataBase clientDB = new ClientDataBase();
 	private String clientId;
+	private Button saveButton;
 
 	@SuppressWarnings("unchecked")
-	public NewJobController(TableView<Client> clientPopupTableView, TextField extruderClientName) {
+	public NewJobController(TableView<Client> clientPopupTableView, TextField extruderClientName, Button saveButton) {
 		this.clientPopupTableView = clientPopupTableView;
 		this.extruderClientName = extruderClientName;
+		this.saveButton = saveButton;
 		this.clientPopupTableView.getItems().clear();
 		this.clientPopupTableView.getColumns().clear();
 		clientPopupTableView.setItems(dataClient);
 		setTable();
 		clientPopupTable();
 		clientPopupTableView.getColumns().addAll(clientName, clientPostcode, clientCity, clientStreet);
-		
+		saveButton.setOnAction((event) -> {
+			System.out.println("ID: " + clientId + " Név: " + extruderClientName.getText());
+		});
 	}
-
-	
 
 	private void setTable() {
 		extruderClientName.textProperty().addListener(new ChangeListener<String>() {
@@ -58,6 +61,7 @@ public class NewJobController {
 					} else {
 						clientPopupTableView.setVisible(false);
 					}
+					
 					clientPopupTableView.setVisible(false);
 				}
 			}

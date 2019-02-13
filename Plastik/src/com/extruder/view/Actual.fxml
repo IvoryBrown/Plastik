@@ -168,6 +168,7 @@
                             <Label text="Nem található adat" />
                           </placeholder>
                           </TableView>
+                        <Button fx:id="saveButton" layoutX="366.0" layoutY="93.0" mnemonicParsing="false" text="Button" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="extruderActualJobsPane" layoutY="33.0" prefHeight="637.0" prefWidth="1300.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">

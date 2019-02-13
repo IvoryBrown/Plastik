@@ -27,7 +27,7 @@ public class ExtruderController implements Initializable {
 			extruderNameBtn6, extruderNameBtn7, extruderNameBtn8, extruderNameBtn9, extruderNameBtn10,
 			extruderNameBtn11, extruderNameBtn12, extruderNameBtn13, extruderNameBtn14;
 	@FXML
-	private Button extruderNewJobBtn;
+	private Button extruderNewJobBtn,saveButton;
 	@FXML
 	private AnchorPane extruderNewJobsPane, extruderActualJobsPane;
 	@FXML
@@ -50,7 +50,7 @@ public class ExtruderController implements Initializable {
 	@FXML
 	private void extruderNewJobBtn() {
 		jobsPane();
-		new NewJobController(clientPopupTableView, extruderClientName);
+		new NewJobController(clientPopupTableView, extruderClientName,saveButton);
 	}
 
 	@FXML
