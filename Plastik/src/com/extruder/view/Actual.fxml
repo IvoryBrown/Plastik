@@ -52,6 +52,11 @@
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </Label>
+                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Extruder gép">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
                               <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Azonosító">
                                  <VBox.margin>
                                     <Insets top="10.0" />
@@ -106,57 +111,62 @@
                         </VBox>
                         <VBox layoutX="149.0" prefHeight="637.0" prefWidth="149.0">
                            <children>
-                              <TextField fx:id="extruderClientName" prefHeight="25.0">
+                              <TextField fx:id="extruderClientNameTxt" prefHeight="25.0">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="extruderClientName11" prefHeight="25.0">
+                              <ComboBox fx:id="extruderNameCmb" prefHeight="25.0" prefWidth="150.0">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </ComboBox>
+                              <TextField fx:id="extruderIdentificationTxt" prefHeight="25.0">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </TextField>
-                              <DatePicker prefHeight="25.0">
+                              <DatePicker fx:id="extruderEndDate" prefHeight="25.0">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </DatePicker>
-                              <ComboBox prefHeight="25.0" prefWidth="150.0">
+                              <ComboBox fx:id="extruderCommodityCmb" prefHeight="25.0" prefWidth="150.0">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </ComboBox>
-                              <TextField fx:id="extruderClientName1" prefHeight="25.0">
+                              <TextField fx:id="extruderActualSizeTxt" prefHeight="25.0">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="extruderClientName12" prefHeight="25.0">
+                              <TextField fx:id="extruderWidthTxt" prefHeight="25.0">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="extruderClientName13" prefHeight="25.0">
+                              <TextField fx:id="extruderLengthTxt" prefHeight="25.0">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="extruderClientName14" prefHeight="25.0">
+                              <TextField fx:id="extruderThicknessTxt" prefHeight="25.0">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </TextField>
-                              <ComboBox prefHeight="25.0" prefWidth="150.0">
+                              <ComboBox fx:id="extruderFlatPlateBagCmb" prefHeight="25.0" prefWidth="150.0">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </ComboBox>
-                              <TextField fx:id="extruderClientName141" prefHeight="25.0">
+                              <TextField fx:id="extruderGrammMeterTxt" prefHeight="25.0">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="extruderClientName1411" prefHeight="25.0">
+                              <TextField fx:id="extruderOrderedKgTxt" prefHeight="25.0">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>

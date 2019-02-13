@@ -7,10 +7,13 @@ import com.client.pojo.Client;
 import com.extruder.name.ExtruderName;
 import com.extruder.newjob.controller.NewJobController;
 import com.menu.calculations.CalculationsController;
+import com.project.setting.machine.pojo.Machine;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TableView;
@@ -27,7 +30,7 @@ public class ExtruderController implements Initializable {
 			extruderNameBtn6, extruderNameBtn7, extruderNameBtn8, extruderNameBtn9, extruderNameBtn10,
 			extruderNameBtn11, extruderNameBtn12, extruderNameBtn13, extruderNameBtn14;
 	@FXML
-	private Button extruderNewJobBtn,saveButton;
+	private Button extruderNewJobBtn, saveButton;
 	@FXML
 	private AnchorPane extruderNewJobsPane, extruderActualJobsPane;
 	@FXML
@@ -35,7 +38,16 @@ public class ExtruderController implements Initializable {
 	@FXML
 	private TableView<Client> clientPopupTableView;
 	@FXML
-	private TextField extruderClientName;
+	private TextField extruderClientNameTxt, extruderIdentificationTxt, extruderActualSizeTxt, extruderWidthTxt,
+			extruderLengthTxt, extruderThicknessTxt, extruderGrammMeterTxt, extruderOrderedKgTxt;
+	@FXML
+	private DatePicker extruderEndDate;
+	@FXML
+	private ComboBox<String> extruderCommodityCmb;
+	@FXML
+	private ComboBox<String> extruderFlatPlateBagCmb;
+	@FXML
+	private ComboBox<String> extruderNameCmb;
 
 	private void jobsPane() {
 		extruderNewJobsPane.setVisible(true);
@@ -50,7 +62,10 @@ public class ExtruderController implements Initializable {
 	@FXML
 	private void extruderNewJobBtn() {
 		jobsPane();
-		new NewJobController(clientPopupTableView, extruderClientName,saveButton);
+		new NewJobController(clientPopupTableView, extruderClientNameTxt, extruderIdentificationTxt,
+				extruderActualSizeTxt, extruderWidthTxt, extruderLengthTxt, extruderThicknessTxt, extruderGrammMeterTxt,
+				extruderOrderedKgTxt, extruderEndDate, extruderCommodityCmb, extruderFlatPlateBagCmb, extruderNameCmb,
+				saveButton);
 	}
 
 	@FXML

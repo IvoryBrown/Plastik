@@ -2,12 +2,18 @@ package com.extruder.newjob.controller;
 
 import com.client.database.ClientDataBase;
 import com.client.pojo.Client;
+import com.project.setting.commodityname.database.CommodityNameDataBase;
+import com.project.setting.commodityname.pojo.CommodityName;
+import com.project.setting.machine.database.MachineDataBase;
+import com.project.setting.machine.pojo.Machine;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -16,25 +22,83 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class NewJobController {
 	private TableView<Client> clientPopupTableView;
 	private TableColumn<Client, String> clientName, clientPostcode, clientCity, clientStreet;
-	private TextField extruderClientName;
+	private TextField extruderClientName, extruderIdentificationTxt, extruderActualSizeTxt, extruderWidthTxt,
+			extruderLengthTxt, extruderThicknessTxt, extruderGrammMeterTxt, extruderOrderedKgTxt;
+
+	private DatePicker extruderEndDate;
+
+	private ComboBox<String> extruderCommodityCmb;
+	private final ObservableList<CommodityName> extruderCommodityData = FXCollections.observableArrayList();
+	private CommodityNameDataBase commodityNameDataBase = new CommodityNameDataBase();
+
+	private ComboBox<String> extruderFlatPlateBagCmb;
+
+	private ComboBox<String> extruderNameCmb;
+	private final ObservableList<Machine> extruderNameData = FXCollections.observableArrayList();
+	private MachineDataBase machineDataBase = new MachineDataBase();
+
 	private final ObservableList<Client> dataClient = FXCollections.observableArrayList();
 	private ClientDataBase clientDB = new ClientDataBase();
-	private String clientId;
+	private String clientId, clientNameTable;
 	private Button saveButton;
 
-	@SuppressWarnings("unchecked")
-	public NewJobController(TableView<Client> clientPopupTableView, TextField extruderClientName, Button saveButton) {
+	public NewJobController(TableView<Client> clientPopupTableView, TextField extruderClientName,
+			TextField extruderIdentificationTxt, TextField extruderActualSizeTxt, TextField extruderWidthTxt,
+			TextField extruderLengthTxt, TextField extruderThicknessTxt, TextField extruderGrammMeterTxt,
+			TextField extruderOrderedKgTxt, DatePicker extruderEndDate, ComboBox<String> extruderCommodityCmb,
+			ComboBox<String> extruderFlatPlateBagCmb, ComboBox<String> extruderNameCmb, Button saveButton) {
 		this.clientPopupTableView = clientPopupTableView;
 		this.extruderClientName = extruderClientName;
+		this.extruderIdentificationTxt = extruderIdentificationTxt;
+		this.extruderActualSizeTxt = extruderActualSizeTxt;
+		this.extruderWidthTxt = extruderWidthTxt;
+		this.extruderLengthTxt = extruderLengthTxt;
+		this.extruderThicknessTxt = extruderThicknessTxt;
+		this.extruderGrammMeterTxt = extruderGrammMeterTxt;
+		this.extruderOrderedKgTxt = extruderOrderedKgTxt;
+		this.extruderEndDate = extruderEndDate;
+		this.extruderCommodityCmb = extruderCommodityCmb;
+		this.extruderFlatPlateBagCmb = extruderFlatPlateBagCmb;
+		this.extruderNameCmb = extruderNameCmb;
 		this.saveButton = saveButton;
-		this.clientPopupTableView.getItems().clear();
-		this.clientPopupTableView.getColumns().clear();
+		setNewJobController();
+	}
+
+	@SuppressWarnings("unchecked")
+	private void setNewJobController() {
+		clearTable();
 		clientPopupTableView.setItems(dataClient);
 		setTable();
 		clientPopupTable();
 		clientPopupTableView.getColumns().addAll(clientName, clientPostcode, clientCity, clientStreet);
+		buttonSetOnAction();
+		comboBoxSetItems();
+	}
+
+	private void clearTable() {
+		this.clientPopupTableView.getItems().clear();
+		this.clientPopupTableView.getColumns().clear();
+
+	}
+
+	private void comboBoxSetItems() {
+		extruderNameData.addAll(machineDataBase.getAllMachine());
+		for (int i = 0; i < extruderNameData.size(); i++) {
+			extruderNameCmb.getItems().addAll(extruderNameData.get(i).getMachineName());
+		}
+
+		extruderCommodityData.addAll(commodityNameDataBase.getAllCommodityName());
+		for (int i = 0; i < extruderCommodityData.size(); i++) {
+			extruderCommodityCmb.getItems().addAll(extruderCommodityData.get(i).getCommodityName());
+		}
+
+		extruderFlatPlateBagCmb.getItems().addAll("2", "1");
+	}
+
+	private void buttonSetOnAction() {
 		saveButton.setOnAction((event) -> {
-			System.out.println("ID: " + clientId + " Név: " + extruderClientName.getText());
+			System.out
+					.println("ID: " + clientId + " Név: " + extruderClientName.getText() + " : " + isCheckClientName());
 		});
 	}
 
@@ -61,11 +125,20 @@ public class NewJobController {
 					} else {
 						clientPopupTableView.setVisible(false);
 					}
-					
+
 					clientPopupTableView.setVisible(false);
 				}
 			}
 		});
+	}
+
+	private boolean isCheckClientName() {
+		if (extruderClientName.getText().equals(clientNameTable)) {
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 
 	private void clientPopupTable() {
@@ -90,6 +163,7 @@ public class NewJobController {
 				if (oldValue == null || newValue != null) {
 					extruderClientName.setText(newValue.getClientName());
 					clientId = newValue.getClientId();
+					clientNameTable = newValue.getClientName();
 					clientPopupTableView.setVisible(false);
 				}
 			}
