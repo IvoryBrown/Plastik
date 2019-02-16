@@ -97,8 +97,8 @@ public class NewJobController {
 
 	private void buttonSetOnAction() {
 		saveButton.setOnAction((event) -> {
-			System.out
-					.println("ID: " + clientId + " Név: " + extruderClientName.getText() + " : " + isCheckClientName());
+			System.out.println("ID: " + clientId + " Név: " + extruderClientName.getText() + " : " + isCheckClientName()
+					+ " id: " + dataClient.size());
 		});
 	}
 
@@ -119,6 +119,7 @@ public class NewJobController {
 			@Override
 			public void changed(ObservableValue<? extends Boolean> arg0, Boolean oldPropertyValue,
 					Boolean newPropertyValue) {
+				dataClient.clear();
 				if (!newPropertyValue) {
 					if (!extruderClientName.getText().trim().isEmpty()) {
 						clientPopupTableView.setVisible(true);
@@ -171,7 +172,6 @@ public class NewJobController {
 	}
 
 	private ObservableList<Client> popupDataClient(String s) {
-		dataClient.clear();
 		dataClient.addAll(clientDB.searchAllClient(s));
 		return dataClient;
 	}
