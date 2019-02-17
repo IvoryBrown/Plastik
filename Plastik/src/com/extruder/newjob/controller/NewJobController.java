@@ -1,11 +1,16 @@
 package com.extruder.newjob.controller;
 
+import java.time.LocalDate;
+
 import com.client.database.ClientDataBase;
 import com.client.pojo.Client;
+import com.extruder.pojo.Extruder;
 import com.project.setting.commodityname.database.CommodityNameDataBase;
 import com.project.setting.commodityname.pojo.CommodityName;
 import com.project.setting.machine.database.MachineDataBase;
 import com.project.setting.machine.pojo.Machine;
+import com.setting.identification.ClientIdentficationGenerator;
+import com.setting.label.MessageLabel;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -13,9 +18,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -24,7 +32,7 @@ public class NewJobController {
 	private TableColumn<Client, String> clientName, clientPostcode, clientCity, clientStreet;
 	private TextField extruderClientName, extruderIdentificationTxt, extruderActualSizeTxt, extruderWidthTxt,
 			extruderLengthTxt, extruderThicknessTxt, extruderGrammMeterTxt, extruderOrderedKgTxt;
-
+	private TextArea extruderComment;
 	private DatePicker extruderEndDate;
 
 	private ComboBox<String> extruderCommodityCmb;
@@ -39,14 +47,17 @@ public class NewJobController {
 
 	private final ObservableList<Client> dataClient = FXCollections.observableArrayList();
 	private ClientDataBase clientDB = new ClientDataBase();
+	private NewJobDataBase jobDB = new NewJobDataBase();
 	private String clientId, clientNameTable;
 	private Button saveButton;
+	private Label messageLbl;
 
 	public NewJobController(TableView<Client> clientPopupTableView, TextField extruderClientName,
 			TextField extruderIdentificationTxt, TextField extruderActualSizeTxt, TextField extruderWidthTxt,
 			TextField extruderLengthTxt, TextField extruderThicknessTxt, TextField extruderGrammMeterTxt,
 			TextField extruderOrderedKgTxt, DatePicker extruderEndDate, ComboBox<String> extruderCommodityCmb,
-			ComboBox<String> extruderFlatPlateBagCmb, ComboBox<String> extruderNameCmb, Button saveButton) {
+			ComboBox<String> extruderFlatPlateBagCmb, ComboBox<String> extruderNameCmb, Button saveButton,
+			TextArea extruderComment, Label messageLbl) {
 		this.clientPopupTableView = clientPopupTableView;
 		this.extruderClientName = extruderClientName;
 		this.extruderIdentificationTxt = extruderIdentificationTxt;
@@ -61,6 +72,8 @@ public class NewJobController {
 		this.extruderFlatPlateBagCmb = extruderFlatPlateBagCmb;
 		this.extruderNameCmb = extruderNameCmb;
 		this.saveButton = saveButton;
+		this.extruderComment = extruderComment;
+		this.messageLbl = messageLbl;
 		setNewJobController();
 	}
 
@@ -73,6 +86,18 @@ public class NewJobController {
 		clientPopupTableView.getColumns().addAll(clientName, clientPostcode, clientCity, clientStreet);
 		buttonSetOnAction();
 		comboBoxSetItems();
+		setDayCellFactory();
+		clearTextField();
+	}
+
+	private void setDayCellFactory() {
+		extruderEndDate.setDayCellFactory(picker -> new DateCell() {
+			public void updateItem(LocalDate date, boolean empty) {
+				super.updateItem(date, empty);
+				LocalDate today = LocalDate.now();
+				setDisable(empty || date.compareTo(today) < 0);
+			}
+		});
 	}
 
 	private void clearTable() {
@@ -95,10 +120,120 @@ public class NewJobController {
 		extruderFlatPlateBagCmb.getItems().addAll("2", "1");
 	}
 
+	private void clearTextField() {
+		extruderClientName.clear();
+		extruderIdentificationTxt.clear();
+		extruderActualSizeTxt.clear();
+		extruderWidthTxt.clear();
+		extruderLengthTxt.clear();
+		extruderThicknessTxt.clear();
+		extruderOrderedKgTxt.clear();
+		extruderGrammMeterTxt.clear();
+		extruderComment.clear();
+		extruderEndDate.setValue(null);
+		extruderCommodityCmb.setValue(null);
+		extruderFlatPlateBagCmb.setValue(null);
+		extruderNameCmb.setValue(null);
+	}
+
+	private boolean checkTextField() {
+		if (extruderClientName.getText().trim().isEmpty()) {
+			extruderClientName.setStyle(" -fx-text-box-border: #CD5C5C; -fx-focus-color: #CD5C5C;");
+		} else {
+			extruderClientName.setStyle(null);
+		}
+		if (extruderIdentificationTxt.getText().trim().isEmpty()) {
+			extruderIdentificationTxt.setStyle(" -fx-text-box-border: #CD5C5C; -fx-focus-color: #CD5C5C;");
+		} else {
+			extruderIdentificationTxt.setStyle(null);
+		}
+		if (extruderActualSizeTxt.getText().trim().isEmpty()) {
+			extruderActualSizeTxt.setStyle(" -fx-text-box-border: #CD5C5C; -fx-focus-color: #CD5C5C;");
+		} else {
+			extruderActualSizeTxt.setStyle(null);
+		}
+		if (extruderWidthTxt.getText().trim().isEmpty()) {
+			extruderWidthTxt.setStyle(" -fx-text-box-border: #CD5C5C; -fx-focus-color: #CD5C5C;");
+		} else {
+			extruderWidthTxt.setStyle(null);
+		}
+		if (extruderLengthTxt.getText().trim().isEmpty()) {
+			extruderLengthTxt.setStyle(" -fx-text-box-border: #CD5C5C; -fx-focus-color: #CD5C5C;");
+		} else {
+			extruderLengthTxt.setStyle(null);
+		}
+		if (extruderThicknessTxt.getText().trim().isEmpty()) {
+			extruderThicknessTxt.setStyle(" -fx-text-box-border: #CD5C5C; -fx-focus-color: #CD5C5C;");
+		} else {
+			extruderThicknessTxt.setStyle(null);
+		}
+		if (extruderOrderedKgTxt.getText().trim().isEmpty()) {
+			extruderOrderedKgTxt.setStyle(" -fx-text-box-border: #CD5C5C; -fx-focus-color: #CD5C5C;");
+		} else {
+			extruderOrderedKgTxt.setStyle(null);
+		}
+		if (extruderEndDate.getValue() == null) {
+			extruderEndDate.setStyle(" -fx-border-color: #CD5C5C; -fx-focus-color: #CD5C5C;");
+		} else {
+			extruderEndDate.setStyle(null);
+		}
+		if (extruderCommodityCmb.getValue() == null) {
+			extruderCommodityCmb.setStyle(" -fx-border-color: #CD5C5C; -fx-focus-color: #CD5C5C;");
+		} else {
+			extruderCommodityCmb.setStyle(null);
+		}
+		if (extruderFlatPlateBagCmb.getValue() == null) {
+			extruderFlatPlateBagCmb.setStyle(" -fx-border-color: #CD5C5C; -fx-focus-color: #CD5C5C;");
+		} else {
+			extruderFlatPlateBagCmb.setStyle(null);
+		}
+		if (extruderNameCmb.getValue() == null) {
+			extruderNameCmb.setStyle(" -fx-border-color: #CD5C5C; -fx-focus-color: #CD5C5C;");
+		} else {
+			extruderNameCmb.setStyle(null);
+		}
+
+		if (extruderClientName.getText().trim().isEmpty() || extruderIdentificationTxt.getText().trim().isEmpty()
+				|| extruderActualSizeTxt.getText().trim().isEmpty() || extruderWidthTxt.getText().trim().isEmpty()
+				|| extruderLengthTxt.getText().trim().isEmpty() || extruderThicknessTxt.getText().trim().isEmpty()
+				|| extruderOrderedKgTxt.getText().trim().isEmpty() || extruderEndDate.getValue() == null
+				|| extruderCommodityCmb.getValue() == null || extruderFlatPlateBagCmb.getValue() == null
+				|| extruderNameCmb.getValue() == null) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	private void saveDataBase() {
+		if (checkTextField()) {
+			if (isCheckClientName()) {
+				System.out.println(clientId);
+				jobDB.addNewJob(new Extruder(clientId, extruderIdentificationTxt.getText(), "Folyamatban",
+						LocalDate.now().toString(), extruderEndDate.getValue().toString(),
+						extruderCommodityCmb.getValue(), extruderActualSizeTxt.getText(), extruderWidthTxt.getText(),
+						extruderLengthTxt.getText(), extruderThicknessTxt.getText(), extruderFlatPlateBagCmb.getValue(),
+						extruderGrammMeterTxt.getText(), extruderOrderedKgTxt.getText(), extruderOrderedKgTxt.getText(),
+						extruderNameCmb.getValue(), extruderComment.getText()));
+				clearTextField();
+				new MessageLabel().goodMessage("Sikeres mentés", messageLbl);
+			} else {
+				new MessageLabel().errorMessage("Sikertelen mentés, nincs kiválasztva ügyfél", messageLbl);
+			}
+
+		} else {
+			new MessageLabel().errorMessage("Sikertelen mentés", messageLbl);
+		}
+
+	}
+
 	private void buttonSetOnAction() {
+		LocalDate date = LocalDate.now();
 		saveButton.setOnAction((event) -> {
-			System.out.println("ID: " + clientId + " Név: " + extruderClientName.getText() + " : " + isCheckClientName()
-					+ " id: " + dataClient.size());
+			if (extruderIdentificationTxt.getText().trim().isEmpty()) {
+				extruderIdentificationTxt.setText(date.getYear() + ClientIdentficationGenerator.random());
+			}
+			saveDataBase();
 		});
 	}
 

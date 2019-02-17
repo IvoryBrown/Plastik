@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -107,6 +108,11 @@
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </Label>
+                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Megjegyzés">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
                            </children>
                         </VBox>
                         <VBox layoutX="149.0" prefHeight="637.0" prefWidth="149.0">
@@ -121,7 +127,7 @@
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </ComboBox>
-                              <TextField fx:id="extruderIdentificationTxt" prefHeight="25.0">
+                              <TextField fx:id="extruderIdentificationTxt" editable="false" prefHeight="25.0">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
@@ -171,6 +177,11 @@
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </TextField>
+                              <TextArea fx:id="extruderComment" prefHeight="131.0" prefWidth="149.0" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextArea>
                            </children>
                         </VBox>
                         <TableView fx:id="clientPopupTableView" editable="true" layoutY="27.0" opacity="0.8" prefHeight="200.0" prefWidth="633.0" stylesheets="@../../main/view/css/tablepopup.css" visible="false">
@@ -178,7 +189,7 @@
                             <Label text="Nem található adat" />
                           </placeholder>
                           </TableView>
-                        <Button fx:id="saveButton" layoutX="366.0" layoutY="93.0" mnemonicParsing="false" text="Button" />
+                        <Button fx:id="saveButton" layoutX="836.0" layoutY="115.0" mnemonicParsing="false" text="Button" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="extruderActualJobsPane" layoutY="33.0" prefHeight="637.0" prefWidth="1300.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">

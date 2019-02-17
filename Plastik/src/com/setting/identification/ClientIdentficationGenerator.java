@@ -3,7 +3,7 @@ package com.setting.identification;
 import java.util.Random;
 
 public class ClientIdentficationGenerator {
-	private final static String CHARLIST = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+	private final static String CHARLIST = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 	public ClientIdentficationGenerator() {
 	}

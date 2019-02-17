@@ -7,7 +7,6 @@ import com.client.pojo.Client;
 import com.extruder.name.ExtruderName;
 import com.extruder.newjob.controller.NewJobController;
 import com.menu.calculations.CalculationsController;
-import com.project.setting.machine.pojo.Machine;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,6 +16,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
@@ -40,6 +40,8 @@ public class ExtruderController implements Initializable {
 	@FXML
 	private TextField extruderClientNameTxt, extruderIdentificationTxt, extruderActualSizeTxt, extruderWidthTxt,
 			extruderLengthTxt, extruderThicknessTxt, extruderGrammMeterTxt, extruderOrderedKgTxt;
+	@FXML
+	private TextArea extruderComment;
 	@FXML
 	private DatePicker extruderEndDate;
 	@FXML
@@ -65,7 +67,7 @@ public class ExtruderController implements Initializable {
 		new NewJobController(clientPopupTableView, extruderClientNameTxt, extruderIdentificationTxt,
 				extruderActualSizeTxt, extruderWidthTxt, extruderLengthTxt, extruderThicknessTxt, extruderGrammMeterTxt,
 				extruderOrderedKgTxt, extruderEndDate, extruderCommodityCmb, extruderFlatPlateBagCmb, extruderNameCmb,
-				saveButton);
+				saveButton, extruderComment, messageLbl);
 	}
 
 	@FXML
