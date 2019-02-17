@@ -1,16 +1,21 @@
 package com.commoditycalculation.controller;
 
+import java.util.function.UnaryOperator;
+import java.util.regex.Pattern;
+
 import com.setting.label.MessageLabel;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
+import javafx.util.StringConverter;
 
 public class NumberCheck {
 	private MessageLabel message = new MessageLabel();
 
-	protected void setQuantityNumber(TextField textField, Label label) {
+	public void setQuantityNumber(TextField textField, Label label) {
 		textField.lengthProperty().addListener(new ChangeListener<Number>() {
 			@Override
 			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
@@ -44,4 +49,38 @@ public class NumberCheck {
 		return ret;
 	}
 
+	public TextFormatter<Double> isDouble(TextField textField) {
+		Pattern validEditingState = Pattern.compile("-?(([1-9][0-9]*)|0)?(\\.[0-9]*)?");
+
+		UnaryOperator<TextFormatter.Change> filter = c -> {
+			String text = c.getControlNewText();
+			if (validEditingState.matcher(text).matches()) {
+				return c;
+			} else {
+				return null;
+			}
+		};
+
+		StringConverter<Double> converter = new StringConverter<Double>() {
+
+			@Override
+			public Double fromString(String s) {
+				if (s.isEmpty() || "-".equals(s) || ".".equals(s) || "-.".equals(s)) {
+					return 0.0;
+				} else {
+					return Double.valueOf(s);
+				}
+			}
+
+			@Override
+			public String toString(Double d) {
+				return d.toString();
+			}
+		};
+
+		TextFormatter<Double> textFormatter = new TextFormatter<>(converter, 0.0, filter);
+		textField.setTextFormatter(textFormatter);
+		return textFormatter;
+
+	}
 }

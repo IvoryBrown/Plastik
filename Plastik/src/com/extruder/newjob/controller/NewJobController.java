@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import com.client.database.ClientDataBase;
 import com.client.pojo.Client;
+import com.commoditycalculation.controller.NumberCheck;
 import com.extruder.pojo.Extruder;
 import com.project.setting.commodityname.database.CommodityNameDataBase;
 import com.project.setting.commodityname.pojo.CommodityName;
@@ -51,6 +52,7 @@ public class NewJobController {
 	private String clientId, clientNameTable;
 	private Button saveButton;
 	private Label messageLbl;
+	private NumberCheck numberCheck = new NumberCheck();
 
 	public NewJobController(TableView<Client> clientPopupTableView, TextField extruderClientName,
 			TextField extruderIdentificationTxt, TextField extruderActualSizeTxt, TextField extruderWidthTxt,
@@ -88,6 +90,9 @@ public class NewJobController {
 		comboBoxSetItems();
 		setDayCellFactory();
 		clearTextField();
+		numberCheck.setQuantityNumber(extruderWidthTxt, messageLbl);
+		numberCheck.setQuantityNumber(extruderLengthTxt, messageLbl);
+		numberCheck.isDouble(extruderGrammMeterTxt);
 	}
 
 	private void setDayCellFactory() {
