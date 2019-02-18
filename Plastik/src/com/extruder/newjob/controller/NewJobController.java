@@ -90,18 +90,7 @@ public class NewJobController {
 		comboBoxSetItems();
 		setDayCellFactory();
 		clearTextField();
-		numberCheck.setQuantityNumber(extruderWidthTxt, messageLbl);
-		numberCheck.setQuantityNumber(extruderLengthTxt, messageLbl);
-		numberCheck.isDouble(extruderGrammMeterTxt,messageLbl);
-		numberCheck.isDouble(extruderThicknessTxt, messageLbl);
-		
-		extruderActualSizeTxt.textProperty().addListener(new ChangeListener<String>() {
-			@Override
-			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) { 
-				int s =extruderActualSizeTxt.getText().lastIndexOf("*");
-				extruderThicknessTxt.setText(extruderActualSizeTxt.getText().substring(s+1));
-			}
-		});
+
 	}
 
 	private void setDayCellFactory() {
@@ -252,6 +241,10 @@ public class NewJobController {
 	}
 
 	private void setTable() {
+		numberCheck.setQuantityNumber(extruderWidthTxt, messageLbl);
+		numberCheck.setQuantityNumber(extruderLengthTxt, messageLbl);
+		numberCheck.isDouble(extruderGrammMeterTxt, messageLbl);
+		numberCheck.isDouble(extruderThicknessTxt, messageLbl);
 		extruderClientName.textProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -278,6 +271,26 @@ public class NewJobController {
 
 					clientPopupTableView.setVisible(false);
 				}
+			}
+		});
+
+		extruderActualSizeTxt.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				int s = extruderActualSizeTxt.getText().lastIndexOf("*");
+				extruderThicknessTxt.setText(extruderActualSizeTxt.getText().substring(s + 1));
+			}
+		});
+
+		
+		extruderFlatPlateBagCmb.valueProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				Integer s = Integer.parseInt(extruderWidthTxt.getText());
+				double g = Double.valueOf(extruderThicknessTxt.getText());
+				Integer j = Integer.parseInt(newValue);
+				double sum = s * g * j * 0.92;
+				extruderGrammMeterTxt.setText(String.valueOf(sum));
 			}
 		});
 	}

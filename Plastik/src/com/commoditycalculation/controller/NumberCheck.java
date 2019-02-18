@@ -56,8 +56,10 @@ public class NumberCheck {
 			String text = c.getControlNewText();
 			if (validEditingState.matcher(text).matches()) {
 				messageLbl.setText("");
+				textField.setStyle(null);
 				return c;
 			} else {
+				textField.setStyle(" -fx-text-box-border: #CD5C5C; -fx-focus-color: #CD5C5C;");
 				new MessageLabel().errorMessage("Nem megfelelő formátum", messageLbl);
 				return null;
 			}
