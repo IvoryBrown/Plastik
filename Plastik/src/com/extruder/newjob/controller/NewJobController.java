@@ -92,7 +92,16 @@ public class NewJobController {
 		clearTextField();
 		numberCheck.setQuantityNumber(extruderWidthTxt, messageLbl);
 		numberCheck.setQuantityNumber(extruderLengthTxt, messageLbl);
-		numberCheck.isDouble(extruderGrammMeterTxt);
+		numberCheck.isDouble(extruderGrammMeterTxt,messageLbl);
+		numberCheck.isDouble(extruderThicknessTxt, messageLbl);
+		
+		extruderActualSizeTxt.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) { 
+				int s =extruderActualSizeTxt.getText().lastIndexOf("*");
+				extruderThicknessTxt.setText(extruderActualSizeTxt.getText().substring(s+1));
+			}
+		});
 	}
 
 	private void setDayCellFactory() {

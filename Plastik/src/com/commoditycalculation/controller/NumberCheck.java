@@ -49,14 +49,16 @@ public class NumberCheck {
 		return ret;
 	}
 
-	public TextFormatter<Double> isDouble(TextField textField) {
+	public void isDouble(TextField textField,Label messageLbl) {
 		Pattern validEditingState = Pattern.compile("-?(([1-9][0-9]*)|0)?(\\.[0-9]*)?");
 
 		UnaryOperator<TextFormatter.Change> filter = c -> {
 			String text = c.getControlNewText();
 			if (validEditingState.matcher(text).matches()) {
+				messageLbl.setText("");
 				return c;
 			} else {
+				new MessageLabel().errorMessage("Nem megfelelő formátum", messageLbl);
 				return null;
 			}
 		};
@@ -80,7 +82,6 @@ public class NumberCheck {
 
 		TextFormatter<Double> textFormatter = new TextFormatter<>(converter, 0.0, filter);
 		textField.setTextFormatter(textFormatter);
-		return textFormatter;
 
 	}
 }
