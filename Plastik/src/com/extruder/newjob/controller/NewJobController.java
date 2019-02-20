@@ -34,7 +34,7 @@ public class NewJobController {
 	private TableView<Client> clientPopupTableView;
 	private TableColumn<Client, String> clientName, clientPostcode, clientCity, clientStreet;
 	private TextField extruderClientName, extruderIdentificationTxt, extruderActualSizeTxt, extruderWidthTxt,
-			extruderLengthTxt, extruderThicknessTxt, extruderGrammMeterTxt, extruderOrderedKgTxt;
+			extruderLengthTxt, extruderThicknessTxt, extruderGrammMeterTxt, extruderOrderedKgTxt, extruderOrderedDbTxt;
 	private TextArea extruderComment;
 	private DatePicker extruderEndDate;
 
@@ -59,9 +59,9 @@ public class NewJobController {
 	public NewJobController(TableView<Client> clientPopupTableView, TextField extruderClientName,
 			TextField extruderIdentificationTxt, TextField extruderActualSizeTxt, TextField extruderWidthTxt,
 			TextField extruderLengthTxt, TextField extruderThicknessTxt, TextField extruderGrammMeterTxt,
-			TextField extruderOrderedKgTxt, DatePicker extruderEndDate, ComboBox<String> extruderCommodityCmb,
-			ComboBox<String> extruderFlatPlateBagCmb, ComboBox<String> extruderNameCmb, Button saveButton,
-			TextArea extruderComment, Label messageLbl) {
+			TextField extruderOrderedKgTxt, TextField extruderOrderedDbTxt, DatePicker extruderEndDate,
+			ComboBox<String> extruderCommodityCmb, ComboBox<String> extruderFlatPlateBagCmb,
+			ComboBox<String> extruderNameCmb, Button saveButton, TextArea extruderComment, Label messageLbl) {
 		this.clientPopupTableView = clientPopupTableView;
 		this.extruderClientName = extruderClientName;
 		this.extruderIdentificationTxt = extruderIdentificationTxt;
@@ -71,6 +71,7 @@ public class NewJobController {
 		this.extruderThicknessTxt = extruderThicknessTxt;
 		this.extruderGrammMeterTxt = extruderGrammMeterTxt;
 		this.extruderOrderedKgTxt = extruderOrderedKgTxt;
+		this.extruderOrderedDbTxt = extruderOrderedDbTxt;
 		this.extruderEndDate = extruderEndDate;
 		this.extruderCommodityCmb = extruderCommodityCmb;
 		this.extruderFlatPlateBagCmb = extruderFlatPlateBagCmb;
@@ -136,6 +137,7 @@ public class NewJobController {
 		extruderLengthTxt.clear();
 		extruderThicknessTxt.clear();
 		extruderOrderedKgTxt.clear();
+		extruderOrderedDbTxt.clear();
 		extruderGrammMeterTxt.clear();
 		extruderComment.clear();
 		extruderEndDate.setValue(null);
@@ -170,15 +172,20 @@ public class NewJobController {
 		} else {
 			extruderLengthTxt.setStyle(null);
 		}
-		if (extruderThicknessTxt.getText().trim().isEmpty()) {
+		if (extruderThicknessTxt.getText().trim().isEmpty() || extruderThicknessTxt.getText().equals("0.0")) {
 			extruderThicknessTxt.setStyle(" -fx-text-box-border: #CD5C5C; -fx-focus-color: #CD5C5C;");
 		} else {
 			extruderThicknessTxt.setStyle(null);
 		}
-		if (extruderOrderedKgTxt.getText().trim().isEmpty()) {
+		if (extruderOrderedKgTxt.getText().trim().isEmpty() || extruderOrderedKgTxt.getText().equals("0.0")) {
 			extruderOrderedKgTxt.setStyle(" -fx-text-box-border: #CD5C5C; -fx-focus-color: #CD5C5C;");
 		} else {
 			extruderOrderedKgTxt.setStyle(null);
+		}
+		if (extruderGrammMeterTxt.getText().trim().isEmpty() || extruderGrammMeterTxt.getText().equals("0.0")) {
+			extruderGrammMeterTxt.setStyle(" -fx-text-box-border: #CD5C5C; -fx-focus-color: #CD5C5C;");
+		} else {
+			extruderGrammMeterTxt.setStyle(null);
 		}
 		if (extruderEndDate.getValue() == null) {
 			extruderEndDate.setStyle(" -fx-border-color: #CD5C5C; -fx-focus-color: #CD5C5C;");
@@ -206,7 +213,8 @@ public class NewJobController {
 				|| extruderLengthTxt.getText().trim().isEmpty() || extruderThicknessTxt.getText().trim().isEmpty()
 				|| extruderOrderedKgTxt.getText().trim().isEmpty() || extruderEndDate.getValue() == null
 				|| extruderCommodityCmb.getValue() == null || extruderFlatPlateBagCmb.getValue() == null
-				|| extruderNameCmb.getValue() == null) {
+				|| extruderNameCmb.getValue() == null || extruderThicknessTxt.getText().equals("0.0")
+				|| extruderGrammMeterTxt.getText().equals("0.0") || extruderOrderedKgTxt.getText().equals("0.0")) {
 			return false;
 		} else {
 			return true;
@@ -284,43 +292,86 @@ public class NewJobController {
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 				extruderActualSizeTxt.setText(extruderActualSizeTxt.getText().replace(",", "."));
 				int s = extruderActualSizeTxt.getText().lastIndexOf("*");
+				int one = newValue.indexOf("*");
+				Integer j = extruderActualSizeTxt.getText().indexOf("*",
+						extruderActualSizeTxt.getText().indexOf("*") + 1);
 				extruderThicknessTxt.setText(extruderActualSizeTxt.getText().substring(s + 1));
+				int adb = 0;
+				for (int i = 0; i < extruderActualSizeTxt.getText().length(); i++) {
+					if (extruderActualSizeTxt.getText().charAt(i) == '*') {
+						adb++;
+					}
+				}
+				if (adb == 1) {
+					extruderLengthTxt.setText("0");
+					extruderWidthTxt.setText(extruderActualSizeTxt.getText().substring(0, one));
+				}
+				if (adb == 2) {
+					extruderWidthTxt.setText(extruderActualSizeTxt.getText().substring(0, one));
+					extruderLengthTxt.setText(extruderActualSizeTxt.getText().substring(one + 1, s));
+				}
+				if (adb == 3) {
+					extruderLengthTxt.setText("0");
+					Integer w = Integer.parseInt(extruderActualSizeTxt.getText().substring(0, one));
+					Integer q = Integer.parseInt(extruderActualSizeTxt.getText().substring(j + 1, s));
+					Integer e = w + (q * 2);
+					extruderWidthTxt.setText(String.valueOf(e));
+				}
+				if (adb == 4) {
+					Integer w = Integer.parseInt(extruderActualSizeTxt.getText().substring(0, one));
+					Integer l = extruderActualSizeTxt.getText().lastIndexOf("*",
+							extruderActualSizeTxt.getText().lastIndexOf("*") - 1);
+					Integer m = Integer.parseInt(extruderActualSizeTxt.getText().substring(j + 1, l));
+					extruderWidthTxt.setText(String.valueOf(w + (2 * m)));
+					extruderLengthTxt.setText(extruderActualSizeTxt.getText().substring(l + 1, s));
+				}
 			}
 		});
 
 		extruderFlatPlateBagCmb.valueProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-				if (extruderWidthTxt.getText().trim().isEmpty()) {
-					extruderWidthTxt.setStyle(" -fx-border-color: #CD5C5C; -fx-focus-color: #CD5C5C;");
-				} else {
-					extruderWidthTxt.setStyle(null);
-				}
 				int w = extruderActualSizeTxt.getText().lastIndexOf("*");
 				if (extruderThicknessTxt.getText().equals(extruderActualSizeTxt.getText().substring(w + 1))) {
 					extruderThicknessTxt.setStyle(null);
 				} else {
 					new MessageLabel().errorMessage("Üresek a mezők", messageLbl);
-					extruderThicknessTxt.setStyle(" -fx-border-color: #CD5C5C; -fx-focus-color: #CD5C5C;");
 				}
 				if (!extruderWidthTxt.getText().trim().isEmpty() && !extruderThicknessTxt.getText().trim().isEmpty()) {
 					NumberFormat formatter = new DecimalFormat("##.##");
 					Integer sWidth = Integer.parseInt(extruderWidthTxt.getText());
-					Integer sLenght = Integer.parseInt(extruderLengthTxt.getText());
 					double sThickness = Double.valueOf(extruderThicknessTxt.getText());
-					Integer sFlatPlateBag = Integer.parseInt(newValue);
-					double sum = sWidth * sThickness * sFlatPlateBag * 0.92;
-					String f = String.valueOf(formatter.format(sum));
-					double sGrammMeterTxt = Double.parseDouble(f.replace(",", "."));
-					extruderGrammMeterTxt.setText(String.valueOf(sGrammMeterTxt));
-					if (!extruderLengthTxt.getText().trim().isEmpty()) {
-						double d = sWidth * sLenght * sThickness * sFlatPlateBag * 0.92 / 1000000;
-						extruderOrderedKgTxt.setText(String.valueOf(d));
+					if (extruderFlatPlateBagCmb.getValue() != null) {
+						Integer sFlatPlateBag = Integer.parseInt(extruderFlatPlateBagCmb.getValue());
+						double sum = sWidth * sThickness * sFlatPlateBag * 0.92;
+						String f = String.valueOf(formatter.format(sum));
+						double sGrammMeterTxt = Double.parseDouble(f.replace(",", "."));
+						extruderGrammMeterTxt.setText(String.valueOf(sGrammMeterTxt));
+
 					}
+
 				} else {
 					new MessageLabel().errorMessage("Üresek a mezők", messageLbl);
 				}
 
+			}
+		});
+
+		extruderOrderedDbTxt.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				if (!newValue.trim().isEmpty()) {
+					NumberFormat formatter = new DecimalFormat("##.##");
+					Integer sWidth = Integer.parseInt(extruderWidthTxt.getText());
+					Integer sLength = Integer.parseInt(extruderLengthTxt.getText());
+					double sThickness = Double.parseDouble(extruderThicknessTxt.getText());
+					Integer sFlatPlateBag = Integer.parseInt(extruderFlatPlateBagCmb.getValue());
+					double s = sWidth * sLength * sThickness * sFlatPlateBag * 0.92 / 1000000;
+					Integer g = Integer.parseInt(extruderOrderedDbTxt.getText());
+					String f = String.valueOf(formatter.format(s * g));
+					double sGrammMeterTxt = Double.parseDouble(f.replace(",", "."));
+					extruderOrderedKgTxt.setText(String.valueOf(sGrammMeterTxt));
+				}
 			}
 		});
 	}

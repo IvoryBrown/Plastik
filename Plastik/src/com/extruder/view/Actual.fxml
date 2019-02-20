@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -19,7 +20,7 @@
          <children>
             <HBox prefHeight="30.0" prefWidth="1127.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label fx:id="messageLbl" alignment="CENTER" prefHeight="30.0" prefWidth="3000.0" text="Label" />
+                  <Label fx:id="messageLbl" alignment="CENTER" prefHeight="30.0" prefWidth="3000.0" />
                </children>
             </HBox>
             <MenuButton fx:id="manufactureMenuBar" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" />
@@ -44,7 +45,7 @@
                         <Button fx:id="extruderNameBtn14" mnemonicParsing="false" prefHeight="30.0" text="Button" />
                      </children>
                   </HBox>
-                  <AnchorPane fx:id="extruderNewJobsPane" layoutY="33.0" prefHeight="637.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
+                  <AnchorPane fx:id="extruderNewJobsPane" layoutY="33.0" prefHeight="637.0" prefWidth="1300.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
                      <children>
                         <VBox prefHeight="637.0" prefWidth="149.0">
                            <children>
@@ -52,72 +53,119 @@
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
                               </Label>
                               <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Extruder gép">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
                               </Label>
                               <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Azonosító">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
                               </Label>
                               <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Határidő">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
                               </Label>
                               <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Alapanyag">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
                               </Label>
                               <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Tényleges méret">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
                               </Label>
                               <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Szélesség(mm)">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
                               </Label>
                               <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Hossz(mm)">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
                               </Label>
                               <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Vastagság(my)">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
                               </Label>
                               <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Zsák/Síklap (2/1)">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
                               </Label>
                               <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="g/m">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Megrendelt db">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
                               </Label>
                               <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Megrendelt kg">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
                               </Label>
                               <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="300.0" text="Megjegyzés">
                                  <VBox.margin>
                                     <Insets top="5.0" />
                                  </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
                               </Label>
                            </children>
                         </VBox>
                         <VBox layoutX="149.0" prefHeight="637.0" prefWidth="149.0">
                            <children>
-                              <TextField fx:id="extruderClientNameTxt" prefHeight="25.0">
+                              <TextField fx:id="extruderClientNameTxt" prefHeight="25.0" promptText="Név">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
@@ -127,7 +175,7 @@
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </ComboBox>
-                              <TextField fx:id="extruderIdentificationTxt" editable="false" prefHeight="25.0">
+                              <TextField fx:id="extruderIdentificationTxt" editable="false" prefHeight="25.0" promptText="Generalt">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
@@ -142,22 +190,22 @@
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </ComboBox>
-                              <TextField fx:id="extruderActualSizeTxt" prefHeight="25.0">
+                              <TextField fx:id="extruderActualSizeTxt" prefHeight="25.0" promptText="201*213*0.12">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="extruderWidthTxt" prefHeight="25.0">
+                              <TextField fx:id="extruderWidthTxt" prefHeight="25.0" promptText="201">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="extruderLengthTxt" prefHeight="25.0">
+                              <TextField fx:id="extruderLengthTxt" prefHeight="25.0" promptText="213">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="extruderThicknessTxt" prefHeight="25.0">
+                              <TextField fx:id="extruderThicknessTxt" prefHeight="25.0" promptText="0.12">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
@@ -167,12 +215,17 @@
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </ComboBox>
-                              <TextField fx:id="extruderGrammMeterTxt" prefHeight="25.0">
+                              <TextField fx:id="extruderGrammMeterTxt" prefHeight="25.0" promptText="16.12">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="extruderOrderedKgTxt" prefHeight="25.0">
+                              <TextField fx:id="extruderOrderedDbTxt" prefHeight="25.0" promptText="Opcionális">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="extruderOrderedKgTxt" prefHeight="25.0" promptText="213.4">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
@@ -189,10 +242,10 @@
                             <Label text="Nem található adat" />
                           </placeholder>
                           </TableView>
-                        <Button fx:id="saveButton" layoutX="836.0" layoutY="115.0" mnemonicParsing="false" text="Button" />
+                        <Button fx:id="saveButton" layoutX="376.0" layoutY="202.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" styleClass="saveButtonCenter" stylesheets="@../../main/view/css/button.css" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="extruderActualJobsPane" layoutY="33.0" prefHeight="637.0" prefWidth="1300.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
+                  <AnchorPane fx:id="extruderActualJobsPane" layoutY="33.0" prefHeight="637.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
                      <children>
                         <TableView fx:id="extruderTableView" layoutY="204.0" prefHeight="433.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="204.0" />
                      </children>

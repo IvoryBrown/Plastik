@@ -39,7 +39,7 @@ public class ExtruderController implements Initializable {
 	private TableView<Client> clientPopupTableView;
 	@FXML
 	private TextField extruderClientNameTxt, extruderIdentificationTxt, extruderActualSizeTxt, extruderWidthTxt,
-			extruderLengthTxt, extruderThicknessTxt, extruderGrammMeterTxt, extruderOrderedKgTxt;
+			extruderLengthTxt, extruderThicknessTxt, extruderGrammMeterTxt, extruderOrderedKgTxt, extruderOrderedDbTxt;
 	@FXML
 	private TextArea extruderComment;
 	@FXML
@@ -66,8 +66,8 @@ public class ExtruderController implements Initializable {
 		jobsPane();
 		new NewJobController(clientPopupTableView, extruderClientNameTxt, extruderIdentificationTxt,
 				extruderActualSizeTxt, extruderWidthTxt, extruderLengthTxt, extruderThicknessTxt, extruderGrammMeterTxt,
-				extruderOrderedKgTxt, extruderEndDate, extruderCommodityCmb, extruderFlatPlateBagCmb, extruderNameCmb,
-				saveButton, extruderComment, messageLbl);
+				extruderOrderedKgTxt, extruderOrderedDbTxt, extruderEndDate, extruderCommodityCmb,
+				extruderFlatPlateBagCmb, extruderNameCmb, saveButton, extruderComment, messageLbl);
 	}
 
 	@FXML
