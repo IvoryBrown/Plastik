@@ -1,4 +1,4 @@
-package com.extruder.newjob.controller;
+package com.extruder.newjob.database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

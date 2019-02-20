@@ -6,6 +6,8 @@ import java.util.ResourceBundle;
 import com.client.pojo.Client;
 import com.extruder.name.ExtruderName;
 import com.extruder.newjob.controller.NewJobController;
+import com.extruder.pojo.Extruder;
+import com.extruder.table.controller.TableController;
 import com.menu.calculations.CalculationsController;
 
 import javafx.fxml.FXML;
@@ -34,7 +36,7 @@ public class ExtruderController implements Initializable {
 	@FXML
 	private AnchorPane extruderNewJobsPane, extruderActualJobsPane;
 	@FXML
-	private TableView<String> extruderTableView;
+	private TableView<Extruder> extruderTableView;
 	@FXML
 	private TableView<Client> clientPopupTableView;
 	@FXML
@@ -73,6 +75,7 @@ public class ExtruderController implements Initializable {
 	@FXML
 	private void extruderNameBtn1() {
 		actualJobsPane();
+		new TableController(extruderTableView, messageLbl);
 	}
 
 	@Override
