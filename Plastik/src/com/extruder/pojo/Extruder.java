@@ -6,6 +6,7 @@ public class Extruder {
 
 	private final SimpleStringProperty extruderId;
 	private final SimpleStringProperty extruderClientId;
+	private final SimpleStringProperty extruderClientName;
 	private final SimpleStringProperty extruderIdentification;
 	private final SimpleStringProperty extruderStatus;
 	private final SimpleStringProperty extruderAddDate;
@@ -18,13 +19,13 @@ public class Extruder {
 	private final SimpleStringProperty extruderFlatPlateBag;
 	private final SimpleStringProperty extruderGrammMeter;
 	private final SimpleStringProperty extruderOrderedKg;
-	private final SimpleStringProperty extruderActualKg;
 	private final SimpleStringProperty extruderName;
 	private final SimpleStringProperty extruderComment;
 
 	public Extruder() {
 		this.extruderId = new SimpleStringProperty(String.valueOf(""));
 		this.extruderClientId = new SimpleStringProperty(String.valueOf(""));
+		this.extruderClientName = new SimpleStringProperty("");
 		this.extruderIdentification = new SimpleStringProperty("");
 		this.extruderStatus = new SimpleStringProperty("");
 		this.extruderAddDate = new SimpleStringProperty("");
@@ -37,7 +38,6 @@ public class Extruder {
 		this.extruderFlatPlateBag = new SimpleStringProperty("");
 		this.extruderGrammMeter = new SimpleStringProperty("");
 		this.extruderOrderedKg = new SimpleStringProperty("");
-		this.extruderActualKg = new SimpleStringProperty("");
 		this.extruderName = new SimpleStringProperty("");
 		this.extruderComment = new SimpleStringProperty("");
 	}
@@ -45,10 +45,10 @@ public class Extruder {
 	public Extruder(String extruderClientId, String extruderIdentification, String extruderStatus,
 			String extruderAddDate, String extruderEndDate, String extruderCommodity, String extruderActualSize,
 			String extruderWidth, String extruderLength, String extruderThickness, String extruderFlatPlateBag,
-			String extruderGrammMeter, String extruderOrderedKg, String extruderActualKg, String extruderName,
-			String extruderComment) {
+			String extruderGrammMeter, String extruderOrderedKg, String extruderName, String extruderComment) {
 		this.extruderId = new SimpleStringProperty(String.valueOf(""));
 		this.extruderClientId = new SimpleStringProperty(String.valueOf(extruderClientId));
+		this.extruderClientName = new SimpleStringProperty("");
 		this.extruderIdentification = new SimpleStringProperty(extruderIdentification);
 		this.extruderStatus = new SimpleStringProperty(extruderStatus);
 		this.extruderAddDate = new SimpleStringProperty(extruderAddDate);
@@ -61,17 +61,18 @@ public class Extruder {
 		this.extruderFlatPlateBag = new SimpleStringProperty(extruderFlatPlateBag);
 		this.extruderGrammMeter = new SimpleStringProperty(extruderGrammMeter);
 		this.extruderOrderedKg = new SimpleStringProperty(extruderOrderedKg);
-		this.extruderActualKg = new SimpleStringProperty(extruderActualKg);
 		this.extruderName = new SimpleStringProperty(extruderName);
 		this.extruderComment = new SimpleStringProperty(extruderComment);
 	}
-	public Extruder(Integer extruderId,Integer extruderClientId, String extruderIdentification, String extruderStatus,
-			String extruderAddDate, String extruderEndDate, String extruderCommodity, String extruderActualSize,
-			String extruderWidth, String extruderLength, String extruderThickness, String extruderFlatPlateBag,
-			String extruderGrammMeter, String extruderOrderedKg, String extruderActualKg, String extruderName,
-			String extruderComment) {
+
+	public Extruder(Integer extruderId, Integer extruderClientId, String extruderClientName,
+			String extruderIdentification, String extruderStatus, String extruderAddDate, String extruderEndDate,
+			String extruderCommodity, String extruderActualSize, String extruderWidth, String extruderLength,
+			String extruderThickness, String extruderFlatPlateBag, String extruderGrammMeter, String extruderOrderedKg,
+			String extruderName, String extruderComment) {
 		this.extruderId = new SimpleStringProperty(String.valueOf(extruderId));
 		this.extruderClientId = new SimpleStringProperty(String.valueOf(extruderClientId));
+		this.extruderClientName = new SimpleStringProperty(String.valueOf(extruderClientName));
 		this.extruderIdentification = new SimpleStringProperty(extruderIdentification);
 		this.extruderStatus = new SimpleStringProperty(extruderStatus);
 		this.extruderAddDate = new SimpleStringProperty(extruderAddDate);
@@ -84,7 +85,6 @@ public class Extruder {
 		this.extruderFlatPlateBag = new SimpleStringProperty(extruderFlatPlateBag);
 		this.extruderGrammMeter = new SimpleStringProperty(extruderGrammMeter);
 		this.extruderOrderedKg = new SimpleStringProperty(extruderOrderedKg);
-		this.extruderActualKg = new SimpleStringProperty(extruderActualKg);
 		this.extruderName = new SimpleStringProperty(extruderName);
 		this.extruderComment = new SimpleStringProperty(extruderComment);
 	}
@@ -111,6 +111,18 @@ public class Extruder {
 
 	public void setExtruderClientId(String extruderClientId) {
 		this.extruderClientId.set(extruderClientId);
+	}
+
+	public SimpleStringProperty getExtruderClientNameProperty() {
+		return this.extruderClientName;
+	}
+
+	public String getExtruderClientName() {
+		return this.extruderClientName.get();
+	}
+
+	public void setExtruderClientName(String extruderClientName) {
+		this.extruderClientName.set(extruderClientName);
 	}
 
 	public SimpleStringProperty getExtruderIdentificationProperty() {
@@ -255,18 +267,6 @@ public class Extruder {
 
 	public void setExtruderOrderedKg(String extruderOrderedKg) {
 		this.extruderOrderedKg.set(extruderOrderedKg);
-	}
-
-	public SimpleStringProperty getExtruderActualKgProperty() {
-		return this.extruderActualKg;
-	}
-
-	public String getExtruderActualKg() {
-		return this.extruderActualKg.get();
-	}
-
-	public void setExtruderActualKg(String extruderActualKg) {
-		this.extruderActualKg.set(extruderActualKg);
 	}
 
 	public SimpleStringProperty getExtruderNameProperty() {

@@ -29,7 +29,7 @@
                   <HBox alignment="CENTER" layoutX="80.0" layoutY="285.0" prefHeight="30.0" prefWidth="1220.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Button fx:id="extruderNewJobBtn" mnemonicParsing="false" onAction="#extruderNewJobBtn" prefHeight="30.0" text="Új felvétel" />
-                        <Button fx:id="extruderNameBtn1" mnemonicParsing="false" onAction="#extruderNameBtn1" prefHeight="30.0" text="Button" />
+                        <Button fx:id="extruderNameBtn1" mnemonicParsing="false" prefHeight="30.0" text="Button" />
                         <Button fx:id="extruderNameBtn2" mnemonicParsing="false" prefHeight="30.0" text="Button" />
                         <Button fx:id="extruderNameBtn3" mnemonicParsing="false" prefHeight="30.0" text="Button" />
                         <Button fx:id="extruderNameBtn4" mnemonicParsing="false" prefHeight="30.0" text="Button" />
@@ -43,6 +43,7 @@
                         <Button fx:id="extruderNameBtn12" mnemonicParsing="false" prefHeight="30.0" text="Button" />
                         <Button fx:id="extruderNameBtn13" mnemonicParsing="false" prefHeight="30.0" text="Button" />
                         <Button fx:id="extruderNameBtn14" mnemonicParsing="false" prefHeight="30.0" text="Button" />
+                        <Button fx:id="extruderNameAllBtn" mnemonicParsing="false" prefHeight="30.0" text="Összes" />
                      </children>
                   </HBox>
                   <AnchorPane fx:id="extruderNewJobsPane" layoutY="33.0" prefHeight="637.0" prefWidth="1300.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
@@ -247,7 +248,7 @@
                   </AnchorPane>
                   <AnchorPane fx:id="extruderActualJobsPane" layoutY="33.0" prefHeight="637.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
                      <children>
-                        <TableView fx:id="extruderTableView" layoutY="204.0" prefHeight="433.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="204.0" />
+                        <TableView fx:id="extruderTableView" editable="true" layoutY="204.0" prefHeight="433.0" prefWidth="1300.0" stylesheets="@../../main/view/css/tableextruder.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="204.0" />
                      </children>
                   </AnchorPane>
                </children></AnchorPane>

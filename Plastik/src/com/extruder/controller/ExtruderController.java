@@ -30,7 +30,7 @@ public class ExtruderController implements Initializable {
 	@FXML
 	private Button extruderNameBtn1, extruderNameBtn2, extruderNameBtn3, extruderNameBtn4, extruderNameBtn5,
 			extruderNameBtn6, extruderNameBtn7, extruderNameBtn8, extruderNameBtn9, extruderNameBtn10,
-			extruderNameBtn11, extruderNameBtn12, extruderNameBtn13, extruderNameBtn14;
+			extruderNameBtn11, extruderNameBtn12, extruderNameBtn13, extruderNameBtn14,extruderNameAllBtn;
 	@FXML
 	private Button extruderNewJobBtn, saveButton;
 	@FXML
@@ -58,11 +58,6 @@ public class ExtruderController implements Initializable {
 		extruderActualJobsPane.setVisible(false);
 	}
 
-	private void actualJobsPane() {
-		extruderNewJobsPane.setVisible(false);
-		extruderActualJobsPane.setVisible(true);
-	}
-
 	@FXML
 	private void extruderNewJobBtn() {
 		jobsPane();
@@ -72,10 +67,11 @@ public class ExtruderController implements Initializable {
 				extruderFlatPlateBagCmb, extruderNameCmb, saveButton, extruderComment, messageLbl);
 	}
 
-	@FXML
 	private void extruderNameBtn1() {
-		actualJobsPane();
-		new TableController(extruderTableView, messageLbl);
+		new TableController(extruderNewJobsPane, extruderActualJobsPane, extruderTableView, messageLbl,
+				extruderNameBtn1, extruderNameBtn2, extruderNameBtn3, extruderNameBtn4, extruderNameBtn5,
+				extruderNameBtn6, extruderNameBtn7, extruderNameBtn8, extruderNameBtn9, extruderNameBtn10,
+				extruderNameBtn11, extruderNameBtn12, extruderNameBtn13, extruderNameBtn14,extruderNameAllBtn);
 	}
 
 	@Override
@@ -84,6 +80,7 @@ public class ExtruderController implements Initializable {
 		new ExtruderName(extruderNameBtn1, extruderNameBtn2, extruderNameBtn3, extruderNameBtn4, extruderNameBtn5,
 				extruderNameBtn6, extruderNameBtn7, extruderNameBtn8, extruderNameBtn9, extruderNameBtn10,
 				extruderNameBtn11, extruderNameBtn12, extruderNameBtn13, extruderNameBtn14);
+		extruderNameBtn1();
 	}
 
 }

@@ -230,7 +230,7 @@ public class NewJobController {
 						LocalDate.now().toString(), extruderEndDate.getValue().toString(),
 						extruderCommodityCmb.getValue(), extruderActualSizeTxt.getText(), extruderWidthTxt.getText(),
 						extruderLengthTxt.getText(), extruderThicknessTxt.getText(), extruderFlatPlateBagCmb.getValue(),
-						extruderGrammMeterTxt.getText(), extruderOrderedKgTxt.getText(), extruderOrderedKgTxt.getText(),
+						extruderGrammMeterTxt.getText(), extruderOrderedKgTxt.getText(),
 						extruderNameCmb.getValue(), extruderComment.getText()));
 				clearTextField();
 				new MessageLabel().goodMessage("Sikeres mentés", messageLbl);
