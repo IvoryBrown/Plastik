@@ -7,16 +7,25 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.client.pojo.Client;
 import com.extruder.pojo.Extruder;
 import com.setting.database.DataBaseLocal;
 import com.setting.showinfo.ShowInfo;
 
 public class TableDataBase {
 
-	public ArrayList<Extruder> getAllExtruder(String extruderName) {
-		String sql = "SELECT * FROM `megrendelo` JOIN `extruder` ON megrendelo_id = megrendelo_megrendelo_id WHERE (`extruder_nev`) LIKE '%"
-				+ extruderName + "%' ";
+	public ArrayList<Extruder> getAllExtruder(String extruderName, String filter, boolean check) {
+		String s = "1";
+		if (check) {
+			s = "Folyamatban";
+		} else {
+			s = "";
+		}
+		System.out.println(s);
+		String sql = "SELECT * FROM `megrendelo` JOIN `extruder` ON megrendelo_id = megrendelo_megrendelo_id WHERE extruder_nev LIKE '"
+				+ extruderName + "'&& (`megrendelo_nev`) LIKE '%" + filter + "%'" + " || extruder_nev LIKE '"
+				+ extruderName + "'" + "&& (`azonostio`) LIKE '%" + filter + "%'"
+				+"' || allapot LIKE '" + s + "';"
+				;
 		Connection con = DataBaseLocal.getConnection();
 		ArrayList<Extruder> extruder = null;
 		Statement createStatement = null;
@@ -61,10 +70,12 @@ public class TableDataBase {
 		Connection conn = DataBaseLocal.getConnection();
 		PreparedStatement pr = null;
 		try {
-			String sqlClient = "UPDATE `extruder` SET allapot = ? WHERE extruder_id = ?";
+			String sqlClient = "UPDATE `extruder` SET allapot = ?, extruder_nev = ?, megjegyzes = ? WHERE extruder_id = ?";
 			pr = conn.prepareStatement(sqlClient);
 			pr.setString(1, extruder.getExtruderStatus());
-			pr.setInt(2, Integer.parseInt(extruder.getExtruderId()));
+			pr.setString(2, extruder.getExtruderName());
+			pr.setString(3, extruder.getExtruderComment());
+			pr.setInt(4, Integer.parseInt(extruder.getExtruderId()));
 			pr.execute();
 		} catch (SQLException ex) {
 			System.out.println(ex);

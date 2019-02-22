@@ -5,17 +5,18 @@ import com.project.setting.machine.pojo.Machine;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 
 public class ExtruderName {
 	private final ObservableList<Machine> dataExtruderName = FXCollections.observableArrayList();
 	private MachineDataBase machineDataBase = new MachineDataBase();
 
-	public ExtruderName(Button extruderNameBtn1, Button extruderNameBtn2, Button extruderNameBtn3,
-			Button extruderNameBtn4, Button extruderNameBtn5, Button extruderNameBtn6, Button extruderNameBtn7,
-			Button extruderNameBtn8, Button extruderNameBtn9, Button extruderNameBtn10, Button extruderNameBtn11,
-			Button extruderNameBtn12, Button extruderNameBtn13, Button extruderNameBtn14) {
+	public ExtruderName(ToggleButton extruderNameAllBtn, ToggleButton extruderNameBtn1, ToggleButton extruderNameBtn2, ToggleButton extruderNameBtn3,
+			ToggleButton extruderNameBtn4, ToggleButton extruderNameBtn5, ToggleButton extruderNameBtn6, ToggleButton extruderNameBtn7,
+			ToggleButton extruderNameBtn8, ToggleButton extruderNameBtn9, ToggleButton extruderNameBtn10, ToggleButton extruderNameBtn11,
+			ToggleButton extruderNameBtn12, ToggleButton extruderNameBtn13, ToggleButton extruderNameBtn14) {
 		dataExtruderName.addAll(machineDataBase.getAllMachine());
+		extruderNameAllBtn.setText("Összes");
 		extruderNameBtn1.setText(dataExtruderName.get(0).getMachineName());
 		extruderNameBtn2.setText(dataExtruderName.get(1).getMachineName());
 		extruderNameBtn3.setText(dataExtruderName.get(2).getMachineName());
