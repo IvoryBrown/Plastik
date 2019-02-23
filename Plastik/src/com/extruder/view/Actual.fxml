@@ -24,12 +24,12 @@
                   <Label fx:id="messageLbl" alignment="CENTER" prefHeight="30.0" prefWidth="3000.0" />
                </children>
             </HBox>
-            <MenuButton fx:id="manufactureMenuBar" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" />
+            <MenuButton fx:id="manufactureMenuBar" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" styleClass="settingButton" stylesheets="@../../main/view/css/button.css" />
             <AnchorPane layoutY="30.0" prefHeight="668.0" prefWidth="1115.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
                <children>
                   <HBox fx:id="hBox" alignment="CENTER" layoutX="80.0" layoutY="285.0" prefHeight="30.0" prefWidth="1220.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Button fx:id="extruderNewJobBtn" mnemonicParsing="false" onAction="#extruderNewJobBtn" prefHeight="30.0" text="Új felvétel" />
+                        <Button fx:id="extruderNewJobBtn" mnemonicParsing="false" onAction="#extruderNewJobBtn" prefHeight="30.0" styleClass="extruderButton" stylesheets="@../../main/view/css/button.css" text="Új felvétel" />
                      </children>
                   </HBox>
                   <AnchorPane fx:id="extruderNewJobsPane" layoutY="33.0" prefHeight="637.0" prefWidth="1300.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">

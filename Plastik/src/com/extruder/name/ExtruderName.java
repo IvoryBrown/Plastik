@@ -31,6 +31,35 @@ public class ExtruderName {
 		extruderNameBtn12.setText(dataExtruderName.get(11).getMachineName());
 		extruderNameBtn13.setText(dataExtruderName.get(12).getMachineName());
 		extruderNameBtn14.setText(dataExtruderName.get(13).getMachineName());
-
+		extruderNameAllBtn. getStylesheets().add(getClass().getResource("/com/main/view/css/button.css").toExternalForm());
+		extruderNameAllBtn.getStyleClass().add("extruderButton");
+		extruderNameBtn1. getStylesheets().add(getClass().getResource("/com/main/view/css/button.css").toExternalForm());
+		extruderNameBtn1.getStyleClass().add("extruderButton");
+		extruderNameBtn2. getStylesheets().add(getClass().getResource("/com/main/view/css/button.css").toExternalForm());
+		extruderNameBtn2.getStyleClass().add("extruderButton");
+		extruderNameBtn3. getStylesheets().add(getClass().getResource("/com/main/view/css/button.css").toExternalForm());
+		extruderNameBtn3.getStyleClass().add("extruderButton");
+		extruderNameBtn4. getStylesheets().add(getClass().getResource("/com/main/view/css/button.css").toExternalForm());
+		extruderNameBtn4.getStyleClass().add("extruderButton");
+		extruderNameBtn5. getStylesheets().add(getClass().getResource("/com/main/view/css/button.css").toExternalForm());
+		extruderNameBtn5.getStyleClass().add("extruderButton");
+		extruderNameBtn6. getStylesheets().add(getClass().getResource("/com/main/view/css/button.css").toExternalForm());
+		extruderNameBtn6.getStyleClass().add("extruderButton");
+		extruderNameBtn7. getStylesheets().add(getClass().getResource("/com/main/view/css/button.css").toExternalForm());
+		extruderNameBtn7.getStyleClass().add("extruderButton");
+		extruderNameBtn8. getStylesheets().add(getClass().getResource("/com/main/view/css/button.css").toExternalForm());
+		extruderNameBtn8.getStyleClass().add("extruderButton");
+		extruderNameBtn9. getStylesheets().add(getClass().getResource("/com/main/view/css/button.css").toExternalForm());
+		extruderNameBtn9.getStyleClass().add("extruderButton");
+		extruderNameBtn10. getStylesheets().add(getClass().getResource("/com/main/view/css/button.css").toExternalForm());
+		extruderNameBtn10.getStyleClass().add("extruderButton");
+		extruderNameBtn11. getStylesheets().add(getClass().getResource("/com/main/view/css/button.css").toExternalForm());
+		extruderNameBtn11.getStyleClass().add("extruderButton");
+		extruderNameBtn12. getStylesheets().add(getClass().getResource("/com/main/view/css/button.css").toExternalForm());
+		extruderNameBtn12.getStyleClass().add("extruderButton");
+		extruderNameBtn13. getStylesheets().add(getClass().getResource("/com/main/view/css/button.css").toExternalForm());
+		extruderNameBtn13.getStyleClass().add("extruderButton");
+		extruderNameBtn14. getStylesheets().add(getClass().getResource("/com/main/view/css/button.css").toExternalForm());
+		extruderNameBtn14.getStyleClass().add("extruderButton");
 	}
 }

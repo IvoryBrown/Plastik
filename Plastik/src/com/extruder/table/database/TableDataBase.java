@@ -20,12 +20,12 @@ public class TableDataBase {
 		} else {
 			s = "";
 		}
-		System.out.println(s);
-		String sql = "SELECT * FROM `megrendelo` JOIN `extruder` ON megrendelo_id = megrendelo_megrendelo_id WHERE extruder_nev LIKE '"
-				+ extruderName + "'&& (`megrendelo_nev`) LIKE '%" + filter + "%'" + " || extruder_nev LIKE '"
-				+ extruderName + "'" + "&& (`azonostio`) LIKE '%" + filter + "%'"
-				+"' || allapot LIKE '" + s + "';"
-				;
+		String sql = "SELECT * FROM `megrendelo` JOIN `extruder` ON megrendelo_id = megrendelo_megrendelo_id WHERE "
+				+ "(`extruder_nev`) LIKE '%" + extruderName + "'&& (`allapot`) LIKE '%" + s + "%'"
+				+ "&& (`megrendelo_nev`) LIKE '%" + filter + "%'" + " || (`extruder_nev`) LIKE '%" + extruderName + "'"
+				+ "&& (`allapot`) LIKE '%" + s + "%'" + "&& (`azonostio`) LIKE '%" + filter + "%'"
+
+		;
 		Connection con = DataBaseLocal.getConnection();
 		ArrayList<Extruder> extruder = null;
 		Statement createStatement = null;

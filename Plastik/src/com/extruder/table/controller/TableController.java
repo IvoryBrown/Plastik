@@ -257,9 +257,9 @@ public class TableController {
 		});
 	}
 
-	private ObservableList<Extruder> extruderData(String extruderName, String clientName) {
+	private ObservableList<Extruder> extruderData(String extruderName) {
 		dataExtruder.clear();
-		dataExtruder.addAll(tableDataBase.getAllExtruder(extruderName, clientName, statusCbox.isSelected()));
+		dataExtruder.addAll(tableDataBase.getAllExtruder(extruderName, extruderFilteringTxt.getText(), statusCbox.isSelected()));
 		return dataExtruder;
 
 	}
@@ -271,49 +271,49 @@ public class TableController {
 
 	private void updateDataTable() {
 		if (extruderNameBtn1.isSelected()) {
-			extruderTableView.setItems(extruderData(extruderNameBtn1.getText(), extruderFilteringTxt.getText()));
+			extruderTableView.setItems(extruderData(extruderNameBtn1.getText()));
 		}
 		if (extruderNameBtn2.isSelected()) {
-			extruderTableView.setItems(extruderData(extruderNameBtn2.getText(), extruderFilteringTxt.getText()));
+			extruderTableView.setItems(extruderData(extruderNameBtn2.getText()));
 		}
 		if (extruderNameBtn3.isSelected()) {
-			extruderTableView.setItems(extruderData(extruderNameBtn3.getText(), extruderFilteringTxt.getText()));
+			extruderTableView.setItems(extruderData(extruderNameBtn3.getText()));
 		}
 		if (extruderNameBtn4.isSelected()) {
-			extruderTableView.setItems(extruderData(extruderNameBtn4.getText(), extruderFilteringTxt.getText()));
+			extruderTableView.setItems(extruderData(extruderNameBtn4.getText()));
 		}
 		if (extruderNameBtn5.isSelected()) {
-			extruderTableView.setItems(extruderData(extruderNameBtn5.getText(), extruderFilteringTxt.getText()));
+			extruderTableView.setItems(extruderData(extruderNameBtn5.getText()));
 		}
 		if (extruderNameBtn6.isSelected()) {
-			extruderTableView.setItems(extruderData(extruderNameBtn6.getText(), extruderFilteringTxt.getText()));
+			extruderTableView.setItems(extruderData(extruderNameBtn6.getText()));
 		}
 		if (extruderNameBtn7.isSelected()) {
-			extruderTableView.setItems(extruderData(extruderNameBtn7.getText(), extruderFilteringTxt.getText()));
+			extruderTableView.setItems(extruderData(extruderNameBtn7.getText()));
 		}
 		if (extruderNameBtn8.isSelected()) {
-			extruderTableView.setItems(extruderData(extruderNameBtn8.getText(), extruderFilteringTxt.getText()));
+			extruderTableView.setItems(extruderData(extruderNameBtn8.getText()));
 		}
 		if (extruderNameBtn9.isSelected()) {
-			extruderTableView.setItems(extruderData(extruderNameBtn9.getText(), extruderFilteringTxt.getText()));
+			extruderTableView.setItems(extruderData(extruderNameBtn9.getText()));
 		}
 		if (extruderNameBtn10.isSelected()) {
-			extruderTableView.setItems(extruderData(extruderNameBtn10.getText(), extruderFilteringTxt.getText()));
+			extruderTableView.setItems(extruderData(extruderNameBtn10.getText()));
 		}
 		if (extruderNameBtn11.isSelected()) {
-			extruderTableView.setItems(extruderData(extruderNameBtn11.getText(), extruderFilteringTxt.getText()));
+			extruderTableView.setItems(extruderData(extruderNameBtn11.getText()));
 		}
 		if (extruderNameBtn12.isSelected()) {
-			extruderTableView.setItems(extruderData(extruderNameBtn12.getText(), extruderFilteringTxt.getText()));
+			extruderTableView.setItems(extruderData(extruderNameBtn12.getText()));
 		}
 		if (extruderNameBtn13.isSelected()) {
-			extruderTableView.setItems(extruderData(extruderNameBtn13.getText(), extruderFilteringTxt.getText()));
+			extruderTableView.setItems(extruderData(extruderNameBtn13.getText()));
 		}
 		if (extruderNameBtn14.isSelected()) {
-			extruderTableView.setItems(extruderData(extruderNameBtn14.getText(), extruderFilteringTxt.getText()));
+			extruderTableView.setItems(extruderData(extruderNameBtn14.getText()));
 		}
 		if (extruderNameAllBtn.isSelected()) {
-			extruderTableView.setItems(extruderData("", extruderFilteringTxt.getText()));
+			extruderTableView.setItems(extruderData(""));
 		}
 
 	}
@@ -335,63 +335,63 @@ public class TableController {
 		});
 		extruderNameBtn1.setOnAction((event) -> {
 			actualJobsPane();
-			extruderTableView.setItems(extruderData(extruderNameBtn1.getText(), ""));
+			extruderTableView.setItems(extruderData(extruderNameBtn1.getText()));
 		});
 		extruderNameBtn2.setOnAction((event) -> {
 			actualJobsPane();
-			extruderTableView.setItems(extruderData(extruderNameBtn2.getText(), ""));
+			extruderTableView.setItems(extruderData(extruderNameBtn2.getText()));
 		});
 		extruderNameBtn3.setOnAction((event) -> {
 			actualJobsPane();
-			extruderTableView.setItems(extruderData(extruderNameBtn3.getText(), ""));
+			extruderTableView.setItems(extruderData(extruderNameBtn3.getText()));
 		});
 		extruderNameBtn4.setOnAction((event) -> {
 			actualJobsPane();
-			extruderTableView.setItems(extruderData(extruderNameBtn4.getText(), ""));
+			extruderTableView.setItems(extruderData(extruderNameBtn4.getText()));
 		});
 		extruderNameBtn5.setOnAction((event) -> {
 			actualJobsPane();
-			extruderTableView.setItems(extruderData(extruderNameBtn5.getText(), ""));
+			extruderTableView.setItems(extruderData(extruderNameBtn5.getText()));
 		});
 		extruderNameBtn6.setOnAction((event) -> {
 			actualJobsPane();
-			extruderTableView.setItems(extruderData(extruderNameBtn6.getText(), ""));
+			extruderTableView.setItems(extruderData(extruderNameBtn6.getText()));
 		});
 		extruderNameBtn7.setOnAction((event) -> {
 			actualJobsPane();
-			extruderTableView.setItems(extruderData(extruderNameBtn7.getText(), ""));
+			extruderTableView.setItems(extruderData(extruderNameBtn7.getText()));
 		});
 		extruderNameBtn8.setOnAction((event) -> {
 			actualJobsPane();
-			extruderTableView.setItems(extruderData(extruderNameBtn8.getText(), ""));
+			extruderTableView.setItems(extruderData(extruderNameBtn8.getText()));
 		});
 		extruderNameBtn9.setOnAction((event) -> {
 			actualJobsPane();
-			extruderTableView.setItems(extruderData(extruderNameBtn9.getText(), ""));
+			extruderTableView.setItems(extruderData(extruderNameBtn9.getText()));
 		});
 		extruderNameBtn10.setOnAction((event) -> {
 			actualJobsPane();
-			extruderTableView.setItems(extruderData(extruderNameBtn10.getText(), ""));
+			extruderTableView.setItems(extruderData(extruderNameBtn10.getText()));
 		});
 		extruderNameBtn11.setOnAction((event) -> {
 			actualJobsPane();
-			extruderTableView.setItems(extruderData(extruderNameBtn11.getText(), ""));
+			extruderTableView.setItems(extruderData(extruderNameBtn11.getText()));
 		});
 		extruderNameBtn12.setOnAction((event) -> {
 			actualJobsPane();
-			extruderTableView.setItems(extruderData(extruderNameBtn12.getText(), ""));
+			extruderTableView.setItems(extruderData(extruderNameBtn12.getText()));
 		});
 		extruderNameBtn13.setOnAction((event) -> {
 			actualJobsPane();
-			extruderTableView.setItems(extruderData(extruderNameBtn13.getText(), ""));
+			extruderTableView.setItems(extruderData(extruderNameBtn13.getText()));
 		});
 		extruderNameBtn14.setOnAction((event) -> {
 			actualJobsPane();
-			extruderTableView.setItems(extruderData(extruderNameBtn14.getText(), ""));
+			extruderTableView.setItems(extruderData(extruderNameBtn14.getText()));
 		});
 		extruderNameAllBtn.setOnAction((event) -> {
 			actualJobsPane();
-			extruderTableView.setItems(extruderData("", ""));
+			extruderTableView.setItems(extruderData(""));
 		});
 	}
 }
