@@ -301,7 +301,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="calculationKgPane" layoutX="452.0" prefHeight="494.0" prefWidth="823.0" stylesheets="@../../main/view/css/button.css" visible="false">
+                  <AnchorPane fx:id="calculationKgPane" layoutX="452.0" prefHeight="494.0" prefWidth="823.0" stylesheets="@../../main/view/css/button.css">
                      <children>
                         <AnchorPane fx:id="calculationPane" layoutY="41.0" prefHeight="383.0" prefWidth="146.0">
                            <children>
@@ -419,8 +419,9 @@
                               </VBox>
                            </children>
                         </AnchorPane>
-                        <Button fx:id="saveBtn" layoutX="99.0" layoutY="437.0" mnemonicParsing="false" onAction="#saveBtn" prefHeight="25.0" prefWidth="50.0" styleClass="saveButtonCenter" />
+                        <Button fx:id="saveBtn" layoutX="207.0" layoutY="437.0" mnemonicParsing="false" onAction="#saveBtn" prefHeight="25.0" prefWidth="50.0" styleClass="saveButtonCenter" />
                         <Button fx:id="deleteBtn" layoutX="14.0" layoutY="437.0" mnemonicParsing="false" onAction="#deleteBtn" prefHeight="25.0" prefWidth="50.0" styleClass="deleteButton" />
+                        <TextField fx:id="calculationNameTxt" layoutX="146.0" layoutY="385.0" />
                      </children>
                   </AnchorPane>
                </children>

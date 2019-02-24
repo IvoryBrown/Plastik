@@ -237,7 +237,7 @@
                         <TableView fx:id="extruderTableView" editable="true" layoutY="81.0" prefHeight="556.0" prefWidth="1300.0" stylesheets="@../../main/view/css/tableextruder.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="81.0" />
                         <TextField fx:id="extruderFilteringTxt" layoutX="14.0" layoutY="48.0" prefHeight="25.0" promptText="Név, Azonosító" />
                         <Button fx:id="extruderFilteringBtn" layoutX="154.0" layoutY="48.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" styleClass="searchButton" stylesheets="@../../main/view/css/button.css" />
-                        <CheckBox fx:id="statusCbox" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Folyamatba" />
+                        <CheckBox fx:id="statusCbox" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Folyamatban" />
                      </children>
                   </AnchorPane>
                </children></AnchorPane>

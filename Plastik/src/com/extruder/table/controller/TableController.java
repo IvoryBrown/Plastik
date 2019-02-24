@@ -18,12 +18,15 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.ComboBoxTableCell;
+import javafx.scene.control.cell.ProgressBarTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyCode;
@@ -31,6 +34,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.StageStyle;
+import javafx.util.Callback;
 
 public class TableController {
 	private AnchorPane extruderNewJobsPane, extruderActualJobsPane;
@@ -162,9 +166,15 @@ public class TableController {
 				alert.initStyle(StageStyle.TRANSPARENT);
 				if (alert.showAndWait().orElse(ButtonType.NO) == ButtonType.YES) {
 					Extruder extruder = (Extruder) d.getTableView().getItems().get(d.getTablePosition().getRow());
-					extruder.setExtruderName(d.getNewValue());
-					tableDataBase.updateExtruder(extruder);
-					message.goodMessage("Extruder gép sikeres frissitése", messageLbl);
+					System.out.println(extruder.getExtruderStatus());
+					if (extruder.getExtruderStatus().equals("Folyamatban")) {
+						System.out.println("r");
+						extruder.setExtruderName(d.getNewValue());
+						tableDataBase.updateExtruder(extruder);
+						message.goodMessage("Extruder gép sikeres frissitése", messageLbl);
+					} else {
+						message.errorMessage("Hiba! Lezárt termék!", messageLbl);
+					}
 				}
 				updateDataTable();
 			}
@@ -250,18 +260,55 @@ public class TableController {
 			@Override
 			public void handle(TableColumn.CellEditEvent<Extruder, String> d) {
 				Extruder extruder = (Extruder) d.getTableView().getItems().get(d.getTablePosition().getRow());
-				extruder.setExtruderComment(d.getNewValue());
-				tableDataBase.updateExtruder(extruder);
-				message.goodMessage("Megjegyzés sikeres frissitése", messageLbl);
+				if (extruder.getExtruderStatus().equals("Folyamatban")) {
+					extruder.setExtruderComment(d.getNewValue());
+					tableDataBase.updateExtruder(extruder);
+					message.goodMessage("Megjegyzés sikeres frissitése", messageLbl);
+				} else {
+					message.errorMessage("Hiba! Lezárt termék!", messageLbl);
+				}
+				updateDataTable();
+			}
+		});
+
+		extruderTableView.setRowFactory(ts -> new TableRow<Extruder>() {
+			@Override
+			public void updateItem(Extruder item, boolean empty) {
+				super.updateItem(item, empty);
+
+				if (item == null) {
+					setStyle("");
+				} else {
+					setStyle("");
+					if (item.getExtruderStatus().equals("Elkészült")) {
+						setStyle("-fx-text-background-color: tomato;");
+					} else {
+						setStyle("-fx-text-background-color: whitesmoke;");
+
+					}
+
+				}
 			}
 		});
 	}
 
 	private ObservableList<Extruder> extruderData(String extruderName) {
 		dataExtruder.clear();
-		dataExtruder.addAll(tableDataBase.getAllExtruder(extruderName, extruderFilteringTxt.getText(), statusCbox.isSelected()));
+		dataExtruder.addAll(
+				tableDataBase.getAllExtruder(extruderName, extruderFilteringTxt.getText(), statusCbox.isSelected()));
 		return dataExtruder;
 
+	}
+
+	private void dataMessageSize() {
+		if (dataExtruder.size() != 0) {
+			message.goodMessage("Sikeres keresés: " + dataExtruder.size() + " találat", messageLbl);
+		} else {
+			message.errorMessage("Sikertelen keresés: " + dataExtruder.size() + " találat", messageLbl);
+		}
+		if (extruderFilteringTxt.getText().trim().isEmpty()) {
+			messageLbl.setText("");
+		}
 	}
 
 	private void actualJobsPane() {
@@ -321,12 +368,14 @@ public class TableController {
 	private void buttonOnAction() {
 		extruderFilteringBtn.setOnAction((event) -> {
 			updateDataTable();
+			dataMessageSize();
 		});
 		extruderFilteringTxt.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent ke) {
 				if (ke.getCode().equals(KeyCode.ENTER)) {
 					updateDataTable();
+					dataMessageSize();
 				}
 			}
 		});

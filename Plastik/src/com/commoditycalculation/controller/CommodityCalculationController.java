@@ -22,7 +22,7 @@ public class CommodityCalculationController implements Initializable {
 	@FXML
 	private Button backCommodity, nextCommodity, calculationCommodity, deleteBtn, saveBtn;
 	@FXML
-	private TextField quantityTxt;
+	private TextField quantityTxt, calculationNameTxt;
 	@FXML
 	private TextField commodityName1Txt, commodityName2Txt, commodityName3Txt, commodityName4Txt, commodityName5Txt,
 			commodityName6Txt, commodityName7Txt, commodityName8Txt;

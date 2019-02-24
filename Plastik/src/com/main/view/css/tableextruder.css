@@ -2,11 +2,13 @@
     -fx-background-color: transparent;
     -fx-border-color: #808000;
     -fx-background-color: #262626;
-}
+} 
+ 
 
 .table-row-cell:selected {
    -fx-background-color: #808000; 
 }
+
 .table-row-cell:odd:selected {
    -fx-background-color: #808000; 
 }
@@ -39,7 +41,7 @@
 }
 
 .table-view .table-cell{
-    -fx-text-fill: whitesmoke;
+   /*  -fx-text-fill: whitesmoke;*/
     -fx-font-size: 14.0;
     -fx-alignment: center;
 }
