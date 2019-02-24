@@ -10,28 +10,28 @@ import com.setting.showinfo.ShowInfo;
 
 public class NewJobDataBase {
 
-	public void addNewJob(Extruder Extruder) {
+	public void addNewJob(Extruder extruder) {
 		Connection con = DataBaseLocal.getConnection();
 		PreparedStatement preparedStatement = null;
 		try {
 			String sql = "INSERT INTO `extruder` (megrendelo_megrendelo_id, azonostio, allapot, felvetel_idopont, hatarido,"
 					+ " alapanyag, tenyleges_meret, meret_szeleseg, meret_hossz, vastagsag, zsak_siklap, gramm_meter, megrendelt_kg, extruder_nev, megjegyzes) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			preparedStatement = con.prepareStatement(sql);
-			preparedStatement.setString(1, Extruder.getExtruderClientId());
-			preparedStatement.setString(2, Extruder.getExtruderIdentification());
-			preparedStatement.setString(3, Extruder.getExtruderStatus());
-			preparedStatement.setString(4, Extruder.getExtruderAddDate());
-			preparedStatement.setString(5, Extruder.getExtruderEndDate());
-			preparedStatement.setString(6, Extruder.getExtruderCommodity());
-			preparedStatement.setString(7, Extruder.getExtruderActualSize());
-			preparedStatement.setString(8, Extruder.getExtruderWidth());
-			preparedStatement.setString(9, Extruder.getExtruderLength());
-			preparedStatement.setString(10, Extruder.getExtruderThickness());
-			preparedStatement.setString(11, Extruder.getExtruderFlatPlateBag());
-			preparedStatement.setString(12, Extruder.getExtruderGrammMeter());
-			preparedStatement.setString(13, Extruder.getExtruderOrderedKg());
-			preparedStatement.setString(14, Extruder.getExtruderName());
-			preparedStatement.setString(15, Extruder.getExtruderComment());
+			preparedStatement.setString(1, extruder.getExtruderClientId());
+			preparedStatement.setString(2, extruder.getExtruderIdentification());
+			preparedStatement.setString(3, extruder.getExtruderStatus());
+			preparedStatement.setString(4, extruder.getExtruderAddDate());
+			preparedStatement.setString(5, extruder.getExtruderEndDate());
+			preparedStatement.setString(6, extruder.getExtruderCommodity());
+			preparedStatement.setString(7, extruder.getExtruderActualSize());
+			preparedStatement.setString(8, extruder.getExtruderWidth());
+			preparedStatement.setString(9, extruder.getExtruderLength());
+			preparedStatement.setString(10, extruder.getExtruderThickness());
+			preparedStatement.setString(11, extruder.getExtruderFlatPlateBag());
+			preparedStatement.setString(12, extruder.getExtruderGrammMeter());
+			preparedStatement.setString(13, extruder.getExtruderOrderedKg());
+			preparedStatement.setString(14, extruder.getExtruderName());
+			preparedStatement.setString(15, extruder.getExtruderComment());
 			preparedStatement.execute();
 		} catch (SQLException ex) {
 			System.out.println("Valami baj van a contact hozzáadásakor");

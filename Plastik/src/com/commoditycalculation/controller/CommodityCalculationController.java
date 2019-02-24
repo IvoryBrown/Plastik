@@ -5,6 +5,8 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ResourceBundle;
 
+import com.commoditycalculation.database.CalculationDataBase;
+import com.commoditycalculation.pojo.CommodityCalculation;
 import com.setting.label.MessageLabel;
 
 import javafx.fxml.FXML;
@@ -39,6 +41,7 @@ public class CommodityCalculationController implements Initializable {
 	private TextFieldIsEmpty textFieldIsEmpty = new TextFieldIsEmpty();
 	private Double sum;
 	private Double number1, number2, number3, number4, number5, number6, number7, number8;
+	private CalculationDataBase calculationDataBase = new CalculationDataBase();
 
 	private boolean setText() {
 		commodityPercentage2Txt.setStyle(null);
@@ -316,7 +319,26 @@ public class CommodityCalculationController implements Initializable {
 
 	@FXML
 	private void saveBtn() {
-		// TODO Save Project
+		if (!calculationNameTxt.getText().trim().isEmpty()) {
+			calculationDataBase.addCommodityCalculation(new CommodityCalculation(calculationNameTxt.getText(),
+					quantityTxt.getText(), commodityName1Txt.getText(), commodityName2Txt.getText(),
+					commodityName3Txt.getText(), commodityName4Txt.getText(), commodityName5Txt.getText(),
+					commodityName6Txt.getText(), commodityName7Txt.getText(), commodityName8Txt.getText(),
+					commodityPercentage1Txt.getText(), commodityPercentage2Txt.getText(),
+					commodityPercentage3Txt.getText(), commodityPercentage4Txt.getText(),
+					commodityPercentage5Txt.getText(), commodityPercentage6Txt.getText(),
+					commodityPercentage7Txt.getText(), commodityPercentage8Txt.getText(),
+					commodityPercentageKg1Txt.getText(), commodityPercentageKg2Txt.getText(),
+					commodityPercentageKg3Txt.getText(), commodityPercentageKg4Txt.getText(),
+					commodityPercentageKg5Txt.getText(), commodityPercentageKg6Txt.getText(),
+					commodityPercentageKg7Txt.getText(), commodityPercentageKg8Txt.getText()));
+			calculationNameTxt.setStyle(null);
+			message.goodMessage("Sikeres mentés", commodityMessageLabel);
+			clearCalculation();
+		} else {
+			calculationNameTxt.setStyle(" -fx-text-box-border: #CD5C5C; -fx-focus-color: #CD5C5C;");
+			message.errorMessage("Nincs minden mező kitöltve!", commodityMessageLabel);
+		}
 	}
 
 	@FXML
@@ -337,6 +359,59 @@ public class CommodityCalculationController implements Initializable {
 		nextCommodity.setVisible(true);
 		commodityMessageLabel.setText("");
 		calculationKgPane.setVisible(false);
+	}
+	
+	private void clearCalculation() {
+		calculationNameTxt.clear();
+		quantityTxt.setEditable(true);
+		commodityName1Txt.setEditable(true);
+		commodityName2Txt.setEditable(true);
+		commodityName3Txt.setEditable(true);
+		commodityName4Txt.setEditable(true);
+		commodityName5Txt.setEditable(true);
+		commodityName6Txt.setEditable(true);
+		commodityName7Txt.setEditable(true);
+		commodityName8Txt.setEditable(true);
+		commodityPercentage1Txt.setEditable(true);
+		commodityPercentage2Txt.setEditable(true);
+		commodityPercentage3Txt.setEditable(true);
+		commodityPercentage4Txt.setEditable(true);
+		commodityPercentage5Txt.setEditable(true);
+		commodityPercentage6Txt.setEditable(true);
+		commodityPercentage7Txt.setEditable(true);
+		commodityPercentage8Txt.setEditable(true);
+		commodityPercentage1Txt.clear();
+		commodityPercentage2Txt.clear();
+		commodityPercentage3Txt.clear();
+		commodityPercentage4Txt.clear();
+		commodityPercentage5Txt.clear();
+		commodityPercentage6Txt.clear();
+		commodityPercentage7Txt.clear();
+		commodityPercentage8Txt.clear();
+		commodityPercentage1Txt.setStyle(null);
+		commodityPercentage2Txt.setStyle(null);
+		commodityPercentage3Txt.setStyle(null);
+		commodityPercentage4Txt.setStyle(null);
+		commodityPercentage5Txt.setStyle(null);
+		commodityPercentage6Txt.setStyle(null);
+		commodityPercentage7Txt.setStyle(null);
+		commodityPercentage8Txt.setStyle(null);
+		quantityTxt.clear();
+		commodityName1Txt.clear();
+		commodityName2Txt.clear();
+		commodityName3Txt.clear();
+		commodityName4Txt.clear();
+		commodityName5Txt.clear();
+		commodityName6Txt.clear();
+		commodityName7Txt.clear();
+		commodityName8Txt.clear();
+		setcommodityName();
+		percentagePane.setVisible(false);
+		backCommodity.setVisible(false);
+		calculationCommodity.setVisible(false);
+		nextCommodity.setVisible(true);
+		calculationKgPane.setVisible(false);
+
 	}
 
 	@Override

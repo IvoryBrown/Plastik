@@ -301,7 +301,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="calculationKgPane" layoutX="452.0" prefHeight="494.0" prefWidth="823.0" stylesheets="@../../main/view/css/button.css">
+                  <AnchorPane fx:id="calculationKgPane" layoutX="452.0" prefHeight="494.0" prefWidth="823.0" stylesheets="@../../main/view/css/button.css" visible="false">
                      <children>
                         <AnchorPane fx:id="calculationPane" layoutY="41.0" prefHeight="383.0" prefWidth="146.0">
                            <children>

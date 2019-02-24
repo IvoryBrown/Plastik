@@ -5,7 +5,7 @@ import javafx.scene.control.TextField;
 public class TextFieldIsEmpty {
 	
 	
-	protected boolean isEmptyText(TextField textField) {
+	public boolean isEmptyText(TextField textField) {
 		if (textField.getText().trim().isEmpty()) {
 			textField.setStyle(" -fx-text-box-border: #CD5C5C; -fx-focus-color: #CD5C5C;");
 		} else {

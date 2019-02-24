@@ -31,7 +31,7 @@ public class NumberCheck {
 		});
 	}
 
-	protected boolean isNum(TextField textField) {
+	public boolean isNum(TextField textField) {
 		boolean ret = true;
 		if (!textField.getText().trim().isEmpty()) {
 			try {
