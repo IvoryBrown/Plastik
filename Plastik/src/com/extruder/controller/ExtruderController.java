@@ -4,10 +4,12 @@ import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 import com.client.pojo.Client;
 import com.commoditycalculation.controller.NumberCheck;
 import com.commoditycalculation.controller.TextFieldIsEmpty;
+import com.commoditycalculation.database.CalculationDataBase;
 import com.commoditycalculation.pojo.CommodityCalculation;
 import com.extruder.newjob.controller.NewJobController;
 import com.extruder.pojo.Extruder;
@@ -15,6 +17,11 @@ import com.extruder.table.controller.TableController;
 import com.menu.calculations.CalculationsController;
 import com.setting.label.MessageLabel;
 
+import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -28,6 +35,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.util.StringConverter;
 
 public class ExtruderController implements Initializable {
 	@FXML
@@ -60,7 +68,7 @@ public class ExtruderController implements Initializable {
 	private HBox hBox;
 	@FXML
 	private CheckBox statusCbox;
-	//Calculation
+	// Calculation
 	@FXML
 	AnchorPane percentagePane, calculationPane, calculationKgPane;
 	@FXML
@@ -75,7 +83,11 @@ public class ExtruderController implements Initializable {
 	@FXML
 	private TextField commodityPercentageKg1Txt, commodityPercentageKg2Txt, commodityPercentageKg3Txt,
 			commodityPercentageKg4Txt, commodityPercentageKg5Txt, commodityPercentageKg6Txt, commodityPercentageKg7Txt,
-			commodityPercentageKg8Txt;
+			commodityPercentageKg8Txt, idCommodity;
+	@FXML
+	private ComboBox<CommodityCalculation> calculationNameCmb;
+	private CalculationDataBase calculationDataBase = new CalculationDataBase();
+	private final ObservableList<CommodityCalculation> dataCommodityCalculation = FXCollections.observableArrayList();
 	private Double sum;
 	private Double number1, number2, number3, number4, number5, number6, number7, number8;
 	private TextFieldIsEmpty textFieldIsEmpty = new TextFieldIsEmpty();
@@ -93,16 +105,16 @@ public class ExtruderController implements Initializable {
 		new NewJobController(clientPopupTableView, extruderClientNameTxt, extruderIdentificationTxt,
 				extruderActualSizeTxt, extruderWidthTxt, extruderLengthTxt, extruderThicknessTxt, extruderGrammMeterTxt,
 				extruderOrderedKgTxt, extruderOrderedDbTxt, extruderEndDate, extruderCommodityCmb,
-				extruderFlatPlateBagCmb, extruderNameCmb, saveButton, extruderComment, messageLbl);
+				extruderFlatPlateBagCmb, extruderNameCmb, saveButton, extruderComment, messageLbl, idCommodity);
 	}
 
 	private void extruderTable() {
 		new TableController(extruderNewJobsPane, extruderActualJobsPane, extruderTableView, messageLbl, hBox,
 				extruderFilteringBtn, extruderFilteringTxt, statusCbox);
 	}
-	
-	//Calculation
-	
+
+	// Calculation
+
 	private boolean setText() {
 		commodityPercentage2Txt.setStyle(null);
 		commodityPercentage3Txt.setStyle(null);
@@ -156,9 +168,9 @@ public class ExtruderController implements Initializable {
 		return true;
 
 	}
-	
+
 	private void getcommodityName() {
-		quantityTxt.setEditable(false);
+		quantityTxt.setEditable(true);
 		commodityName1Txt.setEditable(false);
 		commodityName2Txt.setEditable(false);
 		commodityName3Txt.setEditable(false);
@@ -189,43 +201,7 @@ public class ExtruderController implements Initializable {
 			commodityPercentage8Txt.setEditable(false);
 		}
 	}
-	
-	private void setcommodityName() {
-		quantityTxt.setEditable(true);
-		commodityName1Txt.setEditable(true);
-		commodityName2Txt.setEditable(true);
-		commodityName3Txt.setEditable(true);
-		commodityName4Txt.setEditable(true);
-		commodityName5Txt.setEditable(true);
-		commodityName6Txt.setEditable(true);
-		commodityName7Txt.setEditable(true);
-		commodityName8Txt.setEditable(true);
-		commodityPercentage1Txt.setEditable(true);
-		commodityPercentage2Txt.setEditable(true);
-		commodityPercentage3Txt.setEditable(true);
-		commodityPercentage4Txt.setEditable(true);
-		commodityPercentage5Txt.setEditable(true);
-		commodityPercentage6Txt.setEditable(true);
-		commodityPercentage7Txt.setEditable(true);
-		commodityPercentage8Txt.setEditable(true);
-		commodityPercentage1Txt.clear();
-		commodityPercentage2Txt.clear();
-		commodityPercentage3Txt.clear();
-		commodityPercentage4Txt.clear();
-		commodityPercentage5Txt.clear();
-		commodityPercentage6Txt.clear();
-		commodityPercentage7Txt.clear();
-		commodityPercentage8Txt.clear();
-		commodityPercentage1Txt.setStyle(null);
-		commodityPercentage2Txt.setStyle(null);
-		commodityPercentage3Txt.setStyle(null);
-		commodityPercentage4Txt.setStyle(null);
-		commodityPercentage5Txt.setStyle(null);
-		commodityPercentage6Txt.setStyle(null);
-		commodityPercentage7Txt.setStyle(null);
-		commodityPercentage8Txt.setStyle(null);
-	}
-	
+
 	private boolean isSum() {
 		boolean ret = false;
 		sum = 0.0;
@@ -267,7 +243,7 @@ public class ExtruderController implements Initializable {
 		}
 		return ret;
 	}
-	
+
 	private void calculationKg() {
 		commodityPercentage1Txt.setEditable(false);
 		commodityPercentage2Txt.setEditable(false);
@@ -305,57 +281,26 @@ public class ExtruderController implements Initializable {
 		}
 
 	}
-	
+
 	private double calculationSetText(Double n) {
 		double eredmeny = 0;
 		double egySzazalek = Double.valueOf(quantityTxt.getText()) / 100;
+		System.out.println(n);
 		eredmeny = egySzazalek * n;
 		return eredmeny;
 
 	}
 
-@FXML
+	@FXML
 	private void commodityCalculationBtn() {
 		commodityCalculationPane.setVisible(true);
 
 	}
 
-	
-	private void deleteBtn() {
-		quantityTxt.clear();
-		commodityName1Txt.clear();
-		commodityName2Txt.clear();
-		commodityName3Txt.clear();
-		commodityName4Txt.clear();
-		commodityName5Txt.clear();
-		commodityName6Txt.clear();
-		commodityName7Txt.clear();
-		commodityName8Txt.clear();
-		setcommodityName();
-		percentagePane.setVisible(false);
-		messageLbl.setText("");
-		calculationKgPane.setVisible(false);
-	}
-
-	
-	private void saveBtn() {
-
-	}
-
-	
-	private void backCommodity() {
-		setcommodityName();
-		percentagePane.setVisible(false);
-		messageLbl.setText("");
-		calculationKgPane.setVisible(false);
-	}
-
-	
 	private void nextCommodity() {
 		if (textFieldIsEmpty.isEmptyText(quantityTxt)) {
 			if (textFieldIsEmpty.isEmptyText(commodityName1Txt)) {
 				getcommodityName();
-				percentagePane.setVisible(true);
 				messageLbl.setText("");
 			} else {
 				message.errorMessage("Egy alapanyag kitöltése kötelező!", messageLbl);
@@ -366,7 +311,6 @@ public class ExtruderController implements Initializable {
 		}
 	}
 
-	
 	private void calculationCommodity() {
 		if (textFieldIsEmpty.isEmptyText(commodityPercentage1Txt)) {
 			if (setText()) {
@@ -376,7 +320,6 @@ public class ExtruderController implements Initializable {
 						&& numberCheck.isNum(commodityPercentage7Txt) && numberCheck.isNum(commodityPercentage8Txt)) {
 					if (isSum()) {
 						calculationKg();
-						calculationKgPane.setVisible(true);
 						message.goodMessage("Sikeres kalkuláció", messageLbl);
 					} else {
 
@@ -395,61 +338,93 @@ public class ExtruderController implements Initializable {
 			message.errorMessage("Nincs minden mező kitöltve!", messageLbl);
 		}
 	}
-	
-	private void clearCalculation() {
-		quantityTxt.setEditable(true);
-		commodityName1Txt.setEditable(true);
-		commodityName2Txt.setEditable(true);
-		commodityName3Txt.setEditable(true);
-		commodityName4Txt.setEditable(true);
-		commodityName5Txt.setEditable(true);
-		commodityName6Txt.setEditable(true);
-		commodityName7Txt.setEditable(true);
-		commodityName8Txt.setEditable(true);
-		commodityPercentage1Txt.setEditable(true);
-		commodityPercentage2Txt.setEditable(true);
-		commodityPercentage3Txt.setEditable(true);
-		commodityPercentage4Txt.setEditable(true);
-		commodityPercentage5Txt.setEditable(true);
-		commodityPercentage6Txt.setEditable(true);
-		commodityPercentage7Txt.setEditable(true);
-		commodityPercentage8Txt.setEditable(true);
-		commodityPercentage1Txt.clear();
-		commodityPercentage2Txt.clear();
-		commodityPercentage3Txt.clear();
-		commodityPercentage4Txt.clear();
-		commodityPercentage5Txt.clear();
-		commodityPercentage6Txt.clear();
-		commodityPercentage7Txt.clear();
-		commodityPercentage8Txt.clear();
-		commodityPercentage1Txt.setStyle(null);
-		commodityPercentage2Txt.setStyle(null);
-		commodityPercentage3Txt.setStyle(null);
-		commodityPercentage4Txt.setStyle(null);
-		commodityPercentage5Txt.setStyle(null);
-		commodityPercentage6Txt.setStyle(null);
-		commodityPercentage7Txt.setStyle(null);
-		commodityPercentage8Txt.setStyle(null);
-		quantityTxt.clear();
-		commodityName1Txt.clear();
-		commodityName2Txt.clear();
-		commodityName3Txt.clear();
-		commodityName4Txt.clear();
-		commodityName5Txt.clear();
-		commodityName6Txt.clear();
-		commodityName7Txt.clear();
-		commodityName8Txt.clear();
-		setcommodityName();
-		percentagePane.setVisible(false);
-		calculationKgPane.setVisible(false);
 
+	private void clearcommodityPercentageKgTxt() {
+		commodityPercentageKg1Txt.clear();
+		commodityPercentageKg2Txt.clear();
+		commodityPercentageKg3Txt.clear();
+		commodityPercentageKg4Txt.clear();
+		commodityPercentageKg5Txt.clear();
+		commodityPercentageKg6Txt.clear();
+		commodityPercentageKg7Txt.clear();
+		commodityPercentageKg8Txt.clear();
+	}
+
+	private void converterCombobox() {
+		numberCheck.setQuantityNumber(quantityTxt, messageLbl);
+		StringConverter<CommodityCalculation> converter = new StringConverter<CommodityCalculation>() {
+			@Override
+			public String toString(CommodityCalculation bank) {
+				return bank.getCalculationName();
+			}
+
+			@Override
+			public CommodityCalculation fromString(String id) {
+				return dataCommodityCalculation.stream().filter(item -> item.getCommodityIdProperty().get().equals(id))
+						.collect(Collectors.toList()).get(0);
+			}
+		};
+		calculationNameCmb.setConverter(converter);
+		calculationNameCmb.getSelectionModel().selectedItemProperty().addListener((o, ol, nw) -> {
+			clearcommodityPercentageKgTxt();
+			commodityName1Txt.setText(calculationNameCmb.getValue().getCommodityName1Property().get());
+			commodityName2Txt.setText(calculationNameCmb.getValue().getCommodityName2Property().get());
+			commodityName3Txt.setText(calculationNameCmb.getValue().getCommodityName3Property().get());
+			commodityName4Txt.setText(calculationNameCmb.getValue().getCommodityName4Property().get());
+			commodityName5Txt.setText(calculationNameCmb.getValue().getCommodityName5Property().get());
+			commodityName6Txt.setText(calculationNameCmb.getValue().getCommodityName6Property().get());
+			commodityName7Txt.setText(calculationNameCmb.getValue().getCommodityName7Property().get());
+			commodityName8Txt.setText(calculationNameCmb.getValue().getCommodityName8Property().get());
+			commodityPercentage1Txt.setText(calculationNameCmb.getValue().getCommodityPercentage1Property().get());
+			commodityPercentage2Txt.setText(calculationNameCmb.getValue().getCommodityPercentage2Property().get());
+			commodityPercentage3Txt.setText(calculationNameCmb.getValue().getCommodityPercentage3Property().get());
+			commodityPercentage4Txt.setText(calculationNameCmb.getValue().getCommodityPercentage4Property().get());
+			commodityPercentage5Txt.setText(calculationNameCmb.getValue().getCommodityPercentage5Property().get());
+			commodityPercentage6Txt.setText(calculationNameCmb.getValue().getCommodityPercentage6Property().get());
+			commodityPercentage7Txt.setText(calculationNameCmb.getValue().getCommodityPercentage7Property().get());
+			commodityPercentage8Txt.setText(calculationNameCmb.getValue().getCommodityPercentage8Property().get());
+			idCommodity.setText(calculationNameCmb.getValue().getCommodityIdProperty().get());
+			nextCommodity();
+			calculationCommodity();
+			ComodityPojo.comodityPojoSet(quantityTxt, commodityName1Txt, commodityName2Txt, commodityName3Txt,
+					commodityName4Txt, commodityName5Txt, commodityName6Txt, commodityName7Txt, commodityName8Txt,
+					commodityPercentage1Txt, commodityPercentage2Txt, commodityPercentage3Txt, commodityPercentage4Txt,
+					commodityPercentage5Txt, commodityPercentage6Txt, commodityPercentage7Txt, commodityPercentage8Txt,
+					commodityPercentageKg1Txt, commodityPercentageKg2Txt, commodityPercentageKg3Txt,
+					commodityPercentageKg4Txt, commodityPercentageKg5Txt, commodityPercentageKg6Txt,
+					commodityPercentageKg7Txt, commodityPercentageKg8Txt);
+		});
+
+		extruderOrderedKgTxt.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				quantityTxt.setText(newValue);
+			}
+		});
+		calculationNameCmb.setVisible(false);
+		quantityTxt.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				if (!newValue.trim().isEmpty()) {
+					calculationNameCmb.setVisible(true);
+				} else {
+					calculationNameCmb.setVisible(false);
+				}
+			}
+		});
+		calculationNameCmb.focusedProperty().addListener((observable, oldValue, newValue) -> {
+			calculationNameCmb.getItems().clear();
+	        dataCommodityCalculation.addAll(calculationDataBase.getAllCommodityCalculation());
+			calculationNameCmb.setItems(dataCommodityCalculation);
+	    });
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		new CalculationsController(manufactureMenuBar);
 		extruderTable();
-		numberCheck.setQuantityNumber(quantityTxt, messageLbl);
+		converterCombobox();
+
 	}
 
 }

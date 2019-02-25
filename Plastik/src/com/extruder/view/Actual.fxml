@@ -331,47 +331,47 @@
                                                 </VBox>
                                                 <VBox layoutX="136.0" layoutY="8.0" prefHeight="372.0" prefWidth="168.0">
                                                    <children>
-                                                      <TextField fx:id="quantityTxt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="Mennyiség">
+                                                      <TextField fx:id="quantityTxt" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" promptText="Mennyiség">
                                                          <VBox.margin>
                                                             <Insets top="15.0" />
                                                          </VBox.margin>
                                                       </TextField>
-                                                      <TextField fx:id="commodityName1Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="FD 243-51">
+                                                      <TextField fx:id="commodityName1Txt" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" promptText="FD 243-51">
                                                          <VBox.margin>
                                                             <Insets top="15.0" />
                                                          </VBox.margin>
                                                       </TextField>
-                                                      <TextField fx:id="commodityName2Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="FC 243-55">
+                                                      <TextField fx:id="commodityName2Txt" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" promptText="FC 243-55">
                                                          <VBox.margin>
                                                             <Insets top="15.0" />
                                                          </VBox.margin>
                                                       </TextField>
-                                                      <TextField fx:id="commodityName3Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="FS 471-05">
+                                                      <TextField fx:id="commodityName3Txt" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" promptText="FS 471-05">
                                                          <VBox.margin>
                                                             <Insets top="15.0" />
                                                          </VBox.margin>
                                                       </TextField>
-                                                      <TextField fx:id="commodityName4Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="XP9200">
+                                                      <TextField fx:id="commodityName4Txt" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" promptText="XP9200">
                                                          <VBox.margin>
                                                             <Insets top="15.0" />
                                                          </VBox.margin>
                                                       </TextField>
-                                                      <TextField fx:id="commodityName5Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="FB 216">
+                                                      <TextField fx:id="commodityName5Txt" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" promptText="FB 216">
                                                          <VBox.margin>
                                                             <Insets top="15.0" />
                                                          </VBox.margin>
                                                       </TextField>
-                                                      <TextField fx:id="commodityName6Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="PT-15">
+                                                      <TextField fx:id="commodityName6Txt" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" promptText="PT-15">
                                                          <VBox.margin>
                                                             <Insets top="15.0" />
                                                          </VBox.margin>
                                                       </TextField>
-                                                      <TextField fx:id="commodityName7Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="VLA-66">
+                                                      <TextField fx:id="commodityName7Txt" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" promptText="VLA-66">
                                                          <VBox.margin>
                                                             <Insets top="15.0" />
                                                          </VBox.margin>
                                                       </TextField>
-                                                      <TextField fx:id="commodityName8Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="Regra">
+                                                      <TextField fx:id="commodityName8Txt" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" promptText="Regra">
                                                          <VBox.margin>
                                                             <Insets top="15.0" />
                                                          </VBox.margin>
@@ -404,42 +404,42 @@
                                                             <Insets top="17.0" />
                                                          </VBox.margin>
                                                       </Label>
-                                                      <TextField fx:id="commodityPercentage1Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
+                                                      <TextField fx:id="commodityPercentage1Txt" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" promptText="\%">
                                                          <VBox.margin>
                                                             <Insets top="13.0" />
                                                          </VBox.margin>
                                                       </TextField>
-                                                      <TextField fx:id="commodityPercentage2Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
+                                                      <TextField fx:id="commodityPercentage2Txt" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" promptText="\%">
                                                          <VBox.margin>
                                                             <Insets top="15.0" />
                                                          </VBox.margin>
                                                       </TextField>
-                                                      <TextField fx:id="commodityPercentage3Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
+                                                      <TextField fx:id="commodityPercentage3Txt" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" promptText="\%">
                                                          <VBox.margin>
                                                             <Insets top="15.0" />
                                                          </VBox.margin>
                                                       </TextField>
-                                                      <TextField fx:id="commodityPercentage4Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
+                                                      <TextField fx:id="commodityPercentage4Txt" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" promptText="\%">
                                                          <VBox.margin>
                                                             <Insets top="15.0" />
                                                          </VBox.margin>
                                                       </TextField>
-                                                      <TextField fx:id="commodityPercentage5Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
+                                                      <TextField fx:id="commodityPercentage5Txt" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" promptText="\%">
                                                          <VBox.margin>
                                                             <Insets top="15.0" />
                                                          </VBox.margin>
                                                       </TextField>
-                                                      <TextField fx:id="commodityPercentage6Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
+                                                      <TextField fx:id="commodityPercentage6Txt" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" promptText="\%">
                                                          <VBox.margin>
                                                             <Insets top="15.0" />
                                                          </VBox.margin>
                                                       </TextField>
-                                                      <TextField fx:id="commodityPercentage7Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
+                                                      <TextField fx:id="commodityPercentage7Txt" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" promptText="\%">
                                                          <VBox.margin>
                                                             <Insets top="15.0" />
                                                          </VBox.margin>
                                                       </TextField>
-                                                      <TextField fx:id="commodityPercentage8Txt" alignment="CENTER" focusTraversable="false" prefHeight="25.0" promptText="\%">
+                                                      <TextField fx:id="commodityPercentage8Txt" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" promptText="\%">
                                                          <VBox.margin>
                                                             <Insets top="15.0" />
                                                          </VBox.margin>
@@ -638,6 +638,7 @@
                                           </AnchorPane>
                                        </children>
                                     </AnchorPane>
+                                    <TextField fx:id="idCommodity" layoutX="193.0" layoutY="14.0" visible="false" />
                                  </children>
                               </AnchorPane>
                               <ComboBox fx:id="calculationNameCmb" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="150.0" />

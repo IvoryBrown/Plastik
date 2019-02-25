@@ -2,13 +2,64 @@ package com.commoditycalculation.database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
+import com.client.pojo.Client;
 import com.commoditycalculation.pojo.CommodityCalculation;
 import com.setting.database.DataBaseLocal;
 import com.setting.showinfo.ShowInfo;
 
 public class CalculationDataBase {
+
+	public ArrayList<CommodityCalculation> getAllCommodityCalculation() {
+		String sql = "SELECT * FROM `alapanyag_szamitas`";
+		Connection con = DataBaseLocal.getConnection();
+		ArrayList<CommodityCalculation> commodityCalculation = null;
+		Statement createStatement = null;
+		ResultSet rs = null;
+		try {
+			createStatement = con.createStatement();
+			rs = createStatement.executeQuery(sql);
+			commodityCalculation = new ArrayList<>();
+
+			while (rs.next()) {
+				CommodityCalculation actualCommodityCalculation = new CommodityCalculation(rs.getInt("alapanyag_id"),
+						rs.getString("alapanyag_nev"), rs.getString("ossz_kg"), rs.getString("alap_nev_a"),
+						rs.getString("alap_nev_b"), rs.getString("alap_nev_c"), rs.getString("alap_nev_d"),
+						rs.getString("alap_nev_e"), rs.getString("alap_nev_f"), rs.getString("alap_nev_g"),
+						rs.getString("alap_nev_h"), rs.getString("alap_szazalek_a"), rs.getString("alap_szazalek_b"),
+						rs.getString("alap_szazalek_c"), rs.getString("alap_szazalek_d"),
+						rs.getString("alap_szazalek_e"), rs.getString("alap_szazalek_f"),
+						rs.getString("alap_szazalek_g"), rs.getString("alap_szazalek_h"), rs.getString("alap_kg_a"),
+						rs.getString("alap_kg_b"), rs.getString("alap_kg_c"), rs.getString("alap_kg_d"),
+						rs.getString("alap_kg_e"), rs.getString("alap_kg_f"), rs.getString("alap_kg_g"),
+						rs.getString("alap_kg_h"));
+				commodityCalculation.add(actualCommodityCalculation);
+			}
+		} catch (SQLException ex) {
+			System.out.println("Valami baj van a userek kiolvasásakor");
+			System.out.println("" + ex);
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (createStatement != null) {
+					createStatement.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (SQLException e) {
+				System.out.println("Valami baj van a userek kiolvasásakor");
+				System.out.println("" + e);
+			}
+		}
+		return commodityCalculation;
+	}
 
 	public void addCommodityCalculation(CommodityCalculation commodityCalculation) {
 		Connection con = DataBaseLocal.getConnection();

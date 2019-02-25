@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import com.client.database.ClientDataBase;
 import com.client.pojo.Client;
 import com.commoditycalculation.controller.NumberCheck;
+import com.extruder.controller.ComodityPojo;
 import com.extruder.newjob.database.NewJobDataBase;
 import com.extruder.pojo.Extruder;
 import com.project.setting.commodityname.database.CommodityNameDataBase;
@@ -56,13 +57,15 @@ public class NewJobController {
 	private Button saveButton;
 	private Label messageLbl;
 	private NumberCheck numberCheck = new NumberCheck();
+	TextField idCommodity;
 
 	public NewJobController(TableView<Client> clientPopupTableView, TextField extruderClientName,
 			TextField extruderIdentificationTxt, TextField extruderActualSizeTxt, TextField extruderWidthTxt,
 			TextField extruderLengthTxt, TextField extruderThicknessTxt, TextField extruderGrammMeterTxt,
 			TextField extruderOrderedKgTxt, TextField extruderOrderedDbTxt, DatePicker extruderEndDate,
 			ComboBox<String> extruderCommodityCmb, ComboBox<String> extruderFlatPlateBagCmb,
-			ComboBox<String> extruderNameCmb, Button saveButton, TextArea extruderComment, Label messageLbl) {
+			ComboBox<String> extruderNameCmb, Button saveButton, TextArea extruderComment, Label messageLbl,
+			TextField idCommodity) {
 		this.clientPopupTableView = clientPopupTableView;
 		this.extruderClientName = extruderClientName;
 		this.extruderIdentificationTxt = extruderIdentificationTxt;
@@ -80,6 +83,7 @@ public class NewJobController {
 		this.saveButton = saveButton;
 		this.extruderComment = extruderComment;
 		this.messageLbl = messageLbl;
+		this.idCommodity = idCommodity;
 		setNewJobController();
 	}
 
@@ -230,8 +234,8 @@ public class NewJobController {
 						LocalDate.now().toString(), extruderEndDate.getValue().toString(),
 						extruderCommodityCmb.getValue(), extruderActualSizeTxt.getText(), extruderWidthTxt.getText(),
 						extruderLengthTxt.getText(), extruderThicknessTxt.getText(), extruderFlatPlateBagCmb.getValue(),
-						extruderGrammMeterTxt.getText(), extruderOrderedKgTxt.getText(),
-						extruderNameCmb.getValue(), extruderComment.getText()));
+						extruderGrammMeterTxt.getText(), extruderOrderedKgTxt.getText(), extruderNameCmb.getValue(),
+						extruderComment.getText()));
 				clearTextField();
 				new MessageLabel().goodMessage("Sikeres mentés", messageLbl);
 			} else {
@@ -247,6 +251,7 @@ public class NewJobController {
 	private void buttonSetOnAction() {
 		LocalDate date = LocalDate.now();
 		saveButton.setOnAction((event) -> {
+			ComodityPojo.clearComodityPojo();
 			if (extruderIdentificationTxt.getText().trim().isEmpty()) {
 				extruderIdentificationTxt.setText(date.getYear() + ClientIdentficationGenerator.random());
 			}
@@ -372,6 +377,8 @@ public class NewJobController {
 					String f = String.valueOf(formatter.format(s * g));
 					double sGrammMeterTxt = Double.parseDouble(f.replace(",", "."));
 					extruderOrderedKgTxt.setText(String.valueOf(sGrammMeterTxt));
+				} else {
+					extruderOrderedKgTxt.clear();
 				}
 			}
 		});
