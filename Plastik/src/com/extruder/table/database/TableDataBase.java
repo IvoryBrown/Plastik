@@ -24,6 +24,7 @@ public class TableDataBase {
 				+ "(`extruder_nev`) LIKE '%" + extruderName + "'&& (`allapot`) LIKE '%" + s + "%'"
 				+ "&& (`megrendelo_nev`) LIKE '%" + filter + "%'" + " || (`extruder_nev`) LIKE '%" + extruderName + "'"
 				+ "&& (`allapot`) LIKE '%" + s + "%'" + "&& (`azonostio`) LIKE '%" + filter + "%'"
+				+ "ORDER BY prioritas ASC"
 
 		;
 		Connection con = DataBaseLocal.getConnection();
@@ -41,7 +42,8 @@ public class TableDataBase {
 						rs.getString("felvetel_idopont"), rs.getString("hatarido"), rs.getString("alapanyag"),
 						rs.getString("tenyleges_meret"), rs.getString("meret_szeleseg"), rs.getString("meret_hossz"),
 						rs.getString("vastagsag"), rs.getString("zsak_siklap"), rs.getString("gramm_meter"),
-						rs.getString("megrendelt_kg"), rs.getString("extruder_nev"), rs.getString("megjegyzes"));
+						rs.getString("megrendelt_kg"), rs.getString("extruder_nev"), rs.getString("megjegyzes"),
+						rs.getString("prioritas"));
 				extruder.add(actualExtruder);
 			}
 		} catch (SQLException ex) {
@@ -70,12 +72,13 @@ public class TableDataBase {
 		Connection conn = DataBaseLocal.getConnection();
 		PreparedStatement pr = null;
 		try {
-			String sqlClient = "UPDATE `extruder` SET allapot = ?, extruder_nev = ?, megjegyzes = ? WHERE extruder_id = ?";
+			String sqlClient = "UPDATE `extruder` SET allapot = ?, extruder_nev = ?, prioritas = ?, megjegyzes = ? WHERE extruder_id = ?";
 			pr = conn.prepareStatement(sqlClient);
 			pr.setString(1, extruder.getExtruderStatus());
 			pr.setString(2, extruder.getExtruderName());
-			pr.setString(3, extruder.getExtruderComment());
-			pr.setInt(4, Integer.parseInt(extruder.getExtruderId()));
+			pr.setString(3, extruder.getExtruderPriority());
+			pr.setString(4, extruder.getExtruderComment());
+			pr.setInt(5, Integer.parseInt(extruder.getExtruderId()));
 			pr.execute();
 		} catch (SQLException ex) {
 			System.out.println(ex);

@@ -17,7 +17,6 @@ import com.extruder.table.controller.TableController;
 import com.menu.calculations.CalculationsController;
 import com.setting.label.MessageLabel;
 
-import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -65,7 +64,7 @@ public class ExtruderController implements Initializable {
 	@FXML
 	private ComboBox<String> extruderNameCmb;
 	@FXML
-	private HBox hBox;
+	private HBox hBox,upDownHBox;
 	@FXML
 	private CheckBox statusCbox;
 	// Calculation
@@ -110,7 +109,7 @@ public class ExtruderController implements Initializable {
 
 	private void extruderTable() {
 		new TableController(extruderNewJobsPane, extruderActualJobsPane, extruderTableView, messageLbl, hBox,
-				extruderFilteringBtn, extruderFilteringTxt, statusCbox);
+				extruderFilteringBtn, extruderFilteringTxt, statusCbox,upDownHBox);
 	}
 
 	// Calculation
@@ -285,7 +284,6 @@ public class ExtruderController implements Initializable {
 	private double calculationSetText(Double n) {
 		double eredmeny = 0;
 		double egySzazalek = Double.valueOf(quantityTxt.getText()) / 100;
-		System.out.println(n);
 		eredmeny = egySzazalek * n;
 		return eredmeny;
 
@@ -384,6 +382,7 @@ public class ExtruderController implements Initializable {
 			commodityPercentage7Txt.setText(calculationNameCmb.getValue().getCommodityPercentage7Property().get());
 			commodityPercentage8Txt.setText(calculationNameCmb.getValue().getCommodityPercentage8Property().get());
 			idCommodity.setText(calculationNameCmb.getValue().getCommodityIdProperty().get());
+
 			nextCommodity();
 			calculationCommodity();
 			ComodityPojo.comodityPojoSet(quantityTxt, commodityName1Txt, commodityName2Txt, commodityName3Txt,
@@ -414,9 +413,9 @@ public class ExtruderController implements Initializable {
 		});
 		calculationNameCmb.focusedProperty().addListener((observable, oldValue, newValue) -> {
 			calculationNameCmb.getItems().clear();
-	        dataCommodityCalculation.addAll(calculationDataBase.getAllCommodityCalculation());
+			dataCommodityCalculation.addAll(calculationDataBase.getAllCommodityCalculation());
 			calculationNameCmb.setItems(dataCommodityCalculation);
-	    });
+		});
 	}
 
 	@Override
@@ -424,7 +423,13 @@ public class ExtruderController implements Initializable {
 		new CalculationsController(manufactureMenuBar);
 		extruderTable();
 		converterCombobox();
-
+		ComodityPojo.comodityPojoSet(quantityTxt, commodityName1Txt, commodityName2Txt, commodityName3Txt,
+				commodityName4Txt, commodityName5Txt, commodityName6Txt, commodityName7Txt, commodityName8Txt,
+				commodityPercentage1Txt, commodityPercentage2Txt, commodityPercentage3Txt, commodityPercentage4Txt,
+				commodityPercentage5Txt, commodityPercentage6Txt, commodityPercentage7Txt, commodityPercentage8Txt,
+				commodityPercentageKg1Txt, commodityPercentageKg2Txt, commodityPercentageKg3Txt,
+				commodityPercentageKg4Txt, commodityPercentageKg5Txt, commodityPercentageKg6Txt,
+				commodityPercentageKg7Txt, commodityPercentageKg8Txt);
 	}
 
 }

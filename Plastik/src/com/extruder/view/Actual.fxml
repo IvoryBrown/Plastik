@@ -32,7 +32,7 @@
                         <Button fx:id="extruderNewJobBtn" mnemonicParsing="false" onAction="#extruderNewJobBtn" prefHeight="30.0" styleClass="extruderButton" stylesheets="@../../main/view/css/button.css" text="Új felvétel" />
                      </children>
                   </HBox>
-                  <AnchorPane fx:id="extruderNewJobsPane" layoutY="33.0" prefHeight="637.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
+                  <AnchorPane fx:id="extruderNewJobsPane" layoutY="33.0" prefHeight="637.0" prefWidth="1300.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
                      <children>
                         <VBox prefHeight="637.0" prefWidth="149.0">
                            <children>
@@ -646,12 +646,13 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="extruderActualJobsPane" layoutY="33.0" prefHeight="637.0" prefWidth="1300.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
+                  <AnchorPane fx:id="extruderActualJobsPane" layoutY="33.0" prefHeight="637.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
                      <children>
                         <TableView fx:id="extruderTableView" editable="true" layoutY="81.0" prefHeight="556.0" prefWidth="1300.0" stylesheets="@../../main/view/css/tableextruder.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="81.0" />
                         <TextField fx:id="extruderFilteringTxt" layoutX="14.0" layoutY="48.0" prefHeight="25.0" promptText="Név, Azonosító" />
                         <Button fx:id="extruderFilteringBtn" layoutX="154.0" layoutY="48.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" styleClass="searchButton" stylesheets="@../../main/view/css/button.css" />
                         <CheckBox fx:id="statusCbox" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Folyamatban" />
+                        <HBox fx:id="upDownHBox" layoutX="1099.0" prefHeight="30.0" prefWidth="201.0" style="-fx-background-color: red;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
                </children></AnchorPane>

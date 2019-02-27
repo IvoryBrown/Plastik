@@ -9,6 +9,7 @@ import com.project.setting.machine.database.MachineDataBase;
 import com.setting.label.MessageLabel;
 
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.ReadOnlyIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -16,6 +17,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableCell;
@@ -26,13 +28,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.ComboBoxTableCell;
-import javafx.scene.control.cell.ProgressBarTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 
@@ -44,7 +46,7 @@ public class TableController {
 	private TableColumn<Extruder, Date> extruderAddDate, extruderEndDate;
 	private TableColumn<Extruder, Double> extruderThickness, extruderGrammMeter, extruderOrderedKg, extruderActualKg;
 	private TableColumn<Extruder, String> extruderClientName, extruderIdentification, extruderStatus, extruderCommodity,
-			extruderActualSize, extruderName, extruderComment;
+			extruderActualSize, extruderName, extruderComment,extruderPriority;
 	private Label messageLbl;
 	private final ObservableList<Extruder> dataExtruder = FXCollections.observableArrayList();
 	private TableDataBase tableDataBase = new TableDataBase();
@@ -52,7 +54,7 @@ public class TableController {
 	private ToggleButton extruderNameBtn1, extruderNameBtn2, extruderNameBtn3, extruderNameBtn4, extruderNameBtn5,
 			extruderNameBtn6, extruderNameBtn7, extruderNameBtn8, extruderNameBtn9, extruderNameBtn10,
 			extruderNameBtn11, extruderNameBtn12, extruderNameBtn13, extruderNameBtn14, extruderNameAllBtn;
-	private HBox hBox;
+	private HBox hBox, upDownHBox;
 	private Button extruderFilteringBtn;
 	private TextField extruderFilteringTxt;
 	private ToggleGroup group = new ToggleGroup();
@@ -60,7 +62,7 @@ public class TableController {
 
 	public TableController(AnchorPane extruderNewJobsPane, AnchorPane extruderActualJobsPane,
 			TableView<Extruder> extruderTableView, Label messageLbl, HBox hBox, Button extruderFilteringBtn,
-			TextField extruderFilteringTxt, CheckBox statusCbox) {
+			TextField extruderFilteringTxt, CheckBox statusCbox, HBox upDownHBox) {
 		this.extruderNewJobsPane = extruderNewJobsPane;
 		this.extruderActualJobsPane = extruderActualJobsPane;
 		this.extruderTableView = extruderTableView;
@@ -69,12 +71,37 @@ public class TableController {
 		this.extruderFilteringBtn = extruderFilteringBtn;
 		this.extruderFilteringTxt = extruderFilteringTxt;
 		this.statusCbox = statusCbox;
+		this.upDownHBox = upDownHBox;
 		clearTable();
 		extruderTable();
 		setColumn();
 		setToggleButton();
 		buttonOnAction();
 		checkBox();
+		setButton();
+	}
+
+	private void setButton() {
+		Button upButton = new Button("Up");
+		Button downButton = new Button("Down");
+		upDownHBox.getChildren().addAll(upButton, downButton);
+		ReadOnlyIntegerProperty selectedIndex = extruderTableView.getSelectionModel().selectedIndexProperty();
+		upButton.disableProperty().bind(selectedIndex.lessThanOrEqualTo(0));
+		downButton.disableProperty().bind(Bindings.createBooleanBinding(() -> {
+			int index = selectedIndex.get();
+			return index < 0 || index + 1 >= extruderTableView.getItems().size();
+		}, selectedIndex, extruderTableView.getItems()));
+		upButton.setOnAction(evt -> {
+			int index = extruderTableView.getSelectionModel().getSelectedIndex();
+			extruderTableView.getItems().add(index - 1, extruderTableView.getItems().remove(index));
+			extruderTableView.getSelectionModel().clearAndSelect(index - 1);
+		});
+
+		downButton.setOnAction(evt -> {
+			int index = extruderTableView.getSelectionModel().getSelectedIndex();
+			extruderTableView.getItems().add(index + 1, extruderTableView.getItems().remove(index));
+			extruderTableView.getSelectionModel().clearAndSelect(index + 1);
+		});
 	}
 
 	private void checkBox() {
@@ -132,7 +159,7 @@ public class TableController {
 		extruderTableView.getColumns().addAll(extruderId, extruderClientId, extruderClientName, extruderName,
 				extruderIdentification, extruderStatus, extruderAddDate, extruderEndDate, extruderCommodity,
 				extruderActualSize, extruderWidth, extruderLength, extruderThickness, extruderFlatPlateBag,
-				extruderGrammMeter, extruderOrderedKg, extruderActualKg, extruderComment);
+				extruderGrammMeter, extruderOrderedKg, extruderActualKg, extruderComment,extruderPriority);
 		extruderTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 	}
 
@@ -202,6 +229,7 @@ public class TableController {
 				if (alert.showAndWait().orElse(ButtonType.NO) == ButtonType.YES) {
 					Extruder extruder = (Extruder) d.getTableView().getItems().get(d.getTablePosition().getRow());
 					extruder.setExtruderStatus(d.getNewValue());
+					extruder.setExtruderPriority(null);
 					tableDataBase.updateExtruder(extruder);
 					message.goodMessage("Státusz sikeres frissitése", messageLbl);
 				}
@@ -251,11 +279,44 @@ public class TableController {
 
 		extruderActualKg = new TableColumn<>("kg");
 		extruderActualKg.setMinWidth(80);
+		
+		extruderPriority = new TableColumn<>("Priorítás");
+		extruderPriority.setMinWidth(80);
+		extruderPriority.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderPriority"));
+		extruderPriority.setCellFactory(TextFieldTableCell.forTableColumn());
+		extruderPriority.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Extruder, String>>() {
+			@Override
+			public void handle(TableColumn.CellEditEvent<Extruder, String> d) {
+				Extruder extruder = (Extruder) d.getTableView().getItems().get(d.getTablePosition().getRow());
+				if (extruder.getExtruderStatus().equals("Folyamatban")) {
+					extruder.setExtruderPriority(d.getNewValue());
+					tableDataBase.updateExtruder(extruder);
+					message.goodMessage("Priorítás sikeres frissitése", messageLbl);
+				} else {
+					message.errorMessage("Hiba! Lezárt termék!", messageLbl);
+				}
+				updateDataTable();
+			}
+		});
 
 		extruderComment = new TableColumn<>("Megjegyzés");
 		extruderComment.setMinWidth(360);
 		extruderComment.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderComment"));
-		extruderComment.setCellFactory(TextFieldTableCell.forTableColumn());
+//		extruderComment.setCellFactory(new Callback<TableColumn<Extruder, String>, TableCell<Extruder, String>>() {
+//
+//	        @Override
+//	        public TableCell<Extruder, String> call(
+//	                TableColumn<Extruder, String> param) {
+//	            TableCell<Extruder, String> cell = new TableCell<>();
+//	            Text text = new Text();
+//	            cell.setGraphic(text);
+//	            cell.setPrefHeight(Control.USE_COMPUTED_SIZE);
+//	            text.wrappingWidthProperty().bind(cell.widthProperty());
+//	            text.textProperty().bind(cell.itemProperty());
+//	            return cell ;
+//	        }
+//
+//	    });
 		extruderComment.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Extruder, String>>() {
 			@Override
 			public void handle(TableColumn.CellEditEvent<Extruder, String> d) {

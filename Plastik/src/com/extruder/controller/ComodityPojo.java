@@ -54,31 +54,33 @@ public class ComodityPojo {
 	}
 	
 	public static void clearComodityPojo() {
-		commodityName1Txt.clear();
-		commodityName2Txt.clear();
-		commodityName3Txt.clear();
-		commodityName4Txt.clear();
-		commodityName5Txt.clear();
-		commodityName6Txt.clear();
-		commodityName7Txt.clear();
-		commodityName8Txt.clear();
-		commodityPercentageKg1Txt.clear();
-		commodityPercentageKg2Txt.clear();
-		commodityPercentageKg3Txt.clear();
-		commodityPercentageKg4Txt.clear();
-		commodityPercentageKg5Txt.clear();
-		commodityPercentageKg6Txt.clear();
-		commodityPercentageKg7Txt.clear();
-		commodityPercentageKg8Txt.clear();
-		commodityPercentage1Txt.clear();
-		commodityPercentage2Txt.clear();
-		commodityPercentage3Txt.clear();
-		commodityPercentage4Txt.clear();
-		commodityPercentage5Txt.clear();
-		commodityPercentage6Txt.clear();
-		commodityPercentage7Txt.clear();
-		commodityPercentage8Txt.clear();
-		quantityTxt.clear();
+		if (!commodityName1Txt.getText().trim().isEmpty()) {
+			commodityName1Txt.clear();
+			commodityName2Txt.clear();
+			commodityName3Txt.clear();
+			commodityName4Txt.clear();
+			commodityName5Txt.clear();
+			commodityName6Txt.clear();
+			commodityName7Txt.clear();
+			commodityName8Txt.clear();
+			commodityPercentageKg1Txt.clear();
+			commodityPercentageKg2Txt.clear();
+			commodityPercentageKg3Txt.clear();
+			commodityPercentageKg4Txt.clear();
+			commodityPercentageKg5Txt.clear();
+			commodityPercentageKg6Txt.clear();
+			commodityPercentageKg7Txt.clear();
+			commodityPercentageKg8Txt.clear();
+			commodityPercentage1Txt.clear();
+			commodityPercentage2Txt.clear();
+			commodityPercentage3Txt.clear();
+			commodityPercentage4Txt.clear();
+			commodityPercentage5Txt.clear();
+			commodityPercentage6Txt.clear();
+			commodityPercentage7Txt.clear();
+			commodityPercentage8Txt.clear();
+			quantityTxt.clear();
+		}
 	}
 
 	

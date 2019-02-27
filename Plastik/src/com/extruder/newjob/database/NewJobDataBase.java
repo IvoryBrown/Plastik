@@ -15,7 +15,8 @@ public class NewJobDataBase {
 		PreparedStatement preparedStatement = null;
 		try {
 			String sql = "INSERT INTO `extruder` (megrendelo_megrendelo_id, azonostio, allapot, felvetel_idopont, hatarido,"
-					+ " alapanyag, tenyleges_meret, meret_szeleseg, meret_hossz, vastagsag, zsak_siklap, gramm_meter, megrendelt_kg, extruder_nev, megjegyzes) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+					+ " alapanyag, tenyleges_meret, meret_szeleseg, meret_hossz, vastagsag, zsak_siklap, gramm_meter, megrendelt_kg, extruder_nev, megjegyzes, alapanyag_szamitas_alapanyag_id)"
+					+ " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			preparedStatement = con.prepareStatement(sql);
 			preparedStatement.setString(1, extruder.getExtruderClientId());
 			preparedStatement.setString(2, extruder.getExtruderIdentification());
@@ -32,6 +33,7 @@ public class NewJobDataBase {
 			preparedStatement.setString(13, extruder.getExtruderOrderedKg());
 			preparedStatement.setString(14, extruder.getExtruderName());
 			preparedStatement.setString(15, extruder.getExtruderComment());
+			preparedStatement.setString(16, extruder.getExtruderComodityId());
 			preparedStatement.execute();
 		} catch (SQLException ex) {
 			System.out.println("Valami baj van a contact hozzáadásakor");

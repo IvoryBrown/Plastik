@@ -229,13 +229,23 @@ public class NewJobController {
 	private void saveDataBase() {
 		if (checkTextField()) {
 			if (isCheckClientName()) {
-				System.out.println(clientId);
-				jobDB.addNewJob(new Extruder(clientId, extruderIdentificationTxt.getText(), "Folyamatban",
-						LocalDate.now().toString(), extruderEndDate.getValue().toString(),
-						extruderCommodityCmb.getValue(), extruderActualSizeTxt.getText(), extruderWidthTxt.getText(),
-						extruderLengthTxt.getText(), extruderThicknessTxt.getText(), extruderFlatPlateBagCmb.getValue(),
-						extruderGrammMeterTxt.getText(), extruderOrderedKgTxt.getText(), extruderNameCmb.getValue(),
-						extruderComment.getText()));
+				if (!idCommodity.getText().trim().isEmpty()) {
+					jobDB.addNewJob(new Extruder(clientId, extruderIdentificationTxt.getText(), "Folyamatban",
+							LocalDate.now().toString(), extruderEndDate.getValue().toString(),
+							extruderCommodityCmb.getValue(), extruderActualSizeTxt.getText(), extruderWidthTxt.getText(),
+							extruderLengthTxt.getText(), extruderThicknessTxt.getText(), extruderFlatPlateBagCmb.getValue(),
+							extruderGrammMeterTxt.getText(), extruderOrderedKgTxt.getText(), extruderNameCmb.getValue(),
+							extruderComment.getText(), idCommodity.getText()));
+					ComodityPojo.clearComodityPojo();
+				} else {
+					jobDB.addNewJob(new Extruder(clientId, extruderIdentificationTxt.getText(), "Folyamatban",
+							LocalDate.now().toString(), extruderEndDate.getValue().toString(),
+							extruderCommodityCmb.getValue(), extruderActualSizeTxt.getText(), extruderWidthTxt.getText(),
+							extruderLengthTxt.getText(), extruderThicknessTxt.getText(), extruderFlatPlateBagCmb.getValue(),
+							extruderGrammMeterTxt.getText(), extruderOrderedKgTxt.getText(), extruderNameCmb.getValue(),
+							extruderComment.getText(), null));
+					ComodityPojo.clearComodityPojo();
+				}
 				clearTextField();
 				new MessageLabel().goodMessage("Sikeres mentés", messageLbl);
 			} else {
@@ -251,11 +261,11 @@ public class NewJobController {
 	private void buttonSetOnAction() {
 		LocalDate date = LocalDate.now();
 		saveButton.setOnAction((event) -> {
-			ComodityPojo.clearComodityPojo();
 			if (extruderIdentificationTxt.getText().trim().isEmpty()) {
 				extruderIdentificationTxt.setText(date.getYear() + ClientIdentficationGenerator.random());
 			}
 			saveDataBase();
+			
 		});
 	}
 
