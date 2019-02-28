@@ -82,8 +82,8 @@ public class TableController {
 	}
 
 	private void setButton() {
-		Button upButton = new Button("Up");
-		Button downButton = new Button("Down");
+		Button upButton = new Button("<");
+		Button downButton = new Button(">");
 		upDownHBox.getChildren().addAll(upButton, downButton);
 		ReadOnlyIntegerProperty selectedIndex = extruderTableView.getSelectionModel().selectedIndexProperty();
 		upButton.disableProperty().bind(selectedIndex.lessThanOrEqualTo(0));
@@ -302,7 +302,8 @@ public class TableController {
 		extruderComment = new TableColumn<>("Megjegyzés");
 		extruderComment.setMinWidth(360);
 		extruderComment.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderComment"));
-		 extruderComment.setCellFactory(WRAPPING_CELL_FACTORY);
+//		 extruderComment.setCellFactory(WRAPPING_CELL_FACTORY);
+		extruderComment.setCellFactory(TextFieldTableCell.forTableColumn());
 
 		extruderComment.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Extruder, String>>() {
 			@Override
