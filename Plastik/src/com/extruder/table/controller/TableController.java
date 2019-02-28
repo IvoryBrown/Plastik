@@ -8,6 +8,7 @@ import com.extruder.table.database.TableDataBase;
 import com.project.setting.machine.database.MachineDataBase;
 import com.setting.label.MessageLabel;
 
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ReadOnlyIntegerProperty;
 import javafx.collections.FXCollections;
@@ -17,7 +18,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableCell;
@@ -34,7 +34,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.text.Text;
+import javafx.scene.layout.VBox;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 
@@ -46,7 +46,7 @@ public class TableController {
 	private TableColumn<Extruder, Date> extruderAddDate, extruderEndDate;
 	private TableColumn<Extruder, Double> extruderThickness, extruderGrammMeter, extruderOrderedKg, extruderActualKg;
 	private TableColumn<Extruder, String> extruderClientName, extruderIdentification, extruderStatus, extruderCommodity,
-			extruderActualSize, extruderName, extruderComment,extruderPriority;
+			extruderActualSize, extruderName, extruderComment, extruderPriority;
 	private Label messageLbl;
 	private final ObservableList<Extruder> dataExtruder = FXCollections.observableArrayList();
 	private TableDataBase tableDataBase = new TableDataBase();
@@ -159,7 +159,7 @@ public class TableController {
 		extruderTableView.getColumns().addAll(extruderId, extruderClientId, extruderClientName, extruderName,
 				extruderIdentification, extruderStatus, extruderAddDate, extruderEndDate, extruderCommodity,
 				extruderActualSize, extruderWidth, extruderLength, extruderThickness, extruderFlatPlateBag,
-				extruderGrammMeter, extruderOrderedKg, extruderActualKg, extruderComment,extruderPriority);
+				extruderGrammMeter, extruderOrderedKg, extruderActualKg, extruderComment, extruderPriority);
 		extruderTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 	}
 
@@ -279,7 +279,7 @@ public class TableController {
 
 		extruderActualKg = new TableColumn<>("kg");
 		extruderActualKg.setMinWidth(80);
-		
+
 		extruderPriority = new TableColumn<>("Priorítás");
 		extruderPriority.setMinWidth(80);
 		extruderPriority.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderPriority"));
@@ -302,21 +302,8 @@ public class TableController {
 		extruderComment = new TableColumn<>("Megjegyzés");
 		extruderComment.setMinWidth(360);
 		extruderComment.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderComment"));
-//		extruderComment.setCellFactory(new Callback<TableColumn<Extruder, String>, TableCell<Extruder, String>>() {
-//
-//	        @Override
-//	        public TableCell<Extruder, String> call(
-//	                TableColumn<Extruder, String> param) {
-//	            TableCell<Extruder, String> cell = new TableCell<>();
-//	            Text text = new Text();
-//	            cell.setGraphic(text);
-//	            cell.setPrefHeight(Control.USE_COMPUTED_SIZE);
-//	            text.wrappingWidthProperty().bind(cell.widthProperty());
-//	            text.textProperty().bind(cell.itemProperty());
-//	            return cell ;
-//	        }
-//
-//	    });
+		 extruderComment.setCellFactory(WRAPPING_CELL_FACTORY);
+
 		extruderComment.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Extruder, String>>() {
 			@Override
 			public void handle(TableColumn.CellEditEvent<Extruder, String> d) {
@@ -352,6 +339,37 @@ public class TableController {
 			}
 		});
 	}
+
+	public static final Callback<TableColumn<Extruder,String>, TableCell<Extruder,String>> WRAPPING_CELL_FACTORY = 
+            new Callback<TableColumn<Extruder,String>, TableCell<Extruder,String>>() {
+                
+        @Override public TableCell<Extruder,String> call(TableColumn<Extruder,String> param) {
+            TableCell<Extruder,String> tableCell = new TableCell<Extruder,String>() {
+                @Override protected void updateItem(String item, boolean empty) {
+                    if (item == getItem()) return;
+
+                    super.updateItem(item, empty);
+
+                    if (item == null) {
+                        super.setText("");
+                        super.setGraphic(null);
+                    } else {
+                        super.setText("");
+                        Label l = new Label(item);
+                        l.setWrapText(true);
+                        l.setStyle("-fx-text-background-color: tomato;");
+                        VBox box = new VBox(l);
+                        l.heightProperty().addListener((observable,oldValue,newValue)-> {
+                        	box.setPrefHeight(newValue.doubleValue()+7);
+                        	Platform.runLater(()->this.getTableRow().requestLayout());
+                        });
+                        super.setGraphic(box);
+                    }
+                }
+            };
+	    return tableCell;
+        }
+    };
 
 	private ObservableList<Extruder> extruderData(String extruderName) {
 		dataExtruder.clear();
