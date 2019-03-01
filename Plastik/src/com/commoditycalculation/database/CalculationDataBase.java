@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.client.pojo.Client;
 import com.commoditycalculation.pojo.CommodityCalculation;
 import com.setting.database.DataBaseLocal;
 import com.setting.showinfo.ShowInfo;

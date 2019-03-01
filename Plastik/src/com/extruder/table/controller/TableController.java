@@ -8,7 +8,6 @@ import com.extruder.table.database.TableDataBase;
 import com.project.setting.machine.database.MachineDataBase;
 import com.setting.label.MessageLabel;
 
-import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ReadOnlyIntegerProperty;
 import javafx.collections.FXCollections;
@@ -20,7 +19,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -32,11 +30,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.StageStyle;
-import javafx.util.Callback;
 
 public class TableController {
 	private AnchorPane extruderNewJobsPane, extruderActualJobsPane;
@@ -95,6 +93,18 @@ public class TableController {
 			int index = extruderTableView.getSelectionModel().getSelectedIndex();
 			extruderTableView.getItems().add(index - 1, extruderTableView.getItems().remove(index));
 			extruderTableView.getSelectionModel().clearAndSelect(index - 1);
+			Extruder person = extruderTableView.getItems().get(index);
+			System.out.println(person.getExtruderPriority());
+		});
+
+		extruderTableView.setOnMouseClicked((MouseEvent event) -> {
+			if (event.getButton().equals(MouseButton.PRIMARY)) {
+				int index = extruderTableView.getSelectionModel().getSelectedIndex();
+				Extruder person = extruderTableView.getItems().get(index);
+				System.out.println(person.getExtruderPriority());
+				Extruder persons = extruderTableView.getItems().get(index-1);
+				System.out.println(persons.getExtruderPriority());
+			}
 		});
 
 		downButton.setOnAction(evt -> {
@@ -302,9 +312,7 @@ public class TableController {
 		extruderComment = new TableColumn<>("Megjegyzés");
 		extruderComment.setMinWidth(360);
 		extruderComment.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderComment"));
-//		 extruderComment.setCellFactory(WRAPPING_CELL_FACTORY);
 		extruderComment.setCellFactory(TextFieldTableCell.forTableColumn());
-
 		extruderComment.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Extruder, String>>() {
 			@Override
 			public void handle(TableColumn.CellEditEvent<Extruder, String> d) {
@@ -340,37 +348,6 @@ public class TableController {
 			}
 		});
 	}
-
-	public static final Callback<TableColumn<Extruder,String>, TableCell<Extruder,String>> WRAPPING_CELL_FACTORY = 
-            new Callback<TableColumn<Extruder,String>, TableCell<Extruder,String>>() {
-                
-        @Override public TableCell<Extruder,String> call(TableColumn<Extruder,String> param) {
-            TableCell<Extruder,String> tableCell = new TableCell<Extruder,String>() {
-                @Override protected void updateItem(String item, boolean empty) {
-                    if (item == getItem()) return;
-
-                    super.updateItem(item, empty);
-
-                    if (item == null) {
-                        super.setText("");
-                        super.setGraphic(null);
-                    } else {
-                        super.setText("");
-                        Label l = new Label(item);
-                        l.setWrapText(true);
-                        l.setStyle("-fx-text-background-color: tomato;");
-                        VBox box = new VBox(l);
-                        l.heightProperty().addListener((observable,oldValue,newValue)-> {
-                        	box.setPrefHeight(newValue.doubleValue()+7);
-                        	Platform.runLater(()->this.getTableRow().requestLayout());
-                        });
-                        super.setGraphic(box);
-                    }
-                }
-            };
-	    return tableCell;
-        }
-    };
 
 	private ObservableList<Extruder> extruderData(String extruderName) {
 		dataExtruder.clear();
