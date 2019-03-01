@@ -10,6 +10,8 @@ import com.setting.label.MessageLabel;
 
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ReadOnlyIntegerProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -30,8 +32,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.StageStyle;
@@ -80,8 +80,8 @@ public class TableController {
 	}
 
 	private void setButton() {
-		Button upButton = new Button("<");
-		Button downButton = new Button(">");
+		Button upButton = new Button("Fel");
+		Button downButton = new Button("Le");
 		upDownHBox.getChildren().addAll(upButton, downButton);
 		ReadOnlyIntegerProperty selectedIndex = extruderTableView.getSelectionModel().selectedIndexProperty();
 		upButton.disableProperty().bind(selectedIndex.lessThanOrEqualTo(0));
@@ -93,19 +93,9 @@ public class TableController {
 			int index = extruderTableView.getSelectionModel().getSelectedIndex();
 			extruderTableView.getItems().add(index - 1, extruderTableView.getItems().remove(index));
 			extruderTableView.getSelectionModel().clearAndSelect(index - 1);
-			Extruder person = extruderTableView.getItems().get(index);
-			System.out.println(person.getExtruderPriority());
+			
 		});
-
-		extruderTableView.setOnMouseClicked((MouseEvent event) -> {
-			if (event.getButton().equals(MouseButton.PRIMARY)) {
-				int index = extruderTableView.getSelectionModel().getSelectedIndex();
-				Extruder person = extruderTableView.getItems().get(index);
-				System.out.println(person.getExtruderPriority());
-				Extruder persons = extruderTableView.getItems().get(index-1);
-				System.out.println(persons.getExtruderPriority());
-			}
-		});
+		
 
 		downButton.setOnAction(evt -> {
 			int index = extruderTableView.getSelectionModel().getSelectedIndex();
@@ -166,10 +156,10 @@ public class TableController {
 
 	@SuppressWarnings("unchecked")
 	private void setColumn() {
-		extruderTableView.getColumns().addAll(extruderId, extruderClientId, extruderClientName, extruderName,
-				extruderIdentification, extruderStatus, extruderAddDate, extruderEndDate, extruderCommodity,
-				extruderActualSize, extruderWidth, extruderLength, extruderThickness, extruderFlatPlateBag,
-				extruderGrammMeter, extruderOrderedKg, extruderActualKg, extruderComment, extruderPriority);
+		extruderTableView.getColumns().addAll(extruderId, extruderClientId, extruderPriority, extruderClientName,
+				extruderName, extruderIdentification, extruderStatus, extruderAddDate, extruderEndDate,
+				extruderCommodity, extruderActualSize, extruderWidth, extruderLength, extruderThickness,
+				extruderFlatPlateBag, extruderGrammMeter, extruderOrderedKg, extruderActualKg, extruderComment);
 		extruderTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 	}
 
@@ -344,6 +334,16 @@ public class TableController {
 
 					}
 
+				}
+			}
+		});
+		
+		extruderTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Extruder>() {
+			@Override
+			public void changed(ObservableValue<? extends Extruder> observable, Extruder oldValue, Extruder newValue) {
+				if (oldValue != null || newValue == null) {
+					System.out.println(oldValue.getExtruderPriority() + " : "+newValue.getExtruderPriority());
+					
 				}
 			}
 		});
