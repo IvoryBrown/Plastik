@@ -42,9 +42,9 @@ public class TableController {
 	private TableColumn<Extruder, Integer> extruderId, extruderClientId, extruderFlatPlateBag, extruderWidth,
 			extruderLength;
 	private TableColumn<Extruder, Date> extruderAddDate, extruderEndDate;
-	private TableColumn<Extruder, Double> extruderThickness, extruderGrammMeter, extruderOrderedKg, extruderActualKg;
-	private TableColumn<Extruder, String> extruderClientName, extruderIdentification, extruderStatus, extruderCommodity,
-			extruderActualSize, extruderName, extruderComment, extruderPriority;
+	private TableColumn<Extruder, Double> extruderThickness, extruderGrammMeter, extruderActualKg;
+	private TableColumn<Extruder, String> extruderClientName, extruderIdentification, extruderOrderedKg, extruderStatus,
+			extruderCommodity, extruderActualSize, extruderName, extruderComment, extruderPriority;
 	private Label messageLbl;
 	private final ObservableList<Extruder> dataExtruder = FXCollections.observableArrayList();
 	private TableDataBase tableDataBase = new TableDataBase();
@@ -93,9 +93,8 @@ public class TableController {
 			int index = extruderTableView.getSelectionModel().getSelectedIndex();
 			extruderTableView.getItems().add(index - 1, extruderTableView.getItems().remove(index));
 			extruderTableView.getSelectionModel().clearAndSelect(index - 1);
-			
+
 		});
-		
 
 		downButton.setOnAction(evt -> {
 			int index = extruderTableView.getSelectionModel().getSelectedIndex();
@@ -275,7 +274,7 @@ public class TableController {
 
 		extruderOrderedKg = new TableColumn<>("Megrendelt kg");
 		extruderOrderedKg.setMinWidth(100);
-		extruderOrderedKg.setCellValueFactory(new PropertyValueFactory<Extruder, Double>("extruderOrderedKg"));
+		extruderOrderedKg.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderOrderedKg"));
 
 		extruderActualKg = new TableColumn<>("kg");
 		extruderActualKg.setMinWidth(80);
@@ -300,7 +299,7 @@ public class TableController {
 		});
 
 		extruderComment = new TableColumn<>("Megjegyzés");
-		extruderComment.setMinWidth(360);
+		extruderComment.setMinWidth(960);
 		extruderComment.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderComment"));
 		extruderComment.setCellFactory(TextFieldTableCell.forTableColumn());
 		extruderComment.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Extruder, String>>() {
@@ -337,16 +336,16 @@ public class TableController {
 				}
 			}
 		});
-		
+
 		extruderTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Extruder>() {
 			@Override
 			public void changed(ObservableValue<? extends Extruder> observable, Extruder oldValue, Extruder newValue) {
-				if (oldValue != null || newValue == null) {
-					System.out.println(oldValue.getExtruderPriority() + " : "+newValue.getExtruderPriority());
-					
+				if (oldValue != null && newValue != null) {
+					System.out.println(observable);
 				}
 			}
 		});
+
 	}
 
 	private ObservableList<Extruder> extruderData(String extruderName) {

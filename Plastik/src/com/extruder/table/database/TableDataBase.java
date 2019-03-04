@@ -72,13 +72,14 @@ public class TableDataBase {
 		Connection conn = DataBaseLocal.getConnection();
 		PreparedStatement pr = null;
 		try {
-			String sqlClient = "UPDATE `extruder` SET allapot = ?, extruder_nev = ?, prioritas = ?, megjegyzes = ? WHERE extruder_id = ?";
+			String sqlClient = "UPDATE `extruder` SET allapot = ?, extruder_nev = ?, prioritas = ?, megrendelt_kg = ?, megjegyzes = ? WHERE extruder_id = ?";
 			pr = conn.prepareStatement(sqlClient);
 			pr.setString(1, extruder.getExtruderStatus());
 			pr.setString(2, extruder.getExtruderName());
 			pr.setString(3, extruder.getExtruderPriority());
-			pr.setString(4, extruder.getExtruderComment());
-			pr.setInt(5, Integer.parseInt(extruder.getExtruderId()));
+			pr.setString(4, extruder.getExtruderOrderedKg());
+			pr.setString(5, extruder.getExtruderComment());
+			pr.setInt(6, Integer.parseInt(extruder.getExtruderId()));
 			pr.execute();
 		} catch (SQLException ex) {
 			System.out.println(ex);
