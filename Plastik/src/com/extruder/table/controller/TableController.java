@@ -8,15 +8,12 @@ import com.extruder.table.database.TableDataBase;
 import com.project.setting.machine.database.MachineDataBase;
 import com.setting.label.MessageLabel;
 
-import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ReadOnlyIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ChangeListener;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -26,7 +23,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -39,7 +35,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 
@@ -52,6 +47,7 @@ public class TableController {
 	private TableColumn<Extruder, Double> extruderThickness, extruderGrammMeter, extruderActualKg;
 	private TableColumn<Extruder, String> extruderClientName, extruderIdentification, extruderOrderedKg, extruderStatus,
 			extruderCommodity, extruderActualSize, extruderName, extruderComment, extruderPriority;
+	private TableColumn<Extruder, Boolean> colActive;
 	private Label messageLbl;
 	private final ObservableList<Extruder> dataExtruder = FXCollections.observableArrayList();
 	private TableDataBase tableDataBase = new TableDataBase();
@@ -100,8 +96,7 @@ public class TableController {
 			int index = extruderTableView.getSelectionModel().getSelectedIndex();
 			extruderTableView.getItems().add(index - 1, extruderTableView.getItems().remove(index));
 			extruderTableView.getSelectionModel().clearAndSelect(index - 1);
-		
-			
+
 		});
 
 		downButton.setOnAction(evt -> {
@@ -109,21 +104,8 @@ public class TableController {
 			extruderTableView.getItems().add(index + 1, extruderTableView.getItems().remove(0));
 			extruderTableView.getSelectionModel().clearAndSelect(index + 1);
 		});
-		
-		extruderTableView.setRowFactory(tv -> {
-	            TableRow<ObservableList> row = new TableRow<>();
-	            row.setOnMouseClicked(event -> {
-	                if (event.getClickCount() == 2 && (!row.isEmpty())) {
-	                   System.out.println(extruderTableView.getSelectionModel().getSelectedIndex()
-	                           +" <-tbl row, idx in items-> "
-	                           +dataExtruder.indexOf(extruderTableView.getSelectionModel().getSelectedItem()));
-	                }
-	            });
-	            return row;
-	        });
+
 	}
-	
-	
 
 	private void checkBox() {
 		statusCbox.setSelected(true);
@@ -177,14 +159,33 @@ public class TableController {
 
 	@SuppressWarnings("unchecked")
 	private void setColumn() {
-		extruderTableView.getColumns().addAll(extruderId, extruderClientId, extruderPriority, extruderClientName,
-				extruderName, extruderIdentification, extruderStatus, extruderAddDate, extruderEndDate,
-				extruderCommodity, extruderActualSize, extruderWidth, extruderLength, extruderThickness,
-				extruderFlatPlateBag, extruderGrammMeter, extruderOrderedKg, extruderActualKg, extruderComment);
+		extruderTableView.getColumns().addAll(colActive, extruderId, extruderClientId, extruderPriority,
+				extruderClientName, extruderName, extruderIdentification, extruderStatus, extruderAddDate,
+				extruderEndDate, extruderCommodity, extruderActualSize, extruderWidth, extruderLength,
+				extruderThickness, extruderFlatPlateBag, extruderGrammMeter, extruderOrderedKg, extruderActualKg,
+				extruderComment);
 		extruderTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 	}
 
 	private void extruderTable() {
+
+		colActive = new TableColumn<>("?");
+		colActive.setSortable(false);
+		colActive.setCellValueFactory(
+				new Callback<TableColumn.CellDataFeatures<Extruder, Boolean>, ObservableValue<Boolean>>() {
+					@Override
+					public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Extruder, Boolean> p) {
+						return new SimpleBooleanProperty(p.getValue() != null);
+					}
+				});
+
+		colActive.setCellFactory(new Callback<TableColumn<Extruder, Boolean>, TableCell<Extruder, Boolean>>() {
+			@Override
+			public TableCell<Extruder, Boolean> call(TableColumn<Extruder, Boolean> p) {
+				return new CalculationButtonCell(extruderTableView);
+			}
+		});
+
 		extruderId = new TableColumn<>("ID");
 		extruderId.setMinWidth(80);
 		extruderId.setCellValueFactory(new PropertyValueFactory<Extruder, Integer>("extruderId"));
@@ -354,15 +355,6 @@ public class TableController {
 						setStyle("-fx-text-background-color: whitesmoke;");
 
 					}
-
-				}
-			}
-		});
-
-		extruderTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Extruder>() {
-			@Override
-			public void changed(ObservableValue<? extends Extruder> observable, Extruder oldValue, Extruder newValue) {
-				if (oldValue != null || newValue == null) {
 
 				}
 			}

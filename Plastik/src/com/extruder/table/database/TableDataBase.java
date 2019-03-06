@@ -43,7 +43,7 @@ public class TableDataBase {
 						rs.getString("tenyleges_meret"), rs.getString("meret_szeleseg"), rs.getString("meret_hossz"),
 						rs.getString("vastagsag"), rs.getString("zsak_siklap"), rs.getString("gramm_meter"),
 						rs.getString("megrendelt_kg"), rs.getString("extruder_nev"), rs.getString("megjegyzes"),
-						rs.getString("prioritas"));
+						rs.getString("prioritas"), rs.getInt("alapanyag_szamitas_alapanyag_id"));
 				extruder.add(actualExtruder);
 			}
 		} catch (SQLException ex) {
