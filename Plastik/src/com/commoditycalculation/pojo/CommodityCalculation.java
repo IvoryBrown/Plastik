@@ -32,6 +32,42 @@ public class CommodityCalculation {
 	private final SimpleStringProperty commodityPercentageKg7;
 	private final SimpleStringProperty commodityPercentageKg8;
 
+	public CommodityCalculation(Integer commodityId, String commodityQuantity, String commodityName1,
+			String commodityName2, String commodityName3, String commodityName4, String commodityName5,
+			String commodityName6, String commodityName7, String commodityName8, String commodityPercentage1,
+			String commodityPercentage2, String commodityPercentage3, String commodityPercentage4,
+			String commodityPercentage5, String commodityPercentage6, String commodityPercentage7,
+			String commodityPercentage8, String commodityPercentageKg1, String commodityPercentageKg2,
+			String commodityPercentageKg3, String commodityPercentageKg4, String commodityPercentageKg5,
+			String commodityPercentageKg6, String commodityPercentageKg7, String commodityPercentageKg8) {
+		this.commodityId = new SimpleStringProperty(String.valueOf(commodityId));
+		this.calculationName = new SimpleStringProperty("");
+		this.commodityQuantity = new SimpleStringProperty(commodityQuantity);
+		this.commodityName1 = new SimpleStringProperty(commodityName1);
+		this.commodityName2 = new SimpleStringProperty(commodityName2);
+		this.commodityName3 = new SimpleStringProperty(commodityName3);
+		this.commodityName4 = new SimpleStringProperty(commodityName4);
+		this.commodityName5 = new SimpleStringProperty(commodityName5);
+		this.commodityName6 = new SimpleStringProperty(commodityName6);
+		this.commodityName7 = new SimpleStringProperty(commodityName7);
+		this.commodityName8 = new SimpleStringProperty(commodityName8);
+		this.commodityPercentage1 = new SimpleStringProperty(commodityPercentage1);
+		this.commodityPercentage2 = new SimpleStringProperty(commodityPercentage2);
+		this.commodityPercentage3 = new SimpleStringProperty(commodityPercentage3);
+		this.commodityPercentage4 = new SimpleStringProperty(commodityPercentage4);
+		this.commodityPercentage5 = new SimpleStringProperty(commodityPercentage5);
+		this.commodityPercentage6 = new SimpleStringProperty(commodityPercentage6);
+		this.commodityPercentage7 = new SimpleStringProperty(commodityPercentage7);
+		this.commodityPercentage8 = new SimpleStringProperty(commodityPercentage8);
+		this.commodityPercentageKg1 = new SimpleStringProperty(commodityPercentageKg1);
+		this.commodityPercentageKg2 = new SimpleStringProperty(commodityPercentageKg2);
+		this.commodityPercentageKg3 = new SimpleStringProperty(commodityPercentageKg3);
+		this.commodityPercentageKg4 = new SimpleStringProperty(commodityPercentageKg4);
+		this.commodityPercentageKg5 = new SimpleStringProperty(commodityPercentageKg5);
+		this.commodityPercentageKg6 = new SimpleStringProperty(commodityPercentageKg6);
+		this.commodityPercentageKg7 = new SimpleStringProperty(commodityPercentageKg7);
+		this.commodityPercentageKg8 = new SimpleStringProperty(commodityPercentageKg8);
+	}
 	public CommodityCalculation(String calculationName, String commodityQuantity, String commodityName1,
 			String commodityName2, String commodityName3, String commodityName4, String commodityName5,
 			String commodityName6, String commodityName7, String commodityName8, String commodityPercentage1,

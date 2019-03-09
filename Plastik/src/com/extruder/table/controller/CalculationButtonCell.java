@@ -2,7 +2,6 @@ package com.extruder.table.controller;
 
 import com.commoditycalculation.database.CalculationDataBase;
 import com.commoditycalculation.pojo.CommodityCalculation;
-import com.extruder.pojo.CalculationButton;
 import com.extruder.pojo.Extruder;
 
 import javafx.collections.FXCollections;
@@ -13,13 +12,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -28,57 +23,86 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 	final Button cellButton = new Button("?");
 	private CalculationDataBase db = new CalculationDataBase();
 	private final ObservableList<CommodityCalculation> dataExtruder = FXCollections.observableArrayList();
-	private HBox hBox;
-	private TableView<CalculationButton> subTableView;
+
+	private GridPane gr;
 
 	public CalculationButtonCell(TableView<Extruder> tblView) {
+
 		cellButton.setMaxSize(20, 20);
 		cellButton.setOnAction(new EventHandler<ActionEvent>() {
 
-			@SuppressWarnings({ "unchecked", "rawtypes" })
 			@Override
 			public void handle(ActionEvent arg0) {
 				int selectdIndex = getTableRow().getIndex();
 				Extruder selectedRecord = tblView.getItems().get(selectdIndex);
 				dataExtruder.addAll(db.getAllCommodityCalculationExtruderTable(selectedRecord.getExtruderComodityId()));
 				if (dataExtruder.size() != 0) {
-					Label n = new Label(dataExtruder.get(0).getCommodityQuantity() + " /kg");
-					Region region1 = new Region();
-					HBox.setHgrow(region1, Priority.ALWAYS);
-					Region region2 = new Region();
-					HBox.setHgrow(region2, Priority.ALWAYS);
-					hBox = new HBox(region1, n, region2);
 
-					System.out.println("ID"+" "+ dataExtruder.get(0).getCommodityName1()+" "+
-							dataExtruder.get(0).getCommodityPercentage1()+" "+
-							dataExtruder.get(0).getCommodityPercentageKg1()
-							);
-					ObservableList<CalculationButton> subDataList = FXCollections
-							.observableArrayList(new CalculationButton("ID", dataExtruder.get(0).getCommodityName1(),
-									dataExtruder.get(0).getCommodityPercentage1(),
-									dataExtruder.get(0).getCommodityPercentageKg1()));
+					Label lCommodityQuantity = new Label(dataExtruder.get(0).getCommodityQuantity() + " /kg");
+					lCommodityQuantity.setStyle("-fx-text-fill: #CD5C5C; -fx-font-size: 32px;  -fx-font-weight: bold;");
 
-					TableColumn columnfield = new TableColumn<>(" ");
-					columnfield.setMinWidth(160);
-					columnfield.setMaxWidth(160);
+					Label lCommodityName1 = new Label(dataExtruder.get(0).getCommodityName1());
+					Label lCommodityName2 = new Label(dataExtruder.get(0).getCommodityName2());
+					Label lCommodityName3 = new Label(dataExtruder.get(0).getCommodityName3());
+					Label lCommodityName4 = new Label(dataExtruder.get(0).getCommodityName4());
+					Label lCommodityName5 = new Label(dataExtruder.get(0).getCommodityName5());
+					Label lCommodityName6 = new Label(dataExtruder.get(0).getCommodityName6());
+					Label lCommodityName7 = new Label(dataExtruder.get(0).getCommodityName7());
+					Label lCommodityName8 = new Label(dataExtruder.get(0).getCommodityName8());
 
-					TableColumn columnValueName = new TableColumn<>("Alapanyag név");
-					columnValueName.setCellValueFactory(
-							new PropertyValueFactory<CalculationButton, String>("fieldSubRecordValueName"));
+					Label lCommodityPercentage1 = new Label(dataExtruder.get(0).getCommodityPercentage1() + " %");
+					Label lCommodityPercentage2 = new Label(dataExtruder.get(0).getCommodityPercentage2() + " %");
+					Label lCommodityPercentage3 = new Label(dataExtruder.get(0).getCommodityPercentage3() + " %");
+					Label lCommodityPercentage4 = new Label(dataExtruder.get(0).getCommodityPercentage4() + " %");
+					Label lCommodityPercentage5 = new Label(dataExtruder.get(0).getCommodityPercentage5() + " %");
+					Label lCommodityPercentage6 = new Label(dataExtruder.get(0).getCommodityPercentage6() + " %");
+					Label lCommodityPercentage7 = new Label(dataExtruder.get(0).getCommodityPercentage7() + " %");
+					Label lCommodityPercentage8 = new Label(dataExtruder.get(0).getCommodityPercentage8() + " %");
 
-					TableColumn columnValuePercentage = new TableColumn<>("%");
-					columnValuePercentage.setCellValueFactory(
-							new PropertyValueFactory<CalculationButton, String>("fieldSubRecordValuePercentage"));
+					Label lCommodityPercentageKg1 = new Label(dataExtruder.get(0).getCommodityPercentageKg1() + " /Kg");
+					Label lCommodityPercentageKg2 = new Label(dataExtruder.get(0).getCommodityPercentageKg2() + " /Kg");
+					Label lCommodityPercentageKg3 = new Label(dataExtruder.get(0).getCommodityPercentageKg3() + " /Kg");
+					Label lCommodityPercentageKg4 = new Label(dataExtruder.get(0).getCommodityPercentageKg4() + " /Kg");
+					Label lCommodityPercentageKg5 = new Label(dataExtruder.get(0).getCommodityPercentageKg5() + " /Kg");
+					Label lCommodityPercentageKg6 = new Label(dataExtruder.get(0).getCommodityPercentageKg6() + " /Kg");
+					Label lCommodityPercentageKg7 = new Label(dataExtruder.get(0).getCommodityPercentageKg7() + " /Kg");
+					Label lCommodityPercentageKg8 = new Label(dataExtruder.get(0).getCommodityPercentageKg8() + " /Kg");
 
-					TableColumn columnValuePercentageKg = new TableColumn<>("kg");
-					columnValuePercentage.setCellValueFactory(
-							new PropertyValueFactory<CalculationButton, String>("fieldSubRecordValuePercentageKg"));
+					gr = new GridPane();
 
-					subTableView = new TableView<>();
-					// subTableView.setStyle("-fx-text-background-color: white;");
-					subTableView.setItems(subDataList);
-					subTableView.getColumns().addAll(columnfield, columnValueName, columnValuePercentage,
-							columnValuePercentageKg);
+					gr.setHgap(60);
+					gr.setVgap(10);
+					gr.setMaxSize(500, 300);
+
+					gr.add(lCommodityQuantity, 1, 1, 1, 1);
+
+					gr.add(lCommodityName1, 0, 2, 1, 1);
+					gr.add(lCommodityName2, 0, 3, 1, 1);
+					gr.add(lCommodityName3, 0, 4, 1, 1);
+					gr.add(lCommodityName4, 0, 5, 1, 1);
+					gr.add(lCommodityName5, 0, 6, 1, 1);
+					gr.add(lCommodityName6, 0, 7, 1, 1);
+					gr.add(lCommodityName7, 0, 8, 1, 1);
+					gr.add(lCommodityName8, 0, 9, 1, 1);
+
+					gr.add(lCommodityPercentage1, 1, 2, 1, 1);
+					gr.add(lCommodityPercentage2, 1, 3, 1, 1);
+					gr.add(lCommodityPercentage3, 1, 4, 1, 1);
+					gr.add(lCommodityPercentage4, 1, 5, 1, 1);
+					gr.add(lCommodityPercentage5, 1, 6, 1, 1);
+					gr.add(lCommodityPercentage6, 1, 7, 1, 1);
+					gr.add(lCommodityPercentage7, 1, 8, 1, 1);
+					gr.add(lCommodityPercentage8, 1, 9, 1, 1);
+
+					gr.add(lCommodityPercentageKg1, 2, 2, 1, 1);
+					gr.add(lCommodityPercentageKg2, 2, 3, 1, 1);
+					gr.add(lCommodityPercentageKg3, 2, 4, 1, 1);
+					gr.add(lCommodityPercentageKg4, 2, 5, 1, 1);
+					gr.add(lCommodityPercentageKg5, 2, 6, 1, 1);
+					gr.add(lCommodityPercentageKg6, 2, 7, 1, 1);
+					gr.add(lCommodityPercentageKg7, 2, 8, 1, 1);
+					gr.add(lCommodityPercentageKg8, 2, 9, 1, 1);
+
 					setStageGood();
 				} else {
 					setStageError();
@@ -99,7 +123,7 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 			stage.setTitle("Alapanyag");
 			stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/setting/icon/foliak.png")));
 			root.prefWidthProperty().bind(stage.widthProperty());
-			stage.setScene(new Scene(root, 950, 750));
+			stage.setScene(new Scene(root, 600, 400));
 			stage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -110,13 +134,14 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 	private void setStageGood() {
 		try {
 			StackPane root = new StackPane();
-			root.getChildren().addAll(hBox, subTableView);
+			root.getStylesheets().add("/com/main/view/css/calculaionbutton.css");
+			root.getChildren().addAll(gr);
 			Stage stage = new Stage();
 			stage.initModality(Modality.APPLICATION_MODAL);
 			stage.setTitle("Alapanyag");
 			stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/setting/icon/foliak.png")));
 			root.prefWidthProperty().bind(stage.widthProperty());
-			stage.setScene(new Scene(root, 950, 750));
+			stage.setScene(new Scene(root, 600, 400));
 			stage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -126,7 +151,7 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 
 	private Label errorMessage(String message, Label label) {
 		label.setText(message);
-		label.setStyle("-fx-text-fill: #CD5C5C; -fx-font-size: 32px;  -fx-font-weight: bold;");
+		label.setStyle("-fx-text-fill: #CD5C5C; -fx-font-size: 25px;  -fx-font-weight: bold;");
 		return label;
 
 	}
@@ -141,4 +166,5 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 			setText(null);
 		}
 	}
+
 }

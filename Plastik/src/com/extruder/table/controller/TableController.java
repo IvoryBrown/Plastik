@@ -9,7 +9,6 @@ import com.project.setting.machine.database.MachineDataBase;
 import com.setting.label.MessageLabel;
 
 import javafx.beans.binding.Bindings;
-import javafx.beans.property.ReadOnlyIntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -55,7 +54,7 @@ public class TableController {
 	private ToggleButton extruderNameBtn1, extruderNameBtn2, extruderNameBtn3, extruderNameBtn4, extruderNameBtn5,
 			extruderNameBtn6, extruderNameBtn7, extruderNameBtn8, extruderNameBtn9, extruderNameBtn10,
 			extruderNameBtn11, extruderNameBtn12, extruderNameBtn13, extruderNameBtn14, extruderNameAllBtn;
-	private HBox hBox, upDownHBox;
+	private HBox hBox;
 	private Button extruderFilteringBtn;
 	private TextField extruderFilteringTxt;
 	private ToggleGroup group = new ToggleGroup();
@@ -63,7 +62,7 @@ public class TableController {
 
 	public TableController(AnchorPane extruderNewJobsPane, AnchorPane extruderActualJobsPane,
 			TableView<Extruder> extruderTableView, Label messageLbl, HBox hBox, Button extruderFilteringBtn,
-			TextField extruderFilteringTxt, CheckBox statusCbox, HBox upDownHBox) {
+			TextField extruderFilteringTxt, CheckBox statusCbox) {
 		this.extruderNewJobsPane = extruderNewJobsPane;
 		this.extruderActualJobsPane = extruderActualJobsPane;
 		this.extruderTableView = extruderTableView;
@@ -72,39 +71,12 @@ public class TableController {
 		this.extruderFilteringBtn = extruderFilteringBtn;
 		this.extruderFilteringTxt = extruderFilteringTxt;
 		this.statusCbox = statusCbox;
-		this.upDownHBox = upDownHBox;
 		clearTable();
 		extruderTable();
 		setColumn();
 		setToggleButton();
 		buttonOnAction();
 		checkBox();
-		setButton();
-	}
-
-	private void setButton() {
-		Button upButton = new Button("Fel");
-		Button downButton = new Button("Le");
-		upDownHBox.getChildren().addAll(upButton, downButton);
-		ReadOnlyIntegerProperty selectedIndex = extruderTableView.getSelectionModel().selectedIndexProperty();
-		upButton.disableProperty().bind(selectedIndex.lessThanOrEqualTo(0));
-		downButton.disableProperty().bind(Bindings.createBooleanBinding(() -> {
-			int index = selectedIndex.get();
-			return index < 0 || index + 1 >= extruderTableView.getItems().size();
-		}, selectedIndex, extruderTableView.getItems()));
-		upButton.setOnAction(evt -> {
-			int index = extruderTableView.getSelectionModel().getSelectedIndex();
-			extruderTableView.getItems().add(index - 1, extruderTableView.getItems().remove(index));
-			extruderTableView.getSelectionModel().clearAndSelect(index - 1);
-
-		});
-
-		downButton.setOnAction(evt -> {
-			int index = extruderTableView.getSelectionModel().getSelectedIndex();
-			extruderTableView.getItems().add(index + 1, extruderTableView.getItems().remove(0));
-			extruderTableView.getSelectionModel().clearAndSelect(index + 1);
-		});
-
 	}
 
 	private void checkBox() {

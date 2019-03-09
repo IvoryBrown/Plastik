@@ -61,7 +61,7 @@ public class CalculationDataBase {
 	}
 	
 	public ArrayList<CommodityCalculation> getAllCommodityCalculationExtruderTable(String id) {
-		String sql = "SELECT * FROM `alapanyag_szamitas`WHERE "
+		String sql = "SELECT * FROM `receptura`WHERE "
 				+ "(`alapanyag_id`) LIKE " + id ;
 		Connection con = DataBaseLocal.getConnection();
 		ArrayList<CommodityCalculation> commodityCalculation = null;

@@ -1,7 +1,5 @@
 package com.extruder.pojo;
 
-import com.commoditycalculation.pojo.CommodityCalculation;
-
 import javafx.beans.property.SimpleStringProperty;
 
 public class Extruder {
@@ -72,6 +70,7 @@ public class Extruder {
 		this.extruderComment = new SimpleStringProperty(extruderComment);
 		this.extruderPriority = new SimpleStringProperty("");
 		this.extruderComodityId = new SimpleStringProperty(extruderComodityId);
+
 	}
 
 	public Extruder(Integer extruderId, Integer extruderClientId, String extruderClientName,
@@ -327,4 +326,5 @@ public class Extruder {
 	public void setExtruderComodityId(String extruderComodityId) {
 		this.extruderComodityId.set(extruderComodityId);
 	}
+
 }
