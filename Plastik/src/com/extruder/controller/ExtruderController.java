@@ -14,6 +14,7 @@ import com.commoditycalculation.controller.TextFieldIsEmpty;
 import com.commoditycalculation.database.CalculationDataBase;
 import com.commoditycalculation.pojo.CommodityCalculation;
 import com.extruder.newjob.database.NewJobDataBase;
+import com.extruder.pallet.pojo.Pallet;
 import com.extruder.pojo.Extruder;
 import com.extruder.table.controller.TableController;
 import com.menu.calculations.CalculationsController;
@@ -116,13 +117,18 @@ public class ExtruderController implements Initializable {
 	@FXML
 	private AnchorPane packingPane;
 	// coliProperty
+	@FXML
 	private TextField spoolTypeTxt, spoolLenghtTxt, spoolSizeTxt, coilDiameterTxt, coilOfSpoolsTxt, coliLengthTxt,
 			coilMinDiameter, coilMinOfSpoolsTxt, coilMinLengthTxt;
+	@FXML
 	private TextArea spoolCommentTxt;
 	// palletProperty
+	@FXML
 	private TextField rollsNumberTxt, palettBCrowdTxt, palettNCrowdTxt, palettNNCrowdTxt;
+	@FXML
 	private TextArea palletTypeTxt, palletLocationTxt, palletCommentTxt;
-	//palletWrapping
+	// palletWrapping
+	@FXML
 	private TextArea palletWrappingTxt, palletWrappingCommentTxt;
 
 	private void jobsPane() {
@@ -428,22 +434,25 @@ public class ExtruderController implements Initializable {
 		};
 		calculationNameCmb.setConverter(converter);
 		calculationNameCmb.getSelectionModel().selectedItemProperty().addListener((o, ol, nw) -> {
-			commodityName1Txt.setText(calculationNameCmb.getValue().getCommodityName1Property().get());
-			commodityName2Txt.setText(calculationNameCmb.getValue().getCommodityName2Property().get());
-			commodityName3Txt.setText(calculationNameCmb.getValue().getCommodityName3Property().get());
-			commodityName4Txt.setText(calculationNameCmb.getValue().getCommodityName4Property().get());
-			commodityName5Txt.setText(calculationNameCmb.getValue().getCommodityName5Property().get());
-			commodityName6Txt.setText(calculationNameCmb.getValue().getCommodityName6Property().get());
-			commodityName7Txt.setText(calculationNameCmb.getValue().getCommodityName7Property().get());
-			commodityName8Txt.setText(calculationNameCmb.getValue().getCommodityName8Property().get());
-			commodityPercentage1Txt.setText(calculationNameCmb.getValue().getCommodityPercentage1Property().get());
-			commodityPercentage2Txt.setText(calculationNameCmb.getValue().getCommodityPercentage2Property().get());
-			commodityPercentage3Txt.setText(calculationNameCmb.getValue().getCommodityPercentage3Property().get());
-			commodityPercentage4Txt.setText(calculationNameCmb.getValue().getCommodityPercentage4Property().get());
-			commodityPercentage5Txt.setText(calculationNameCmb.getValue().getCommodityPercentage5Property().get());
-			commodityPercentage6Txt.setText(calculationNameCmb.getValue().getCommodityPercentage6Property().get());
-			commodityPercentage7Txt.setText(calculationNameCmb.getValue().getCommodityPercentage7Property().get());
-			commodityPercentage8Txt.setText(calculationNameCmb.getValue().getCommodityPercentage8Property().get());
+			if (calculationNameCmb.getSelectionModel().selectedItemProperty() != null) {
+
+				commodityName1Txt.setText(calculationNameCmb.getValue().getCommodityName1Property().get());
+				commodityName2Txt.setText(calculationNameCmb.getValue().getCommodityName2Property().get());
+				commodityName3Txt.setText(calculationNameCmb.getValue().getCommodityName3Property().get());
+				commodityName4Txt.setText(calculationNameCmb.getValue().getCommodityName4Property().get());
+				commodityName5Txt.setText(calculationNameCmb.getValue().getCommodityName5Property().get());
+				commodityName6Txt.setText(calculationNameCmb.getValue().getCommodityName6Property().get());
+				commodityName7Txt.setText(calculationNameCmb.getValue().getCommodityName7Property().get());
+				commodityName8Txt.setText(calculationNameCmb.getValue().getCommodityName8Property().get());
+				commodityPercentage1Txt.setText(calculationNameCmb.getValue().getCommodityPercentage1Property().get());
+				commodityPercentage2Txt.setText(calculationNameCmb.getValue().getCommodityPercentage2Property().get());
+				commodityPercentage3Txt.setText(calculationNameCmb.getValue().getCommodityPercentage3Property().get());
+				commodityPercentage4Txt.setText(calculationNameCmb.getValue().getCommodityPercentage4Property().get());
+				commodityPercentage5Txt.setText(calculationNameCmb.getValue().getCommodityPercentage5Property().get());
+				commodityPercentage6Txt.setText(calculationNameCmb.getValue().getCommodityPercentage6Property().get());
+				commodityPercentage7Txt.setText(calculationNameCmb.getValue().getCommodityPercentage7Property().get());
+				commodityPercentage8Txt.setText(calculationNameCmb.getValue().getCommodityPercentage8Property().get());
+			}
 			clearcommodityPercentageKgTxt();
 			nextCommodity();
 			calculationCommodity();
@@ -467,9 +476,12 @@ public class ExtruderController implements Initializable {
 			}
 		});
 		calculationNameCmb.focusedProperty().addListener((observable, oldValue, newValue) -> {
-			calculationNameCmb.getItems().clear();
-			dataCommodityCalculation.addAll(calculationDataBase.getAllCommodityCalculation());
-			calculationNameCmb.setItems(dataCommodityCalculation);
+			if (calculationNameCmb.focusedProperty().getValue()) {
+				calculationNameCmb.getItems().clear();
+				dataCommodityCalculation.addAll(calculationDataBase.getAllCommodityCalculation());
+				calculationNameCmb.setItems(dataCommodityCalculation);
+
+			}
 		});
 	}
 
@@ -617,34 +629,52 @@ public class ExtruderController implements Initializable {
 	private void saveDataBase() {
 		if (checkTextField()) {
 			if (isCheckClientName()) {
+				String pallet = DeviceIdentificationGenereator.random();
 				if (!commodityName1Txt.getText().trim().isEmpty()) {
-					String s = DeviceIdentificationGenereator.random();
-					jobDB.addCommodityCalculation(new CommodityCalculation(Integer.parseInt(s), quantityTxt.getText(),
-							commodityName1Txt.getText(), commodityName2Txt.getText(), commodityName3Txt.getText(),
-							commodityName4Txt.getText(), commodityName5Txt.getText(), commodityName6Txt.getText(),
-							commodityName7Txt.getText(), commodityName8Txt.getText(), commodityPercentage1Txt.getText(),
-							commodityPercentage2Txt.getText(), commodityPercentage3Txt.getText(),
-							commodityPercentage4Txt.getText(), commodityPercentage5Txt.getText(),
-							commodityPercentage6Txt.getText(), commodityPercentage7Txt.getText(),
-							commodityPercentage8Txt.getText(), commodityPercentageKg1Txt.getText(),
-							commodityPercentageKg2Txt.getText(), commodityPercentageKg3Txt.getText(),
-							commodityPercentageKg4Txt.getText(), commodityPercentageKg5Txt.getText(),
-							commodityPercentageKg6Txt.getText(), commodityPercentageKg7Txt.getText(),
-							commodityPercentageKg8Txt.getText()));
-					jobDB.addNewJob(new Extruder(clientId, extruderIdentificationTxt.getText(), "Folyamatban",
-							LocalDate.now().toString(), extruderEndDate.getValue().toString(),
-							extruderCommodityCmb.getValue(), extruderActualSizeTxt.getText(),
-							extruderWidthTxt.getText(), extruderLengthTxt.getText(), extruderThicknessTxt.getText(),
-							extruderFlatPlateBagCmb.getValue(), extruderGrammMeterTxt.getText(),
-							extruderOrderedKgTxt.getText(), extruderNameCmb.getValue(), extruderComment.getText(), s));
-				} else {
+					String calculation = DeviceIdentificationGenereator.random();
+					jobDB.addCommodityCalculation(new CommodityCalculation(Integer.parseInt(calculation),
+							quantityTxt.getText(), commodityName1Txt.getText(), commodityName2Txt.getText(),
+							commodityName3Txt.getText(), commodityName4Txt.getText(), commodityName5Txt.getText(),
+							commodityName6Txt.getText(), commodityName7Txt.getText(), commodityName8Txt.getText(),
+							commodityPercentage1Txt.getText(), commodityPercentage2Txt.getText(),
+							commodityPercentage3Txt.getText(), commodityPercentage4Txt.getText(),
+							commodityPercentage5Txt.getText(), commodityPercentage6Txt.getText(),
+							commodityPercentage7Txt.getText(), commodityPercentage8Txt.getText(),
+							commodityPercentageKg1Txt.getText(), commodityPercentageKg2Txt.getText(),
+							commodityPercentageKg3Txt.getText(), commodityPercentageKg4Txt.getText(),
+							commodityPercentageKg5Txt.getText(), commodityPercentageKg6Txt.getText(),
+							commodityPercentageKg7Txt.getText(), commodityPercentageKg8Txt.getText()));
+					jobDB.addPallet(
+							new Pallet(Integer.parseInt(pallet), spoolTypeTxt.getText(), spoolLenghtTxt.getText(),
+									spoolSizeTxt.getText(), coilDiameterTxt.getText(), coilOfSpoolsTxt.getText(),
+									coliLengthTxt.getText(), coilMinDiameter.getText(), coilMinOfSpoolsTxt.getText(),
+									coilMinLengthTxt.getText(), spoolCommentTxt.getText(), rollsNumberTxt.getText(),
+									palettBCrowdTxt.getText(), palettNCrowdTxt.getText(), palettNNCrowdTxt.getText(),
+									palletTypeTxt.getText(), palletLocationTxt.getText(), palletCommentTxt.getText(),
+									palletWrappingTxt.getText(), palletWrappingCommentTxt.getText()));
 					jobDB.addNewJob(new Extruder(clientId, extruderIdentificationTxt.getText(), "Folyamatban",
 							LocalDate.now().toString(), extruderEndDate.getValue().toString(),
 							extruderCommodityCmb.getValue(), extruderActualSizeTxt.getText(),
 							extruderWidthTxt.getText(), extruderLengthTxt.getText(), extruderThicknessTxt.getText(),
 							extruderFlatPlateBagCmb.getValue(), extruderGrammMeterTxt.getText(),
 							extruderOrderedKgTxt.getText(), extruderNameCmb.getValue(), extruderComment.getText(),
-							null));
+							calculation, pallet));
+				} else {
+					jobDB.addPallet(
+							new Pallet(Integer.parseInt(pallet), spoolTypeTxt.getText(), spoolLenghtTxt.getText(),
+									spoolSizeTxt.getText(), coilDiameterTxt.getText(), coilOfSpoolsTxt.getText(),
+									coliLengthTxt.getText(), coilMinDiameter.getText(), coilMinOfSpoolsTxt.getText(),
+									coilMinLengthTxt.getText(), spoolCommentTxt.getText(), rollsNumberTxt.getText(),
+									palettBCrowdTxt.getText(), palettNCrowdTxt.getText(), palettNNCrowdTxt.getText(),
+									palletTypeTxt.getText(), palletLocationTxt.getText(), palletCommentTxt.getText(),
+									palletWrappingTxt.getText(), palletWrappingCommentTxt.getText()));
+					jobDB.addNewJob(new Extruder(clientId, extruderIdentificationTxt.getText(), "Folyamatban",
+							LocalDate.now().toString(), extruderEndDate.getValue().toString(),
+							extruderCommodityCmb.getValue(), extruderActualSizeTxt.getText(),
+							extruderWidthTxt.getText(), extruderLengthTxt.getText(), extruderThicknessTxt.getText(),
+							extruderFlatPlateBagCmb.getValue(), extruderGrammMeterTxt.getText(),
+							extruderOrderedKgTxt.getText(), extruderNameCmb.getValue(), extruderComment.getText(), null,
+							pallet));
 				}
 				clearcommodityAllTxt();
 				clearTextField();
@@ -666,7 +696,6 @@ public class ExtruderController implements Initializable {
 				extruderIdentificationTxt.setText(date.getYear() + ClientIdentficationGenerator.random());
 			}
 			saveDataBase();
-
 		});
 	}
 

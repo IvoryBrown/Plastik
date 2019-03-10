@@ -154,6 +154,46 @@
     -fx-font-weight: bold;
 }
 
+.calculationButton {
+    -fx-background-color:  #262626;
+    -fx-background-image: url(/com/setting/icon/button/Commodity.png);
+    -fx-background-size: 16px 16px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-text-fill: whitesmoke;
+    -fx-font-weight: bold;
+}
+
+.calculationButton:hover {
+    -fx-background-color:  OLIVE;
+    -fx-background-image: url(/com/setting/icon/button/Commodity.png);
+    -fx-background-size: 16px 16px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-text-fill: whitesmoke;
+    -fx-font-weight: bold;
+}
+
+.palletButton {
+    -fx-background-color:  #262626;
+    -fx-background-image: url(/com/setting/icon/button/Pallet.png);
+    -fx-background-size: 16px 16px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-text-fill: whitesmoke;
+    -fx-font-weight: bold;
+}
+
+.palletButton:hover {
+    -fx-background-color:  OLIVE;
+    -fx-background-image: url(/com/setting/icon/button/Pallet.png);
+    -fx-background-size: 16px 16px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-text-fill: whitesmoke;
+    -fx-font-weight: bold;
+}
+
 .extruderButton{
 	-fx-background-color:  #616161;
     -fx-background-size: 16px 16px;

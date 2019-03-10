@@ -141,8 +141,9 @@ public class TableController {
 
 	private void extruderTable() {
 
-		colActive = new TableColumn<>("?");
+		colActive = new TableColumn<>("");
 		colActive.setSortable(false);
+		colActive.setMinWidth(100);
 		colActive.setCellValueFactory(
 				new Callback<TableColumn.CellDataFeatures<Extruder, Boolean>, ObservableValue<Boolean>>() {
 					@Override
@@ -161,10 +162,12 @@ public class TableController {
 		extruderId = new TableColumn<>("ID");
 		extruderId.setMinWidth(80);
 		extruderId.setCellValueFactory(new PropertyValueFactory<Extruder, Integer>("extruderId"));
+		extruderId.setVisible(false);
 
 		extruderClientId = new TableColumn<>("ID");
 		extruderClientId.setMinWidth(90);
 		extruderClientId.setCellValueFactory(new PropertyValueFactory<Extruder, Integer>("extruderClientId"));
+		extruderClientId.setVisible(false);
 
 		extruderClientName = new TableColumn<>("Ügyfél név");
 		extruderClientName.setMinWidth(120);

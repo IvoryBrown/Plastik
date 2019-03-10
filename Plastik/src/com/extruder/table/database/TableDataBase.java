@@ -43,7 +43,8 @@ public class TableDataBase {
 						rs.getString("tenyleges_meret"), rs.getString("meret_szeleseg"), rs.getString("meret_hossz"),
 						rs.getString("vastagsag"), rs.getString("zsak_siklap"), rs.getString("gramm_meter"),
 						rs.getString("megrendelt_kg"), rs.getString("extruder_nev"), rs.getString("megjegyzes"),
-						rs.getString("prioritas"), rs.getInt("receptura_alapanyag_id"));
+						rs.getString("prioritas"), rs.getInt("receptura_alapanyag_id"),
+						rs.getInt("csomagolas_csomagolas_id"));
 				extruder.add(actualExtruder);
 			}
 		} catch (SQLException ex) {
@@ -98,29 +99,4 @@ public class TableDataBase {
 		}
 	}
 
-	public void updateExtruderPriorit(int extruderId, int extruderPriorit) {
-		Connection conn = DataBaseLocal.getConnection();
-		PreparedStatement pr = null;
-		try {
-			String sqlClient = "UPDATE `extruder` SET prioritas = ? WHERE extruder_id = ?";
-			pr = conn.prepareStatement(sqlClient);
-			pr.setString(1, String.valueOf(extruderPriorit));
-			pr.setInt(2, extruderId);
-			pr.execute();
-		} catch (SQLException ex) {
-			System.out.println(ex);
-			new ShowInfo("Adatbázis Hiba", "", ex.getMessage());
-		} finally {
-			try {
-				if (pr != null) {
-					pr.close();
-				}
-				if (conn != null) {
-					conn.close();
-				}
-			} catch (SQLException ex) {
-				new ShowInfo("Adatbázis Hiba", "", ex.getMessage());
-			}
-		}
-	}
 }

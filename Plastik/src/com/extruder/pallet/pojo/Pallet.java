@@ -14,7 +14,7 @@ public class Pallet {
 	private final SimpleStringProperty palletCoilMinDiameter;
 	private final SimpleStringProperty palletCoilMinOfSpools;
 	private final SimpleStringProperty palletCoilMinLength;
-	private final SimpleStringProperty palletSpoolCommentTxt;
+	private final SimpleStringProperty palletSpoolComment;
 	private final SimpleStringProperty palletRollsNumber;
 	private final SimpleStringProperty palletPalletBCrowd;
 	private final SimpleStringProperty palletPalletNCrowd;
@@ -36,7 +36,7 @@ public class Pallet {
 		this.palletCoilMinDiameter = new SimpleStringProperty("");
 		this.palletCoilMinOfSpools = new SimpleStringProperty("");
 		this.palletCoilMinLength = new SimpleStringProperty("");
-		this.palletSpoolCommentTxt = new SimpleStringProperty("");
+		this.palletSpoolComment = new SimpleStringProperty("");
 		this.palletRollsNumber = new SimpleStringProperty("");
 		this.palletPalletBCrowd = new SimpleStringProperty("");
 		this.palletPalletNCrowd = new SimpleStringProperty("");
@@ -50,7 +50,7 @@ public class Pallet {
 
 	public Pallet(Integer palletId, String palletSpoolType, String palletSpoolLenght, String palletSpoolSize,
 			String palletCoilDiameter, String palletCoilOfSpools, String palletColiLength, String palletCoilMinDiameter,
-			String palletCoilMinOfSpools, String palletCoilMinLength, String palletSpoolCommentTxt,
+			String palletCoilMinOfSpools, String palletCoilMinLength, String palletSpoolComment,
 			String palletRollsNumber, String palletPalletBCrowd, String palletPalletNCrowd, String palletPalletNNCrowd,
 			String palletPalletType, String palletPalletLocation, String palletPalletComment,
 			String palletPalletWrapping, String palletPalletWrappingComment) {
@@ -64,7 +64,7 @@ public class Pallet {
 		this.palletCoilMinDiameter = new SimpleStringProperty(palletCoilMinDiameter);
 		this.palletCoilMinOfSpools = new SimpleStringProperty(palletCoilMinOfSpools);
 		this.palletCoilMinLength = new SimpleStringProperty(palletCoilMinLength);
-		this.palletSpoolCommentTxt = new SimpleStringProperty(palletSpoolCommentTxt);
+		this.palletSpoolComment = new SimpleStringProperty(palletSpoolComment);
 		this.palletRollsNumber = new SimpleStringProperty(palletRollsNumber);
 		this.palletPalletBCrowd = new SimpleStringProperty(palletPalletBCrowd);
 		this.palletPalletNCrowd = new SimpleStringProperty(palletPalletNCrowd);
@@ -196,16 +196,16 @@ public class Pallet {
 		this.palletCoilMinLength.set(palletCoilMinLength);
 	}
 
-	public SimpleStringProperty getPalletSpoolCommentTxtProperty() {
-		return this.palletSpoolCommentTxt;
+	public SimpleStringProperty getPalletSpoolCommentProperty() {
+		return this.palletSpoolComment;
 	}
 
-	public String getPalletSpoolCommentTxt() {
-		return this.palletSpoolCommentTxt.get();
+	public String getPalletSpoolComment() {
+		return this.palletSpoolComment.get();
 	}
 
-	public void setPalletSpoolCommentTxt(String palletSpoolCommentTxt) {
-		this.palletSpoolCommentTxt.set(palletSpoolCommentTxt);
+	public void setPalletSpoolComment(String palletSpoolComment) {
+		this.palletSpoolComment.set(palletSpoolComment);
 	}
 
 	public SimpleStringProperty getPalletRollsNumberProperty() {
