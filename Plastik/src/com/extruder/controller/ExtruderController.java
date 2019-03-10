@@ -115,6 +115,15 @@ public class ExtruderController implements Initializable {
 	// packing
 	@FXML
 	private AnchorPane packingPane;
+	// coliProperty
+	private TextField spoolTypeTxt, spoolLenghtTxt, spoolSizeTxt, coilDiameterTxt, coilOfSpoolsTxt, coliLengthTxt,
+			coilMinDiameter, coilMinOfSpoolsTxt, coilMinLengthTxt;
+	private TextArea spoolCommentTxt;
+	// palletProperty
+	private TextField rollsNumberTxt, palettBCrowdTxt, palettNCrowdTxt, palettNNCrowdTxt;
+	private TextArea palletTypeTxt, palletLocationTxt, palletCommentTxt;
+	//palletWrapping
+	private TextArea palletWrappingTxt, palletWrappingCommentTxt;
 
 	private void jobsPane() {
 		extruderNewJobsPane.setVisible(true);
