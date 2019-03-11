@@ -4,6 +4,7 @@ import com.client.database.ClientDataBase;
 import com.client.pojo.Client;
 import com.setting.label.MessageLabel;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -28,6 +29,7 @@ public class ClientTableController {
 	private TextField clientFilteringTxt;
 	private Button clientFilteringBtn;
 	private MessageLabel message = new MessageLabel();
+	int g;
 
 	public ClientTableController(TableView<Client> clientTableView, Label clientTableMessageLabel,
 			TextField clientFilteringTxt, Button clientFilteringBtn) {
@@ -70,7 +72,49 @@ public class ClientTableController {
 		});
 		clientFilteringBtn.setOnAction((event) -> {
 			searchClient();
+			startTask();
 		});
+	}
+	
+	private void startTask() {
+		// Create a Runnable
+		Runnable task = new Runnable() {
+			public void run() {
+				runTask() ;
+			}
+		};
+
+		// Run the task in a background thread
+		Thread backgroundThread = new Thread(task);
+		// Terminate the running thread if the application exits
+		backgroundThread.setDaemon(true);
+		// Start the thread
+		backgroundThread.start();
+	}
+	
+	private void runTask() {
+		
+		
+			try {
+				while (true) {
+					
+				Platform.runLater(new Runnable() {
+					@Override
+					public void run() {
+						 g  ++;
+						System.out.println("3 >" + (g));
+						errorDataClient();
+					}
+				});
+
+			
+
+				Thread.sleep(1000);
+				}
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		
 	}
 
 	@SuppressWarnings("unchecked")

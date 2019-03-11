@@ -8,6 +8,7 @@ import com.extruder.table.database.TableDataBase;
 import com.project.setting.machine.database.MachineDataBase;
 import com.setting.label.MessageLabel;
 
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ObservableValue;
@@ -362,6 +363,7 @@ public class TableController {
 	}
 
 	private void updateDataTable() {
+
 		if (extruderNameBtn1.isSelected()) {
 			extruderTableView.setItems(extruderData(extruderNameBtn1.getText()));
 		}
