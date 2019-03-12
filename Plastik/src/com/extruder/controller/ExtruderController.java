@@ -77,7 +77,7 @@ public class ExtruderController implements Initializable {
 	@FXML
 	private ComboBox<String> extruderNameCmb;
 	@FXML
-	private HBox hBox;
+	private HBox hBox, upDownHBox;
 	@FXML
 	private CheckBox statusCbox;
 	private final ObservableList<CommodityName> extruderCommodityData = FXCollections.observableArrayList();
@@ -158,7 +158,7 @@ public class ExtruderController implements Initializable {
 
 	private void extruderTable() {
 		new TableController(extruderNewJobsPane, extruderActualJobsPane, extruderTableView, messageLbl, hBox,
-				extruderFilteringBtn, extruderFilteringTxt, statusCbox);
+				extruderFilteringBtn, extruderFilteringTxt, statusCbox, upDownHBox);
 	}
 
 	// Calculation

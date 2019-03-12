@@ -8,8 +8,8 @@ import com.extruder.table.database.TableDataBase;
 import com.project.setting.machine.database.MachineDataBase;
 import com.setting.label.MessageLabel;
 
-import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.ReadOnlyIntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -60,11 +60,11 @@ public class TableController {
 	private TextField extruderFilteringTxt;
 	private ToggleGroup group = new ToggleGroup();
 	private CheckBox statusCbox;
-	int g;
+	private HBox upDownHBox;
 
 	public TableController(AnchorPane extruderNewJobsPane, AnchorPane extruderActualJobsPane,
 			TableView<Extruder> extruderTableView, Label messageLbl, HBox hBox, Button extruderFilteringBtn,
-			TextField extruderFilteringTxt, CheckBox statusCbox) {
+			TextField extruderFilteringTxt, CheckBox statusCbox, HBox upDownHBox) {
 		this.extruderNewJobsPane = extruderNewJobsPane;
 		this.extruderActualJobsPane = extruderActualJobsPane;
 		this.extruderTableView = extruderTableView;
@@ -73,17 +73,43 @@ public class TableController {
 		this.extruderFilteringBtn = extruderFilteringBtn;
 		this.extruderFilteringTxt = extruderFilteringTxt;
 		this.statusCbox = statusCbox;
+		this.upDownHBox = upDownHBox;
 		clearTable();
 		extruderTable();
 		setColumn();
 		setToggleButton();
 		buttonOnAction();
 		checkBox();
-		startTask();
+		setButton();
 	}
 
 	private void checkBox() {
 		statusCbox.setSelected(true);
+	}
+
+	
+
+	private void setButton() {
+		Button upButton = new Button("Up");
+		Button downButton = new Button("Down");
+		upDownHBox.getChildren().addAll(upButton, downButton);
+		ReadOnlyIntegerProperty selectedIndex = extruderTableView.getSelectionModel().selectedIndexProperty();
+		upButton.disableProperty().bind(selectedIndex.lessThanOrEqualTo(0));
+		downButton.disableProperty().bind(Bindings.createBooleanBinding(() -> {
+			int index = selectedIndex.get();
+			return index < 0 || index + 1 >= extruderTableView.getItems().size();
+		}, selectedIndex, extruderTableView.getItems()));
+		upButton.setOnAction(evt -> {
+			int index = extruderTableView.getSelectionModel().getSelectedIndex();
+			extruderTableView.getItems().add(index - 1, extruderTableView.getItems().remove(index));
+			extruderTableView.getSelectionModel().clearAndSelect(index - 1);
+		});
+
+		downButton.setOnAction(evt -> {
+			int index = extruderTableView.getSelectionModel().getSelectedIndex();
+			extruderTableView.getItems().add(index + 1, extruderTableView.getItems().remove(index));
+			extruderTableView.getSelectionModel().clearAndSelect(index + 1);
+		});
 	}
 
 	private void setToggleButton() {
@@ -211,6 +237,13 @@ public class TableController {
 		extruderIdentification.setMinWidth(120);
 		extruderIdentification
 				.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderIdentification"));
+		extruderIdentification.setCellFactory(TextFieldTableCell.forTableColumn());
+		extruderIdentification.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Extruder, String>>() {
+			@Override
+			public void handle(TableColumn.CellEditEvent<Extruder, String> d) {
+				extruderTableView.refresh();
+			}
+		});
 
 		extruderStatus = new TableColumn<>("Státusz");
 		extruderStatus.setMinWidth(100);
@@ -363,48 +396,6 @@ public class TableController {
 		extruderNewJobsPane.setVisible(false);
 		extruderActualJobsPane.setVisible(true);
 	}
-	
-	private void startTask() {
-		// Create a Runnable
-		Runnable task = new Runnable() {
-			public void run() {
-				runTask() ;
-			}
-		};
-
-		// Run the task in a background thread
-		Thread backgroundThread = new Thread(task);
-		// Terminate the running thread if the application exits
-		backgroundThread.setDaemon(true);
-		// Start the thread
-		backgroundThread.start();
-	}
-	
-	private void runTask() {
-		
-		
-			try {
-				while (true) {
-					
-				Platform.runLater(new Runnable() {
-					@Override
-					public void run() {
-						 g  ++;
-						System.out.println("3 >" + (g));
-						updateDataTable();
-					}
-				});
-
-			
-
-				Thread.sleep(1000);
-				}
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		
-	}
-
 
 	private void updateDataTable() {
 

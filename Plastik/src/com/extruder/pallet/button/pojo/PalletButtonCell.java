@@ -1,4 +1,4 @@
-package com.extruder.pallet.pojo;
+package com.extruder.pallet.button.pojo;
 
 public class PalletButtonCell {
 

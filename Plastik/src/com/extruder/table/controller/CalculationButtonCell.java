@@ -2,9 +2,10 @@ package com.extruder.table.controller;
 
 import com.commoditycalculation.database.CalculationDataBase;
 import com.commoditycalculation.pojo.CommodityCalculation;
+import com.extruder.pallet.button.main.PalletButtonCellMain;
+import com.extruder.pallet.button.pojo.PalletButtonCell;
 import com.extruder.pallet.database.PalletDatabase;
 import com.extruder.pallet.pojo.Pallet;
-import com.extruder.pallet.pojo.PalletButtonCell;
 import com.extruder.pojo.Extruder;
 
 import javafx.collections.FXCollections;
@@ -65,6 +66,7 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 
 		if (dataPallet.size() != 0) {
 			PalletButtonCell.setPalletId(Integer.valueOf(selectedRecord.getExtruderPalletId()));
+			new PalletButtonCellMain().start(); 
 		} else {
 			setStageError();
 		}
@@ -153,7 +155,7 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 			root.getChildren().add(l);
 			Stage stage = new Stage();
 			stage.initModality(Modality.APPLICATION_MODAL);
-			stage.setTitle("Alapanyag");
+			stage.setTitle("Stanicli");
 			stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/setting/icon/foliak.png")));
 			root.prefWidthProperty().bind(stage.widthProperty());
 			stage.setScene(new Scene(root, 600, 400));
@@ -186,22 +188,6 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 		label.setText(message);
 		label.setStyle("-fx-text-fill: #CD5C5C; -fx-font-size: 25px;  -fx-font-weight: bold;");
 		return label;
-
-	}
-
-	private String palletaName() {
-		String s = "-fx-text-fill: #CD5C5C; -fx-font-size: 25px;  -fx-font-weight: bold;";
-		return s;
-	}
-
-	private String palletaNameL() {
-		String s = "-fx-text-fill: #000000; -fx-font-size: 16px;  -fx-font-weight: bold;";
-		return s;
-	}
-
-	private String palletaNameTxt() {
-		String s = "-fx-text-fill: #000000; -fx-font-size: 16px;";
-		return s;
 	}
 
 	@Override

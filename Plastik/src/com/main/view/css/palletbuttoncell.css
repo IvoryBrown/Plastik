@@ -1,0 +1,22 @@
+
+ .text-field {
+ 	 -fx-background-color: transparent;
+ 	  -fx-font-size: 14.0;
+ }
+
+.text-area {
+    -fx-background-color:   C0C0C0;
+     -fx-font-size: 14.0;
+   
+}
+
+.text-area .content {
+    -fx-background-color: C0C0C0;
+}
+
+.tab .tab-label{ 
+    -fx-alignment: CENTER;
+    -fx-font-size: 16.0px;
+    -fx-font-weight: bold;
+}
+
