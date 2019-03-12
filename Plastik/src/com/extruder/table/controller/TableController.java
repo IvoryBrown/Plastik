@@ -60,6 +60,7 @@ public class TableController {
 	private TextField extruderFilteringTxt;
 	private ToggleGroup group = new ToggleGroup();
 	private CheckBox statusCbox;
+	int g;
 
 	public TableController(AnchorPane extruderNewJobsPane, AnchorPane extruderActualJobsPane,
 			TableView<Extruder> extruderTableView, Label messageLbl, HBox hBox, Button extruderFilteringBtn,
@@ -78,6 +79,7 @@ public class TableController {
 		setToggleButton();
 		buttonOnAction();
 		checkBox();
+		startTask();
 	}
 
 	private void checkBox() {
@@ -361,6 +363,48 @@ public class TableController {
 		extruderNewJobsPane.setVisible(false);
 		extruderActualJobsPane.setVisible(true);
 	}
+	
+	private void startTask() {
+		// Create a Runnable
+		Runnable task = new Runnable() {
+			public void run() {
+				runTask() ;
+			}
+		};
+
+		// Run the task in a background thread
+		Thread backgroundThread = new Thread(task);
+		// Terminate the running thread if the application exits
+		backgroundThread.setDaemon(true);
+		// Start the thread
+		backgroundThread.start();
+	}
+	
+	private void runTask() {
+		
+		
+			try {
+				while (true) {
+					
+				Platform.runLater(new Runnable() {
+					@Override
+					public void run() {
+						 g  ++;
+						System.out.println("3 >" + (g));
+						updateDataTable();
+					}
+				});
+
+			
+
+				Thread.sleep(1000);
+				}
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		
+	}
+
 
 	private void updateDataTable() {
 

@@ -4,6 +4,7 @@ import com.commoditycalculation.database.CalculationDataBase;
 import com.commoditycalculation.pojo.CommodityCalculation;
 import com.extruder.pallet.database.PalletDatabase;
 import com.extruder.pallet.pojo.Pallet;
+import com.extruder.pallet.pojo.PalletButtonCell;
 import com.extruder.pojo.Extruder;
 
 import javafx.collections.FXCollections;
@@ -31,9 +32,8 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 	private final ObservableList<CommodityCalculation> dataCommodity = FXCollections.observableArrayList();
 	private PalletDatabase palletDatabase = new PalletDatabase();
 	private final ObservableList<Pallet> dataPallet = FXCollections.observableArrayList();
-
+	private Extruder selectedRecord;
 	private GridPane grCommodity;
-	private GridPane grPallet;
 
 	public CalculationButtonCell(TableView<Extruder> tblView) {
 
@@ -53,9 +53,8 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 			@Override
 			public void handle(ActionEvent arg0) {
 				int selectdIndex = getTableRow().getIndex();
-				Extruder selectedRecord = tblView.getItems().get(selectdIndex);
+				selectedRecord = tblView.getItems().get(selectdIndex);
 				dataPallet.addAll(palletDatabase.getAllPallet(selectedRecord.getExtruderPalletId()));
-				System.out.println(selectedRecord.getExtruderPalletId());
 				palleta();
 			}
 
@@ -65,66 +64,7 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 	private void palleta() {
 
 		if (dataPallet.size() != 0) {
-			grPallet = new GridPane();
-			grPallet.setHgap(60);
-			grPallet.setVgap(10);
-			Label lPalletInfo = new Label("Egyedi tekercs tulajdonságok");
-			lPalletInfo.setStyle(palletaName());
-			grPallet.add(lPalletInfo, 3, 1, 1, 1);
-			
-			Label spoolType = new Label("Cséve típusa:");
-			spoolType.setStyle(palletaNameL());
-			grPallet.add(spoolType, 0, 2, 1, 1);
-			Label spoolTypeTxt = new Label(dataPallet.get(0).getPalletSpoolType());
-			spoolTypeTxt.setStyle(palletaNameTxt());
-			grPallet.add(spoolTypeTxt, 1, 2, 1, 1);
-			
-			Label spoolLenght = new Label("Cséve hossz:");
-			spoolLenght.setStyle(palletaNameL());
-			grPallet.add(spoolLenght, 0, 3, 1, 1);
-			Label spoolLenghtTxt = new Label(dataPallet.get(0).getPalletSpoolLenght());
-			spoolLenghtTxt.setStyle(palletaNameTxt());
-			grPallet.add(spoolLenghtTxt, 1, 3, 1, 1);
-			
-			Label spoolSize = new Label("Cséve falvastgság:");
-			spoolSize.setStyle(palletaNameL());
-			grPallet.add(spoolSize, 0, 4, 1, 1);
-			Label spoolSizeTxt = new Label(dataPallet.get(0).getPalletSpoolSize());
-			spoolSizeTxt.setStyle(palletaNameTxt());
-			grPallet.add(spoolSizeTxt, 1, 4, 1, 1);
-			
-			Label coilDiameter = new Label("Tekercs átmérő:");
-			coilDiameter.setStyle(palletaNameL());
-			grPallet.add(coilDiameter, 0, 5, 1, 1);
-			Label coilDiameterTxt = new Label(dataPallet.get(0).getPalletCoilDiameter());
-			coilDiameterTxt.setStyle(palletaNameTxt());
-			grPallet.add(coilDiameterTxt, 1, 5, 1, 1);
-			
-			Label coilOfSpools = new Label("Tekercs tömeg:");
-			coilOfSpools.setStyle(palletaNameL());
-			grPallet.add(coilOfSpools, 0, 6, 1, 1);
-			Label coilOfSpoolsTxt = new Label(dataPallet.get(0).getPalletCoilOfSpools());
-			coilOfSpoolsTxt.setStyle(palletaNameTxt());
-			grPallet.add(coilOfSpoolsTxt, 1, 6, 1, 1);
-			
-			Label coliLength = new Label("Tekercs hossz:");
-			coliLength.setStyle(palletaNameL());
-			grPallet.add(coliLength, 0, 7, 1, 1);
-			Label coliLengthTxt = new Label(dataPallet.get(0).getPalletColiLength());
-			coliLengthTxt.setStyle(palletaNameTxt());
-			grPallet.add(coliLengthTxt, 1, 7, 1, 1);
-			
-			Label coilMinDiameter = new Label("Min. tekercs átmérő: ");
-			coilMinDiameter.setStyle(palletaNameL());
-			grPallet.add(coilMinDiameter, 2, 5, 1, 1);
-			Label coilMinDiameterTxt = new Label(dataPallet.get(0).getPalletColiMinDiameter());
-			coilMinDiameterTxt.setStyle(palletaNameTxt());
-			grPallet.add(coilMinDiameterTxt, 3, 5, 1, 1);
-			
-
-			
-			setStagePalletGood();
-
+			PalletButtonCell.setPalletId(Integer.valueOf(selectedRecord.getExtruderPalletId()));
 		} else {
 			setStageError();
 		}
@@ -241,23 +181,6 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 		}
 
 	}
-	private void setStagePalletGood() {
-		try {
-			StackPane root = new StackPane();
-//			root.getStylesheets().add("/com/main/view/css/calculaionbutton.css");
-			root.getChildren().addAll(grPallet);
-			Stage stage = new Stage();
-			stage.initModality(Modality.APPLICATION_MODAL);
-			stage.setTitle("Alapanyag");
-			stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/setting/icon/foliak.png")));
-			root.prefWidthProperty().bind(stage.widthProperty());
-			stage.setScene(new Scene(root, 1000, 700));
-			stage.show();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-	}
 
 	private Label errorMessage(String message, Label label) {
 		label.setText(message);
@@ -265,17 +188,19 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 		return label;
 
 	}
-	
+
 	private String palletaName() {
-		String s ="-fx-text-fill: #CD5C5C; -fx-font-size: 25px;  -fx-font-weight: bold;";
+		String s = "-fx-text-fill: #CD5C5C; -fx-font-size: 25px;  -fx-font-weight: bold;";
 		return s;
 	}
+
 	private String palletaNameL() {
-		String s ="-fx-text-fill: #000000; -fx-font-size: 16px;  -fx-font-weight: bold;";
+		String s = "-fx-text-fill: #000000; -fx-font-size: 16px;  -fx-font-weight: bold;";
 		return s;
 	}
+
 	private String palletaNameTxt() {
-		String s ="-fx-text-fill: #000000; -fx-font-size: 16px;";
+		String s = "-fx-text-fill: #000000; -fx-font-size: 16px;";
 		return s;
 	}
 
