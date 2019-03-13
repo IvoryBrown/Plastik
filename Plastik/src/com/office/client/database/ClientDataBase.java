@@ -1,4 +1,4 @@
-package com.client.database;
+package com.office.client.database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.client.pojo.Client;
+import com.office.client.pojo.Client;
 import com.setting.database.DataBaseLocal;
 import com.setting.showinfo.ShowInfo;
 

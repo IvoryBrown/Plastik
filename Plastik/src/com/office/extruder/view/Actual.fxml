@@ -26,12 +26,12 @@
                   <Label fx:id="messageLbl" alignment="CENTER" prefHeight="30.0" prefWidth="3000.0" />
                </children>
             </HBox>
-            <MenuButton fx:id="manufactureMenuBar" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" styleClass="settingButton" stylesheets="@../../main/view/css/button.css" />
+            <MenuButton fx:id="manufactureMenuBar" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" styleClass="settingButton" stylesheets="@../../../main/view/css/button.css" />
             <AnchorPane layoutY="30.0" prefHeight="668.0" prefWidth="1115.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
                <children>
                   <HBox fx:id="hBox" alignment="CENTER" layoutX="80.0" layoutY="285.0" prefHeight="30.0" prefWidth="1220.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Button fx:id="extruderNewJobBtn" mnemonicParsing="false" onAction="#extruderNewJobBtn" prefHeight="30.0" styleClass="extruderButton" stylesheets="@../../main/view/css/button.css" text="Új felvétel" />
+                        <Button fx:id="extruderNewJobBtn" mnemonicParsing="false" onAction="#extruderNewJobBtn" prefHeight="30.0" styleClass="extruderButton" stylesheets="@../../../main/view/css/button.css" text="Új felvétel" />
                      </children>
                   </HBox>
                   <AnchorPane fx:id="extruderNewJobsPane" layoutY="33.0" prefHeight="637.0" prefWidth="1300.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
@@ -228,10 +228,10 @@
                         </VBox>
                         <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="990.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="14.0">
                            <children>
-                              <Button fx:id="saveButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" styleClass="saveButtonCenter" stylesheets="@../../main/view/css/button.css" />
+                              <Button fx:id="saveButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" styleClass="saveButtonCenter" stylesheets="@../../../main/view/css/button.css" />
                            </children>
                         </HBox>
-                        <HBox alignment="TOP_CENTER" layoutX="310.0" prefHeight="30.0" prefWidth="990.0" stylesheets="@../../main/view/css/button.css" AnchorPane.leftAnchor="310.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <HBox alignment="TOP_CENTER" layoutX="310.0" prefHeight="30.0" prefWidth="990.0" stylesheets="@../../../main/view/css/button.css" AnchorPane.leftAnchor="310.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <Button fx:id="commodityCalculationBtn" mnemonicParsing="false" onAction="#commodityCalculationBtn" styleClass="extruderButton" text="Alapanyag" />
                               <Button mnemonicParsing="false" onAction="#packingBtn" styleClass="extruderButton" text="Csomagolás" />
@@ -515,7 +515,7 @@
                                           </AnchorPane>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane fx:id="calculationKgPane" layoutX="452.0" layoutY="54.0" prefHeight="468.0" prefWidth="322.0" stylesheets="@../../main/view/css/button.css">
+                                    <AnchorPane fx:id="calculationKgPane" layoutX="452.0" layoutY="54.0" prefHeight="468.0" prefWidth="322.0" stylesheets="@../../../main/view/css/button.css">
                                        <children>
                                           <AnchorPane fx:id="calculationPane" layoutY="41.0" prefHeight="383.0" prefWidth="146.0">
                                              <children>
@@ -643,7 +643,7 @@
                         </AnchorPane>
                         <AnchorPane fx:id="packingPane" layoutX="317.0" layoutY="41.0" prefHeight="556.0" prefWidth="902.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="317.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
                            <children>
-                              <TabPane prefHeight="556.0" prefWidth="983.0" side="BOTTOM" stylesheets="@../../main/view/css/tabpane.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <TabPane prefHeight="556.0" prefWidth="983.0" side="BOTTOM" stylesheets="@../../../main/view/css/tabpane.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <tabs>
                                   <Tab text="Egyedi tekercs tulajdonságok">
                                     <content>
@@ -907,7 +907,7 @@
                               </TabPane>
                            </children>
                         </AnchorPane>
-                        <TableView fx:id="clientPopupTableView" editable="true" layoutY="27.0" opacity="0.8" prefHeight="200.0" prefWidth="633.0" stylesheets="@../../main/view/css/tablepopup.css" visible="false">
+                        <TableView fx:id="clientPopupTableView" editable="true" layoutY="27.0" opacity="0.8" prefHeight="200.0" prefWidth="633.0" stylesheets="@../../../main/view/css/tablepopup.css" visible="false">
                          <placeholder>
                             <Label text="Nem található adat" />
                           </placeholder>
@@ -916,9 +916,9 @@
                   </AnchorPane>
                   <AnchorPane fx:id="extruderActualJobsPane" layoutY="33.0" prefHeight="637.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
                      <children>
-                        <TableView fx:id="extruderTableView" editable="true" layoutY="81.0" prefHeight="556.0" prefWidth="1300.0" stylesheets="@../../main/view/css/tableextruder.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="81.0" />
+                        <TableView fx:id="extruderTableView" editable="true" layoutY="81.0" prefHeight="556.0" prefWidth="1300.0" stylesheets="@../../../main/view/css/tableextruder.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="81.0" />
                         <TextField fx:id="extruderFilteringTxt" layoutX="14.0" layoutY="48.0" prefHeight="25.0" promptText="Név, Azonosító" />
-                        <Button fx:id="extruderFilteringBtn" layoutX="154.0" layoutY="48.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" styleClass="searchButton" stylesheets="@../../main/view/css/button.css" />
+                        <Button fx:id="extruderFilteringBtn" layoutX="154.0" layoutY="48.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" styleClass="searchButton" stylesheets="@../../../main/view/css/button.css" />
                         <CheckBox fx:id="statusCbox" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Folyamatban" />
                         <HBox fx:id="upDownHBox" layoutX="1200.0" prefHeight="30.0" prefWidth="100.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>

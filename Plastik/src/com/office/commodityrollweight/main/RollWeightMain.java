@@ -1,4 +1,4 @@
-package com.commodityrollweight.main;
+package com.office.commodityrollweight.main;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class RollWeightMain {
 	public void start() {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/com/commodityrollweight/view/RollWeight.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/com/office/commodityrollweight/view/RollWeight.fxml"));
 			Stage primaryStage = new Stage();
 			primaryStage.setWidth(1300);
 			primaryStage.setHeight(700);

@@ -1,12 +1,12 @@
-package com.commoditycalculation.controller;
+package com.office.commoditycalculation.controller;
 
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ResourceBundle;
 
-import com.commoditycalculation.database.CalculationDataBase;
-import com.commoditycalculation.pojo.CommodityCalculation;
+import com.office.commoditycalculation.database.CalculationDataBase;
+import com.office.commoditycalculation.pojo.CommodityCalculation;
 import com.setting.label.MessageLabel;
 
 import javafx.fxml.FXML;

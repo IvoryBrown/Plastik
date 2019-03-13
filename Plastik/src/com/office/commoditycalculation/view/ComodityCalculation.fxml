@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: C0C0C0;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.commoditycalculation.controller.CommodityCalculationController">
+<AnchorPane prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: C0C0C0;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.office.commoditycalculation.controller.CommodityCalculationController">
    <children>
       <AnchorPane layoutX="258.0" layoutY="39.0" prefHeight="661.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -292,7 +292,7 @@
                               </VBox>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="105.0" layoutY="424.0" prefHeight="58.0" prefWidth="200.0" stylesheets="@../../main/view/css/button.css">
+                        <AnchorPane layoutX="105.0" layoutY="424.0" prefHeight="58.0" prefWidth="200.0" stylesheets="@../../../main/view/css/button.css">
                            <children>
                               <Button fx:id="nextCommodity" focusTraversable="false" layoutX="106.0" layoutY="17.0" mnemonicParsing="false" onAction="#nextCommodity" prefHeight="25.0" prefWidth="40.0" styleClass="rightButton" />
                               <Button fx:id="backCommodity" focusTraversable="false" layoutY="17.0" mnemonicParsing="false" onAction="#backCommodity" prefHeight="25.0" prefWidth="40.0" styleClass="leftButton" visible="false" />
@@ -301,7 +301,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="calculationKgPane" layoutX="452.0" prefHeight="494.0" prefWidth="823.0" stylesheets="@../../main/view/css/button.css" visible="false">
+                  <AnchorPane fx:id="calculationKgPane" layoutX="452.0" prefHeight="494.0" prefWidth="823.0" stylesheets="@../../../main/view/css/button.css" visible="false">
                      <children>
                         <AnchorPane fx:id="calculationPane" layoutY="41.0" prefHeight="383.0" prefWidth="146.0">
                            <children>

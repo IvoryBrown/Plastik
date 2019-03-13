@@ -1,4 +1,4 @@
-package com.extruder.pallet.button.main;
+package com.office.extruder.pallet.button.main;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +11,7 @@ public class PalletButtonCellMain {
 	public void start() {
 
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/com/extruder/pallet/button/view/PalletButtonCell.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/com/office/extruder/pallet/button/view/PalletButtonCell.fxml"));
 			Stage primaryStage = new Stage();
 			primaryStage.initModality(Modality.APPLICATION_MODAL);
 			primaryStage.setWidth(1300);

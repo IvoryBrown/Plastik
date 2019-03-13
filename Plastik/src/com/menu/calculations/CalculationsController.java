@@ -1,7 +1,7 @@
 package com.menu.calculations;
 
-import com.commoditycalculation.main.CommodityCalculationMain;
-import com.commodityrollweight.main.RollWeightMain;
+import com.office.commoditycalculation.main.CommodityCalculationMain;
+import com.office.commodityrollweight.main.RollWeightMain;
 
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;

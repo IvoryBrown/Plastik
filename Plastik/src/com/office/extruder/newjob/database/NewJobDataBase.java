@@ -1,12 +1,12 @@
-package com.extruder.newjob.database;
+package com.office.extruder.newjob.database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.commoditycalculation.pojo.CommodityCalculation;
-import com.extruder.pallet.pojo.Pallet;
-import com.extruder.pojo.Extruder;
+import com.office.commoditycalculation.pojo.CommodityCalculation;
+import com.office.extruder.pallet.pojo.Pallet;
+import com.office.extruder.pojo.Extruder;
 import com.setting.database.DataBaseLocal;
 import com.setting.showinfo.ShowInfo;
 

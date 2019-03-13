@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="com.commoditycalculation.controller.NumberCheck" project="Plastik" 
-    file="/Plastik/src/com/commoditycalculation/controller/NumberCheck.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="com.office.commoditycalculation.controller.NumberCheck" project="Plastik" 
+    file="/Plastik/src/com/office/commoditycalculation/controller/NumberCheck.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="117" width="220" x="4276" y="845"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -29,8 +29,8 @@
     <position height="50" width="101" x="1034" y="76"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <class id="5" language="java" name="com.client.controller.ClientController" project="Plastik" 
-    file="/Plastik/src/com/client/controller/ClientController.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="5" language="java" name="com.office.client.controller.ClientController" project="Plastik" 
+    file="/Plastik/src/com/office/client/controller/ClientController.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="297" width="449" x="3419" y="845"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -38,8 +38,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="com.commoditycalculation.main.CommodityCalculationMain" project="Plastik" 
-    file="/Plastik/src/com/commoditycalculation/main/CommodityCalculationMain.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="6" language="java" name="com.office.commoditycalculation.main.CommodityCalculationMain" project="Plastik" 
+    file="/Plastik/src/com/office/commoditycalculation/main/CommodityCalculationMain.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="99" width="178" x="599" y="845"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -70,8 +71,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="com.client.pojo.Client" project="Plastik" 
-    file="/Plastik/src/com/client/pojo/Client.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="10" language="java" name="com.office.client.pojo.Client" project="Plastik" 
+    file="/Plastik/src/com/office/client/pojo/Client.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="693" width="309" x="3908" y="1272"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -94,8 +95,8 @@
     <position height="50" width="138" x="1720" y="76"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <class id="14" language="java" name="com.commoditycalculation.controller.CommodityCalculationController" 
-    project="Plastik" file="/Plastik/src/com/commoditycalculation/controller/CommodityCalculationController.java" 
+  <class id="14" language="java" name="com.office.commoditycalculation.controller.CommodityCalculationController" 
+    project="Plastik" file="/Plastik/src/com/office/commoditycalculation/controller/CommodityCalculationController.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="639" width="207" x="4517" y="76"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -127,8 +128,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <package id="18" language="java" name="com.client.pojo" project="Plastik" file="/Plastik/src/com/client/pojo" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <package id="18" language="java" name="com.office.client.pojo" project="Plastik" 
+    file="/Plastik/src/com/office/client/pojo" binary="false" corner="BOTTOM_RIGHT">    
     <position height="50" width="110" x="2458" y="76"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
@@ -137,8 +138,8 @@
     <position height="50" width="109" x="2608" y="76"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <package id="20" language="java" name="com.client.controller" project="Plastik" 
-    file="/Plastik/src/com/client/controller" binary="false" corner="BOTTOM_RIGHT">    
+  <package id="20" language="java" name="com.office.client.controller" project="Plastik" 
+    file="/Plastik/src/com/office/client/controller" binary="false" corner="BOTTOM_RIGHT">    
     <position height="50" width="141" x="2757" y="76"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
@@ -147,18 +148,18 @@
     <position height="50" width="118" x="2938" y="76"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <package id="22" language="java" name="com.commoditycalculation.controller" project="Plastik" 
-    file="/Plastik/src/com/commoditycalculation/controller" binary="false" corner="BOTTOM_RIGHT">    
+  <package id="22" language="java" name="com.office.commoditycalculation.controller" project="Plastik" 
+    file="/Plastik/src/com/office/commoditycalculation/controller" binary="false" corner="BOTTOM_RIGHT">    
     <position height="50" width="235" x="3096" y="76"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <package id="23" language="java" name="com.commoditycalculation.view" project="Plastik" 
-    file="/Plastik/src/com/commoditycalculation/view" binary="false" corner="BOTTOM_RIGHT">    
+  <package id="23" language="java" name="com.office.commoditycalculation.view" project="Plastik" 
+    file="/Plastik/src/com/office/commoditycalculation/view" binary="false" corner="BOTTOM_RIGHT">    
     <position height="50" width="206" x="3371" y="76"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <package id="24" language="java" name="com.client.database" project="Plastik" file="/Plastik/src/com/client/database" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <package id="24" language="java" name="com.office.client.database" project="Plastik" 
+    file="/Plastik/src/com/office/client/database" binary="false" corner="BOTTOM_RIGHT">    
     <position height="50" width="139" x="3617" y="76"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
@@ -171,8 +172,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="26" language="java" name="com.client.controller.ClientTableController" project="Plastik" 
-    file="/Plastik/src/com/client/controller/ClientTableController.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="26" language="java" name="com.office.client.controller.ClientTableController" project="Plastik" 
+    file="/Plastik/src/com/office/client/controller/ClientTableController.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="387" width="328" x="3908" y="845"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -180,8 +181,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="27" language="java" name="com.client.database.ClientDataBase" project="Plastik" 
-    file="/Plastik/src/com/client/database/ClientDataBase.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="27" language="java" name="com.office.client.database.ClientDataBase" project="Plastik" 
+    file="/Plastik/src/com/office/client/database/ClientDataBase.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="153" width="220" x="3648" y="1272"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -189,8 +190,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="28" language="java" name="com.commoditycalculation.controller.TextFieldIsEmpty" project="Plastik" 
-    file="/Plastik/src/com/commoditycalculation/controller/TextFieldIsEmpty.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="28" language="java" name="com.office.commoditycalculation.controller.TextFieldIsEmpty" project="Plastik" 
+    file="/Plastik/src/com/office/commoditycalculation/controller/TextFieldIsEmpty.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="4625" y="1047"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -198,8 +200,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <package id="29" language="java" name="com.commoditycalculation.main" project="Plastik" 
-    file="/Plastik/src/com/commoditycalculation/main" binary="false" corner="BOTTOM_RIGHT">    
+  <package id="29" language="java" name="com.office.commoditycalculation.main" project="Plastik" 
+    file="/Plastik/src/com/office/commoditycalculation/main" binary="false" corner="BOTTOM_RIGHT">    
     <position height="50" width="208" x="4083" y="76"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
@@ -221,16 +223,15 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="34">    
-    <bendpoint x="4526" y="845"/>    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="35" name="message">        
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="35" name="commodityCalculationMain">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="36" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="37">    
@@ -246,75 +247,76 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="40">    
-    <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="41" name="clientDB">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="42" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="27" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="43">    
-    <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="44" name="message">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="45" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="46">    
     <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="47" name="textFieldIsEmpty">        
+      <attribute id="41" name="textFieldIsEmpty">        
         <position height="0" width="0" x="-19" y="153"/>      
       </attribute>      
-      <multiplicity id="48" minimum="0" maximum="1">        
+      <multiplicity id="42" minimum="0" maximum="1">        
         <position height="0" width="0" x="-19" y="153"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="28" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="49">    
+  <association id="43">    
     <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="50" name="dataClient">        
+      <attribute id="44" name="clientDB">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="51" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="52">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="53" name="clientDB">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="54" minimum="0" maximum="1">        
+      <multiplicity id="45" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="27" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="55">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="56" name="commodityCalculationMain">        
+  <association id="46">    
+    <bendpoint x="4526" y="845"/>    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="47" name="message">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="57" minimum="0" maximum="1">        
+      <multiplicity id="48" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="49">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="50" name="clientDB">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="51" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="52">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="53" name="message">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="54" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="55">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="56" name="dataClient">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="57" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

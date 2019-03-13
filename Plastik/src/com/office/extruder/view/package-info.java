@@ -5,4 +5,4 @@
  * @author SzervizIvo
  *
  */
-package com.extruder.view;
+package com.office.extruder.view;

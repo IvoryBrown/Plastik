@@ -1,4 +1,4 @@
-package com.extruder.pallet.database;
+package com.office.extruder.pallet.database;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.extruder.pallet.pojo.Pallet;
+import com.office.extruder.pallet.pojo.Pallet;
 import com.setting.database.DataBaseLocal;
 
 public class PalletDatabase {

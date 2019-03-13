@@ -3,10 +3,10 @@ package com.main.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.client.controller.ClientController;
-import com.client.controller.ClientTableController;
-import com.client.pojo.Client;
-import com.extruder.main.ExtruderMain;
+import com.office.client.controller.ClientController;
+import com.office.client.controller.ClientTableController;
+import com.office.client.pojo.Client;
+import com.office.extruder.main.ExtruderMain;
 import com.project.setting.main.MainSetting;
 
 import javafx.beans.value.ChangeListener;

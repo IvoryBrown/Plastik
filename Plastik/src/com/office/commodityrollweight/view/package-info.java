@@ -5,4 +5,4 @@
  * @author SzervizIvo
  *
  */
-package com.commodityrollweight.view;
+package com.office.commodityrollweight.view;

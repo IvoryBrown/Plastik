@@ -5,4 +5,4 @@
  * @author SzervizIvo
  *
  */
-package com.commoditycalculation.view;
+package com.office.commoditycalculation.view;

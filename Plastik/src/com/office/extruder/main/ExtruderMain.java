@@ -1,6 +1,6 @@
-package com.extruder.main;
+package com.office.extruder.main;
 
-import com.extruder.controller.ExtruderController;
+import com.office.extruder.controller.ExtruderController;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,7 +13,7 @@ public class ExtruderMain {
 	public void start() {
 		try {
 			Stage primaryStage = new Stage();
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/extruder/view/Actual.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/office/extruder/view/Actual.fxml"));
 			loader.setController(new ExtruderController());
 			Parent root = (Parent) loader.load();
 			primaryStage.setWidth(1300);

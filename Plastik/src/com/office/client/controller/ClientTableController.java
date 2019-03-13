@@ -1,7 +1,7 @@
-package com.client.controller;
+package com.office.client.controller;
 
-import com.client.database.ClientDataBase;
-import com.client.pojo.Client;
+import com.office.client.database.ClientDataBase;
+import com.office.client.pojo.Client;
 import com.setting.label.MessageLabel;
 
 import javafx.collections.FXCollections;

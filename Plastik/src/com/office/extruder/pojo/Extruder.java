@@ -1,6 +1,11 @@
-package com.extruder.pojo;
+package com.office.extruder.pojo;
+
+import com.production.transmission.extruder.database.TransmissionExtruderDataBase;
+import com.production.transmission.extruder.pojo.TransmissionExtruder;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Extruder {
 
@@ -19,6 +24,7 @@ public class Extruder {
 	private final SimpleStringProperty extruderFlatPlateBag;
 	private final SimpleStringProperty extruderGrammMeter;
 	private final SimpleStringProperty extruderOrderedKg;
+	private final SimpleStringProperty extruderActualKg;
 	private final SimpleStringProperty extruderName;
 	private final SimpleStringProperty extruderComment;
 	private final SimpleStringProperty extruderPriority;
@@ -41,6 +47,7 @@ public class Extruder {
 		this.extruderFlatPlateBag = new SimpleStringProperty("");
 		this.extruderGrammMeter = new SimpleStringProperty("");
 		this.extruderOrderedKg = new SimpleStringProperty("");
+		this.extruderActualKg = new SimpleStringProperty("");
 		this.extruderName = new SimpleStringProperty("");
 		this.extruderComment = new SimpleStringProperty("");
 		this.extruderPriority = new SimpleStringProperty("");
@@ -68,6 +75,7 @@ public class Extruder {
 		this.extruderFlatPlateBag = new SimpleStringProperty(extruderFlatPlateBag);
 		this.extruderGrammMeter = new SimpleStringProperty(extruderGrammMeter);
 		this.extruderOrderedKg = new SimpleStringProperty(extruderOrderedKg);
+		this.extruderActualKg = new SimpleStringProperty("");
 		this.extruderName = new SimpleStringProperty(extruderName);
 		this.extruderComment = new SimpleStringProperty(extruderComment);
 		this.extruderPriority = new SimpleStringProperty("");
@@ -97,6 +105,7 @@ public class Extruder {
 		this.extruderFlatPlateBag = new SimpleStringProperty(extruderFlatPlateBag);
 		this.extruderGrammMeter = new SimpleStringProperty(extruderGrammMeter);
 		this.extruderOrderedKg = new SimpleStringProperty(extruderOrderedKg);
+		this.extruderActualKg = new SimpleStringProperty("");
 		this.extruderName = new SimpleStringProperty(extruderName);
 		this.extruderComment = new SimpleStringProperty(extruderComment);
 		this.extruderPriority = new SimpleStringProperty(extruderPriority);
@@ -282,6 +291,29 @@ public class Extruder {
 
 	public void setExtruderOrderedKg(String extruderOrderedKg) {
 		this.extruderOrderedKg.set(extruderOrderedKg);
+	}
+
+	public SimpleStringProperty getExtruderActualKgProperty() {// todo
+		return this.extruderActualKg;
+	}
+
+	public String getExtruderActualKg() {
+		String f;
+		double sum = 0;
+		ObservableList<TransmissionExtruder> dataExtruder = FXCollections.observableArrayList();
+		dataExtruder.addAll(new TransmissionExtruderDataBase().getAllClient(Integer.parseInt(extruderId.get())));
+		if (dataExtruder.size() != 0) {
+			for (int i = 0; i < dataExtruder.size(); i++) {
+				double g = Double.valueOf(dataExtruder.get(i).getTransmissionNKg());
+				sum += g;
+			}
+		}
+		f = String.valueOf(sum);
+		return f;
+	}
+
+	public void setExtruderActualKg(String extruderActualKg) {
+		this.extruderActualKg.set(extruderActualKg);
 	}
 
 	public SimpleStringProperty getExtruderNameProperty() {

@@ -1,4 +1,4 @@
-package com.commoditycalculation.controller;
+package com.office.commoditycalculation.controller;
 
 import javafx.scene.control.TextField;
 

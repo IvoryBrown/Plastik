@@ -1,4 +1,4 @@
-package com.client.pojo;
+package com.office.client.pojo;
 
 import javafx.beans.property.SimpleStringProperty;
 

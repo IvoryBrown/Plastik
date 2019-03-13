@@ -1,4 +1,4 @@
-package com.extruder.pallet.pojo;
+package com.office.extruder.pallet.pojo;
 
 import javafx.beans.property.SimpleStringProperty;
 

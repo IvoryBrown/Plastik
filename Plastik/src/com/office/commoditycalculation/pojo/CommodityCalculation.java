@@ -1,4 +1,4 @@
-package com.commoditycalculation.pojo;
+package com.office.commoditycalculation.pojo;
 
 import javafx.beans.property.SimpleStringProperty;
 

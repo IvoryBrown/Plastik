@@ -1,10 +1,10 @@
-package com.extruder.table.controller;
+package com.office.extruder.table.controller;
 
 import java.util.Date;
 
-import com.extruder.name.ExtruderName;
-import com.extruder.pojo.Extruder;
-import com.extruder.table.database.TableDataBase;
+import com.office.extruder.name.ExtruderName;
+import com.office.extruder.pojo.Extruder;
+import com.office.extruder.table.database.TableDataBase;
 import com.project.setting.machine.database.MachineDataBase;
 import com.setting.label.MessageLabel;
 
@@ -44,10 +44,11 @@ public class TableController {
 	private TableColumn<Extruder, Integer> extruderId, extruderClientId, extruderFlatPlateBag, extruderWidth,
 			extruderLength;
 	private TableColumn<Extruder, Date> extruderAddDate, extruderEndDate;
-	private TableColumn<Extruder, Double> extruderThickness, extruderGrammMeter, extruderActualKg;
+	private TableColumn<Extruder, Double> extruderThickness, extruderGrammMeter;
 	private TableColumn<Extruder, String> extruderClientName, extruderIdentification, extruderOrderedKg, extruderStatus,
 			extruderCommodity, extruderActualSize, extruderName, extruderComment, extruderPriority;
 	private TableColumn<Extruder, Boolean> colActive;
+	private TableColumn<Extruder, String> extruderActualKg;
 	private Label messageLbl;
 	private final ObservableList<Extruder> dataExtruder = FXCollections.observableArrayList();
 	private TableDataBase tableDataBase = new TableDataBase();
@@ -87,8 +88,6 @@ public class TableController {
 		statusCbox.setSelected(true);
 	}
 
-	
-
 	private void setButton() {
 		Button upButton = new Button("Up");
 		Button downButton = new Button("Down");
@@ -101,14 +100,21 @@ public class TableController {
 		}, selectedIndex, extruderTableView.getItems()));
 		upButton.setOnAction(evt -> {
 			int index = extruderTableView.getSelectionModel().getSelectedIndex();
+			Extruder actual = extruderTableView.getSelectionModel().getSelectedItem();
 			extruderTableView.getItems().add(index - 1, extruderTableView.getItems().remove(index));
 			extruderTableView.getSelectionModel().clearAndSelect(index - 1);
+			tableDataBase.updateExtruderPriorit(actual.getExtruderId(), extruderTableView.getItems().get(index).getExtruderPriority());
+			tableDataBase.updateExtruderPriorit(extruderTableView.getItems().get(index).getExtruderId(), actual.getExtruderPriority());
+			updateDataTable();
 		});
-
 		downButton.setOnAction(evt -> {
 			int index = extruderTableView.getSelectionModel().getSelectedIndex();
+			Extruder actual = extruderTableView.getSelectionModel().getSelectedItem();
 			extruderTableView.getItems().add(index + 1, extruderTableView.getItems().remove(index));
 			extruderTableView.getSelectionModel().clearAndSelect(index + 1);
+			tableDataBase.updateExtruderPriorit(actual.getExtruderId(), extruderTableView.getItems().get(index).getExtruderPriority());
+			tableDataBase.updateExtruderPriorit(extruderTableView.getItems().get(index).getExtruderId(), actual.getExtruderPriority());
+			updateDataTable();
 		});
 	}
 
@@ -312,6 +318,7 @@ public class TableController {
 
 		extruderActualKg = new TableColumn<>("kg");
 		extruderActualKg.setMinWidth(80);
+		extruderActualKg.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderActualKg"));
 
 		extruderPriority = new TableColumn<>("Priorítás");
 		extruderPriority.setMinWidth(80);
@@ -360,8 +367,12 @@ public class TableController {
 					setStyle("");
 				} else {
 					setStyle("");
+					double s = Double.parseDouble(item.getExtruderActualKg());
+					double g = Double.parseDouble(item.getExtruderOrderedKg());
 					if (item.getExtruderStatus().equals("Elkészült")) {
 						setStyle("-fx-text-background-color: tomato;");
+					} else if (s >= g) {
+						setStyle("-fx-text-background-color: green;");
 					} else {
 						setStyle("-fx-text-background-color: whitesmoke;");
 

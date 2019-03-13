@@ -1,4 +1,4 @@
-package com.extruder.table.database;
+package com.office.extruder.table.database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.extruder.pojo.Extruder;
+import com.office.extruder.pojo.Extruder;
 import com.setting.database.DataBaseLocal;
 import com.setting.showinfo.ShowInfo;
 
@@ -81,6 +81,32 @@ public class TableDataBase {
 			pr.setString(4, extruder.getExtruderOrderedKg());
 			pr.setString(5, extruder.getExtruderComment());
 			pr.setInt(6, Integer.parseInt(extruder.getExtruderId()));
+			pr.execute();
+		} catch (SQLException ex) {
+			System.out.println(ex);
+			new ShowInfo("Adatbázis Hiba", "", ex.getMessage());
+		} finally {
+			try {
+				if (pr != null) {
+					pr.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException ex) {
+				new ShowInfo("Adatbázis Hiba", "", ex.getMessage());
+			}
+		}
+	}
+
+	public void updateExtruderPriorit(String id, String priorit) {
+		Connection conn = DataBaseLocal.getConnection();
+		PreparedStatement pr = null;
+		try {
+			String sqlClient = "UPDATE `extruder` SET prioritas = ? WHERE extruder_id = ?";
+			pr = conn.prepareStatement(sqlClient);
+			pr.setString(1, priorit);
+			pr.setInt(2, Integer.parseInt(id));
 			pr.execute();
 		} catch (SQLException ex) {
 			System.out.println(ex);

@@ -1,4 +1,4 @@
-package com.commoditycalculation.database;
+package com.office.commoditycalculation.database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.commoditycalculation.pojo.CommodityCalculation;
+import com.office.commoditycalculation.pojo.CommodityCalculation;
 import com.setting.database.DataBaseLocal;
 import com.setting.showinfo.ShowInfo;
 

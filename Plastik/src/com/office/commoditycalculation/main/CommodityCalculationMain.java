@@ -1,4 +1,4 @@
-package com.commoditycalculation.main;
+package com.office.commoditycalculation.main;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class CommodityCalculationMain {
 	public void start() {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/com/commoditycalculation/view/ComodityCalculation.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/com/office/commoditycalculation/view/ComodityCalculation.fxml"));
 			Stage primaryStage = new Stage();
 			primaryStage.setWidth(1300);
 			primaryStage.setHeight(700);

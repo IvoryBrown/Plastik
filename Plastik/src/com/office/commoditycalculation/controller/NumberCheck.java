@@ -1,4 +1,4 @@
-package com.commoditycalculation.controller;
+package com.office.commoditycalculation.controller;
 
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;

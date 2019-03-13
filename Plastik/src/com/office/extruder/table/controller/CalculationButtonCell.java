@@ -1,12 +1,12 @@
-package com.extruder.table.controller;
+package com.office.extruder.table.controller;
 
-import com.commoditycalculation.database.CalculationDataBase;
-import com.commoditycalculation.pojo.CommodityCalculation;
-import com.extruder.pallet.button.main.PalletButtonCellMain;
-import com.extruder.pallet.button.pojo.PalletButtonCell;
-import com.extruder.pallet.database.PalletDatabase;
-import com.extruder.pallet.pojo.Pallet;
-import com.extruder.pojo.Extruder;
+import com.office.commoditycalculation.database.CalculationDataBase;
+import com.office.commoditycalculation.pojo.CommodityCalculation;
+import com.office.extruder.pallet.button.main.PalletButtonCellMain;
+import com.office.extruder.pallet.button.pojo.PalletButtonCell;
+import com.office.extruder.pallet.database.PalletDatabase;
+import com.office.extruder.pallet.pojo.Pallet;
+import com.office.extruder.pojo.Extruder;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
