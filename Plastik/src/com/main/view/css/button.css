@@ -1,7 +1,7 @@
 .searchButton {
     -fx-background-color:  #616161;
     -fx-background-image: url(/com/setting/icon/button/Search.png);
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }
@@ -9,7 +9,7 @@
 .searchButton:hover {
     -fx-background-color:  OLIVE;
     -fx-background-image: url(/com/setting/icon/button/Search.png);
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }
@@ -17,7 +17,7 @@
 .saveButton {
     -fx-background-color:  #616161;
     -fx-background-image: url(/com/setting/icon/button/Save.png);
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: right;
     -fx-text-fill: whitesmoke;
@@ -27,7 +27,7 @@
 .saveButton:hover {
     -fx-background-color:  OLIVE;
     -fx-background-image: url(/com/setting/icon/button/Save.png);
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: right;
     -fx-text-fill: whitesmoke;
@@ -37,7 +37,7 @@
 .saveButtonCenter {
     -fx-background-color:  #616161;
     -fx-background-image: url(/com/setting/icon/button/Save.png);
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-text-fill: whitesmoke;
@@ -47,7 +47,7 @@
 .saveButtonCenter:hover {
     -fx-background-color:  OLIVE;
     -fx-background-image: url(/com/setting/icon/button/Save.png);
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-text-fill: whitesmoke;
@@ -57,7 +57,7 @@
 .deleteButton {
     -fx-background-color:  #616161;
     -fx-background-image: url(/com/setting/icon/button/Delete.png);
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-text-fill: whitesmoke;
@@ -67,7 +67,7 @@
 .deleteButton:hover {
     -fx-background-color: OLIVE;
     -fx-background-image: url(/com/setting/icon/button/Delete.png);
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-text-fill: whitesmoke;
@@ -77,7 +77,7 @@
 .settingButton {
     -fx-background-color:  #616161;
     -fx-background-image: url(/com/setting/icon/button/Setting.png);
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-text-fill: whitesmoke;
@@ -87,7 +87,7 @@
 .settingButton:hover {
     -fx-background-color:  OLIVE;
     -fx-background-image: url(/com/setting/icon/button/Setting.png);
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-text-fill: whitesmoke;
@@ -97,7 +97,7 @@
 .rightButton {
     -fx-background-color:  #616161;
     -fx-background-image: url(/com/setting/icon/button/Right.png);
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-text-fill: whitesmoke;
@@ -107,7 +107,7 @@
 .rightButton:hover {
     -fx-background-color:  OLIVE;
     -fx-background-image: url(/com/setting/icon/button/Right.png);
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-text-fill: whitesmoke;
@@ -117,7 +117,7 @@
 .leftButton {
     -fx-background-color:  #616161;
     -fx-background-image: url(/com/setting/icon/button/Left.png);
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-text-fill: whitesmoke;
@@ -127,7 +127,7 @@
 .leftButton:hover {
     -fx-background-color:  OLIVE;
     -fx-background-image: url(/com/setting/icon/button/Left.png);
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-text-fill: whitesmoke;
@@ -137,7 +137,7 @@
 .generalButton {
     -fx-background-color:  #616161;
     -fx-background-image: url(/com/setting/icon/button/General.png);
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-text-fill: whitesmoke;
@@ -147,7 +147,7 @@
 .generalButton:hover {
     -fx-background-color:  OLIVE;
     -fx-background-image: url(/com/setting/icon/button/General.png);
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-text-fill: whitesmoke;
@@ -157,7 +157,7 @@
 .calculationButton {
     -fx-background-color:  #262626;
     -fx-background-image: url(/com/setting/icon/button/Commodity.png);
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-text-fill: whitesmoke;
@@ -167,7 +167,7 @@
 .calculationButton:hover {
     -fx-background-color:  OLIVE;
     -fx-background-image: url(/com/setting/icon/button/Commodity.png);
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-text-fill: whitesmoke;
@@ -177,7 +177,7 @@
 .palletButton {
     -fx-background-color:  #262626;
     -fx-background-image: url(/com/setting/icon/button/Pallet.png);
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-text-fill: whitesmoke;
@@ -187,7 +187,45 @@
 .palletButton:hover {
     -fx-background-color:  OLIVE;
     -fx-background-image: url(/com/setting/icon/button/Pallet.png);
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-text-fill: whitesmoke;
+    -fx-font-weight: bold;
+}
+.upButton {
+    -fx-background-color:  #616161;
+    -fx-background-image: url(/com/setting/icon/button/Up.png);
+    -fx-background-size: 16.0px 16.0px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-text-fill: whitesmoke;
+    -fx-font-weight: bold;
+}
+
+.upButton:hover {
+    -fx-background-color:  OLIVE;
+    -fx-background-image: url(/com/setting/icon/button/Up.png);
+    -fx-background-size: 16.0px 16.0px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-text-fill: whitesmoke;
+    -fx-font-weight: bold;
+}
+.downButton {
+    -fx-background-color:  #616161;
+    -fx-background-image: url(/com/setting/icon/button/Down.png);
+    -fx-background-size: 16.0px 16.0px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-text-fill: whitesmoke;
+    -fx-font-weight: bold;
+}
+
+.downButton:hover {
+    -fx-background-color:  OLIVE;
+    -fx-background-image: url(/com/setting/icon/button/Down.png);
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-text-fill: whitesmoke;
@@ -196,7 +234,7 @@
 
 .extruderButton{
 	-fx-background-color:  #616161;
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-text-fill: whitesmoke;
@@ -209,7 +247,7 @@
 
 .extruderButton:hover{
 	-fx-background-color:  OLIVE;
-    -fx-background-size: 16px 16px;
+    -fx-background-size: 16.0px 16.0px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-text-fill: whitesmoke;

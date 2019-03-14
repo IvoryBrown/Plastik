@@ -62,6 +62,8 @@ public class TableController {
 	private ToggleGroup group = new ToggleGroup();
 	private CheckBox statusCbox;
 	private HBox upDownHBox;
+	Button upButton = new Button();
+	Button downButton = new Button();
 
 	public TableController(AnchorPane extruderNewJobsPane, AnchorPane extruderActualJobsPane,
 			TableView<Extruder> extruderTableView, Label messageLbl, HBox hBox, Button extruderFilteringBtn,
@@ -88,9 +90,25 @@ public class TableController {
 		statusCbox.setSelected(true);
 	}
 
+	private void buttonVisibleIsSelected() {
+		upButton.setVisible(true);
+		downButton.setVisible(true);
+
+	}
+
+	private void buttonVisible() {
+		upButton.setVisible(false);
+		downButton.setVisible(false);
+
+	}
+
 	private void setButton() {
-		Button upButton = new Button("Up");
-		Button downButton = new Button("Down");
+		upButton.getStylesheets().add(getClass().getResource("/com/main/view/css/button.css").toExternalForm());
+		upButton.getStyleClass().add("upButton");
+		downButton.getStylesheets().add(getClass().getResource("/com/main/view/css/button.css").toExternalForm());
+		downButton.getStyleClass().add("downButton");
+		downButton.setPrefSize(25, 25);
+		upButton.setPrefSize(25, 25);
 		upDownHBox.getChildren().addAll(upButton, downButton);
 		ReadOnlyIntegerProperty selectedIndex = extruderTableView.getSelectionModel().selectedIndexProperty();
 		upButton.disableProperty().bind(selectedIndex.lessThanOrEqualTo(0));
@@ -103,8 +121,10 @@ public class TableController {
 			Extruder actual = extruderTableView.getSelectionModel().getSelectedItem();
 			extruderTableView.getItems().add(index - 1, extruderTableView.getItems().remove(index));
 			extruderTableView.getSelectionModel().clearAndSelect(index - 1);
-			tableDataBase.updateExtruderPriorit(actual.getExtruderId(), extruderTableView.getItems().get(index).getExtruderPriority());
-			tableDataBase.updateExtruderPriorit(extruderTableView.getItems().get(index).getExtruderId(), actual.getExtruderPriority());
+			tableDataBase.updateExtruderPriorit(actual.getExtruderId(),
+					extruderTableView.getItems().get(index).getExtruderPriority());
+			tableDataBase.updateExtruderPriorit(extruderTableView.getItems().get(index).getExtruderId(),
+					actual.getExtruderPriority());
 			updateDataTable();
 		});
 		downButton.setOnAction(evt -> {
@@ -112,8 +132,10 @@ public class TableController {
 			Extruder actual = extruderTableView.getSelectionModel().getSelectedItem();
 			extruderTableView.getItems().add(index + 1, extruderTableView.getItems().remove(index));
 			extruderTableView.getSelectionModel().clearAndSelect(index + 1);
-			tableDataBase.updateExtruderPriorit(actual.getExtruderId(), extruderTableView.getItems().get(index).getExtruderPriority());
-			tableDataBase.updateExtruderPriorit(extruderTableView.getItems().get(index).getExtruderId(), actual.getExtruderPriority());
+			tableDataBase.updateExtruderPriorit(actual.getExtruderId(),
+					extruderTableView.getItems().get(index).getExtruderPriority());
+			tableDataBase.updateExtruderPriorit(extruderTableView.getItems().get(index).getExtruderId(),
+					actual.getExtruderPriority());
 			updateDataTable();
 		});
 	}
@@ -156,6 +178,7 @@ public class TableController {
 				extruderNameBtn4, extruderNameBtn5, extruderNameBtn6, extruderNameBtn7, extruderNameBtn8,
 				extruderNameBtn9, extruderNameBtn10, extruderNameBtn11, extruderNameBtn12, extruderNameBtn13,
 				extruderNameBtn14);
+		
 	}
 
 	private void clearTable() {
@@ -312,11 +335,11 @@ public class TableController {
 		extruderGrammMeter.setMinWidth(80);
 		extruderGrammMeter.setCellValueFactory(new PropertyValueFactory<Extruder, Double>("extruderGrammMeter"));
 
-		extruderOrderedKg = new TableColumn<>("Megrendelt kg");
+		extruderOrderedKg = new TableColumn<>("Megrendelt/kg");
 		extruderOrderedKg.setMinWidth(100);
 		extruderOrderedKg.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderOrderedKg"));
 
-		extruderActualKg = new TableColumn<>("kg");
+		extruderActualKg = new TableColumn<>("Lefújva/kg");
 		extruderActualKg.setMinWidth(80);
 		extruderActualKg.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderActualKg"));
 
@@ -372,7 +395,7 @@ public class TableController {
 					if (item.getExtruderStatus().equals("Elkészült")) {
 						setStyle("-fx-text-background-color: tomato;");
 					} else if (s >= g) {
-						setStyle("-fx-text-background-color: green;");
+						setStyle("-fx-text-background-color: #006400;");
 					} else {
 						setStyle("-fx-text-background-color: whitesmoke;");
 
@@ -476,64 +499,80 @@ public class TableController {
 			updateDataTable();
 		});
 		extruderNameBtn1.setOnAction((event) -> {
+			buttonVisibleIsSelected();
 			actualJobsPane();
 			extruderTableView.setItems(extruderData(extruderNameBtn1.getText()));
 		});
 		extruderNameBtn2.setOnAction((event) -> {
+			buttonVisibleIsSelected();
 			actualJobsPane();
 			extruderTableView.setItems(extruderData(extruderNameBtn2.getText()));
 		});
 		extruderNameBtn3.setOnAction((event) -> {
+			buttonVisibleIsSelected();
 			actualJobsPane();
 			extruderTableView.setItems(extruderData(extruderNameBtn3.getText()));
 		});
 		extruderNameBtn4.setOnAction((event) -> {
+			buttonVisibleIsSelected();
 			actualJobsPane();
 			extruderTableView.setItems(extruderData(extruderNameBtn4.getText()));
 		});
 		extruderNameBtn5.setOnAction((event) -> {
+			buttonVisibleIsSelected();
 			actualJobsPane();
 			extruderTableView.setItems(extruderData(extruderNameBtn5.getText()));
 		});
 		extruderNameBtn6.setOnAction((event) -> {
+			buttonVisibleIsSelected();
 			actualJobsPane();
 			extruderTableView.setItems(extruderData(extruderNameBtn6.getText()));
 		});
 		extruderNameBtn7.setOnAction((event) -> {
+			buttonVisibleIsSelected();
 			actualJobsPane();
 			extruderTableView.setItems(extruderData(extruderNameBtn7.getText()));
 		});
 		extruderNameBtn8.setOnAction((event) -> {
+			buttonVisibleIsSelected();
 			actualJobsPane();
 			extruderTableView.setItems(extruderData(extruderNameBtn8.getText()));
 		});
 		extruderNameBtn9.setOnAction((event) -> {
+			buttonVisibleIsSelected();
 			actualJobsPane();
 			extruderTableView.setItems(extruderData(extruderNameBtn9.getText()));
 		});
 		extruderNameBtn10.setOnAction((event) -> {
+			buttonVisibleIsSelected();
 			actualJobsPane();
 			extruderTableView.setItems(extruderData(extruderNameBtn10.getText()));
 		});
 		extruderNameBtn11.setOnAction((event) -> {
+			buttonVisibleIsSelected();
 			actualJobsPane();
 			extruderTableView.setItems(extruderData(extruderNameBtn11.getText()));
 		});
 		extruderNameBtn12.setOnAction((event) -> {
+			buttonVisibleIsSelected();
 			actualJobsPane();
 			extruderTableView.setItems(extruderData(extruderNameBtn12.getText()));
 		});
 		extruderNameBtn13.setOnAction((event) -> {
+			buttonVisibleIsSelected();
 			actualJobsPane();
 			extruderTableView.setItems(extruderData(extruderNameBtn13.getText()));
 		});
 		extruderNameBtn14.setOnAction((event) -> {
+			buttonVisibleIsSelected();
 			actualJobsPane();
 			extruderTableView.setItems(extruderData(extruderNameBtn14.getText()));
 		});
 		extruderNameAllBtn.setOnAction((event) -> {
+			buttonVisible();
 			actualJobsPane();
 			extruderTableView.setItems(extruderData(""));
+
 		});
 	}
 }

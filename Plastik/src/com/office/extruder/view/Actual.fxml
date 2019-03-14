@@ -920,7 +920,7 @@
                         <TextField fx:id="extruderFilteringTxt" layoutX="14.0" layoutY="48.0" prefHeight="25.0" promptText="Név, Azonosító" />
                         <Button fx:id="extruderFilteringBtn" layoutX="154.0" layoutY="48.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" styleClass="searchButton" stylesheets="@../../../main/view/css/button.css" />
                         <CheckBox fx:id="statusCbox" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Folyamatban" />
-                        <HBox fx:id="upDownHBox" layoutX="1200.0" prefHeight="30.0" prefWidth="100.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <HBox fx:id="upDownHBox" alignment="CENTER_RIGHT" layoutX="1200.0" layoutY="48.0" prefHeight="30.0" prefWidth="100.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0" />
                      </children>
                   </AnchorPane>
                </children></AnchorPane>
