@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
@@ -34,12 +35,22 @@
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: C0C0C0;">
                      <children>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="1115.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <HBox alignment="CENTER" layoutX="1036.0" layoutY="10.0" prefHeight="30.0" prefWidth="1055.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#exitProgram" prefHeight="30.0" prefWidth="30.0" styleClass="exitButton" stylesheets="@../../main/view/css/button.css" />
+                              <Label fx:id="messageLbl" alignment="CENTER" prefHeight="30.0" />
                            </children>
                         </HBox>
-                        <AnchorPane fx:id="homePane" layoutY="29.0" prefHeight="669.0" prefWidth="1115.0" style="-fx-background-color: C0C0C0;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+                        <HBox alignment="CENTER_RIGHT" layoutX="1026.0" prefHeight="30.0" prefWidth="89.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Button fx:id="restartProgram" mnemonicParsing="false" onAction="#restartProgram" prefHeight="30.0" prefWidth="30.0" styleClass="refreshButton" stylesheets="@../../main/view/css/button.css" />
+                              <Button fx:id="exitProgram" mnemonicParsing="false" onAction="#exitProgram" prefHeight="30.0" prefWidth="30.0" styleClass="exitButton" stylesheets="@../../main/view/css/button.css" />
+                           </children>
+                        </HBox>
+                        <AnchorPane fx:id="extruderPane" layoutY="29.0" prefHeight="669.0" prefWidth="1115.0" style="-fx-background-color: C0C0C0;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                           <children>
+                              <HBox fx:id="hBox" alignment="CENTER" prefHeight="30.0" prefWidth="1115.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <TableView fx:id="extruderTableView" prefHeight="668.0" prefWidth="1115.0" stylesheets="@../../main/view/css/tableextruder.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+                           </children></AnchorPane>
                      </children>
                   </AnchorPane>
                </items>

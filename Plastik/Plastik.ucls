@@ -1,326 +1,1325 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="com.office.commoditycalculation.controller.NumberCheck" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/office/commoditycalculation/controller/NumberCheck.java" binary="false" 
+  <class id="1" language="java" name="com.office.extruder.name.ExtruderName" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/name/ExtruderName.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="1074" x="18226" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.project.setting.main.MainSetting" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/main/MainSetting.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="134" x="9731" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.office.extruder.main.ExtruderMain" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/main/ExtruderMain.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="134" x="16496" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="4" language="java" name="com.production.transmission.extruder.pojo" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/production/transmission/extruder/pojo" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="269" x="9138" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="5" language="java" name="com.project.setting.worker.controller" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/worker/controller" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="235" x="41" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="6" language="java" name="com.project.setting.machine.database.MachineDataBase" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/machine/database/MachineDataBase.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="117" width="220" x="4276" y="845"/>    
+    <position height="117" width="201" x="18526" y="2318"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <package id="2" language="java" name="com.setting.icon.tree" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/setting/icon/tree" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="50" width="144" x="415" y="76"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <class id="3" language="java" name="com.setting.database.DataBaseLocal" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/setting/database/DataBaseLocal.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="160" x="834" y="76"/>    
+  <class id="7" language="java" name="com.office.extruder.pallet.database.PalletDatabase" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/pallet/database/PalletDatabase.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="199" x="23902" y="2318"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <package id="4" language="java" name="com.main" project="Plastik-Server" file="/Plastik-Server/src/com/main" 
+  <class id="8" language="java" name="com.project.setting.commodityname.pojo.CommodityName" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/commodityname/pojo/CommodityName.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="261" width="280" x="22862" y="2318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.office.commoditycalculation.pojo.CommodityCalculation" 
+    project="Plastik-Server" file="/Plastik-Server/src/com/office/commoditycalculation/pojo/CommodityCalculation.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="50" width="101" x="1034" y="76"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <class id="5" language="java" name="com.office.client.controller.ClientController" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/office/client/controller/ClientController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="297" width="449" x="3419" y="845"/>    
+    <position height="2061" width="976" x="21527" y="2318"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="com.office.commoditycalculation.main.CommodityCalculationMain" 
+  <class id="10" language="java" name="com.project.setting.machine.controller.MachineController" 
+    project="Plastik-Server" file="/Plastik-Server/src/com/project/setting/machine/controller/MachineController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="279" x="17907" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="com.setting.identification.DeviceIdentificationGenereator" 
+    project="Plastik-Server" file="/Plastik-Server/src/com/setting/identification/DeviceIdentificationGenereator.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="199" x="5534" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="com.office.extruder.table.database.TableDataBase" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/table/database/TableDataBase.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="303" x="18767" y="2318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="com.office.client.pojo.Client" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/client/pojo/Client.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="693" width="309" x="21178" y="2318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="14" language="java" name="com.office.commodityrollweight.main" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/commodityrollweight/main" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="237" x="15946" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="15" language="java" name="com.office.commoditycalculation.database.CalculationDataBase" 
+    project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/commoditycalculation/database/CalculationDataBase.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="423" x="20132" y="2318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="16" language="java" name="com.production.transmission.extruder.database" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/production/transmission/extruder/database" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="298" x="8800" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="17" language="java" name="com.help.controller" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/help/controller" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="134" x="7281" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="18" language="java" name="com.project.setting.worker.controller.WorkersController" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/worker/controller/WorkersController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="423" width="457" x="16551" y="2318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="19" language="java" name="com.office.extruder.pallet.button.main" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/pallet/button/main" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="239" x="1425" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="20" language="java" name="com.production.transmission.extruder.pojo.TransmissionExtruder" 
+    project="Plastik-Server" 
+    file="/Plastik-Server/src/com/production/transmission/extruder/pojo/TransmissionExtruder.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="387" width="277" x="4296" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="com.office.commoditycalculation.main.CommodityCalculationMain" 
     project="Plastik-Server" 
     file="/Plastik-Server/src/com/office/commoditycalculation/main/CommodityCalculationMain.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="99" width="178" x="599" y="845"/>    
+    <position height="99" width="178" x="17255" y="2318"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="com.menu.calculations.CalculationsController" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/menu/calculations/CalculationsController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="195" x="599" y="76"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <package id="8" language="java" name="com.setting.label" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/setting/label" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="50" width="121" x="1175" y="76"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <class id="9" language="java" name="com.setting.label.MessageLabel" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/setting/label/MessageLabel.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="188" x="4305" y="1272"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="10" language="java" name="com.office.client.pojo.Client" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/office/client/pojo/Client.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="693" width="309" x="3908" y="1272"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <package id="11" language="java" name="com.setting.icon.button" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/setting/icon/button" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="50" width="157" x="1336" y="76"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <package id="12" language="java" name="com.setting.database" project="Plastik-Server" 
+  <package id="22" language="java" name="com.setting.database" project="Plastik-Server" 
     file="/Plastik-Server/src/com/setting/database" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="50" width="147" x="1533" y="76"/>    
+    <position height="50" width="147" x="11683" y="37"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <package id="13" language="java" name="com.main.controller" project="Plastik-Server" 
+  <class id="23" language="java" name="com.office.extruder.pojo.Extruder" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/pojo/Extruder.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="1629" width="709" x="19383" y="2318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="com.production.transmission.extruder.database.TransmissionExtruderDataBase" 
+    project="Plastik-Server" 
+    file="/Plastik-Server/src/com/production/transmission/extruder/database/TransmissionExtruderDataBase.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="285" x="2060" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="25" language="java" name="com.project.setting.machine.database" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/machine/database" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="242" x="7687" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="26" language="java" name="com.project.setting.commodityname.database.CommodityNameDataBase" 
+    project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/commodityname/database/CommodityNameDataBase.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="279" x="22543" y="2318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="27" language="java" name="com.project.setting.worker.database" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/worker/database" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="233" x="16223" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="28" language="java" name="com.project.setting.machine.controller" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/machine/controller" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="244" x="9447" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="29" language="java" name="com.setting.database.DataBaseLocal" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/setting/database/DataBaseLocal.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="160" x="16670" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="com.setting.file.DBFileWriter" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/setting/file/DBFileWriter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="186" x="10249" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="com.office.extruder.controller.ExtruderController" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/controller/ExtruderController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="2241" width="299" x="20187" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="32" language="java" name="com.office.extruder.view" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/view" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="164" x="15256" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="33" language="java" name="com.project.setting.main" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/main" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="165" x="13903" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="34" language="java" name="com.office.extruder.table.controller.PalletButtonCell" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/table/controller/PalletButtonCell.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="81" width="157" x="10052" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="35" language="java" name="com.office.commodityrollweight.controller" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/commodityrollweight/controller" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="264" x="13599" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="36" language="java" name="com.office.extruder.pallet.button.view" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/pallet/button/view" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="237" x="5099" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="37" language="java" name="com.office.extruder.pallet.button.controller" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/pallet/button/controller" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="266" x="6262" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="38" language="java" name="com.project.setting.commodityname.controller.CommodityNameController" 
+    project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/commodityname/controller/CommodityNameController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="279" width="409" x="22702" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="com.project.setting.controller.SettingController" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/controller/SettingController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="693" width="303" x="17283" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="40" language="java" name="com.office.extruder.name" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/name" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="170" x="3884" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="41" language="java" name="com.help.controller.HelpController" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/help/controller/HelpController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="197" x="3364" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="42" language="java" name="com.menu.calculations" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/menu/calculations" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="156" x="6568" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="43" language="java" name="com.setting.file.FolderWriter" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/setting/file/FolderWriter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="136" x="15460" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="44" language="java" name="com.project.setting.worker.pojo" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/worker/pojo" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="204" x="2385" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="45" language="java" name="com.project.setting.commodityname.controller" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/commodityname/controller" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="290" x="10626" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="46" language="java" name="com.office.client.pojo" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/client/pojo" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="145" x="8431" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="47" language="java" name="com.setting.icon.button" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/setting/icon/button" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="157" x="7969" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="48" language="java" name="com.office.commoditycalculation.database" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/commoditycalculation/database" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="268" x="523" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="49" language="java" name="com.office.extruder.main" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/main" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="166" x="12537" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="50" language="java" name="com.help.main" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/help/main" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="107" x="9905" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="51" language="java" name="com.office.extruder.controller" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/controller" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="193" x="2629" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="52" language="java" name="com.office.commoditycalculation.controller.NumberCheck" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/commoditycalculation/controller/NumberCheck.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="220" x="17966" y="2318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="53" language="java" name="com.project.setting.controller" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/controller" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="192" x="7455" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="54" language="java" name="com.office.client.controller" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/client/controller" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="176" x="11293" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="55" language="java" name="com.office.extruder.pallet.button.pojo.PalletButtonCell" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/pallet/button/pojo/PalletButtonCell.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="167" x="1704" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="56" language="java" name="com.office.extruder.newjob.database.NewJobDataBase" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/newjob/database/NewJobDataBase.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="283" x="20595" y="2318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="57" language="java" name="com.setting.icon" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/setting/icon" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="118" x="5376" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="58" language="java" name="com.project.setting.commodityname.pojo" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/commodityname/pojo" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="259" x="2862" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="59" language="java" name="com.office.extruder.newjob.database" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/newjob/database" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="235" x="5987" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="60" language="java" name="com.office.extruder.pallet.button.controller.PalletButtonCellController" 
+    project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/pallet/button/controller/PalletButtonCellController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="441" width="206" x="23542" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="61" language="java" name="com.office.extruder.pallet.button.main.PalletButtonCellMain" 
+    project="Plastik-Server" file="/Plastik-Server/src/com/office/extruder/pallet/button/main/PalletButtonCellMain.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="170" x="11083" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="62" language="java" name="com.office.commoditycalculation.main" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/commoditycalculation/main" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="243" x="3601" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="63" language="java" name="com.setting.label" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/setting/label" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="121" x="831" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="64" language="java" name="com.project.setting.worker.database.WorkersDataBase" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/worker/database/WorkersDataBase.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="250" x="16713" y="4419"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="65" language="java" name="com.project.setting.commodityname.database" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/commodityname/database" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="288" x="13018" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="66" language="java" name="com.office.extruder.pallet.pojo.Pallet" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/pallet/pojo/Pallet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="1539" width="680" x="23182" y="2318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="67" language="java" name="com.help.view" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/help/view" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="105" x="992" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="68" language="java" name="com.office.client.controller.ClientTableController" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/client/controller/ClientTableController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="387" width="328" x="21015" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="69" language="java" name="com.office.commoditycalculation.view" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/commoditycalculation/view" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="241" x="6764" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="70" language="java" name="com.main.view" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/main/view" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="109" x="1911" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="71" language="java" name="com.setting.identification" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/setting/identification" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="167" x="316" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="72" language="java" name="com.office.extruder.pojo" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/pojo" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="162" x="4094" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="73" language="java" name="com.project.setting.view" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/view" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="163" x="3161" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="74" language="java" name="com.office.extruder.pallet.button.pojo" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/pallet/button/pojo" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="235" x="12743" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="75" language="java" name="com.help.main.HelpMain" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/help/main/HelpMain.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="87" x="10956" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="76" language="java" name="com.setting.showinfo" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/setting/showinfo" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="146" x="14783" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="77" language="java" name="com.office.commoditycalculation.pojo" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/commoditycalculation/pojo" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="239" x="14504" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="78" language="java" name="com.setting.showinfo.ShowInfo" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/setting/showinfo/ShowInfo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="171" x="4613" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="79" language="java" name="com.main.Main" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/main/Main.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="134" x="11509" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="80" language="java" name="com.office.commoditycalculation.controller.TextFieldIsEmpty" 
+    project="Plastik-Server" file="/Plastik-Server/src/com/office/commoditycalculation/controller/TextFieldIsEmpty.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="191" x="19110" y="2318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="81" language="java" name="com.setting.icon.tree" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/setting/icon/tree" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="144" x="8616" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="82" language="java" name="com.main.controller" project="Plastik-Server" 
     file="/Plastik-Server/src/com/main/controller" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="50" width="138" x="1720" y="76"/>    
+    <position height="50" width="138" x="16870" y="37"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <class id="14" language="java" name="com.office.commoditycalculation.controller.CommodityCalculationController" 
+  <package id="83" language="java" name="com.main.view.css" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/main/view/css" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="133" x="14108" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="84" language="java" name="com.project.setting.database.controller" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/database/controller" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="248" x="1137" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="85" language="java" name="com.project.setting.worker.pojo.Workers" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/worker/pojo/Workers.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="405" width="284" x="16389" y="4419"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="86" language="java" name="com.office.commodityrollweight.main.RollWeightMain" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/commodityrollweight/main/RollWeightMain.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="167" x="17048" y="2318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="87" language="java" name="com.setting.file" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/setting/file" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="111" x="10475" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="88" language="java" name="com.office.extruder.table.controller" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/table/controller" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="224" x="12011" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="89" language="java" name="com.office.extruder.table.controller.CalculationButtonCell" 
+    project="Plastik-Server" file="/Plastik-Server/src/com/office/extruder/table/controller/CalculationButtonCell.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="238" x="21527" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="90" language="java" name="com.main.controller.HomeController" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/main/controller/HomeController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="693" width="247" x="14969" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="91" language="java" name="com.project.setting.machine.pojo" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/machine/pojo" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="213" x="13346" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="92" language="java" name="com.menu.calculations.CalculationsController" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/menu/calculations/CalculationsController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="195" x="17048" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="93" language="java" name="com.setting.label.MessageLabel" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/setting/label/MessageLabel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="188" x="17966" y="4419"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="94" language="java" name="com.office.client.controller.ClientController" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/client/controller/ClientController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="297" width="449" x="20526" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="95" language="java" name="com.office.extruder.table.controller.TableController" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/table/controller/TableController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="1161" width="553" x="19340" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="96" language="java" name="com.office.client.database" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/client/database" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="174" x="5773" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="97" language="java" name="com.office.extruder.table.database" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/table/database" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="222" x="12275" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="98" language="java" name="com.project.setting.database.controller.DataBaseController" 
+    project="Plastik-Server" file="/Plastik-Server/src/com/project/setting/database/controller/DataBaseController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="272" x="17473" y="2318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="99" language="java" name="com.main" project="Plastik-Server" file="/Plastik-Server/src/com/main" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="101" x="11870" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="100" language="java" name="com.office.client.database.ClientDataBase" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/client/database/ClientDataBase.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="220" x="20918" y="2318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="101" language="java" name="com.office.commodityrollweight.controller.RollWeightController" 
+    project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/commodityrollweight/controller/RollWeightController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="315" width="241" x="17626" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="102" language="java" name="com.office.commoditycalculation.controller.CommodityCalculationController" 
     project="Plastik-Server" 
     file="/Plastik-Server/src/com/office/commoditycalculation/controller/CommodityCalculationController.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="639" width="207" x="4517" y="76"/>    
+    <position height="1107" width="214" x="19933" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <package id="15" language="java" name="com.menu.calculations" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/menu/calculations" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="50" width="156" x="1898" y="76"/>    
+  <package id="103" language="java" name="com.office.extruder.pallet.pojo" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/pallet/pojo" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="196" x="7045" y="37"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <class id="16" language="java" name="com.main.Main" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/main/Main.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="113" x="2094" y="76"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="17" language="java" name="com.setting.showinfo.ShowInfo" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/setting/showinfo/ShowInfo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="171" x="2247" y="76"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <package id="18" language="java" name="com.office.client.pojo" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/office/client/pojo" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="50" width="110" x="2458" y="76"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <package id="19" language="java" name="com.main.view" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/main/view" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="50" width="109" x="2608" y="76"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <package id="20" language="java" name="com.office.client.controller" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/office/client/controller" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="50" width="141" x="2757" y="76"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <package id="21" language="java" name="com.setting.icon" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/setting/icon" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="50" width="118" x="2938" y="76"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <package id="22" language="java" name="com.office.commoditycalculation.controller" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/office/commoditycalculation/controller" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="50" width="235" x="3096" y="76"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <package id="23" language="java" name="com.office.commoditycalculation.view" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/office/commoditycalculation/view" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="50" width="206" x="3371" y="76"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <package id="24" language="java" name="com.office.client.database" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/office/client/database" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="50" width="139" x="3617" y="76"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <class id="25" language="java" name="com.main.controller.HomeController" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/main/controller/HomeController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="729" width="247" x="3796" y="76"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="26" language="java" name="com.office.client.controller.ClientTableController" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/office/client/controller/ClientTableController.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="387" width="328" x="3908" y="845"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="27" language="java" name="com.office.client.database.ClientDataBase" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/office/client/database/ClientDataBase.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="220" x="3648" y="1272"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="28" language="java" name="com.office.commoditycalculation.controller.TextFieldIsEmpty" 
-    project="Plastik-Server" file="/Plastik-Server/src/com/office/commoditycalculation/controller/TextFieldIsEmpty.java" 
+  <class id="104" language="java" name="com.setting.identification.ClientIdentficationGenerator" 
+    project="Plastik-Server" file="/Plastik-Server/src/com/setting/identification/ClientIdentficationGenerator.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="4625" y="1047"/>    
+    <position height="135" width="183" x="14281" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <package id="29" language="java" name="com.office.commoditycalculation.main" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/office/commoditycalculation/main" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="50" width="208" x="4083" y="76"/>    
+  <package id="105" language="java" name="com.office.extruder.pallet.database" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/pallet/database" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="225" x="8166" y="37"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <package id="30" language="java" name="com.setting.showinfo" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/setting/showinfo" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="50" width="146" x="4331" y="76"/>    
+  <package id="106" language="java" name="com.office.commodityrollweight.view" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/commodityrollweight/view" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="235" x="4824" y="37"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <association id="31">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="32" name="textFieldIsEmpty">        
-        <position height="0" width="0" x="-19" y="153"/>      
-      </attribute>      
-      <multiplicity id="33" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-19" y="153"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="28" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="34">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="35" name="clientDB">        
+  <package id="107" language="java" name="com.office.commoditycalculation.controller" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/commoditycalculation/controller" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="270" x="15636" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="108" language="java" name="com.project.setting.machine.pojo.Machine" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/project/setting/machine/pojo/Machine.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="260" x="18226" y="2318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="109">    
+    <bendpoint x="17914" y="2318"/>    
+    <end type="SOURCE" refId="95" navigable="false">      
+      <attribute id="110" name="message">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="36" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="27" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="37">    
-    <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="38" name="dataClient">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="39" minimum="0" maximum="2147483647">        
+      <multiplicity id="111" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
+    <end type="TARGET" refId="93" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="40">    
-    <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="41" name="clientDB">        
+  <association id="112">    
+    <end type="SOURCE" refId="89" navigable="false">      
+      <attribute id="113" name="dataCommodity">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="42" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="27" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="43">    
-    <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="44" name="message">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="45" minimum="0" maximum="1">        
+      <multiplicity id="114" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="46">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="47" name="commodityCalculationMain">        
+  <association id="115">    
+    <end type="SOURCE" refId="92" navigable="false">      
+      <attribute id="116" name="rollWeightMain">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="48" minimum="0" maximum="1">        
+      <multiplicity id="117" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="86" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="118">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="119" name="dataCommodityCalculation">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="120" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="121">    
+    <end type="SOURCE" refId="92" navigable="false">      
+      <attribute id="122" name="commodityCalculationMain">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="123" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="124">    
+    <end type="SOURCE" refId="52" navigable="false">      
+      <attribute id="125" name="message">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="126" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="93" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="127">    
+    <end type="SOURCE" refId="89" navigable="false">      
+      <attribute id="128" name="selectedRecord">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="129" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="130">    
+    <end type="SOURCE" refId="68" navigable="false">      
+      <attribute id="131" name="clientDB">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="132" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="100" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="133">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="134" name="numberCheck">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="135" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="52" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="136">    
+    <end type="SOURCE" refId="60" navigable="false">      
+      <attribute id="137" name="palletDatabase">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="138" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="139">    
+    <end type="SOURCE" refId="102" navigable="false">      
+      <attribute id="140" name="calculationDataBase">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="141" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="142">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="143" name="textFieldIsEmpty">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="144" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="80" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="145">    
+    <end type="SOURCE" refId="94" navigable="false">      
+      <attribute id="146" name="clientDB">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="147" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="100" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="148">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="149" name="clientDB">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="150" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="100" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="151">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="152" name="extruderNameData">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="153" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="108" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="154">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="155" name="extruderCommodityData">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="156" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="157">    
+    <end type="SOURCE" refId="95" navigable="false">      
+      <attribute id="158" name="dataExtruder">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="159" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="160">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="161" name="dataClient">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="162" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="163">    
+    <end type="SOURCE" refId="101" navigable="false">      
+      <attribute id="164" name="checkNumber">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="165" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="52" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="166">    
+    <end type="SOURCE" refId="89" navigable="false">      
+      <attribute id="167" name="db">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="168" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="169">    
+    <end type="SOURCE" refId="60" navigable="false">      
+      <attribute id="170" name="dataPallet">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="171" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="66" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="172">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="173" name="dataExtruderName">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="174" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="108" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="175">    
+    <end type="SOURCE" refId="89" navigable="false">      
+      <attribute id="176" name="palletDatabase">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="177" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="178">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="179" name="dataCommodityName">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="180" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="181">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="182" name="commodityNameDataBase">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="183" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="184">    
+    <end type="SOURCE" refId="102" navigable="false">      
+      <attribute id="185" name="numberCheck">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="186" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="52" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="187">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="188" name="machineDataBase">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="189" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="49">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="50" name="numberCheck">        
+  <association id="190">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="191" name="jobDB">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="51" minimum="0" maximum="1">        
+      <multiplicity id="192" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="56" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="52">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="53" name="message">        
+  <association id="193">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="194" name="workersDataBase">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="54" minimum="0" maximum="1">        
+      <multiplicity id="195" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
+    <end type="TARGET" refId="64" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="55">    
-    <bendpoint x="4526" y="845"/>    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="56" name="message">        
+  <association id="196">    
+    <end type="SOURCE" refId="95" navigable="false">      
+      <attribute id="197" name="tableDataBase">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="57" minimum="0" maximum="1">        
+      <multiplicity id="198" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="199">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="200" name="calculationDataBase">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="201" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="202">    
+    <end type="SOURCE" refId="102" navigable="false">      
+      <attribute id="203" name="textFieldIsEmpty">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="204" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="80" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="205">    
+    <bendpoint x="17935" y="2318"/>    
+    <end type="SOURCE" refId="102" navigable="false">      
+      <attribute id="206" name="message">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="207" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="93" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="208">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="209" name="machineDataBase">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="210" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="211">    
+    <end type="SOURCE" refId="39" navigable="false">      
+      <attribute id="212" name="dataBaseController">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="213" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="98" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="214">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="215" name="machineDataBase">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="216" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="217">    
+    <end type="SOURCE" refId="68" navigable="false">      
+      <attribute id="218" name="dataClient">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="219" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="220">    
+    <end type="SOURCE" refId="89" navigable="false">      
+      <attribute id="221" name="dataPallet">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="222" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="66" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="223">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="224" name="dataWorkers">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="225" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="85" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="226">    
+    <bendpoint x="19352" y="2318"/>    
+    <end type="SOURCE" refId="68" navigable="false">      
+      <attribute id="227" name="message">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="228" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="93" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="229">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="230" name="message">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="231" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="93" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="232">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="233" name="dataMachine">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="234" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="108" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="235">    
+    <bendpoint x="19331" y="2318"/>    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="236" name="message">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="237" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="93" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="238">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="239" name="commodityNameDataBase">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="240" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

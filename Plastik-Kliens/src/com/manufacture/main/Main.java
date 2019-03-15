@@ -1,5 +1,6 @@
 package com.manufacture.main;
 
+import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -12,12 +13,11 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 
-public class Main {
-
-	public void start() {
+public class Main extends Application {
+	@Override
+	public void start(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("/com/manufacture/view/Home.fxml"));
-			Stage primaryStage = new Stage();
 			primaryStage.setWidth(1300);
 			primaryStage.setHeight(700);
 //			primaryStage.initStyle(StageStyle.TRANSPARENT);
@@ -33,6 +33,10 @@ public class Main {
 		}
 	}
 
+	public static void main(String[] args) {
+		launch(args);
+	}
+
 	private void blockExitProgram(Stage primaryStage) {
 		// ALT+F4
 		Platform.setImplicitExit(false);
@@ -45,11 +49,11 @@ public class Main {
 		//
 		primaryStage.setAlwaysOnTop(true);
 		primaryStage.iconifiedProperty().addListener(new ChangeListener<Boolean>() {
-		    @Override
-		    public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-		        if(newValue)
-		        	primaryStage.setIconified(false);
-		    }
+			@Override
+			public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+				if (newValue)
+					primaryStage.setIconified(false);
+			}
 		});
 	}
 }
