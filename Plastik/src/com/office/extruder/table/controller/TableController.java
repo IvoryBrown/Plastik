@@ -395,7 +395,7 @@ public class TableController {
 					if (item.getExtruderStatus().equals("Elkészült")) {
 						setStyle("-fx-text-background-color: tomato;");
 					} else if (s >= g) {
-						setStyle("-fx-text-background-color: #006400;");
+						setStyle("-fx-text-background-color: #ccff99;");
 					} else {
 						setStyle("-fx-text-background-color: whitesmoke;");
 
