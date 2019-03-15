@@ -1,0 +1,14 @@
+.tree-view, .tree-cell {
+    -fx-background-color: #616161;
+    -fx-text-fill: whitesmoke;
+    -fx-font-size: 16.0;
+}
+
+.tree-cell:selected {
+   -fx-background-color: #808000;
+    -fx-font-family: "Arial Narrow";
+    -fx-text-fill: whitesmoke;
+    -fx-font-size: 18.0;
+    -fx-font-weight: bold;
+}
+
