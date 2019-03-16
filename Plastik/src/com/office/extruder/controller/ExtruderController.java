@@ -18,6 +18,7 @@ import com.office.extruder.newjob.database.NewJobDataBase;
 import com.office.extruder.pallet.pojo.Pallet;
 import com.office.extruder.pojo.Extruder;
 import com.office.extruder.table.controller.TableController;
+import com.office.kliens.message.main.MessageMain;
 import com.project.setting.commodityname.database.CommodityNameDataBase;
 import com.project.setting.commodityname.pojo.CommodityName;
 import com.project.setting.machine.database.MachineDataBase;
@@ -154,6 +155,10 @@ public class ExtruderController implements Initializable {
 		commodityCalculationPane.setVisible(false);
 		packingPane.setVisible(true);
 
+	}
+	@FXML
+	private void sendMessageKliens() {
+		new MessageMain().start();
 	}
 
 	private void extruderTable() {
