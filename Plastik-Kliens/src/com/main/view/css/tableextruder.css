@@ -25,7 +25,7 @@
 .table-view .column-header-background .label{
     -fx-background-color: transparent;
     -fx-text-fill: #c0c080;
-    -fx-font-size: 14.0;
+    -fx-font-size: 16.0;
     -fx-font-weight: bold;
     -fx-font-family: "Arial Narrow";
     
@@ -42,7 +42,7 @@
 
 .table-view .table-cell{
    /*  -fx-text-fill: whitesmoke;*/
-    -fx-font-size: 14.0;
+    -fx-font-size: 16.0;
     -fx-alignment: center;
 }
 

@@ -1,6 +1,11 @@
 package com.manufacture.extruder.pojo;
 
+import com.production.transmission.extruder.database.TransmissionExtruderDataBase;
+import com.production.transmission.extruder.pojo.TransmissionExtruder;
+
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Extruder {
 
@@ -179,16 +184,16 @@ public class Extruder {
 
 	public String getExtruderActualKg() {
 		String f = null;
-//		double sum = 0;
-//		ObservableList<TransmissionExtruder> dataExtruder = FXCollections.observableArrayList();
-//		dataExtruder.addAll(new TransmissionExtruderDataBase().getAllClient(Integer.parseInt(extruderId.get())));
-//		if (dataExtruder.size() != 0) {
-//			for (int i = 0; i < dataExtruder.size(); i++) {
-//				double g = Double.valueOf(dataExtruder.get(i).getTransmissionNKg());
-//				sum += g;
-//			}
-//		}
-//		f = String.valueOf(sum);
+		double sum = 0;
+		ObservableList<TransmissionExtruder> dataExtruder = FXCollections.observableArrayList();
+		dataExtruder.addAll(new TransmissionExtruderDataBase().getAllClient(Integer.parseInt(extruderId.get())));
+		if (dataExtruder.size() != 0) {
+			for (int i = 0; i < dataExtruder.size(); i++) {
+				double g = Double.valueOf(dataExtruder.get(i).getTransmissionNKg());
+				sum += g;
+			}
+		}
+		f = String.valueOf(sum);
 		return f;
 	}
 

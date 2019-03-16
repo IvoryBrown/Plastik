@@ -2,13 +2,17 @@ package com.manufacture.extruder.controller;
 
 import java.util.Date;
 
+import com.manufacture.extruder.name.ExtruderName;
 import com.manufacture.extruder.pojo.Extruder;
 import com.manufacture.extruder.table.database.TableDataBase;
-import com.office.extruder.name.ExtruderName;
 
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
+import javafx.scene.control.Control;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -17,6 +21,8 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
+import javafx.util.Callback;
 
 public class TableController {
 	private TableView<Extruder> extruderTableView;
@@ -25,6 +31,7 @@ public class TableController {
 			extruderActualSize, extruderOrderedKg, extruderActualKg, extruderComment;
 	private TableColumn<Extruder, Integer> extruderFlatPlateBag, extruderWidth, extruderLength;
 	private TableColumn<Extruder, Double> extruderThickness;
+	private TableColumn<Extruder, Boolean> colActive;
 	private ToggleButton extruderNameBtn1, extruderNameBtn2, extruderNameBtn3, extruderNameBtn4, extruderNameBtn5,
 			extruderNameBtn6, extruderNameBtn7, extruderNameBtn8, extruderNameBtn9, extruderNameBtn10,
 			extruderNameBtn11, extruderNameBtn12, extruderNameBtn13, extruderNameBtn14;
@@ -89,14 +96,33 @@ public class TableController {
 
 	@SuppressWarnings("unchecked")
 	private void setColumn() {
-		extruderTableView.getColumns().addAll(extruderIdentification, extruderEndDate, extruderCommodity,
-				extruderActualSize, extruderWidth, extruderLength, extruderThickness, extruderFlatPlateBag,
-				extruderOrderedKg, extruderActualKg, extruderComment);
+		extruderTableView.getColumns().addAll(extruderComment, extruderIdentification, extruderActualSize,
+				extruderWidth, extruderLength, extruderThickness, extruderFlatPlateBag, extruderOrderedKg,
+				extruderActualKg, extruderEndDate, extruderClientName, extruderCommodity,colActive);
 	}
 
 	private void extruderTable() {
+		
+		colActive = new TableColumn<>("");
+		colActive.setSortable(false);
+		colActive.setMinWidth(100);
+		colActive.setCellValueFactory(
+				new Callback<TableColumn.CellDataFeatures<Extruder, Boolean>, ObservableValue<Boolean>>() {
+					@Override
+					public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Extruder, Boolean> p) {
+						return new SimpleBooleanProperty(p.getValue() != null);
+					}
+				});
+
+		colActive.setCellFactory(new Callback<TableColumn<Extruder, Boolean>, TableCell<Extruder, Boolean>>() {
+			@Override
+			public TableCell<Extruder, Boolean> call(TableColumn<Extruder, Boolean> p) {
+				return new CalculationButtonCell(extruderTableView);
+			}
+		});
+		
 		extruderClientName = new TableColumn<>("Ügyfél név");
-		extruderClientName.setMinWidth(120);
+		extruderClientName.setMinWidth(150);
 		extruderClientName.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderClientName"));
 
 		extruderIdentification = new TableColumn<>("Azonosító");
@@ -112,7 +138,7 @@ public class TableController {
 		});
 
 		extruderEndDate = new TableColumn<>("Határidő");
-		extruderEndDate.setMinWidth(80);
+		extruderEndDate.setMinWidth(100);
 		extruderEndDate.setCellValueFactory(new PropertyValueFactory<Extruder, Date>("extruderEndDate"));
 
 		extruderCommodity = new TableColumn<>("Alapanyag");
@@ -120,7 +146,7 @@ public class TableController {
 		extruderCommodity.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderCommodity"));
 
 		extruderActualSize = new TableColumn<>("Aktuális méret");
-		extruderActualSize.setMinWidth(170);
+		extruderActualSize.setMinWidth(190);
 		extruderActualSize.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderActualSize"));
 
 		extruderWidth = new TableColumn<>("Szélesség");
@@ -136,7 +162,7 @@ public class TableController {
 		extruderThickness.setCellValueFactory(new PropertyValueFactory<Extruder, Double>("extruderThickness"));
 
 		extruderFlatPlateBag = new TableColumn<>("Zsák2/Síklap1");
-		extruderFlatPlateBag.setMinWidth(80);
+		extruderFlatPlateBag.setMinWidth(100);
 		extruderFlatPlateBag.setCellValueFactory(new PropertyValueFactory<Extruder, Integer>("extruderFlatPlateBag"));
 
 		extruderOrderedKg = new TableColumn<>("Megrendelt/kg");
@@ -148,8 +174,24 @@ public class TableController {
 		extruderActualKg.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderActualKg"));
 
 		extruderComment = new TableColumn<>("Megjegyzés");
-		extruderComment.setMinWidth(960);
+		extruderComment.setMinWidth(260);
 		extruderComment.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderComment"));
+		extruderComment.setCellFactory(new Callback<TableColumn<Extruder, String>, TableCell<Extruder, String>>() {
+
+			@Override
+			public TableCell<Extruder, String> call(TableColumn<Extruder, String> param) {
+				TableCell<Extruder, String> cell = new TableCell<>();
+				Text text = new Text();
+				cell.setGraphic(text);
+				cell.setPrefHeight(Control.USE_COMPUTED_SIZE);
+				text.wrappingWidthProperty().bind(cell.widthProperty());
+				text.textProperty().bind(cell.itemProperty());
+				text.setStyle("-fx-fill: red; -fx-font-weight: bold;");
+				return cell;
+			}
+
+		});
+
 		extruderTableView.setRowFactory(ts -> new TableRow<Extruder>() {
 			@Override
 			public void updateItem(Extruder item, boolean empty) {
@@ -159,19 +201,18 @@ public class TableController {
 					setStyle("");
 				} else {
 					setStyle("");
-//					double s = Double.parseDouble(item.getExtruderActualKg());
-//					double g = Double.parseDouble(item.getExtruderOrderedKg());
-//					if (s >= g) {
-//						setStyle("-fx-text-background-color: #ccff99;");
-//					} else {
-//
-//					}
-					setStyle("-fx-text-background-color: whitesmoke;");
+					double s = Double.parseDouble(item.getExtruderActualKg());
+					double g = Double.parseDouble(item.getExtruderOrderedKg());
+					 if (s >= g) {
+						setStyle("-fx-text-background-color: #00FF00;");
+					} else {
+						setStyle("-fx-text-background-color: whitesmoke;");
+
+					}
 
 				}
 			}
 		});
-
 	}
 
 	private ObservableList<Extruder> extruderData(String extruderName) {

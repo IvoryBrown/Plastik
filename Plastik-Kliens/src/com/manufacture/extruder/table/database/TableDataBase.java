@@ -19,10 +19,8 @@ public class TableDataBase {
 			s = "";
 		}
 		String sql = "SELECT * FROM `megrendelo` JOIN `extruder` ON megrendelo_id = megrendelo_megrendelo_id WHERE "
-				+ "(`extruder_nev`) LIKE '%" + extruderName + "'&& (`allapot`) LIKE '%" + s + "%'"
-				+ "&& (`megrendelo_nev`) LIKE '%" + filter + "%'" + " || (`extruder_nev`) LIKE '%" + extruderName + "'"
-				+ "&& (`allapot`) LIKE '%" + s + "%'" + "&& (`azonostio`) LIKE '%" + filter + "%'"
-				+ "ORDER BY prioritas ASC"
+				+ "extruder_nev LIKE '" + extruderName + "'" + "&& (`allapot`) LIKE '%" + s + "%'"
+				+ " && `prioritas` IS NOT null" + " ORDER BY prioritas ASC"
 
 		;
 		Connection con = DataBaseLocal.getConnection();

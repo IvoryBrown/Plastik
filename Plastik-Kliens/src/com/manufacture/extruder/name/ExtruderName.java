@@ -1,4 +1,4 @@
-package com.office.extruder.name;
+package com.manufacture.extruder.name;
 
 import com.project.setting.machine.database.MachineDataBase;
 import com.project.setting.machine.pojo.Machine;

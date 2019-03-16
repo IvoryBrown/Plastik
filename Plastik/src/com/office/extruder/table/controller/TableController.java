@@ -352,8 +352,13 @@ public class TableController {
 			public void handle(TableColumn.CellEditEvent<Extruder, String> d) {
 				Extruder extruder = (Extruder) d.getTableView().getItems().get(d.getTablePosition().getRow());
 				if (extruder.getExtruderStatus().equals("Folyamatban")) {
-					extruder.setExtruderPriority(d.getNewValue());
-					tableDataBase.updateExtruder(extruder);
+					if (d.getNewValue().trim().isEmpty()) {
+						extruder.setExtruderPriority(null);
+						tableDataBase.updateExtruder(extruder);
+					} else {
+						extruder.setExtruderPriority(d.getNewValue());
+						tableDataBase.updateExtruder(extruder);
+					}
 					message.goodMessage("Priorítás sikeres frissitése", messageLbl);
 				} else {
 					message.errorMessage("Hiba! Lezárt termék!", messageLbl);
@@ -395,7 +400,7 @@ public class TableController {
 					if (item.getExtruderStatus().equals("Elkészült")) {
 						setStyle("-fx-text-background-color: tomato;");
 					} else if (s >= g) {
-						setStyle("-fx-text-background-color: #ccff99;");
+						setStyle("-fx-text-background-color: #00FF00;");
 					} else {
 						setStyle("-fx-text-background-color: whitesmoke;");
 
