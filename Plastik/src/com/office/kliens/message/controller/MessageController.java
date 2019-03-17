@@ -39,6 +39,9 @@ public class MessageController implements Initializable {
 			addTextLimiterTxt.clear();
 			extruderData();
 			setListView();
+			addTextLimiterTxt.setPromptText("max. 70 karakter");
+		} else {
+			addTextLimiterTxt.setPromptText("Nincs szöveg a mezőbe!");
 		}
 	}
 
@@ -72,6 +75,8 @@ public class MessageController implements Initializable {
 			messageDataBase.updateClient(
 					new Message(1, messageArea.getText(), true, true, true, true, true, true, true, true, true, true));
 			deleteAreaButton();
+		} else {
+			messageArea.setPromptText("Nincs szöveg a mezőbe!");
 		}
 	}
 
