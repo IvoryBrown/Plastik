@@ -5,6 +5,8 @@ import java.util.ResourceBundle;
 
 import com.office.kliens.message.database.MessageDataBase;
 import com.office.kliens.message.pojo.Message;
+import com.office.kliens.messagetemplate.database.MessageDataBaseTemplate;
+import com.office.kliens.messagetemplate.pojo.MessageTemplate;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -20,19 +22,20 @@ import javafx.scene.control.TextField;
 
 public class MessageController implements Initializable {
 	@FXML
-	private ListView<Message> listView;
+	private ListView<MessageTemplate> listView;
 	@FXML
 	private TextArea messageArea;
 	@FXML
 	private TextField addTextLimiterTxt;
 
+	private MessageDataBaseTemplate messageDataBaseTemp = new MessageDataBaseTemplate();
 	private MessageDataBase messageDataBase = new MessageDataBase();
-	private final ObservableList<Message> messageList = FXCollections.observableArrayList();
+	private final ObservableList<MessageTemplate> messageList = FXCollections.observableArrayList();
 
 	@FXML
 	private void saveButton() {
 		if (!addTextLimiterTxt.getText().trim().isEmpty()) {
-			messageDataBase.addMessage(new Message(addTextLimiterTxt.getText()));
+			messageDataBaseTemp.addMessage(new MessageTemplate(addTextLimiterTxt.getText()));
 			addTextLimiterTxt.clear();
 			extruderData();
 			setListView();
@@ -43,7 +46,7 @@ public class MessageController implements Initializable {
 	private void rightButton() {
 		int index = listView.getSelectionModel().getSelectedIndex();
 		if (index >= 0) {
-			Message message = listView.getItems().get(index);
+			MessageTemplate message = listView.getItems().get(index);
 			messageArea.appendText(" " + message.getMessage() + " ");
 		}
 	}
@@ -52,11 +55,12 @@ public class MessageController implements Initializable {
 	private void deleteButton() {
 		int index = listView.getSelectionModel().getSelectedIndex();
 		if (index >= 0) {
-			Message message = listView.getItems().get(index);
+			MessageTemplate message = listView.getItems().get(index);
 			listView.getItems().remove(message);
-			messageDataBase.removeMessage(message);
+			messageDataBaseTemp.removeMessage(message);
 		}
 	}
+
 	@FXML
 	private void deleteAreaButton() {
 		messageArea.clear();
@@ -64,7 +68,11 @@ public class MessageController implements Initializable {
 
 	@FXML
 	private void sendMessageButton() {
-		
+		if (!messageArea.getText().trim().isEmpty()) {
+			messageDataBase.updateClient(
+					new Message(1, messageArea.getText(), true, true, true, true, true, true, true, true, true, true));
+			deleteAreaButton();
+		}
 	}
 
 	private void addTextLimiter() {
@@ -80,9 +88,9 @@ public class MessageController implements Initializable {
 		});
 	}
 
-	private ObservableList<Message> extruderData() {
+	private ObservableList<MessageTemplate> extruderData() {
 		messageList.clear();
-		messageList.addAll(messageDataBase.getAllMessage());
+		messageList.addAll(messageDataBaseTemp.getAllMessage());
 		return messageList;
 
 	}
@@ -91,9 +99,9 @@ public class MessageController implements Initializable {
 		listView.getItems().clear();
 		listView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 		listView.getItems().addAll(extruderData());
-		listView.setCellFactory(param -> new ListCell<Message>() {
+		listView.setCellFactory(param -> new ListCell<MessageTemplate>() {
 			@Override
-			protected void updateItem(Message item, boolean empty) {
+			protected void updateItem(MessageTemplate item, boolean empty) {
 				super.updateItem(item, empty);
 
 				if (empty || item == null || item.getMessage() == null) {
