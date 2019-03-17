@@ -2,10 +2,13 @@ package com.manufacture.extruder.controller;
 
 import java.util.Date;
 
+import com.kliens.message.main.MessageMain;
+import com.kliens.message.pojo.Kliens;
 import com.manufacture.extruder.name.ExtruderName;
 import com.manufacture.extruder.pojo.Extruder;
 import com.manufacture.extruder.table.database.TableDataBase;
 
+import javafx.application.Platform;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -38,6 +41,7 @@ public class TableController {
 	private ToggleGroup group = new ToggleGroup();
 	private HBox hBox;
 	private final ObservableList<Extruder> dataExtruder = FXCollections.observableArrayList();
+
 	private TableDataBase tableDataBase = new TableDataBase();
 
 	public TableController(TableView<Extruder> extruderTableView, HBox hBox) {
@@ -48,6 +52,53 @@ public class TableController {
 		setColumn();
 		setToggleButton();
 		buttonOnAction();
+		startTask();
+	}
+
+	private void startTask() {
+		// Create a Runnable
+		Runnable task = new Runnable() {
+			public void run() {
+				runTask();
+			}
+		};
+
+		// Run the task in a background thread
+		Thread backgroundThread = new Thread(task);
+		// Terminate the running thread if the application exits
+		backgroundThread.setDaemon(true);
+		// Start the thread
+		backgroundThread.start();
+	}
+
+	private void runTask() {
+
+		try {
+
+			while (true) {
+
+				Platform.runLater(new Runnable() {
+					@Override
+					public void run() {
+						updateDataTable();
+						Kliens.message();
+						if (Kliens.message().get(0).getKliens1()) {
+							if (Kliens.isSet()) {
+								Kliens.setFalse();
+								new MessageMain().start();
+							}
+						}
+
+					}
+				});
+
+//				Thread.sleep(300000); 5perc
+				Thread.sleep(30000);
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	private void setToggleButton() {
@@ -98,11 +149,11 @@ public class TableController {
 	private void setColumn() {
 		extruderTableView.getColumns().addAll(extruderComment, extruderIdentification, extruderActualSize,
 				extruderWidth, extruderLength, extruderThickness, extruderFlatPlateBag, extruderOrderedKg,
-				extruderActualKg, extruderEndDate, extruderClientName, extruderCommodity,colActive);
+				extruderActualKg, extruderEndDate, extruderClientName, extruderCommodity, colActive);
 	}
 
 	private void extruderTable() {
-		
+
 		colActive = new TableColumn<>("");
 		colActive.setSortable(false);
 		colActive.setMinWidth(100);
@@ -120,7 +171,7 @@ public class TableController {
 				return new CalculationButtonCell(extruderTableView);
 			}
 		});
-		
+
 		extruderClientName = new TableColumn<>("Ügyfél név");
 		extruderClientName.setMinWidth(150);
 		extruderClientName.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderClientName"));
@@ -203,7 +254,7 @@ public class TableController {
 					setStyle("");
 					double s = Double.parseDouble(item.getExtruderActualKg());
 					double g = Double.parseDouble(item.getExtruderOrderedKg());
-					 if (s >= g) {
+					if (s >= g) {
 						setStyle("-fx-text-background-color: #00FF00;");
 					} else {
 						setStyle("-fx-text-background-color: whitesmoke;");
