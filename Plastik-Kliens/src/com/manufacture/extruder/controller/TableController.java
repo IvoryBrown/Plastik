@@ -7,6 +7,7 @@ import com.kliens.message.pojo.Kliens;
 import com.manufacture.extruder.name.ExtruderName;
 import com.manufacture.extruder.pojo.Extruder;
 import com.manufacture.extruder.table.database.TableDataBase;
+import com.setting.file.DBFileWriter;
 
 import javafx.application.Platform;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -82,21 +83,110 @@ public class TableController {
 					public void run() {
 						updateDataTable();
 						Kliens.message();
-						if (Kliens.message().get(0).getKliens1()) {
-							if (Kliens.isSet()) {
-								Kliens.setFalse();
-								new MessageMain().start();
-							}
-						}
+						checkKlientName();
 
 					}
 				});
 
-//				Thread.sleep(300000); 5perc
+				// Thread.sleep(300000); 5perc
 				Thread.sleep(30000);
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
+		}
+
+	}
+
+	private void checkKlientName() {
+		if (DBFileWriter.outputKliensName().equals("kliens_1")) {
+			if (Kliens.message().get(0).getKliens1()) {
+				if (Kliens.isSet()) {
+					Kliens.setFalse();
+					new MessageMain().start();
+					return;
+				}
+			}
+		}
+		if (DBFileWriter.outputKliensName().equals("kliens_2")) {
+			if (Kliens.message().get(0).getKliens2()) {
+				if (Kliens.isSet()) {
+					Kliens.setFalse();
+					new MessageMain().start();
+					return;
+				}
+			}
+		}
+		if (DBFileWriter.outputKliensName().equals("kliens_3")) {
+			if (Kliens.message().get(0).getKliens3()) {
+				if (Kliens.isSet()) {
+					Kliens.setFalse();
+					new MessageMain().start();
+					return;
+				}
+			}
+		}
+		if (DBFileWriter.outputKliensName().equals("kliens_4")) {
+			if (Kliens.message().get(0).getKliens4()) {
+				if (Kliens.isSet()) {
+					Kliens.setFalse();
+					new MessageMain().start();
+					return;
+				}
+			}
+		}
+		if (DBFileWriter.outputKliensName().equals("kliens_5")) {
+			if (Kliens.message().get(0).getKliens5()) {
+				if (Kliens.isSet()) {
+					Kliens.setFalse();
+					new MessageMain().start();
+					return;
+				}
+			}
+		}
+		if (DBFileWriter.outputKliensName().equals("kliens_6")) {
+			if (Kliens.message().get(0).getKliens6()) {
+				if (Kliens.isSet()) {
+					Kliens.setFalse();
+					new MessageMain().start();
+					return;
+				}
+			}
+		}
+		if (DBFileWriter.outputKliensName().equals("kliens_7")) {
+			if (Kliens.message().get(0).getKliens7()) {
+				if (Kliens.isSet()) {
+					Kliens.setFalse();
+					new MessageMain().start();
+					return;
+				}
+			}
+		}
+		if (DBFileWriter.outputKliensName().equals("kliens_8")) {
+			if (Kliens.message().get(0).getKliens8()) {
+				if (Kliens.isSet()) {
+					Kliens.setFalse();
+					new MessageMain().start();
+					return;
+				}
+			}
+		}
+		if (DBFileWriter.outputKliensName().equals("kliens_9")) {
+			if (Kliens.message().get(0).getKliens9()) {
+				if (Kliens.isSet()) {
+					Kliens.setFalse();
+					new MessageMain().start();
+					return;
+				}
+			}
+		}
+		if (DBFileWriter.outputKliensName().equals("kliens_10")) {
+			if (Kliens.message().get(0).getKliens10()) {
+				if (Kliens.isSet()) {
+					Kliens.setFalse();
+					new MessageMain().start();
+					return;
+				}
+			}
 		}
 
 	}
@@ -156,7 +246,7 @@ public class TableController {
 
 		colActive = new TableColumn<>("");
 		colActive.setSortable(false);
-		colActive.setMinWidth(100);
+		colActive.setMinWidth(150);
 		colActive.setCellValueFactory(
 				new Callback<TableColumn.CellDataFeatures<Extruder, Boolean>, ObservableValue<Boolean>>() {
 					@Override

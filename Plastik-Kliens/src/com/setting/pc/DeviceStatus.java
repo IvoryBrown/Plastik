@@ -2,6 +2,7 @@ package com.setting.pc;
 
 import java.io.IOException;
 
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
@@ -46,6 +47,7 @@ public class DeviceStatus {
 				if (ke.getCode().equals(KeyCode.ENTER)) {
 					if (textField.getText().equals("123admin123")) {
 						System.exit(0);
+						Platform.exit();
 					} else {
 						primaryStage.close();
 					}

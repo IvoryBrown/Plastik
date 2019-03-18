@@ -250,6 +250,26 @@
     -fx-background-position: center;
     -fx-font-weight: bold;
 }
+.transmissionButton {
+    -fx-background-color:  #262626;
+    -fx-background-image: url(/com/setting/icon/button/Transmission.png);
+    -fx-background-size: 16.0px 16.0px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-text-fill: whitesmoke;
+    -fx-font-weight: bold;
+}
+
+.transmissionButton:hover {
+ -fx-background-color:  OLIVE;
+    -fx-background-image: url(/com/setting/icon/button/Transmission.png);
+    -fx-background-size: 16.0px 16.0px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-text-fill: whitesmoke;
+    -fx-font-weight: bold;
+}
+
 .refreshButton {
     -fx-background-color:  TRANSPARENT;
     -fx-background-image: url(/com/setting/icon/button/Refresh.png);

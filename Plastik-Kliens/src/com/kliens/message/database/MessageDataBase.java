@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import com.kliens.message.pojo.Message;
 import com.setting.database.DataBaseLocal;
+import com.setting.file.DBFileWriter;
 import com.setting.showinfo.ShowInfo;
 
 public class MessageDataBase {
@@ -58,7 +59,8 @@ public class MessageDataBase {
 		Connection conn = DataBaseLocal.getConnection();
 		PreparedStatement pr = null;
 		try {
-			String sqlClient = "UPDATE `kliens_message` SET  kliens_1 = ? WHERE kliens_message_id = ?";
+			String sqlClient = "UPDATE `kliens_message` SET  " + DBFileWriter.outputKliensName()
+					+ " = ? WHERE kliens_message_id = ?";
 
 			pr = conn.prepareStatement(sqlClient);
 			pr.setBoolean(1, kliens_1);

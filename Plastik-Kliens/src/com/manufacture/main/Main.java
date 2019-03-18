@@ -1,5 +1,7 @@
 package com.manufacture.main;
 
+import com.setting.file.FolderWriter;
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
@@ -16,18 +18,20 @@ import javafx.stage.WindowEvent;
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
+		new FolderWriter();
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("/com/manufacture/view/Home.fxml"));
 			primaryStage.setWidth(1300);
 			primaryStage.setHeight(700);
 //			primaryStage.initStyle(StageStyle.TRANSPARENT);
-			primaryStage.setMaximized(true);
+//			primaryStage.setMaximized(true);
 			primaryStage.setTitle("Stanicli");
 			primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/com/setting/icon/foliak.png")));
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 //			blockExitProgram(primaryStage);
 			primaryStage.show();
+	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -16,6 +16,7 @@ public class DBFileWriter {
 	private static String name;
 	private static String password;
 	private static String dataBaseFloder = "\\AppData\\Local\\Stanicli\\DB\\";
+	private static String kliensBaseFloder = "\\AppData\\Local\\Stanicli\\KliensName\\";
 
 	public static void writeDB(String url, String name, String password) {
 		try {
@@ -50,7 +51,7 @@ public class DBFileWriter {
 			bf.close();
 
 		} catch (FileNotFoundException e) {
-		new ShowInfo("Hiba", " Nincs ilyen file", "File létre hozva");
+			new ShowInfo("Hiba", " Nincs ilyen file", "File létre hozva");
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Automatikusan előállított elfogási blokk
@@ -58,7 +59,29 @@ public class DBFileWriter {
 		}
 		return d;
 	}
-	
+
+	public static String outputKliensName() {
+		String d = new String();
+		try {
+			FileReader fr = new FileReader(System.getProperty("user.home") + kliensBaseFloder + "kliens_name.txt");
+			BufferedReader bf = new BufferedReader(fr);
+			String a;
+			while ((a = bf.readLine()) != null) {
+				d = a;
+			}
+			fr.close();
+			bf.close();
+
+		} catch (FileNotFoundException e) {
+			new ShowInfo("Hiba", " Nincs ilyen file", "File létre hozva");
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Automatikusan előállított elfogási blokk
+			e.printStackTrace();
+		}
+		return d;
+	}
+
 	public static void setDataBaseOutput() {
 		url = null;
 		name = null;

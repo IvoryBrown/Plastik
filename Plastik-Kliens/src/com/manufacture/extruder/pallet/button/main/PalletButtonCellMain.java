@@ -17,6 +17,7 @@ public class PalletButtonCellMain {
 			primaryStage.setWidth(1200);
 			primaryStage.setHeight(700);
 			primaryStage.setTitle("Csomagolás");
+			primaryStage.setAlwaysOnTop(true);
 			primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/com/setting/icon/foliak.png")));
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);

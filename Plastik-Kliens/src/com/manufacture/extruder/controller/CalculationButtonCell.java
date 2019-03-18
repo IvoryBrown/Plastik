@@ -28,7 +28,8 @@ import javafx.stage.Stage;
 public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 	private final Button commodityButton = new Button("");
 	private final Button palletButton = new Button("");
-	private final HBox hBox = new HBox(commodityButton, palletButton);
+	private final Button transmission = new Button("");
+	private final HBox hBox = new HBox(commodityButton, palletButton,transmission);
 	private CalculationDataBase db = new CalculationDataBase();
 	private final ObservableList<CommodityCalculation> dataCommodity = FXCollections.observableArrayList();
 	private PalletDatabase palletDatabase = new PalletDatabase();
@@ -156,6 +157,7 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 			Stage stage = new Stage();
 			stage.initModality(Modality.APPLICATION_MODAL);
 			stage.setTitle("Stanicli");
+			stage.setAlwaysOnTop(true);
 			stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/setting/icon/foliak.png")));
 			root.prefWidthProperty().bind(stage.widthProperty());
 			stage.setScene(new Scene(root, 600, 400));
@@ -175,6 +177,7 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 			Stage stage = new Stage();
 			stage.initModality(Modality.APPLICATION_MODAL);
 			stage.setTitle("Alapanyag");
+			stage.setAlwaysOnTop(true);
 			stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/setting/icon/foliak.png")));
 			root.prefWidthProperty().bind(stage.widthProperty());
 			stage.setScene(new Scene(root, 600, 400));
@@ -200,8 +203,11 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 		commodityButton.getStyleClass().add("calculationButton");
 		palletButton.getStylesheets().add("/com/main/view/css/button.css");
 		palletButton.getStyleClass().add("palletButton");
+		transmission.getStylesheets().add("/com/main/view/css/button.css");
+		transmission.getStyleClass().add("transmissionButton");
 		commodityButton.setMinSize(40, 25);
 		palletButton.setMinSize(40, 25);
+		transmission.setMinSize(40, 25);
 		super.updateItem(t, empty);
 		if (!empty) {
 
