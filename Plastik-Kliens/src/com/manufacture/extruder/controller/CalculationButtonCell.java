@@ -74,6 +74,8 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 				Transmission.setExtruderName(selectedRecord.getExtruderName());
 				Transmission.setExtruderClientName(selectedRecord.getExtruderClientName());
 				Transmission.setExtruderActualSize(selectedRecord.getExtruderActualSize());
+				Transmission.setExtruderActualKg(selectedRecord.getExtruderActualKg());
+				Transmission.setExtruderorderKg(selectedRecord.getExtruderOrderedKg());
 				new TransmissionFinishedMain().start();
 			}
 

@@ -188,7 +188,7 @@ public class Extruder {
 		String f = null;
 		double sum = 0;
 		ObservableList<TransmissionExtruder> dataExtruder = FXCollections.observableArrayList();
-		dataExtruder.addAll(new TransmissionExtruderDataBase().getAllClient(Integer.parseInt(extruderId.get())));
+		dataExtruder.addAll(new TransmissionExtruderDataBase().getTransmisionNKg(Integer.parseInt(extruderId.get())));
 		if (dataExtruder.size() != 0) {
 			for (int i = 0; i < dataExtruder.size(); i++) {
 				double g = Double.valueOf(dataExtruder.get(i).getTransmissionNKg());

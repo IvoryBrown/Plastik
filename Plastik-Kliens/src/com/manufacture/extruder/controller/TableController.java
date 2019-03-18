@@ -261,7 +261,7 @@ public class TableController {
 			}
 		});
 
-		extruderClientName = new TableColumn<>("Ügyfél név");
+		extruderClientName = new TableColumn<>("Megrendelő");
 		extruderClientName.setMinWidth(150);
 		extruderClientName.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderClientName"));
 
@@ -294,23 +294,23 @@ public class TableController {
 		extruderWidth.setCellValueFactory(new PropertyValueFactory<Extruder, Integer>("extruderWidth"));
 
 		extruderLength = new TableColumn<>("Hosszuság");
-		extruderLength.setMinWidth(80);
+		extruderLength.setMinWidth(100);
 		extruderLength.setCellValueFactory(new PropertyValueFactory<Extruder, Integer>("extruderLength"));
 
 		extruderThickness = new TableColumn<>("Vastagság");
-		extruderThickness.setMinWidth(70);
+		extruderThickness.setMinWidth(90);
 		extruderThickness.setCellValueFactory(new PropertyValueFactory<Extruder, Double>("extruderThickness"));
 
 		extruderFlatPlateBag = new TableColumn<>("Zsák2/Síklap1");
-		extruderFlatPlateBag.setMinWidth(100);
+		extruderFlatPlateBag.setMinWidth(120);
 		extruderFlatPlateBag.setCellValueFactory(new PropertyValueFactory<Extruder, Integer>("extruderFlatPlateBag"));
 
 		extruderOrderedKg = new TableColumn<>("Megrendelt/kg");
-		extruderOrderedKg.setMinWidth(100);
+		extruderOrderedKg.setMinWidth(150);
 		extruderOrderedKg.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderOrderedKg"));
 
 		extruderActualKg = new TableColumn<>("Lefújva/kg");
-		extruderActualKg.setMinWidth(80);
+		extruderActualKg.setMinWidth(100);
 		extruderActualKg.setCellValueFactory(new PropertyValueFactory<Extruder, String>("extruderActualKg"));
 
 		extruderComment = new TableColumn<>("Megjegyzés");

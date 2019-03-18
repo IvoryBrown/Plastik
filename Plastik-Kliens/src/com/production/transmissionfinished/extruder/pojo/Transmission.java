@@ -7,6 +7,8 @@ public class Transmission {
 	private static String extruderName;
 	private static String extruderClientName;
 	private static String extruderActualSize;
+	private static String extruderActualKg;
+	private static String extruderorderKg;
 
 	public static String getExtruderId() {
 		return extruderId;
@@ -46,5 +48,21 @@ public class Transmission {
 
 	public static void setExtruderActualSize(String extruderActualSize) {
 		Transmission.extruderActualSize = extruderActualSize;
+	}
+
+	public static String getExtruderActualKg() {
+		return extruderActualKg;
+	}
+
+	public static void setExtruderActualKg(String extruderActualKg) {
+		Transmission.extruderActualKg = extruderActualKg;
+	}
+
+	public static String getExtruderorderKg() {
+		return extruderorderKg;
+	}
+
+	public static void setExtruderorderKg(String extruderorderKg) {
+		Transmission.extruderorderKg = extruderorderKg;
 	}
 }
