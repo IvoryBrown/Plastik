@@ -1,7 +1,7 @@
 package com.manufacture.extruder.pojo;
 
-import com.production.transmission.extruder.database.TransmissionExtruderDataBase;
-import com.production.transmission.extruder.pojo.TransmissionExtruder;
+import com.production.transmissionfinished.extruder.database.TransmissionExtruderDataBase;
+import com.production.transmissionfinished.extruder.pojo.TransmissionExtruder;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -22,13 +22,14 @@ public class Extruder {
 	private final SimpleStringProperty extruderOrderedKg;
 	private final SimpleStringProperty extruderActualKg;
 	private final SimpleStringProperty extruderComment;
+	private final SimpleStringProperty extruderName;
 	private final SimpleStringProperty extruderComodityId;
 	private final SimpleStringProperty extruderPalletId;
 
 	public Extruder(Integer extruderId, String extruderClientName, String extruderIdentification,
 			String extruderEndDate, String extruderCommodity, String extruderActualSize, String extruderWidth,
 			String extruderLength, String extruderThickness, String extruderFlatPlateBag, String extruderOrderedKg,
-			String extruderComment, Integer extruderComodityId, Integer extruderPalletId) {
+			String extruderComment,String extruderName, Integer extruderComodityId, Integer extruderPalletId) {
 		this.extruderId = new SimpleStringProperty(String.valueOf(extruderId));
 		this.extruderClientName = new SimpleStringProperty(String.valueOf(extruderClientName));
 		this.extruderIdentification = new SimpleStringProperty(extruderIdentification);
@@ -42,6 +43,7 @@ public class Extruder {
 		this.extruderOrderedKg = new SimpleStringProperty(extruderOrderedKg);
 		this.extruderActualKg = new SimpleStringProperty("");
 		this.extruderComment = new SimpleStringProperty(extruderComment);
+		this.extruderName = new SimpleStringProperty(extruderName);
 		this.extruderComodityId = new SimpleStringProperty(String.valueOf(extruderComodityId));
 		this.extruderPalletId = new SimpleStringProperty(String.valueOf(extruderPalletId));
 	}
@@ -211,6 +213,18 @@ public class Extruder {
 
 	public void setExtruderComment(String extruderComment) {
 		this.extruderComment.set(extruderComment);
+	}
+	
+	public SimpleStringProperty getExtruderNameProperty() {
+		return this.extruderName;
+	}
+
+	public String getExtruderName() {
+		return this.extruderName.get();
+	}
+
+	public void setExtruderName(String extruderName) {
+		this.extruderName.set(extruderName);
 	}
 
 	public SimpleStringProperty getExtruderComodityIdProperty() {

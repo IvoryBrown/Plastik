@@ -7,6 +7,8 @@ import com.manufacture.extruder.pallet.button.pojo.PalletButtonCell;
 import com.manufacture.extruder.pallet.database.PalletDatabase;
 import com.manufacture.extruder.pallet.pojo.Pallet;
 import com.manufacture.extruder.pojo.Extruder;
+import com.production.transmissionfinished.extruder.main.TransmissionFinishedMain;
+import com.production.transmissionfinished.extruder.pojo.Transmission;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,8 +30,8 @@ import javafx.stage.Stage;
 public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 	private final Button commodityButton = new Button("");
 	private final Button palletButton = new Button("");
-	private final Button transmission = new Button("");
-	private final HBox hBox = new HBox(commodityButton, palletButton,transmission);
+	private final Button transmissionFinished = new Button("");
+	private final HBox hBox = new HBox(commodityButton, palletButton, transmissionFinished);
 	private CalculationDataBase db = new CalculationDataBase();
 	private final ObservableList<CommodityCalculation> dataCommodity = FXCollections.observableArrayList();
 	private PalletDatabase palletDatabase = new PalletDatabase();
@@ -61,13 +63,28 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 			}
 
 		});
+
+		transmissionFinished.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				int selectdIndex = getTableRow().getIndex();
+				selectedRecord = tblView.getItems().get(selectdIndex);
+				Transmission.setExtruderId(selectedRecord.getExtruderId());
+				Transmission.setExtruderIdentification(selectedRecord.getExtruderIdentification());
+				Transmission.setExtruderName(selectedRecord.getExtruderName());
+				Transmission.setExtruderClientName(selectedRecord.getExtruderClientName());
+				Transmission.setExtruderActualSize(selectedRecord.getExtruderActualSize());
+				new TransmissionFinishedMain().start();
+			}
+
+		});
 	}
 
 	private void palleta() {
 
 		if (dataPallet.size() != 0) {
 			PalletButtonCell.setPalletId(Integer.valueOf(selectedRecord.getExtruderPalletId()));
-			new PalletButtonCellMain().start(); 
+			new PalletButtonCellMain().start();
 		} else {
 			setStageError();
 		}
@@ -203,11 +220,11 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 		commodityButton.getStyleClass().add("calculationButton");
 		palletButton.getStylesheets().add("/com/main/view/css/button.css");
 		palletButton.getStyleClass().add("palletButton");
-		transmission.getStylesheets().add("/com/main/view/css/button.css");
-		transmission.getStyleClass().add("transmissionButton");
+		transmissionFinished.getStylesheets().add("/com/main/view/css/button.css");
+		transmissionFinished.getStyleClass().add("transmissionButton");
 		commodityButton.setMinSize(40, 25);
 		palletButton.setMinSize(40, 25);
-		transmission.setMinSize(40, 25);
+		transmissionFinished.setMinSize(40, 25);
 		super.updateItem(t, empty);
 		if (!empty) {
 

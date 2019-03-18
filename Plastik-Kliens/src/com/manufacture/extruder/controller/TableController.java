@@ -84,7 +84,6 @@ public class TableController {
 						updateDataTable();
 						Kliens.message();
 						checkKlientName();
-
 					}
 				});
 

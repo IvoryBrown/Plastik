@@ -37,7 +37,7 @@ public class TableDataBase {
 						rs.getString("azonostio"), rs.getString("hatarido"), rs.getString("alapanyag"),
 						rs.getString("tenyleges_meret"), rs.getString("meret_szeleseg"), rs.getString("meret_hossz"),
 						rs.getString("vastagsag"), rs.getString("zsak_siklap"), rs.getString("megrendelt_kg"),
-						rs.getString("megjegyzes"), rs.getInt("receptura_alapanyag_id"),
+						rs.getString("megjegyzes"),rs.getString("extruder_nev"), rs.getInt("receptura_alapanyag_id"),
 						rs.getInt("csomagolas_csomagolas_id"));
 				extruder.add(actualExtruder);
 			}

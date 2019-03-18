@@ -1,8 +1,7 @@
-package com.manufacture.main;
+package com.production.transmissionfinished.extruder.main;
 
-import com.setting.file.FolderWriter;
+import com.kliens.message.main.MessageMain;
 
-import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -15,30 +14,26 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 
-public class Main extends Application {
-	@Override
-	public void start(Stage primaryStage) {
-		new FolderWriter();
+public class TransmissionFinishedMain {
+	public static Stage primaryStage;
+
+	public void start() {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/com/manufacture/view/Home.fxml"));
-			primaryStage.setWidth(1300);
-			primaryStage.setHeight(700);
-//			primaryStage.initStyle(StageStyle.TRANSPARENT);
+			Parent root = FXMLLoader.load(getClass()
+					.getResource("/com/production/transmissionfinished/extruder/view/TransmissionFinished.fxml"));
+			Stage primaryStage = new Stage();
+			MessageMain.primaryStage = primaryStage;
 			primaryStage.setMaximized(true);
-			primaryStage.setTitle("Stanicli");
+//			primaryStage.setResizable(false);
+//			primaryStage.initStyle(StageStyle.TRANSPARENT);
 			primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/com/setting/icon/foliak.png")));
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 //			blockExitProgram(primaryStage);
 			primaryStage.show();
-	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	public static void main(String[] args) {
-		launch(args);
 	}
 
 	private void blockExitProgram(Stage primaryStage) {

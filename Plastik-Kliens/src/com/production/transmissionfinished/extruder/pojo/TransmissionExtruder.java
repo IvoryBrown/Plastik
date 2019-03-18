@@ -1,4 +1,4 @@
-package com.production.transmission.extruder.pojo;
+package com.production.transmissionfinished.extruder.pojo;
 
 import javafx.beans.property.SimpleStringProperty;
 
