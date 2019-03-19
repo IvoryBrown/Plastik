@@ -343,8 +343,13 @@ public class TableController {
 					setStyle("");
 					double s = Double.parseDouble(item.getExtruderActualKg());
 					double g = Double.parseDouble(item.getExtruderOrderedKg());
+					double j = g-s;
 					if (s >= g) {
 						setStyle("-fx-text-background-color: #00FF00;");
+					}
+					else if(j<=100) {
+						setStyle("-fx-text-background-color: #FFD700;");
+						
 					} else {
 						setStyle("-fx-text-background-color: whitesmoke;");
 
