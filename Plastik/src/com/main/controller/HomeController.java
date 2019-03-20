@@ -54,6 +54,11 @@ public class HomeController implements Initializable {
 	private final String MENU_MANUFACTURER_EXTRUDER = "Extruder";
 	private final String MENU_MANUFACTURER_CONFECTION = "Konfekció gépek";
 	private final String MENU_MANUFACTURER_REGRA = "Regrázó gépek";
+	private final String MENU_STATISTICS_HOME = "Statisztika";
+	private final String MENU_STATISTICS_EXTRUDER = "Extruder";
+	private final String MENU_STATISTICS_CONFECTION = "Konfekció";
+	private final String MENU_STATISTICS_EXTRUDER_DEVICE = "Gép";
+	private final String MENU_STATISTICS_EXTRUDER_WORKERS = "Dolgozó";
 	private final String MENU_SETTING = "Beállítások";
 
 	@Override
@@ -88,10 +93,20 @@ public class HomeController implements Initializable {
 		TreeItem<String> nodeItemC2 = new TreeItem<String>(MENU_MANUFACTURER_CONFECTION);
 		TreeItem<String> nodeItemC3 = new TreeItem<String>(MENU_MANUFACTURER_REGRA);
 		nodeItemC.getChildren().addAll(nodeItemC1, nodeItemC2, nodeItemC3);
+		
+		TreeItem<String> nodeItemD = new TreeItem<String>(MENU_STATISTICS_HOME);
+		nodeItemD.setExpanded(false);
+		TreeItem<String> nodeItemD1 = new TreeItem<String>(MENU_STATISTICS_EXTRUDER);
+		TreeItem<String> nodeItemD2 = new TreeItem<String>(MENU_STATISTICS_CONFECTION);
+		nodeItemD.getChildren().addAll(nodeItemD1, nodeItemD2);
 
-		TreeItem<String> nodeItemD = new TreeItem<String>(MENU_SETTING, settingNode);
+		TreeItem<String> nodeItemD1A = new TreeItem<String>(MENU_STATISTICS_EXTRUDER_DEVICE);
+		TreeItem<String> nodeItemD1B = new TreeItem<String>(MENU_STATISTICS_EXTRUDER_WORKERS);
+		nodeItemD1.getChildren().addAll(nodeItemD1A, nodeItemD1B);
 
-		treeItemRoot1.getChildren().addAll(nodeItemA, nodeItemB, nodeItemC, nodeItemD);
+		TreeItem<String> nodeItemE = new TreeItem<String>(MENU_SETTING, settingNode);
+
+		treeItemRoot1.getChildren().addAll(nodeItemA, nodeItemB, nodeItemC, nodeItemD,nodeItemE);
 		menuPane.getChildren().add(homeTreeView);
 
 		mouseAction();

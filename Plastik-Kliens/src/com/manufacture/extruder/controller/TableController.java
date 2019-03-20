@@ -44,6 +44,7 @@ public class TableController {
 	private final ObservableList<Extruder> dataExtruder = FXCollections.observableArrayList();
 
 	private TableDataBase tableDataBase = new TableDataBase();
+	int sum ;
 
 	public TableController(TableView<Extruder> extruderTableView, HBox hBox) {
 		this.extruderTableView = extruderTableView;
@@ -84,11 +85,13 @@ public class TableController {
 						updateDataTable();
 						Kliens.message();
 						checkKlientName();
+						sum++;
+						System.out.println(sum);
 					}
 				});
 
-				// Thread.sleep(300000); 5perc
-				Thread.sleep(30000);
+				 Thread.sleep(300000); 
+			
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();

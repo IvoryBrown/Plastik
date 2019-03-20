@@ -31,6 +31,11 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 //			blockExitProgram(primaryStage);
 			primaryStage.show();
+			
+			primaryStage.setOnCloseRequest(evt -> {
+				evt.consume();
+				System.exit(0);
+			});
 	
 		} catch (Exception e) {
 			e.printStackTrace();

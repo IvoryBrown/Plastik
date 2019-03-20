@@ -12,7 +12,7 @@ import com.setting.database.DataBaseLocal;
 public class TransmissionExtruderDataBase {
 
 	public ArrayList<TransmissionExtruder> getAllClient(Integer extruderId) {
-		String sql = "SELECT * FROM `leadas_extruder` WHERE `extruder_extruder_id` = " + extruderId+"";
+		String sql = "SELECT * FROM `jo_leadas_extruder` WHERE `extruder_extruder_id` = " + extruderId+"";
 		Connection con = DataBaseLocal.getConnection();
 		ArrayList<TransmissionExtruder> transmissionExtruder = null;
 		Statement createStatement = null;
