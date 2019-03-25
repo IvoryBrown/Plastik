@@ -1,7 +1,7 @@
 package com.main.extruder;
 
 public class Extruder {
-	private static String extruderIdentification;
+	private String extruderIdentification;
 	private String extruderStatus;
 	private String extruderAddDate;
 	private String extruderEndDate;
@@ -17,13 +17,13 @@ public class Extruder {
 	private String extruderComment;
 	private String extruderPriority;
 
-	public static String getExtruderIdentification() {
-		Extruder.extruderIdentification = IdentificationGenereator.generateIdentification();
+	public String getExtruderIdentification() {
+		extruderIdentification = IdentificationGenereator.generateIdentification();
 		return extruderIdentification;
 	}
 
 	public void setExtruderIdentification(String extruderIdentification) {
-		Extruder.extruderIdentification = extruderIdentification;
+		this.extruderIdentification = extruderIdentification;
 	}
 
 	public String getExtruderStatus() {
