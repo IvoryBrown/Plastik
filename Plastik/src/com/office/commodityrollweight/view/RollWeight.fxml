@@ -8,13 +8,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.office.commodityrollweight.controller.RollWeightController">
+<AnchorPane prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: C0C0C0;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.office.commodityrollweight.controller.RollWeightController">
    <children>
-      <AnchorPane layoutX="211.0" layoutY="200.0" prefHeight="700.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane prefHeight="700.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox layoutX="75.0" layoutY="256.0" prefHeight="444.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+            <VBox layoutX="75.0" layoutY="256.0" prefHeight="399.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
                <children>
                   <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="160.0" text="Cséveátmérő-külső">
                      <font>
@@ -90,7 +92,7 @@
                   </Label>
                </children>
             </VBox>
-            <VBox layoutX="335.0" layoutY="256.0" prefHeight="444.0" prefWidth="29.0" AnchorPane.bottomAnchor="0.0">
+            <VBox layoutX="335.0" layoutY="256.0" prefHeight="399.0" prefWidth="29.0" AnchorPane.bottomAnchor="0.0">
                <children>
                   <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="160.0" text="mm">
                      <font>
@@ -166,7 +168,7 @@
                   </Label>
                </children>
             </VBox>
-            <VBox layoutX="160.0" layoutY="256.0" prefHeight="444.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0">
+            <VBox layoutX="160.0" layoutY="256.0" prefHeight="399.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0">
                <children>
                   <TextField fx:id="rollSpoolDiameterTxt" prefHeight="25.0" text="100">
                      <VBox.margin>
@@ -178,17 +180,17 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </ComboBox>
-                  <TextField fx:id="rollWidth" prefHeight="25.0">
+                  <TextField fx:id="rollWidth" prefHeight="25.0" text="2300">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="rollThicknessTxt" prefHeight="25.0">
+                  <TextField fx:id="rollThicknessTxt" prefHeight="25.0" text="50">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="rollLengthTxt" prefHeight="25.0">
+                  <TextField fx:id="rollLengthTxt" prefHeight="25.0" text="1400">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -222,6 +224,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
+                  <Button mnemonicParsing="false" onAction="#upload" prefHeight="25.0" prefWidth="174.0" text="Button" />
                </children>
             </VBox>
             <HBox alignment="CENTER" layoutX="321.0" layoutY="52.0" prefHeight="25.0" prefWidth="1300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -233,7 +236,15 @@
                   </Label>
                </children>
             </HBox>
-            <Button layoutX="470.0" layoutY="376.0" mnemonicParsing="false" onAction="#upload" text="Button" />
+            <Circle fill="#9aa3ab" layoutX="260.0" layoutY="110.0" radius="75.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#374646" layoutX="260.0" layoutY="110.0" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="260.0" layoutY="110.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label fx:id="rollSpoolDiameterLbl" alignment="CENTER" layoutX="223.0" layoutY="197.0" prefHeight="17.0" prefWidth="74.0" text="Label" />
+            <Label fx:id="rollDiameterMesLbl" alignment="CENTER" layoutX="190.0" layoutY="223.0" prefHeight="17.0" prefWidth="141.0" text="Label" />
+            <Line endX="-18.0" endY="-113.0" layoutX="203.0" layoutY="212.0" startX="-18.0" startY="27.0" />
+            <Line endX="-18.0" endY="-113.0" layoutX="353.0" layoutY="212.0" startX="-18.0" startY="27.0" />
+            <Line endX="-335.0" endY="-75.0" layoutX="571.0" layoutY="185.0" startX="-335.0" startY="11.0" />
+            <Line endX="-335.0" endY="-75.0" layoutX="619.0" layoutY="185.0" startX="-335.0" startY="11.0" />
          </children>
       </AnchorPane>
    </children>
