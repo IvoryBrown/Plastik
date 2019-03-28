@@ -92,7 +92,7 @@
                   </Label>
                </children>
             </VBox>
-            <VBox layoutX="335.0" layoutY="256.0" prefHeight="399.0" prefWidth="29.0" AnchorPane.bottomAnchor="0.0">
+            <VBox layoutX="278.0" layoutY="301.0" prefHeight="399.0" prefWidth="29.0" AnchorPane.bottomAnchor="0.0">
                <children>
                   <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="160.0" text="mm">
                      <font>
@@ -168,9 +168,9 @@
                   </Label>
                </children>
             </VBox>
-            <VBox layoutX="160.0" layoutY="256.0" prefHeight="399.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0">
+            <VBox layoutX="160.0" layoutY="256.0" prefHeight="399.0" prefWidth="118.0" AnchorPane.bottomAnchor="0.0">
                <children>
-                  <TextField fx:id="rollSpoolDiameterTxt" prefHeight="25.0" text="100">
+                  <TextField fx:id="rollSpoolDiameterTxt" prefHeight="25.0" promptText="100">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -180,27 +180,27 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </ComboBox>
-                  <TextField fx:id="rollWidth" prefHeight="25.0" text="2300">
+                  <TextField fx:id="rollWidth" prefHeight="25.0" promptText="2300">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="rollThicknessTxt" prefHeight="25.0" text="50">
+                  <TextField fx:id="rollThicknessTxt" prefHeight="25.0" promptText="15">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="rollLengthTxt" prefHeight="25.0" text="1400">
+                  <TextField fx:id="rollLengthTxt" prefHeight="25.0" promptText="873">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="rollSpoolsWeightTxt" prefHeight="25.0" text="1.65">
+                  <TextField fx:id="rollSpoolsWeightTxt" prefHeight="25.0" promptText="1.65">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label fx:id="rollCalculationWeightLbl" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="160.0" text="súly">
+                  <Label fx:id="rollCalculationWeightLbl" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="160.0">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -208,7 +208,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="rollCalculationSpoolsWeightLbl" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="160.0" text="süly">
+                  <Label fx:id="rollCalculationSpoolsWeightLbl" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="160.0">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -216,7 +216,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="rollDiameterLbl" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="160.0" text="átmérő">
+                  <Label fx:id="rollDiameterLbl" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="160.0">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -229,7 +229,7 @@
             </VBox>
             <HBox alignment="CENTER" layoutX="321.0" layoutY="52.0" prefHeight="25.0" prefWidth="1300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label fx:id="message" text="Label">
+                  <Label fx:id="message">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -239,8 +239,8 @@
             <Circle fill="#9aa3ab" layoutX="260.0" layoutY="110.0" radius="75.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fill="#374646" layoutX="260.0" layoutY="110.0" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fill="WHITE" layoutX="260.0" layoutY="110.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-            <Label fx:id="rollSpoolDiameterLbl" alignment="CENTER" layoutX="223.0" layoutY="197.0" prefHeight="17.0" prefWidth="74.0" text="Label" />
-            <Label fx:id="rollDiameterMesLbl" alignment="CENTER" layoutX="190.0" layoutY="223.0" prefHeight="17.0" prefWidth="141.0" text="Label" />
+            <Label fx:id="rollSpoolDiameterLbl" alignment="CENTER" layoutX="223.0" layoutY="197.0" prefHeight="17.0" prefWidth="74.0" />
+            <Label fx:id="rollDiameterMesLbl" alignment="CENTER" layoutX="190.0" layoutY="223.0" prefHeight="17.0" prefWidth="141.0" />
             <Line endX="-18.0" endY="-113.0" layoutX="203.0" layoutY="212.0" startX="-18.0" startY="27.0" />
             <Line endX="-18.0" endY="-113.0" layoutX="353.0" layoutY="212.0" startX="-18.0" startY="27.0" />
             <Line endX="-335.0" endY="-75.0" layoutX="571.0" layoutY="185.0" startX="-335.0" startY="11.0" />

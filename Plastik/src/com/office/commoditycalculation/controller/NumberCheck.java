@@ -16,6 +16,7 @@ public class NumberCheck {
 	private MessageLabel message = new MessageLabel();
 
 	public void setQuantityNumber(TextField textField, Label label) {
+		
 		textField.lengthProperty().addListener(new ChangeListener<Number>() {
 			@Override
 			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
