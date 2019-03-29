@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="600.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.main.controller.HomeController">
+<AnchorPane minHeight="600.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: C0C0C0;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.main.controller.HomeController">
    <children>
       <AnchorPane layoutX="133.0" layoutY="121.0" prefHeight="700.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -37,7 +37,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: C0C0C0;">
                      <children>
                         <AnchorPane fx:id="homePane" prefHeight="698.0" prefWidth="1127.0" style="-fx-background-color: C0C0C0;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                         <AnchorPane fx:id="addNewClientPane" prefHeight="698.0" prefWidth="1127.0" style="-fx-background-color: C0C0C0;" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -170,8 +170,13 @@
                               <TextField fx:id="clientFilteringTxt" layoutX="14.0" layoutY="72.0" prefHeight="25.0" promptText="Név, Helység, Mobil" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="confectionPane" layoutX="10.0" layoutY="10.0" prefHeight="698.0" prefWidth="1115.0" visible="false" />
-                        <AnchorPane fx:id="regraPane" layoutX="20.0" layoutY="20.0" prefHeight="698.0" prefWidth="1115.0" visible="false" />
+                        <AnchorPane fx:id="confectionPane" layoutX="10.0" layoutY="10.0" prefHeight="698.0" prefWidth="1115.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <AnchorPane fx:id="regraPane" layoutX="20.0" layoutY="20.0" prefHeight="698.0" prefWidth="1115.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <AnchorPane fx:id="extruderStatictic" layoutX="30.0" layoutY="30.0" style="-fx-background-color: C0C0C0;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <fx:include source="../../office/extruder/statistic/view/Statistic.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
               </items>

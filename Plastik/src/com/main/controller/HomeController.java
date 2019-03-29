@@ -30,7 +30,7 @@ public class HomeController implements Initializable {
 	@FXML
 	private TreeView<String> homeTreeView;
 	@FXML
-	private AnchorPane homePane, addNewClientPane, clientTablePane, confectionPane, regraPane;
+	private AnchorPane homePane, addNewClientPane, clientTablePane, confectionPane, regraPane, extruderStatictic;
 	@FXML
 	private StackPane menuPane;
 	@FXML
@@ -45,7 +45,6 @@ public class HomeController implements Initializable {
 	@FXML
 	private Button clientFilteringBtn;
 
-
 	private final String MENU_HOME = "Kezdőlap";
 	private final String MENU_CLIENT_HOME = "Ügyfelek";
 	private final String MENU_CLIENT_NEW = "Új ügyfelek";
@@ -55,10 +54,10 @@ public class HomeController implements Initializable {
 	private final String MENU_MANUFACTURER_CONFECTION = "Konfekció gépek";
 	private final String MENU_MANUFACTURER_REGRA = "Regrázó gépek";
 	private final String MENU_STATISTICS_HOME = "Statisztika";
-	private final String MENU_STATISTICS_EXTRUDER = "Extruder";
-	private final String MENU_STATISTICS_CONFECTION = "Konfekció";
+	private final String MENU_STATISTICS_EXTRUDER = "Extruder ";
 	private final String MENU_STATISTICS_EXTRUDER_DEVICE = "Gép";
 	private final String MENU_STATISTICS_EXTRUDER_WORKERS = "Dolgozó";
+	private final String MENU_STATISTICS_CONFECTION = "Konfekció";
 	private final String MENU_SETTING = "Beállítások";
 
 	@Override
@@ -93,7 +92,7 @@ public class HomeController implements Initializable {
 		TreeItem<String> nodeItemC2 = new TreeItem<String>(MENU_MANUFACTURER_CONFECTION);
 		TreeItem<String> nodeItemC3 = new TreeItem<String>(MENU_MANUFACTURER_REGRA);
 		nodeItemC.getChildren().addAll(nodeItemC1, nodeItemC2, nodeItemC3);
-		
+
 		TreeItem<String> nodeItemD = new TreeItem<String>(MENU_STATISTICS_HOME);
 		nodeItemD.setExpanded(false);
 		TreeItem<String> nodeItemD1 = new TreeItem<String>(MENU_STATISTICS_EXTRUDER);
@@ -106,7 +105,7 @@ public class HomeController implements Initializable {
 
 		TreeItem<String> nodeItemE = new TreeItem<String>(MENU_SETTING, settingNode);
 
-		treeItemRoot1.getChildren().addAll(nodeItemA, nodeItemB, nodeItemC, nodeItemD,nodeItemE);
+		treeItemRoot1.getChildren().addAll(nodeItemA, nodeItemB, nodeItemC, nodeItemD, nodeItemE);
 		menuPane.getChildren().add(homeTreeView);
 
 		mouseAction();
@@ -127,6 +126,7 @@ public class HomeController implements Initializable {
 						clientTablePane.setVisible(false);
 						confectionPane.setVisible(false);
 						regraPane.setVisible(false);
+						extruderStatictic.setVisible(false);
 						break;
 
 					case MENU_CLIENT_NEW:
@@ -135,6 +135,7 @@ public class HomeController implements Initializable {
 						clientTablePane.setVisible(false);
 						confectionPane.setVisible(false);
 						regraPane.setVisible(false);
+						extruderStatictic.setVisible(false);
 						clientTextClear();
 						break;
 
@@ -144,6 +145,7 @@ public class HomeController implements Initializable {
 						clientTablePane.setVisible(true);
 						confectionPane.setVisible(false);
 						regraPane.setVisible(false);
+						extruderStatictic.setVisible(false);
 						clientController();
 						break;
 					case MENU_MANUFACTURER_EXTRUDER:
@@ -152,6 +154,7 @@ public class HomeController implements Initializable {
 						clientTablePane.setVisible(false);
 						confectionPane.setVisible(false);
 						regraPane.setVisible(false);
+						extruderStatictic.setVisible(false);
 						ExtruderMain actual = new ExtruderMain();
 						actual.start();
 						break;
@@ -161,6 +164,7 @@ public class HomeController implements Initializable {
 						clientTablePane.setVisible(false);
 						confectionPane.setVisible(true);
 						regraPane.setVisible(false);
+						extruderStatictic.setVisible(false);
 						break;
 					case MENU_MANUFACTURER_REGRA:
 						homePane.setVisible(false);
@@ -168,6 +172,15 @@ public class HomeController implements Initializable {
 						clientTablePane.setVisible(false);
 						confectionPane.setVisible(false);
 						regraPane.setVisible(true);
+						extruderStatictic.setVisible(false);
+						break;
+					case MENU_STATISTICS_EXTRUDER_DEVICE:
+						homePane.setVisible(false);
+						addNewClientPane.setVisible(false);
+						clientTablePane.setVisible(false);
+						confectionPane.setVisible(false);
+						regraPane.setVisible(false);
+						extruderStatictic.setVisible(true);
 						break;
 					case MENU_SETTING:
 						MainSetting main = new MainSetting();

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="com.office.extruder.name.ExtruderName" project="Plastik-Server" 
-    file="/Plastik-Server/src/com/office/extruder/name/ExtruderName.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="com.office.extruder.name.ExtruderNameButton" project="Plastik-Server" 
+    file="/Plastik-Server/src/com/office/extruder/name/ExtruderNameButton.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="81" width="1074" x="18226" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -791,164 +791,166 @@
     </display>  
   </class>  
   <association id="109">    
-    <bendpoint x="17914" y="2318"/>    
-    <end type="SOURCE" refId="95" navigable="false">      
-      <attribute id="110" name="message">        
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="110" name="machineDataBase">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="111" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="93" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="112">    
     <end type="SOURCE" refId="89" navigable="false">      
-      <attribute id="113" name="dataCommodity">        
+      <attribute id="113" name="dataPallet">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="114" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
+    <end type="TARGET" refId="66" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="115">    
-    <end type="SOURCE" refId="92" navigable="false">      
-      <attribute id="116" name="rollWeightMain">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="117" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="86" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="118">    
     <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="119" name="dataCommodityCalculation">        
+      <attribute id="116" name="dataCommodityCalculation">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="120" minimum="0" maximum="2147483647">        
+      <multiplicity id="117" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="121">    
-    <end type="SOURCE" refId="92" navigable="false">      
-      <attribute id="122" name="commodityCalculationMain">        
+  <association id="118">    
+    <bendpoint x="19331" y="2318"/>    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="119" name="message">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="123" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="124">    
-    <end type="SOURCE" refId="52" navigable="false">      
-      <attribute id="125" name="message">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="126" minimum="0" maximum="1">        
+      <multiplicity id="120" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="93" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <association id="121">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="122" name="extruderCommodityData">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="123" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="124">    
+    <end type="SOURCE" refId="92" navigable="false">      
+      <attribute id="125" name="commodityCalculationMain">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="126" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <association id="127">    
-    <end type="SOURCE" refId="89" navigable="false">      
-      <attribute id="128" name="selectedRecord">        
+    <bendpoint x="19352" y="2318"/>    
+    <end type="SOURCE" refId="68" navigable="false">      
+      <attribute id="128" name="message">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="129" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="23" navigable="true"/>    
+    <end type="TARGET" refId="93" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="130">    
-    <end type="SOURCE" refId="68" navigable="false">      
-      <attribute id="131" name="clientDB">        
+    <end type="SOURCE" refId="102" navigable="false">      
+      <attribute id="131" name="calculationDataBase">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="132" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="100" navigable="true"/>    
+    <end type="TARGET" refId="15" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="133">    
-    <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="134" name="numberCheck">        
+    <end type="SOURCE" refId="60" navigable="false">      
+      <attribute id="134" name="dataPallet">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="135" minimum="0" maximum="1">        
+      <multiplicity id="135" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="52" navigable="true"/>    
+    <end type="TARGET" refId="66" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="136">    
-    <end type="SOURCE" refId="60" navigable="false">      
-      <attribute id="137" name="palletDatabase">        
+    <end type="SOURCE" refId="101" navigable="false">      
+      <attribute id="137" name="checkNumber">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="138" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="52" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="139">    
-    <end type="SOURCE" refId="102" navigable="false">      
-      <attribute id="140" name="calculationDataBase">        
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="140" name="commodityNameDataBase">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="141" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
+    <end type="TARGET" refId="26" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="142">    
     <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="143" name="textFieldIsEmpty">        
+      <attribute id="143" name="numberCheck">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="144" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="80" navigable="true"/>    
+    <end type="TARGET" refId="52" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="145">    
-    <end type="SOURCE" refId="94" navigable="false">      
-      <attribute id="146" name="clientDB">        
+    <bendpoint x="17935" y="2318"/>    
+    <end type="SOURCE" refId="102" navigable="false">      
+      <attribute id="146" name="message">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="147" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="100" navigable="true"/>    
+    <end type="TARGET" refId="93" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="148">    
-    <end type="SOURCE" refId="31" navigable="false">      
+    <end type="SOURCE" refId="94" navigable="false">      
       <attribute id="149" name="clientDB">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
@@ -960,43 +962,43 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="151">    
-    <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="152" name="extruderNameData">        
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="152" name="machineDataBase">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="153" minimum="0" maximum="2147483647">        
+      <multiplicity id="153" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="108" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="154">    
-    <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="155" name="extruderCommodityData">        
+    <end type="SOURCE" refId="89" navigable="false">      
+      <attribute id="155" name="selectedRecord">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="156" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="157">    
-    <end type="SOURCE" refId="95" navigable="false">      
-      <attribute id="158" name="dataExtruder">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="159" minimum="0" maximum="2147483647">        
+      <multiplicity id="156" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="23" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <association id="157">    
+    <end type="SOURCE" refId="39" navigable="false">      
+      <attribute id="158" name="dataBaseController">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="159" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="98" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <association id="160">    
-    <end type="SOURCE" refId="31" navigable="false">      
+    <end type="SOURCE" refId="68" navigable="false">      
       <attribute id="161" name="dataClient">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
@@ -1008,63 +1010,64 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="163">    
-    <end type="SOURCE" refId="101" navigable="false">      
-      <attribute id="164" name="checkNumber">        
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="164" name="dataWorkers">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="165" minimum="0" maximum="1">        
+      <multiplicity id="165" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="52" navigable="true"/>    
+    <end type="TARGET" refId="85" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="166">    
-    <end type="SOURCE" refId="89" navigable="false">      
-      <attribute id="167" name="db">        
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="167" name="extruderNameData">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="168" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="169">    
-    <end type="SOURCE" refId="60" navigable="false">      
-      <attribute id="170" name="dataPallet">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="171" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="66" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="172">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="173" name="dataExtruderName">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="174" minimum="0" maximum="2147483647">        
+      <multiplicity id="168" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="108" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="175">    
-    <end type="SOURCE" refId="89" navigable="false">      
-      <attribute id="176" name="palletDatabase">        
+  <association id="169">    
+    <bendpoint x="17914" y="2318"/>    
+    <end type="SOURCE" refId="95" navigable="false">      
+      <attribute id="170" name="message">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="177" minimum="0" maximum="1">        
+      <multiplicity id="171" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="93" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="172">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="173" name="textFieldIsEmpty">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="174" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="80" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="175">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="176" name="dataMachine">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="177" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="108" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="178">    
@@ -1081,188 +1084,186 @@
   </association>  
   <association id="181">    
     <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="182" name="commodityNameDataBase">        
+      <attribute id="182" name="machineDataBase">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="183" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="184">    
-    <end type="SOURCE" refId="102" navigable="false">      
-      <attribute id="185" name="numberCheck">        
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="185" name="jobDB">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="186" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="52" navigable="true"/>    
+    <end type="TARGET" refId="56" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="187">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="188" name="machineDataBase">        
+    <end type="SOURCE" refId="89" navigable="false">      
+      <attribute id="188" name="dataCommodity">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="189" minimum="0" maximum="1">        
+      <multiplicity id="189" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="190">    
-    <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="191" name="jobDB">        
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="191" name="message">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="192" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="56" navigable="true"/>    
+    <end type="TARGET" refId="93" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="193">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="194" name="workersDataBase">        
+    <end type="SOURCE" refId="60" navigable="false">      
+      <attribute id="194" name="palletDatabase">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="195" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="64" navigable="true"/>    
+    <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="196">    
     <end type="SOURCE" refId="95" navigable="false">      
-      <attribute id="197" name="tableDataBase">        
+      <attribute id="197" name="dataExtruder">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="198" minimum="0" maximum="1">        
+      <multiplicity id="198" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
+    <end type="TARGET" refId="23" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="199">    
-    <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="200" name="calculationDataBase">        
+    <end type="SOURCE" refId="102" navigable="false">      
+      <attribute id="200" name="numberCheck">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="201" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
+    <end type="TARGET" refId="52" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="202">    
-    <end type="SOURCE" refId="102" navigable="false">      
-      <attribute id="203" name="textFieldIsEmpty">        
+    <end type="SOURCE" refId="89" navigable="false">      
+      <attribute id="203" name="palletDatabase">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="204" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="80" navigable="true"/>    
+    <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="205">    
-    <bendpoint x="17935" y="2318"/>    
-    <end type="SOURCE" refId="102" navigable="false">      
-      <attribute id="206" name="message">        
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="206" name="commodityNameDataBase">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="207" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="93" navigable="true"/>    
+    <end type="TARGET" refId="26" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="208">    
     <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="209" name="machineDataBase">        
+      <attribute id="209" name="clientDB">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="210" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="100" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="211">    
-    <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="212" name="dataBaseController">        
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="212" name="calculationDataBase">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="213" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="98" navigable="true"/>    
+    <end type="TARGET" refId="15" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="214">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="215" name="machineDataBase">        
+    <end type="SOURCE" refId="92" navigable="false">      
+      <attribute id="215" name="rollWeightMain">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="216" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="86" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="217">    
     <end type="SOURCE" refId="68" navigable="false">      
-      <attribute id="218" name="dataClient">        
+      <attribute id="218" name="clientDB">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="219" minimum="0" maximum="2147483647">        
+      <multiplicity id="219" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
+    <end type="TARGET" refId="100" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="220">    
-    <end type="SOURCE" refId="89" navigable="false">      
-      <attribute id="221" name="dataPallet">        
+    <end type="SOURCE" refId="102" navigable="false">      
+      <attribute id="221" name="textFieldIsEmpty">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="222" minimum="0" maximum="2147483647">        
+      <multiplicity id="222" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="66" navigable="true"/>    
+    <end type="TARGET" refId="80" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="223">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="224" name="dataWorkers">        
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="224" name="dataClient">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="225" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="85" navigable="true"/>    
+    <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="226">    
-    <bendpoint x="19352" y="2318"/>    
-    <end type="SOURCE" refId="68" navigable="false">      
+    <end type="SOURCE" refId="52" navigable="false">      
       <attribute id="227" name="message">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
@@ -1274,52 +1275,51 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="229">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="230" name="message">        
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="230" name="dataExtruderName">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="231" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="93" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="232">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="233" name="dataMachine">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="234" minimum="0" maximum="2147483647">        
+      <multiplicity id="231" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="108" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <association id="232">    
+    <end type="SOURCE" refId="95" navigable="false">      
+      <attribute id="233" name="tableDataBase">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="234" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <association id="235">    
-    <bendpoint x="19331" y="2318"/>    
-    <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="236" name="message">        
+    <end type="SOURCE" refId="89" navigable="false">      
+      <attribute id="236" name="db">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="237" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="93" navigable="true"/>    
+    <end type="TARGET" refId="15" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="238">    
-    <end type="SOURCE" refId="38" navigable="false">      
-      <attribute id="239" name="commodityNameDataBase">        
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="239" name="workersDataBase">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="240" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
+    <end type="TARGET" refId="64" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

@@ -2,7 +2,7 @@ package com.office.extruder.table.controller;
 
 import java.util.Date;
 
-import com.office.extruder.name.ExtruderName;
+import com.office.extruder.name.ExtruderNameButton;
 import com.office.extruder.pojo.Extruder;
 import com.office.extruder.table.database.TableDataBase;
 import com.project.setting.machine.database.MachineDataBase;
@@ -156,7 +156,7 @@ public class TableController {
 		extruderNameBtn13 = new ToggleButton();
 		extruderNameBtn14 = new ToggleButton();
 		extruderNameAllBtn = new ToggleButton();
-		new ExtruderName(extruderNameAllBtn, extruderNameBtn1, extruderNameBtn2, extruderNameBtn3, extruderNameBtn4,
+		new ExtruderNameButton(extruderNameAllBtn, extruderNameBtn1, extruderNameBtn2, extruderNameBtn3, extruderNameBtn4,
 				extruderNameBtn5, extruderNameBtn6, extruderNameBtn7, extruderNameBtn8, extruderNameBtn9,
 				extruderNameBtn10, extruderNameBtn11, extruderNameBtn12, extruderNameBtn13, extruderNameBtn14);
 		extruderNameAllBtn.setToggleGroup(group);
