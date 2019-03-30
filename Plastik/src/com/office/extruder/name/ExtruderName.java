@@ -11,12 +11,13 @@ public class ExtruderName {
 	private MachineDataBase machineDataBase = new MachineDataBase();
 
 	public ExtruderName() {
-		dataExtruderName.addAll(machineDataBase.getAllMachine());
-		extruderName();
+		
 	}
 
-	public String extruderName() {
-		String name = dataExtruderName.get(0).getMachineName();
+	public String extruderName1(Integer i) {
+		dataExtruderName.addAll(machineDataBase.getAllMachine());
+		String name = dataExtruderName.get(i).getMachineName();
 		return name;
 	}
+	
 }
