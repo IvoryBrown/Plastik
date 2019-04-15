@@ -1,6 +1,8 @@
 package com.production.transmissionfinished.extruder.controller;
 
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -17,6 +19,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -33,11 +36,13 @@ public class TransmissionFinishedController implements Initializable {
 			transmissionNKg, transmissionSpool;
 	private TableColumn<TransmissionFinished, Date> transmissionDate;
 	@FXML
-	private Label orderKgLbl, actualKgLbl, workerNameLbl, messageLbl;
+	private Label orderKgLbl, actualKgLbl, messageLbl;
 	@FXML
-	private TextField workerNameTxt;
+	private TextField workerNameTxt, transmissionActualKgTxt;
 	@FXML
 	private TextArea transmissionTxt;
+	@FXML
+	private Button saveDataBase;
 
 	private TransmissionExtruderDataBase transmissionExtruderDataBase = new TransmissionExtruderDataBase();
 	private final ObservableList<TransmissionFinished> dataTransmission = FXCollections.observableArrayList();
@@ -45,6 +50,7 @@ public class TransmissionFinishedController implements Initializable {
 	private final ObservableList<Workers> dataWorkers = FXCollections.observableArrayList();
 	private WorkersDataBase workersDB = new WorkersDataBase();
 
+	// Táblázat fel.
 	private ObservableList<TransmissionFinished> transmissionFinishedData() {
 		dataTransmission.clear();
 		dataTransmission
@@ -53,6 +59,7 @@ public class TransmissionFinishedController implements Initializable {
 
 	}
 
+	// dolgozó ellen.
 	private ObservableList<Workers> workersData() {
 		dataWorkers.clear();
 		dataWorkers.addAll(workersDB.searchAllWorkers(workerNameTxt.getText()));
@@ -143,7 +150,11 @@ public class TransmissionFinishedController implements Initializable {
 	}
 
 	private void setData() {
-		workerNameLbl.setText("Dolgozó kód:");
+		transmissionTxt.appendText("Ügyfél:            " + Transmission.getExtruderClientName() + "\n");
+		transmissionTxt.appendText("Termék azonosító:       " + Transmission.getExtruderIdentification() + "\n");
+		transmissionTxt.appendText("Termék:             " + Transmission.getExtruderActualSize() + "\n");
+		transmissionTxt.appendText("Gyártó gép:         " + Transmission.getExtruderName() + "\n");
+		transmissionTxt.appendText("Megrendelt kg:         " + Transmission.getExtruderorderKg() + "\n");
 		setQuantityNumber(workerNameTxt, messageLbl);
 		workerNameTxt.textProperty().addListener(new ChangeListener<String>() {
 			@Override
@@ -154,9 +165,13 @@ public class TransmissionFinishedController implements Initializable {
 					workersData();
 					if (workersData().size() != 0) {
 						if (workersData().get(0).getWorkersStatus().equals("Aktív")) {
-							transmissionTxt.appendText("Dolgozó: " + workersData().get(0).getWorkersName() + "\n");
+							transmissionTxt
+									.appendText("Dolgozó:        " + workersData().get(0).getWorkersName() + "\n");
 							workerNameTxt.setEditable(false);
 							messageLbl.setText("");
+							// Mérleg adoptálás!!!
+							transmissionActualKgTxt.setEditable(true);
+							saveDataBase.setDisable(false);
 						} else {
 							new MessageLabel().errorMessage("Nem aktív a dolgozó", messageLbl);
 						}
@@ -166,6 +181,37 @@ public class TransmissionFinishedController implements Initializable {
 				}
 			}
 		});
+
+	}
+
+	// adatbázis mentés
+	@FXML
+	private void saveDataBase() {
+		if (checkTextField()) {
+			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			Date date = new Date();
+			String transmissionDate = dateFormat.format(date);
+			double n_kg = Double.valueOf(transmissionActualKgTxt.getText()) - 18;
+			transmissionExtruderDataBase.addTransmission(new TransmissionFinished(
+					Transmission.getExtruderIdentification(), 
+					Transmission.getExtruderName(),
+					transmissionDate,
+					workersData().get(0).getWorkersName(),
+					Transmission.getExtruderClientName(),
+					Transmission.getExtruderActualSize(),
+					Double.valueOf(transmissionActualKgTxt.getText()),
+					n_kg, 
+					"1",
+					Integer.valueOf(Transmission.getExtruderId())));
+		}
+	}
+
+	private boolean checkTextField() {
+		if (workerNameTxt.getText().trim().isEmpty() || transmissionActualKgTxt.getText().trim().isEmpty()) {
+			return false;
+		} else {
+			return true;
+		}
 
 	}
 
