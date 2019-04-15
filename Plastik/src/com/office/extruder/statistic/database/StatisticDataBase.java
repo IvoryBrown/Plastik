@@ -10,8 +10,8 @@ import com.production.transmission.extruder.pojo.TransmissionExtruder;
 import com.setting.database.DataBaseLocal;
 
 public class StatisticDataBase {
-	public ArrayList<TransmissionExtruder> getAllClient() {
-		String sql = "SELECT * FROM `jo_leadas_extruder`";
+	public ArrayList<TransmissionExtruder> getAllStatistic() {
+		String sql = "SELECT * FROM `jo_leadas_extruder` WHERE datum > DATE_SUB(NOW(), INTERVAL 1 MONTH)";
 		Connection con = DataBaseLocal.getConnection();
 		ArrayList<TransmissionExtruder> transmissionExtruder = null;
 		Statement createStatement = null;

@@ -7,17 +7,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class ExtruderName {
-	private final ObservableList<Machine> dataExtruderName = FXCollections.observableArrayList();
-	private MachineDataBase machineDataBase = new MachineDataBase();
+	private static ObservableList<Machine> dataExtruderName = FXCollections.observableArrayList();
+	private static MachineDataBase machineDataBase = new MachineDataBase();
 
-	public ExtruderName() {
-		
-	}
 
-	public String extruderName1(Integer i) {
+	public static String extruderName1(Integer i) {
+
 		dataExtruderName.addAll(machineDataBase.getAllMachine());
 		String name = dataExtruderName.get(i).getMachineName();
 		return name;
 	}
-	
+
 }

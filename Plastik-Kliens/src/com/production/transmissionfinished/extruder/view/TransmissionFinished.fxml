@@ -3,6 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
@@ -44,6 +46,9 @@
                         <Label fx:id="messageLbl" prefHeight="30.0" text="Label" />
                      </children>
                   </HBox>
+                  <TextField fx:id="workerNameTxt" layoutX="260.0" layoutY="59.0" />
+                  <Label fx:id="workerNameLbl" alignment="CENTER_RIGHT" layoutX="62.0" layoutY="59.0" prefHeight="25.0" prefWidth="182.0" text="Label" />
+                  <TextArea fx:id="transmissionTxt" layoutX="13.0" layoutY="206.0" prefHeight="426.0" prefWidth="455.0" />
                </children>
             </AnchorPane>
          </children>

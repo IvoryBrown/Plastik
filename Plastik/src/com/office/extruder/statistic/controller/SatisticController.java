@@ -27,16 +27,15 @@ public class SatisticController implements Initializable {
 	private void save() {
 		clearLineChart(lineChartGood);
 		clearLineChart(lineChartError);
-		int s = 0;
-		int j = 3;
-		for (int i = 0; i < 13; i++) {
-			s++;
-		
-			lineChartGood.getData().add(createChartSeriesGood(i));
-
-			lineChartError.getData().add(createChartSeriesGood(i));
+		extruderData();
+		int i = 0;
+		for (int j = 0; j < 13; j++) {
+			lineChartGood.getData().add(createChartSeriesGood(j));
 		}
-
+		for (int j = 0; j < dataStatistic.size(); j++) {
+			;
+			System.out.println(dataStatistic.get(j).getTransmissionNKg());
+		}
 	}
 
 	private void clearLineChart(LineChart<String, Double> clear) {
@@ -46,7 +45,7 @@ public class SatisticController implements Initializable {
 
 	private ObservableList<TransmissionExtruder> extruderData() {
 		dataStatistic.clear();
-		dataStatistic.addAll(atatisticDataBase.getAllClient());
+		dataStatistic.addAll(atatisticDataBase.getAllStatistic());
 		return dataStatistic;
 
 	}
@@ -55,25 +54,24 @@ public class SatisticController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		lineChartGood.setTitle("Késztermék");
 		lineChartError.setTitle("Hulladék");
-
+		
 	}
 
 	private XYChart.Series<String, Double> createChartSeriesGood(Integer i) {
-		extruderData();
 		XYChart.Series<String, Double> series = null;
 		series = new XYChart.Series<String, Double>();
-		series.getData().add(new XYChart.Data<String, Double>("JANUÁR",2.0));
-		series.getData().add(new XYChart.Data<String, Double>("FEBRUÁR",8.0));
-		series.getData().add(new XYChart.Data<String, Double>("MÁRCIUS",212.0));
-		series.getData().add(new XYChart.Data<String, Double>("ÁPRILIS",4.0));
-		series.getData().add(new XYChart.Data<String, Double>("MÁJUS",8.0));
-		series.getData().add(new XYChart.Data<String, Double>("JÚNIUS",90.0));
-		series.getData().add(new XYChart.Data<String, Double>("AUGUSZTUS",22.0));
-		series.getData().add(new XYChart.Data<String, Double>("SZEPTEMBER",64.0));
-		series.getData().add(new XYChart.Data<String, Double>("OKTÓBER",12.0));
-		series.getData().add(new XYChart.Data<String, Double>("NOVEMBER",67.0));
-		series.getData().add(new XYChart.Data<String, Double>("DECEMBER",2.0));
-		series.setName(extruderName.extruderName1(i));
+		series.getData().add(new XYChart.Data<String, Double>("JANUÁR", 2.0));
+		series.getData().add(new XYChart.Data<String, Double>("FEBRUÁR", 8.0));
+		series.getData().add(new XYChart.Data<String, Double>("MÁRCIUS", 212.0));
+		series.getData().add(new XYChart.Data<String, Double>("ÁPRILIS", 4.0));
+		series.getData().add(new XYChart.Data<String, Double>("MÁJUS", 8.0));
+		series.getData().add(new XYChart.Data<String, Double>("JÚNIUS", 90.0));
+		series.getData().add(new XYChart.Data<String, Double>("AUGUSZTUS", 22.0));
+		series.getData().add(new XYChart.Data<String, Double>("SZEPTEMBER", 64.0));
+		series.getData().add(new XYChart.Data<String, Double>("OKTÓBER", 12.0));
+		series.getData().add(new XYChart.Data<String, Double>("NOVEMBER", 67.0));
+		series.getData().add(new XYChart.Data<String, Double>("DECEMBER", 2.0));
+		series.setName(ExtruderName.extruderName1(i));
 		return series;
 	}
 

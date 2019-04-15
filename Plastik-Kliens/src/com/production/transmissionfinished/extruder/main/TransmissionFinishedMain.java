@@ -23,8 +23,8 @@ public class TransmissionFinishedMain {
 					.getResource("/com/production/transmissionfinished/extruder/view/TransmissionFinished.fxml"));
 			Stage primaryStage = new Stage();
 			MessageMain.primaryStage = primaryStage;
-			primaryStage.setMaximized(true);
-//			primaryStage.setResizable(false);
+//			primaryStage.setMaximized(true);
+			primaryStage.setResizable(false);
 //			primaryStage.initStyle(StageStyle.TRANSPARENT);
 			primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/com/setting/icon/foliak.png")));
 			Scene scene = new Scene(root);

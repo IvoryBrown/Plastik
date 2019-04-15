@@ -7,7 +7,12 @@ import java.util.ResourceBundle;
 import com.production.transmissionfinished.extruder.database.TransmissionExtruderDataBase;
 import com.production.transmissionfinished.extruder.pojo.Transmission;
 import com.production.transmissionfinished.extruder.pojo.TransmissionFinished;
+import com.project.setting.worker.database.WorkersDataBase;
+import com.project.setting.worker.pojo.Workers;
+import com.setting.label.MessageLabel;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,6 +20,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class TransmissionFinishedController implements Initializable {
@@ -26,16 +33,30 @@ public class TransmissionFinishedController implements Initializable {
 			transmissionNKg, transmissionSpool;
 	private TableColumn<TransmissionFinished, Date> transmissionDate;
 	@FXML
-	private Label orderKgLbl, actualKgLbl;
+	private Label orderKgLbl, actualKgLbl, workerNameLbl, messageLbl;
+	@FXML
+	private TextField workerNameTxt;
+	@FXML
+	private TextArea transmissionTxt;
 
 	private TransmissionExtruderDataBase transmissionExtruderDataBase = new TransmissionExtruderDataBase();
 	private final ObservableList<TransmissionFinished> dataTransmission = FXCollections.observableArrayList();
 
-	private ObservableList<TransmissionFinished> extruderData() {
+	private final ObservableList<Workers> dataWorkers = FXCollections.observableArrayList();
+	private WorkersDataBase workersDB = new WorkersDataBase();
+
+	private ObservableList<TransmissionFinished> transmissionFinishedData() {
 		dataTransmission.clear();
 		dataTransmission
 				.addAll(transmissionExtruderDataBase.getAllTransmision(Integer.valueOf(Transmission.getExtruderId())));
 		return dataTransmission;
+
+	}
+
+	private ObservableList<Workers> workersData() {
+		dataWorkers.clear();
+		dataWorkers.addAll(workersDB.searchAllWorkers(workerNameTxt.getText()));
+		return dataWorkers;
 
 	}
 
@@ -104,15 +125,59 @@ public class TransmissionFinishedController implements Initializable {
 				.setCellValueFactory(new PropertyValueFactory<TransmissionFinished, String>("transmissionSpool"));
 	}
 
+	public void setQuantityNumber(TextField textField, Label label) {
+
+		textField.lengthProperty().addListener(new ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+				if (newValue.intValue() > oldValue.intValue()) {
+					char ch = textField.getText().charAt(oldValue.intValue());
+					if (!(ch >= '0' && ch <= '9')) {
+						textField.setText(textField.getText().substring(0, textField.getText().length() - 1));
+						new MessageLabel().errorMessage("Nem megfelelő formátum!", label);
+					}
+				}
+			}
+
+		});
+	}
+
+	private void setData() {
+		workerNameLbl.setText("Dolgozó kód:");
+		setQuantityNumber(workerNameTxt, messageLbl);
+		workerNameTxt.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(final ObservableValue<? extends String> ov, final String oldValue,
+					final String newValue) {
+				if (workerNameTxt.getText().length() >= 7) {
+					workerNameTxt.setText(workerNameTxt.getText().substring(0, 7));
+					workersData();
+					if (workersData().size() != 0) {
+						if (workersData().get(0).getWorkersStatus().equals("Aktív")) {
+							transmissionTxt.appendText("Dolgozó: " + workersData().get(0).getWorkersName() + "\n");
+							workerNameTxt.setEditable(false);
+							messageLbl.setText("");
+						} else {
+							new MessageLabel().errorMessage("Nem aktív a dolgozó", messageLbl);
+						}
+					} else {
+						new MessageLabel().errorMessage("Nincs ilyen dolgozó", messageLbl);
+					}
+				}
+			}
+		});
+
+	}
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		extruderTable();
 		setColumn();
-		extruderData();
+		transmissionFinishedData();
 		transmissionFinishedTableView.setItems(dataTransmission);
-		orderKgLbl.setText(" / " + Transmission.getExtruderorderKg()+"kg");
-		actualKgLbl.setText("->"+Transmission.getExtruderActualKg() +"kg");
-
+		orderKgLbl.setText(" / " + Transmission.getExtruderorderKg() + "kg");
+		actualKgLbl.setText("->" + Transmission.getExtruderActualKg() + "kg");
+		setData();
 	}
 
 }
