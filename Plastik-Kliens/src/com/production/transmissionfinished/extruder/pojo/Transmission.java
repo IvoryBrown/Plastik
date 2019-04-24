@@ -1,5 +1,10 @@
 package com.production.transmissionfinished.extruder.pojo;
 
+import com.production.transmissionfinished.extruder.database.TransmissionExtruderDataBase;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class Transmission {
 
 	private static String extruderId;
@@ -52,6 +57,20 @@ public class Transmission {
 
 	public static String getExtruderActualKg() {
 		return extruderActualKg;
+	}
+	public static String getFinishedActualKg() {
+		String f = null;
+		double sum = 0;
+		ObservableList<TransmissionExtruder> dataExtruder = FXCollections.observableArrayList();
+		dataExtruder.addAll(new TransmissionExtruderDataBase().getTransmisionNKg(Integer.parseInt(extruderId)));
+		if (dataExtruder.size() != 0) {
+			for (int i = 0; i < dataExtruder.size(); i++) {
+				double g = Double.valueOf(dataExtruder.get(i).getTransmissionNKg());
+				sum += g;
+			}
+		}
+		f = String.valueOf(sum);
+		return f;
 	}
 
 	public static void setExtruderActualKg(String extruderActualKg) {

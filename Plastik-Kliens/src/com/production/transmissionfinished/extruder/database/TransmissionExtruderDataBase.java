@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.manufacture.commoditycalculation.pojo.CommodityCalculation;
 import com.production.transmissionfinished.extruder.pojo.TransmissionExtruder;
 import com.production.transmissionfinished.extruder.pojo.TransmissionFinished;
 import com.setting.database.DataBaseLocal;
@@ -28,10 +27,10 @@ public class TransmissionExtruderDataBase {
 
 			while (rs.next()) {
 				TransmissionFinished actualTransmissionFinished = new TransmissionFinished(rs.getInt("leadas_id"),
-						rs.getString("gyartas_azonosito"), rs.getString("extruder_gep"), rs.getString("datum"),
-						rs.getString("dolgozo_nev"), rs.getString("megrendelo_nev"), rs.getString("tenyleges_meret"),
-						rs.getDouble("b_kg"), rs.getDouble("n_kg"), rs.getString("cseveszam"),
-						rs.getInt("extruder_extruder_id"));
+						rs.getString("gyartas_azonosito"), rs.getString("leadas_azonosito"),
+						rs.getString("extruder_gep"), rs.getString("datum"), rs.getString("dolgozo_nev"),
+						rs.getString("megrendelo_nev"), rs.getString("tenyleges_meret"), rs.getDouble("b_kg"),
+						rs.getDouble("n_kg"), rs.getString("cseveszam"), rs.getInt("extruder_extruder_id"));
 				transmissionFinished.add(actualTransmissionFinished);
 			}
 		} catch (SQLException ex) {
@@ -98,25 +97,26 @@ public class TransmissionExtruderDataBase {
 		Connection con = DataBaseLocal.getConnection();
 		PreparedStatement preparedStatement = null;
 		try {
-			String sql = "INSERT INTO `jo_leadas_extruder` (gyartas_azonosito, extruder_gep, datum, dolgozo_nev, megrendelo_nev, tenyleges_meret, b_kg, n_kg, cseveszam, extruder_extruder_id"
-					+ " VALUES (?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO `jo_leadas_extruder` (gyartas_azonosito, leadas_azonosito, extruder_gep, datum, dolgozo_nev, megrendelo_nev, tenyleges_meret, b_kg, n_kg, cseveszam, extruder_extruder_id)"
+					+ " VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 			preparedStatement = con.prepareStatement(sql);
 			preparedStatement.setString(1, transmissionFinished.getTransmissionExtruderIdentification());
-			preparedStatement.setString(2, transmissionFinished.getTransmissionExtruderName());
-			preparedStatement.setString(3, transmissionFinished.getTransmissionDate());
-			preparedStatement.setString(4, transmissionFinished.getTransmissionWorkerName());
-			preparedStatement.setString(5, transmissionFinished.getTransmissionClientName());
-			preparedStatement.setString(6, transmissionFinished.getTransmissionExtruderActualSize());
-			preparedStatement.setDouble(7, Double.valueOf(transmissionFinished.getTransmissionBKg()));
-			preparedStatement.setDouble(8, Double.valueOf(transmissionFinished.getTransmissionNKg()));
-			preparedStatement.setString(9, transmissionFinished.getTransmissionSpool());
-			preparedStatement.setString(10, transmissionFinished.getExtruderId());
+			preparedStatement.setString(2, transmissionFinished.getTransmissionIdentification());
+			preparedStatement.setString(3, transmissionFinished.getTransmissionExtruderName());
+			preparedStatement.setString(4, transmissionFinished.getTransmissionDate());
+			preparedStatement.setString(5, transmissionFinished.getTransmissionWorkerName());
+			preparedStatement.setString(6, transmissionFinished.getTransmissionClientName());
+			preparedStatement.setString(7, transmissionFinished.getTransmissionExtruderActualSize());
+			preparedStatement.setDouble(8, Double.valueOf(transmissionFinished.getTransmissionBKg()));
+			preparedStatement.setDouble(9, Double.valueOf(transmissionFinished.getTransmissionNKg()));
+			preparedStatement.setString(10, transmissionFinished.getTransmissionSpool());
+			preparedStatement.setString(11, transmissionFinished.getExtruderId());
 
 			preparedStatement.execute();
 		} catch (SQLException ex) {
 			System.out.println("Valami baj van a contact hozzáadásakor");
-			System.out.println("" + ex.getMessage() + "/n" + ex.getSQLState());
-			 new ShowInfo("Adatbázis Hiba", "", ex.getMessage());
+			System.out.println("" + ex.getMessage());
+			new ShowInfo("Adatbázis Hiba", "", ex.getMessage());
 		} finally {
 			try {
 				if (preparedStatement != null) {
@@ -126,7 +126,7 @@ public class TransmissionExtruderDataBase {
 					con.close();
 				}
 			} catch (SQLException ex) {
-				 new ShowInfo("Adatbázis Hiba", "", ex.getMessage());
+				new ShowInfo("Adatbázis Hiba", "", ex.getMessage());
 				System.out.println("" + ex.getMessage());
 			}
 		}

@@ -31,9 +31,9 @@ public class TransmissionFinishedController implements Initializable {
 	@FXML
 	private TableView<TransmissionFinished> transmissionFinishedTableView;
 	private TableColumn<TransmissionFinished, Integer> transmissionId, extruderId;
-	private TableColumn<TransmissionFinished, String> transmissionExtruderIdentification, transmissionExtruderName,
-			transmissionWorkerName, transmissionClientName, transmissionExtruderActualSize, transmissionBKg,
-			transmissionNKg, transmissionSpool;
+	private TableColumn<TransmissionFinished, String> transmissionExtruderIdentification, transmissionIdentification,
+			transmissionExtruderName, transmissionWorkerName, transmissionClientName, transmissionExtruderActualSize,
+			transmissionBKg, transmissionNKg, transmissionSpool;
 	private TableColumn<TransmissionFinished, Date> transmissionDate;
 	@FXML
 	private Label orderKgLbl, actualKgLbl, messageLbl;
@@ -67,17 +67,12 @@ public class TransmissionFinishedController implements Initializable {
 
 	}
 
-	private void clearTable() {
-		transmissionFinishedTableView.getItems().clear();
-		transmissionFinishedTableView.getColumns().clear();
-
-	}
-
 	@SuppressWarnings("unchecked")
 	private void setColumn() {
-		transmissionFinishedTableView.getColumns().addAll(transmissionId, transmissionExtruderIdentification,
-				transmissionBKg, transmissionNKg, transmissionSpool, transmissionExtruderName, transmissionDate,
-				transmissionWorkerName, transmissionClientName, transmissionExtruderActualSize, extruderId);
+		transmissionFinishedTableView.getColumns().addAll(transmissionId, transmissionIdentification,
+				transmissionExtruderIdentification, transmissionBKg, transmissionNKg, transmissionSpool,
+				transmissionExtruderName, transmissionDate, transmissionWorkerName, transmissionClientName,
+				transmissionExtruderActualSize, extruderId);
 	}
 
 	private void extruderTable() {
@@ -88,6 +83,11 @@ public class TransmissionFinishedController implements Initializable {
 		extruderId = new TableColumn<>("ExID");
 		extruderId.setMinWidth(50);
 		extruderId.setCellValueFactory(new PropertyValueFactory<TransmissionFinished, Integer>("extruderId"));
+
+		transmissionIdentification = new TableColumn<>("Leadás ID");
+		transmissionIdentification.setMinWidth(50);
+		transmissionIdentification.setCellValueFactory(
+				new PropertyValueFactory<TransmissionFinished, String>("transmissionIdentification"));
 
 		transmissionExtruderIdentification = new TableColumn<>("Azonosító");
 		transmissionExtruderIdentification.setMinWidth(50);
@@ -171,6 +171,7 @@ public class TransmissionFinishedController implements Initializable {
 							messageLbl.setText("");
 							// Mérleg adoptálás!!!
 							transmissionActualKgTxt.setEditable(true);
+							
 							saveDataBase.setDisable(false);
 						} else {
 							new MessageLabel().errorMessage("Nem aktív a dolgozó", messageLbl);
@@ -192,18 +193,21 @@ public class TransmissionFinishedController implements Initializable {
 			Date date = new Date();
 			String transmissionDate = dateFormat.format(date);
 			double n_kg = Double.valueOf(transmissionActualKgTxt.getText()) - 18;
+			String identification = Transmission.getExtruderIdentification() + "/L"
+					+ String.valueOf(transmissionIdentification());
+			transmissionTxt.appendText("Brutto kg:         " + Double.valueOf(transmissionActualKgTxt.getText()) + "\n");
+			transmissionTxt.appendText("Netto kg:         " + n_kg + "\n");
 			transmissionExtruderDataBase.addTransmission(new TransmissionFinished(
-					Transmission.getExtruderIdentification(), 
-					Transmission.getExtruderName(),
-					transmissionDate,
-					workersData().get(0).getWorkersName(),
-					Transmission.getExtruderClientName(),
-					Transmission.getExtruderActualSize(),
-					Double.valueOf(transmissionActualKgTxt.getText()),
-					n_kg, 
-					"1",
+					Transmission.getExtruderIdentification(), identification, Transmission.getExtruderName(),
+					transmissionDate, workersData().get(0).getWorkersName(), Transmission.getExtruderClientName(),
+					Transmission.getExtruderActualSize(), Double.valueOf(transmissionActualKgTxt.getText()), n_kg, "1",
 					Integer.valueOf(Transmission.getExtruderId())));
+
+			// táblázat update
+			transmissionFinishedData();
+			allExtruderKg();
 		}
+
 	}
 
 	private boolean checkTextField() {
@@ -215,14 +219,33 @@ public class TransmissionFinishedController implements Initializable {
 
 	}
 
+	// Össz kg static pojo
+	private void allExtruderKg() {
+		orderKgLbl.setText(" / " + Transmission.getExtruderorderKg() + "kg");
+		actualKgLbl.setText("->" + Transmission.getFinishedActualKg() + "kg");
+
+	}
+
+	// leadás anozosito
+	private Integer transmissionIdentification() {
+		if (transmissionFinishedData().size() != 0) {
+			Integer g = Integer
+					.valueOf(transmissionFinishedData().get(transmissionFinishedData().size() - 1).getTransmissionId());
+			return g + 1;
+
+		} else {
+			return 1;
+		}
+
+	}
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		extruderTable();
 		setColumn();
 		transmissionFinishedData();
 		transmissionFinishedTableView.setItems(dataTransmission);
-		orderKgLbl.setText(" / " + Transmission.getExtruderorderKg() + "kg");
-		actualKgLbl.setText("->" + Transmission.getExtruderActualKg() + "kg");
+		allExtruderKg();
 		setData();
 	}
 

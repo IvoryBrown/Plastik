@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 public class TransmissionFinished {
 	private final SimpleStringProperty transmissionId;
 	private final SimpleStringProperty transmissionExtruderIdentification;
+	private final SimpleStringProperty transmissionIdentification;
 	private final SimpleStringProperty transmissionExtruderName;
 	private final SimpleStringProperty transmissionDate;
 	private final SimpleStringProperty transmissionWorkerName;
@@ -18,6 +19,7 @@ public class TransmissionFinished {
 	public TransmissionFinished() {
 		this.transmissionId = new SimpleStringProperty("");
 		this.transmissionExtruderIdentification = new SimpleStringProperty("");
+		this.transmissionIdentification = new SimpleStringProperty("");
 		this.transmissionExtruderName = new SimpleStringProperty("");
 		this.transmissionDate = new SimpleStringProperty("");
 		this.transmissionWorkerName = new SimpleStringProperty("");
@@ -33,6 +35,7 @@ public class TransmissionFinished {
 	public TransmissionFinished(double transmissionNKg, Integer extruderId) {
 		this.transmissionId = new SimpleStringProperty("");
 		this.transmissionExtruderIdentification = new SimpleStringProperty("");
+		this.transmissionIdentification = new SimpleStringProperty("");
 		this.transmissionExtruderName = new SimpleStringProperty("");
 		this.transmissionDate = new SimpleStringProperty("");
 		this.transmissionWorkerName = new SimpleStringProperty("");
@@ -46,11 +49,12 @@ public class TransmissionFinished {
 
 	// table
 	public TransmissionFinished(Integer transmissionId, String transmissionExtruderIdentification,
-			String transmissionExtruderName, String transmissionDate, String transmissionWorkerName,
-			String transmissionClientName, String transmissionExtruderActualSize, double transmissionBKg,
-			double transmissionNKg, String transmissionSpool, Integer extruderId) {
+			String transmissionIdentification, String transmissionExtruderName, String transmissionDate,
+			String transmissionWorkerName, String transmissionClientName, String transmissionExtruderActualSize,
+			double transmissionBKg, double transmissionNKg, String transmissionSpool, Integer extruderId) {
 		this.transmissionId = new SimpleStringProperty(String.valueOf(transmissionId));
 		this.transmissionExtruderIdentification = new SimpleStringProperty(transmissionExtruderIdentification);
+		this.transmissionIdentification = new SimpleStringProperty(transmissionIdentification);
 		this.transmissionExtruderName = new SimpleStringProperty(transmissionExtruderName);
 		this.transmissionDate = new SimpleStringProperty(transmissionDate);
 		this.transmissionWorkerName = new SimpleStringProperty(transmissionWorkerName);
@@ -63,12 +67,13 @@ public class TransmissionFinished {
 	}
 
 	// add database
-	public TransmissionFinished(String transmissionExtruderIdentification, String transmissionExtruderName,
-			String transmissionDate, String transmissionWorkerName, String transmissionClientName,
-			String transmissionExtruderActualSize, double transmissionBKg, double transmissionNKg,
-			String transmissionSpool, Integer extruderId) {
+	public TransmissionFinished(String transmissionExtruderIdentification, String transmissionIdentification,
+			String transmissionExtruderName, String transmissionDate, String transmissionWorkerName,
+			String transmissionClientName, String transmissionExtruderActualSize, double transmissionBKg,
+			double transmissionNKg, String transmissionSpool, Integer extruderId) {
 		this.transmissionId = new SimpleStringProperty(String.valueOf(""));
 		this.transmissionExtruderIdentification = new SimpleStringProperty(transmissionExtruderIdentification);
+		this.transmissionIdentification = new SimpleStringProperty(transmissionIdentification);
 		this.transmissionExtruderName = new SimpleStringProperty(transmissionExtruderName);
 		this.transmissionDate = new SimpleStringProperty(transmissionDate);
 		this.transmissionWorkerName = new SimpleStringProperty(transmissionWorkerName);
@@ -102,6 +107,18 @@ public class TransmissionFinished {
 
 	public void setTransmissionExtruderIdentification(String transmissionExtruderIdentification) {
 		this.transmissionExtruderIdentification.set(transmissionExtruderIdentification);
+	}
+
+	public SimpleStringProperty getTransmissionIdentificationProperty() {
+		return this.transmissionIdentification;
+	}
+
+	public String getTransmissionIdentification() {
+		return this.transmissionIdentification.get();
+	}
+
+	public void setTransmissionIdentification(String transmissionIdentification) {
+		this.transmissionIdentification.set(transmissionIdentification);
 	}
 
 	public SimpleStringProperty getTransmissionExtruderNameProperty() {
