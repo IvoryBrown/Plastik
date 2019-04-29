@@ -62,6 +62,7 @@ public class TableController {
 		Runnable task = new Runnable() {
 			public void run() {
 				runTask();
+				
 			}
 		};
 

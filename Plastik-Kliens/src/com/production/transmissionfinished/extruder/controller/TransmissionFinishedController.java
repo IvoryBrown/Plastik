@@ -1,11 +1,14 @@
 package com.production.transmissionfinished.extruder.controller;
 
+import java.io.InputStream;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+import com.fazecast.jSerialComm.SerialPort;
+import com.kliens.message.pojo.Kliens;
 import com.production.transmissionfinished.extruder.database.TransmissionExtruderDataBase;
 import com.production.transmissionfinished.extruder.pojo.Transmission;
 import com.production.transmissionfinished.extruder.pojo.TransmissionFinished;
@@ -13,6 +16,7 @@ import com.project.setting.worker.database.WorkersDataBase;
 import com.project.setting.worker.pojo.Workers;
 import com.setting.label.MessageLabel;
 
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -168,11 +172,10 @@ public class TransmissionFinishedController implements Initializable {
 							transmissionTxt
 									.appendText("Dolgozó:        " + workersData().get(0).getWorkersName() + "\n");
 							workerNameTxt.setEditable(false);
-							messageLbl.setText("");
+							new MessageLabel().goodMessage("Nyomj egy Print gombot a mérlegen!!", messageLbl);
 							// Mérleg adoptálás!!!
-							transmissionActualKgTxt.setEditable(true);
-							
-							saveDataBase.setDisable(false);
+							startTask();
+
 						} else {
 							new MessageLabel().errorMessage("Nem aktív a dolgozó", messageLbl);
 						}
@@ -182,7 +185,62 @@ public class TransmissionFinishedController implements Initializable {
 				}
 			}
 		});
+	}
 
+	private void startTask() {
+		// Create a Runnable
+		Runnable task = new Runnable() {
+			public void run() {
+				runTask();
+			}
+		};
+		// Run the task in a background thread
+		Thread backgroundThread = new Thread(task);
+		// Terminate the running thread if the application exits
+		backgroundThread.setDaemon(true);
+		// Start the thread
+		backgroundThread.start();
+	}
+
+	private void runTask() {
+		try {
+			Platform.runLater(new Runnable() {
+				@Override
+				public void run() {
+					// Mérleg
+					transmissionActualKgTxt.setText(actualKgRs232().toString());
+					saveDataBase.setDisable(false);
+					messageLbl.setText("");
+					transmissionTxt.appendText("Mérleg súly:         " + transmissionActualKgTxt.getText() + "\n");
+				}
+			});
+			Thread.sleep(3L * 1000L);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	// RS232 Port
+	private String actualKgRs232() {
+		// Port Number setting!!!!!!!!!!
+		SerialPort comPort = SerialPort.getCommPort("COM5");
+		comPort.openPort();
+		comPort.setComPortTimeouts(SerialPort.TIMEOUT_READ_SEMI_BLOCKING, 0, 0);
+		InputStream in = comPort.getInputStream();
+		final StringBuilder sb = new StringBuilder();
+		try {
+			for (int j = 0; j < 10; ++j) {
+				sb.append((char) in.read());
+				in.close();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		comPort.closePort();
+		String g =sb.substring(0, sb.indexOf("kg"));
+		return g;
 	}
 
 	// adatbázis mentés
@@ -195,7 +253,8 @@ public class TransmissionFinishedController implements Initializable {
 			double n_kg = Double.valueOf(transmissionActualKgTxt.getText()) - 18;
 			String identification = Transmission.getExtruderIdentification() + "/L"
 					+ String.valueOf(transmissionIdentification());
-			transmissionTxt.appendText("Brutto kg:         " + Double.valueOf(transmissionActualKgTxt.getText()) + "\n");
+			transmissionTxt
+					.appendText("Brutto kg:         " + Double.valueOf(transmissionActualKgTxt.getText()) + "\n");
 			transmissionTxt.appendText("Netto kg:         " + n_kg + "\n");
 			transmissionExtruderDataBase.addTransmission(new TransmissionFinished(
 					Transmission.getExtruderIdentification(), identification, Transmission.getExtruderName(),

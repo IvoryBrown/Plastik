@@ -50,7 +50,7 @@
                   <TextField fx:id="workerNameTxt" layoutX="260.0" layoutY="59.0" />
                   <Label alignment="CENTER_RIGHT" layoutX="62.0" layoutY="59.0" prefHeight="25.0" prefWidth="182.0" text="Dolgozó kód:" />
                   <TextArea fx:id="transmissionTxt" layoutX="13.0" layoutY="206.0" prefHeight="426.0" prefWidth="455.0" />
-                  <TextField fx:id="transmissionActualKgTxt" editable="false" layoutX="260.0" layoutY="91.0" />
+                  <TextField fx:id="transmissionActualKgTxt" layoutX="260.0" layoutY="91.0" />
                   <Label alignment="CENTER_RIGHT" layoutX="56.0" layoutY="91.0" prefHeight="25.0" prefWidth="182.0" text="Súly:" />
                   <Button fx:id="saveDataBase" disable="true" layoutX="409.0" layoutY="150.0" mnemonicParsing="false" onAction="#saveDataBase" text="Button" />
                </children>
