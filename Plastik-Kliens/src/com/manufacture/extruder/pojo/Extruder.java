@@ -195,7 +195,8 @@ public class Extruder {
 				sum += g;
 			}
 		}
-		f = String.valueOf(sum);
+		double n_kg1 = Math.round(sum * 1e2) / 1e2;
+		f = String.valueOf(n_kg1);
 		return f;
 	}
 

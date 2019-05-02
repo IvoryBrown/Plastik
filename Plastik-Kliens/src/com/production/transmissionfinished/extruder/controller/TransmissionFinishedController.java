@@ -8,7 +8,6 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import com.fazecast.jSerialComm.SerialPort;
-import com.kliens.message.pojo.Kliens;
 import com.production.transmissionfinished.extruder.database.TransmissionExtruderDataBase;
 import com.production.transmissionfinished.extruder.pojo.Transmission;
 import com.production.transmissionfinished.extruder.pojo.TransmissionFinished;
@@ -239,7 +238,7 @@ public class TransmissionFinishedController implements Initializable {
 			e.printStackTrace();
 		}
 		comPort.closePort();
-		String g =sb.substring(0, sb.indexOf("kg"));
+		String g = sb.substring(0, sb.indexOf("kg"));
 		return g;
 	}
 
@@ -250,16 +249,18 @@ public class TransmissionFinishedController implements Initializable {
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			Date date = new Date();
 			String transmissionDate = dateFormat.format(date);
-			double n_kg = Double.valueOf(transmissionActualKgTxt.getText()) - 18;
+			double n_kg = Double.valueOf(transmissionActualKgTxt.getText()) - 2;
+			// double kerekites
+			double n_kg1 = Math.round(n_kg * 1e2) / 1e2;
 			String identification = Transmission.getExtruderIdentification() + "/L"
 					+ String.valueOf(transmissionIdentification());
 			transmissionTxt
 					.appendText("Brutto kg:         " + Double.valueOf(transmissionActualKgTxt.getText()) + "\n");
-			transmissionTxt.appendText("Netto kg:         " + n_kg + "\n");
+			transmissionTxt.appendText("Netto kg:         " + n_kg1 + "\n");
 			transmissionExtruderDataBase.addTransmission(new TransmissionFinished(
 					Transmission.getExtruderIdentification(), identification, Transmission.getExtruderName(),
 					transmissionDate, workersData().get(0).getWorkersName(), Transmission.getExtruderClientName(),
-					Transmission.getExtruderActualSize(), Double.valueOf(transmissionActualKgTxt.getText()), n_kg, "1",
+					Transmission.getExtruderActualSize(), Double.valueOf(transmissionActualKgTxt.getText()), n_kg1, "1",
 					Integer.valueOf(Transmission.getExtruderId())));
 
 			// táblázat update
