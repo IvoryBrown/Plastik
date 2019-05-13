@@ -201,7 +201,7 @@ public class TableController {
 
 		colActive = new TableColumn<>("");
 		colActive.setSortable(false);
-		colActive.setMinWidth(100);
+		colActive.setMinWidth(150);
 		colActive.setCellValueFactory(
 				new Callback<TableColumn.CellDataFeatures<Extruder, Boolean>, ObservableValue<Boolean>>() {
 					@Override

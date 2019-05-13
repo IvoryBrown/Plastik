@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import com.fazecast.jSerialComm.SerialPort;
+import com.manufacture.extruder.pojo.Extruder;
 import com.production.transmissionfinished.extruder.database.TransmissionExtruderDataBase;
 import com.production.transmissionfinished.extruder.pojo.Transmission;
 import com.production.transmissionfinished.extruder.pojo.TransmissionFinished;
@@ -25,6 +26,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -133,6 +135,23 @@ public class TransmissionFinishedController implements Initializable {
 		transmissionSpool.setMinWidth(50);
 		transmissionSpool
 				.setCellValueFactory(new PropertyValueFactory<TransmissionFinished, String>("transmissionSpool"));
+
+		transmissionFinishedTableView.setRowFactory(ts -> new TableRow<TransmissionFinished>() {
+			@Override
+			public void updateItem(TransmissionFinished item, boolean empty) {
+				super.updateItem(item, empty);
+
+				if (item == null) {
+					setStyle("");
+				} else {
+					setStyle("");
+
+					setStyle("-fx-text-background-color: whitesmoke;");
+
+				}
+			}
+		});
+
 	}
 
 	public void setQuantityNumber(TextField textField, Label label) {
@@ -152,12 +171,18 @@ public class TransmissionFinishedController implements Initializable {
 		});
 	}
 
-	private void setData() {
+	// area feltoltes
+	private void transmissionTxt() {
 		transmissionTxt.appendText("Ügyfél:            " + Transmission.getExtruderClientName() + "\n");
 		transmissionTxt.appendText("Termék azonosító:       " + Transmission.getExtruderIdentification() + "\n");
 		transmissionTxt.appendText("Termék:             " + Transmission.getExtruderActualSize() + "\n");
 		transmissionTxt.appendText("Gyártó gép:         " + Transmission.getExtruderName() + "\n");
 		transmissionTxt.appendText("Megrendelt kg:         " + Transmission.getExtruderorderKg() + "\n");
+
+	}
+
+	private void setData() {
+		transmissionTxt();
 		setQuantityNumber(workerNameTxt, messageLbl);
 		workerNameTxt.textProperty().addListener(new ChangeListener<String>() {
 			@Override
@@ -266,8 +291,18 @@ public class TransmissionFinishedController implements Initializable {
 			// táblázat update
 			transmissionFinishedData();
 			allExtruderKg();
+			clearDataText();
 		}
 
+	}
+
+	private void clearDataText() {
+		workerNameTxt.setEditable(true);
+		saveDataBase.setDisable(true);
+		transmissionTxt.clear();
+		workerNameTxt.clear();
+		transmissionActualKgTxt.clear();
+		transmissionTxt();
 	}
 
 	private boolean checkTextField() {

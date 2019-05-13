@@ -7,6 +7,7 @@ import com.office.extruder.pallet.button.pojo.PalletButtonCell;
 import com.office.extruder.pallet.database.PalletDatabase;
 import com.office.extruder.pallet.pojo.Pallet;
 import com.office.extruder.pojo.Extruder;
+import com.office.extruder.pojo.Transmission;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,7 +29,8 @@ import javafx.stage.Stage;
 public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 	private final Button commodityButton = new Button("");
 	private final Button palletButton = new Button("");
-	private final HBox hBox = new HBox(commodityButton, palletButton);
+	private final Button transmissionFinished = new Button("");
+	private final HBox hBox = new HBox(commodityButton, palletButton, transmissionFinished);
 	private CalculationDataBase db = new CalculationDataBase();
 	private final ObservableList<CommodityCalculation> dataCommodity = FXCollections.observableArrayList();
 	private PalletDatabase palletDatabase = new PalletDatabase();
@@ -57,6 +59,17 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 				selectedRecord = tblView.getItems().get(selectdIndex);
 				dataPallet.addAll(palletDatabase.getAllPallet(selectedRecord.getExtruderPalletId()));
 				palleta();
+			}
+
+		});
+		
+		transmissionFinished.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				int selectdIndex = getTableRow().getIndex();
+				selectedRecord = tblView.getItems().get(selectdIndex);
+				Transmission.setExtruderId(selectedRecord.getExtruderId());
+				
 			}
 
 		});
@@ -198,8 +211,11 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 		commodityButton.getStyleClass().add("calculationButton");
 		palletButton.getStylesheets().add("/com/main/view/css/button.css");
 		palletButton.getStyleClass().add("palletButton");
+		transmissionFinished.getStylesheets().add("/com/main/view/css/button.css");
+		transmissionFinished.getStyleClass().add("transmissionButton");
 		commodityButton.setMinSize(40, 25);
 		palletButton.setMinSize(40, 25);
+		transmissionFinished.setMinSize(40, 25);
 		super.updateItem(t, empty);
 		if (!empty) {
 
