@@ -8,6 +8,7 @@ import com.office.extruder.pallet.database.PalletDatabase;
 import com.office.extruder.pallet.pojo.Pallet;
 import com.office.extruder.pojo.Extruder;
 import com.office.extruder.pojo.Transmission;
+import com.office.transmission.main.TransmissionMain;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -69,7 +70,7 @@ public class CalculationButtonCell extends TableCell<Extruder, Boolean> {
 				int selectdIndex = getTableRow().getIndex();
 				selectedRecord = tblView.getItems().get(selectdIndex);
 				Transmission.setExtruderId(selectedRecord.getExtruderId());
-				
+				new TransmissionMain().start();
 			}
 
 		});

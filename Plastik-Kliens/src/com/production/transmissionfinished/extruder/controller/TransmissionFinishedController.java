@@ -8,7 +8,6 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import com.fazecast.jSerialComm.SerialPort;
-import com.manufacture.extruder.pojo.Extruder;
 import com.production.transmissionfinished.extruder.database.TransmissionExtruderDataBase;
 import com.production.transmissionfinished.extruder.pojo.Transmission;
 import com.production.transmissionfinished.extruder.pojo.TransmissionFinished;
