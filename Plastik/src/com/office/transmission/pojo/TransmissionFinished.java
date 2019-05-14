@@ -1,5 +1,6 @@
 package com.office.transmission.pojo;
 
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class TransmissionFinished {
@@ -14,6 +15,7 @@ public class TransmissionFinished {
 	private final SimpleStringProperty transmissionBKg;
 	private final SimpleStringProperty transmissionNKg;
 	private final SimpleStringProperty transmissionSpool;
+	private final SimpleBooleanProperty transmissionDelete;
 	private final SimpleStringProperty extruderId;
 
 	public TransmissionFinished() {
@@ -28,6 +30,7 @@ public class TransmissionFinished {
 		this.transmissionBKg = new SimpleStringProperty("");
 		this.transmissionNKg = new SimpleStringProperty("");
 		this.transmissionSpool = new SimpleStringProperty("");
+		this.transmissionDelete = new SimpleBooleanProperty();
 		this.extruderId = new SimpleStringProperty("");
 	}
 
@@ -43,6 +46,7 @@ public class TransmissionFinished {
 		this.transmissionExtruderActualSize = new SimpleStringProperty("");
 		this.transmissionSpool = new SimpleStringProperty("");
 		this.transmissionBKg = new SimpleStringProperty("");
+		this.transmissionDelete = new SimpleBooleanProperty();
 		this.transmissionNKg = new SimpleStringProperty(String.valueOf(transmissionNKg));
 		this.extruderId = new SimpleStringProperty(String.valueOf(extruderId));
 	}
@@ -51,7 +55,8 @@ public class TransmissionFinished {
 	public TransmissionFinished(Integer transmissionId, String transmissionExtruderIdentification,
 			String transmissionIdentification, String transmissionExtruderName, String transmissionDate,
 			String transmissionWorkerName, String transmissionClientName, String transmissionExtruderActualSize,
-			double transmissionBKg, double transmissionNKg, String transmissionSpool, Integer extruderId) {
+			double transmissionBKg, double transmissionNKg, String transmissionSpool, boolean transmissionDelete,
+			Integer extruderId) {
 		this.transmissionId = new SimpleStringProperty(String.valueOf(transmissionId));
 		this.transmissionExtruderIdentification = new SimpleStringProperty(transmissionExtruderIdentification);
 		this.transmissionIdentification = new SimpleStringProperty(transmissionIdentification);
@@ -63,6 +68,7 @@ public class TransmissionFinished {
 		this.transmissionBKg = new SimpleStringProperty(String.valueOf(transmissionBKg));
 		this.transmissionNKg = new SimpleStringProperty(String.valueOf(transmissionNKg));
 		this.transmissionSpool = new SimpleStringProperty(transmissionSpool);
+		this.transmissionDelete = new SimpleBooleanProperty(transmissionDelete);
 		this.extruderId = new SimpleStringProperty(String.valueOf(extruderId));
 	}
 
@@ -82,6 +88,7 @@ public class TransmissionFinished {
 		this.transmissionBKg = new SimpleStringProperty(String.valueOf(transmissionBKg));
 		this.transmissionNKg = new SimpleStringProperty(String.valueOf(transmissionNKg));
 		this.transmissionSpool = new SimpleStringProperty(transmissionSpool);
+		this.transmissionDelete = new SimpleBooleanProperty();
 		this.extruderId = new SimpleStringProperty(String.valueOf(extruderId));
 	}
 
@@ -215,6 +222,18 @@ public class TransmissionFinished {
 
 	public void setTransmissionSpool(String transmissionSpool) {
 		this.transmissionSpool.set(transmissionSpool);
+	}
+
+	public SimpleBooleanProperty getExtruderDeleteProperty() {
+		return this.transmissionDelete;
+	}
+
+	public Boolean getExtruderDelete() {
+		return this.transmissionDelete.get();
+	}
+
+	public void setExtruderDelete(Boolean transmissionDelete) {
+		this.transmissionDelete.set(transmissionDelete);
 	}
 
 	public SimpleStringProperty getExtruderIdProperty() {

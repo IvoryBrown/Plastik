@@ -20,16 +20,22 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.StageStyle;
+import javafx.util.Callback;
 
 public class TransmissionFinishedController implements Initializable {
 	@FXML
@@ -37,7 +43,7 @@ public class TransmissionFinishedController implements Initializable {
 	private TableColumn<TransmissionFinished, Integer> transmissionId, extruderId;
 	private TableColumn<TransmissionFinished, String> transmissionExtruderIdentification, transmissionIdentification,
 			transmissionExtruderName, transmissionWorkerName, transmissionClientName, transmissionExtruderActualSize,
-			transmissionBKg, transmissionNKg, transmissionSpool;
+			transmissionBKg, transmissionNKg, transmissionSpool, removeCol;
 	private TableColumn<TransmissionFinished, Date> transmissionDate;
 	@FXML
 	private Label orderKgLbl, actualKgLbl, messageLbl;
@@ -47,6 +53,7 @@ public class TransmissionFinishedController implements Initializable {
 	private TextArea transmissionTxt;
 	@FXML
 	private Button saveDataBase;
+
 
 	private TransmissionExtruderDataBase transmissionExtruderDataBase = new TransmissionExtruderDataBase();
 	private final ObservableList<TransmissionFinished> dataTransmission = FXCollections.observableArrayList();
@@ -76,7 +83,7 @@ public class TransmissionFinishedController implements Initializable {
 		transmissionFinishedTableView.getColumns().addAll(transmissionId, transmissionIdentification,
 				transmissionExtruderIdentification, transmissionBKg, transmissionNKg, transmissionSpool,
 				transmissionExtruderName, transmissionDate, transmissionWorkerName, transmissionClientName,
-				transmissionExtruderActualSize, extruderId);
+				transmissionExtruderActualSize, extruderId, removeCol);
 	}
 
 	private void extruderTable() {
@@ -135,6 +142,47 @@ public class TransmissionFinishedController implements Initializable {
 		transmissionSpool
 				.setCellValueFactory(new PropertyValueFactory<TransmissionFinished, String>("transmissionSpool"));
 
+		removeCol = new TableColumn<TransmissionFinished, String>("Törlés");
+
+		Callback<TableColumn<TransmissionFinished, String>, TableCell<TransmissionFinished, String>> cellFactory = new Callback<TableColumn<TransmissionFinished, String>, TableCell<TransmissionFinished, String>>() {
+			@Override
+			public TableCell<TransmissionFinished, String> call(final TableColumn<TransmissionFinished, String> param) {
+				final TableCell<TransmissionFinished, String> cell = new TableCell<TransmissionFinished, String>() {
+					private final Button btn = new Button();
+
+					@Override
+					public void updateItem(String item, boolean empty) {
+						super.updateItem(item, empty);
+						btn.getStylesheets().add("/com/main/view/css/button.css");
+						btn.getStyleClass().add("deleteButton");
+						btn.setMinSize(40, 25);
+						if (empty) {
+							setGraphic(null);
+							setText(null);
+						} else {
+							btn.setOnAction((ActionEvent event) -> {
+								Alert alert = new Alert(Alert.AlertType.NONE, "Biztos töröltetni szeretnéd?",
+										ButtonType.YES, ButtonType.NO);
+								alert.getDialogPane().getStylesheets().add("/com/setting/showinfo/ShowInfo.css");
+								alert.initStyle(StageStyle.TRANSPARENT);
+								if (alert.showAndWait().orElse(ButtonType.NO) == ButtonType.YES) {
+									TransmissionFinished transmissionFinished = getTableView().getItems()
+											.get(getIndex());
+									transmissionExtruderDataBase.removeTransmissionFinished(transmissionFinished);
+									transmissionFinishedData();
+									
+								}
+							});
+							setGraphic(btn);
+							setText(null);
+						}
+					}
+				};
+				return cell;
+			}
+		};
+		removeCol.setCellFactory(cellFactory);
+
 		transmissionFinishedTableView.setRowFactory(ts -> new TableRow<TransmissionFinished>() {
 			@Override
 			public void updateItem(TransmissionFinished item, boolean empty) {
@@ -144,8 +192,12 @@ public class TransmissionFinishedController implements Initializable {
 					setStyle("");
 				} else {
 					setStyle("");
+					if (item.getExtruderDelete()) {
+						setStyle("-fx-text-background-color: red;");
+					} else {
+						setStyle("-fx-text-background-color: whitesmoke;");
 
-					setStyle("-fx-text-background-color: whitesmoke;");
+					}
 
 				}
 			}
