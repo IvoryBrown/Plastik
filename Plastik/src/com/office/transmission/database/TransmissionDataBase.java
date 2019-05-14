@@ -29,7 +29,7 @@ public class TransmissionDataBase {
 						rs.getString("gyartas_azonosito"), rs.getString("leadas_azonosito"),
 						rs.getString("extruder_gep"), rs.getString("datum"), rs.getString("dolgozo_nev"),
 						rs.getString("megrendelo_nev"), rs.getString("tenyleges_meret"), rs.getDouble("b_kg"),
-						rs.getDouble("n_kg"), rs.getString("cseveszam"), rs.getInt("extruder_extruder_id"));
+						rs.getDouble("n_kg"), rs.getString("cseveszam"),rs.getBoolean("delete"), rs.getInt("extruder_extruder_id"));
 				transmissionFinished.add(actualTransmissionFinished);
 			}
 		} catch (SQLException ex) {

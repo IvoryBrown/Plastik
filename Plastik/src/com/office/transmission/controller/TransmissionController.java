@@ -164,8 +164,12 @@ public class TransmissionController implements Initializable {
 					setStyle("");
 				} else {
 					setStyle("");
+					if (item.getExtruderDelete()) {
+						setStyle("-fx-text-background-color: red;");
+					} else {
+						setStyle("-fx-text-background-color: whitesmoke;");
 
-					setStyle("-fx-text-background-color: whitesmoke;");
+					}
 
 				}
 			}
