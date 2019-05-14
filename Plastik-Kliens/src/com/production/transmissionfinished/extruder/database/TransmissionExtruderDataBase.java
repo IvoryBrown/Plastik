@@ -30,7 +30,8 @@ public class TransmissionExtruderDataBase {
 						rs.getString("gyartas_azonosito"), rs.getString("leadas_azonosito"),
 						rs.getString("extruder_gep"), rs.getString("datum"), rs.getString("dolgozo_nev"),
 						rs.getString("megrendelo_nev"), rs.getString("tenyleges_meret"), rs.getDouble("b_kg"),
-						rs.getDouble("n_kg"), rs.getString("cseveszam"), rs.getInt("extruder_extruder_id"));
+						rs.getDouble("n_kg"), rs.getString("cseveszam"), rs.getBoolean("delete"),
+						rs.getInt("extruder_extruder_id"));
 				transmissionFinished.add(actualTransmissionFinished);
 			}
 		} catch (SQLException ex) {
@@ -128,6 +129,36 @@ public class TransmissionExtruderDataBase {
 			} catch (SQLException ex) {
 				new ShowInfo("Adatbázis Hiba", "", ex.getMessage());
 				System.out.println("" + ex.getMessage());
+			}
+		}
+	}
+
+	// update (delete) tabel row
+
+	public void removeTransmissionFinished(TransmissionFinished client) {
+		Connection conn = DataBaseLocal.getConnection();
+		PreparedStatement pr = null;
+		try {
+			String sqlClient = null;
+			sqlClient = "UPDATE `jo_leadas_extruder` set `delete` = ?" + " WHERE `leadas_id` = ?";
+
+			pr = conn.prepareStatement(sqlClient);
+			pr.setBoolean(1, true);
+			pr.setInt(2, Integer.parseInt(client.getTransmissionId()));
+			pr.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e);
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pr != null) {
+					pr.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				new ShowInfo("Adatbázis Hiba", "Szerver válasza: ", e.getMessage());
 			}
 		}
 	}
