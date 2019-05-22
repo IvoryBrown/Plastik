@@ -1,6 +1,7 @@
 package com.production.transmissionfinished.extruder.controller;
 
 import java.io.InputStream;
+import java.lang.reflect.Constructor;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -14,6 +15,7 @@ import com.production.transmissionfinished.extruder.pojo.TransmissionFinished;
 import com.project.setting.worker.database.WorkersDataBase;
 import com.project.setting.worker.pojo.Workers;
 import com.setting.label.MessageLabel;
+import com.sun.javafx.print.Units;
 
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
@@ -23,6 +25,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.print.PageLayout;
+import javafx.print.PageOrientation;
+import javafx.print.Paper;
+import javafx.print.Printer;
+import javafx.print.PrinterAttributes;
+import javafx.print.PrinterJob;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -34,6 +43,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.transform.Scale;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 
@@ -52,8 +65,11 @@ public class TransmissionFinishedController implements Initializable {
 	@FXML
 	private TextArea transmissionTxt;
 	@FXML
-	private Button saveDataBase;
-
+	private Button saveDataBase, printButton;
+	@FXML
+	private AnchorPane printPane;
+	@FXML
+	private ImageView imageView;
 
 	private TransmissionExtruderDataBase transmissionExtruderDataBase = new TransmissionExtruderDataBase();
 	private final ObservableList<TransmissionFinished> dataTransmission = FXCollections.observableArrayList();
@@ -170,7 +186,7 @@ public class TransmissionFinishedController implements Initializable {
 											.get(getIndex());
 									transmissionExtruderDataBase.removeTransmissionFinished(transmissionFinished);
 									transmissionFinishedData();
-									
+
 								}
 							});
 							setGraphic(btn);
@@ -385,6 +401,35 @@ public class TransmissionFinishedController implements Initializable {
 
 	}
 
+	// Print button
+	@FXML
+	private void printButton() {
+
+		print(printPane);
+
+	}
+
+	// print Pane
+	private void print(Node node) {
+		Printer printer = Printer.getDefaultPrinter();
+		PageLayout pageLayout = printer.createPageLayout(Paper.A4, PageOrientation.PORTRAIT,
+				Printer.MarginType.HARDWARE_MINIMUM);
+		PrinterJob job = PrinterJob.createPrinterJob();
+		double scaleX = pageLayout.getPrintableWidth() / node.getBoundsInParent().getWidth();
+		double scaleY = pageLayout.getPrintableHeight() / node.getBoundsInParent().getHeight();
+		Scale scale = new Scale(scaleX, scaleY);
+		node.getTransforms().add(scale);
+
+		if (job != null && job.showPrintDialog(node.getScene().getWindow())) {
+			boolean success = job.printPage(pageLayout, node);
+			if (success) {
+				job.endJob();
+
+			}
+		}
+		node.getTransforms().remove(scale);
+	}
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		extruderTable();
@@ -393,6 +438,8 @@ public class TransmissionFinishedController implements Initializable {
 		transmissionFinishedTableView.setItems(dataTransmission);
 		allExtruderKg();
 		setData();
+		Image image = new Image("/xxxx/logo.jpg");
+		imageView.setImage(image);
 	}
 
 }
