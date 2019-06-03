@@ -1,27 +1,35 @@
 package com.production.transmissionfinished.extruder.controller;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.InputStream;
-import java.lang.reflect.Constructor;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.fazecast.jSerialComm.SerialPort;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import com.production.transmissionfinished.extruder.database.TransmissionExtruderDataBase;
 import com.production.transmissionfinished.extruder.pojo.Transmission;
 import com.production.transmissionfinished.extruder.pojo.TransmissionFinished;
 import com.project.setting.worker.database.WorkersDataBase;
 import com.project.setting.worker.pojo.Workers;
 import com.setting.label.MessageLabel;
-import com.sun.javafx.print.Units;
 
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -29,7 +37,6 @@ import javafx.print.PageLayout;
 import javafx.print.PageOrientation;
 import javafx.print.Paper;
 import javafx.print.Printer;
-import javafx.print.PrinterAttributes;
 import javafx.print.PrinterJob;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
@@ -69,7 +76,7 @@ public class TransmissionFinishedController implements Initializable {
 	@FXML
 	private AnchorPane printPane;
 	@FXML
-	private ImageView imageView;
+	private ImageView imageView, imageView1;
 
 	private TransmissionExtruderDataBase transmissionExtruderDataBase = new TransmissionExtruderDataBase();
 	private final ObservableList<TransmissionFinished> dataTransmission = FXCollections.observableArrayList();
@@ -421,13 +428,47 @@ public class TransmissionFinishedController implements Initializable {
 		node.getTransforms().add(scale);
 
 		if (job != null && job.showPrintDialog(node.getScene().getWindow())) {
+			qRCodeWriter();
 			boolean success = job.printPage(pageLayout, node);
 			if (success) {
 				job.endJob();
-
 			}
 		}
 		node.getTransforms().remove(scale);
+	}
+
+	private void qRCodeWriter() {
+
+		QRCodeWriter qrCodeWriter = new QRCodeWriter();
+		String myWeb = "Megrendelő: Valaki Péter; Azonosító: 2019GGMROX; Termék adatok: 110*2*345*231*0,015; Rendelt mennyiség: 1365 kg; Gép azonosító: CMG-1200;"
+				+ "Bruttó súly: 650 kg; Nettó súly: 632 kg; Cséveszám: 24 db; Átadó neve: Valaki Béla; 2019. Március. 28";
+		int width = 300;
+		int height = 300;
+
+		BufferedImage bufferedImage = null;
+		try {
+			BitMatrix byteMatrix = qrCodeWriter.encode(myWeb, BarcodeFormat.QR_CODE, width, height);
+			bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+			bufferedImage.createGraphics();
+
+			Graphics2D graphics = (Graphics2D) bufferedImage.getGraphics();
+			graphics.setColor(Color.WHITE);
+			graphics.fillRect(0, 0, width, height);
+			graphics.setColor(Color.BLACK);
+
+			for (int i = 0; i < height; i++) {
+				for (int j = 0; j < width; j++) {
+					if (byteMatrix.get(i, j)) {
+						graphics.fillRect(i, j, 1, 1);
+					}
+				}
+			}
+
+			System.out.println("Success...");
+
+		} catch (WriterException ex) {
+		}
+		imageView1.setImage(SwingFXUtils.toFXImage(bufferedImage, null));
 	}
 
 	@Override
