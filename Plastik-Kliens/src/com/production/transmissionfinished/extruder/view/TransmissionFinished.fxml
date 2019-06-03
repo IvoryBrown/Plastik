@@ -19,7 +19,6 @@
          <children>
             <HBox alignment="CENTER" layoutX="271.0" layoutY="159.0" prefHeight="60.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Button fx:id="printButton" mnemonicParsing="false" onAction="#printButton" text="Print" />
                   <Label text="Késztermék leadás" textFill="#0a8a1d">
                      <font>
                         <Font name="System Bold" size="36.0" />
@@ -41,6 +40,7 @@
                         <Insets right="15.0" />
                      </HBox.margin>
                   </Label>
+                  <Button fx:id="printButton" mnemonicParsing="false" onAction="#printButton" text="Print" />
                </children>
             </HBox>
             <AnchorPane layoutX="336.0" layoutY="57.0" prefHeight="643.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
@@ -59,22 +59,82 @@
                   <Button fx:id="saveDataBase" disable="true" layoutX="409.0" layoutY="150.0" mnemonicParsing="false" onAction="#saveDataBase" prefHeight="25.0" prefWidth="40.0" styleClass="saveButtonCenter" stylesheets="@../../../../main/view/css/button.css" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="printPane" layoutY="60.0" prefHeight="562.0" prefWidth="582.0" AnchorPane.bottomAnchor="78.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="418.0" AnchorPane.topAnchor="60.0">
+            <AnchorPane fx:id="printPane" layoutY="7.0" prefHeight="749.0" prefWidth="594.0">
                <children>
-                  <ImageView fx:id="imageView" fitHeight="69.0" fitWidth="99.0" layoutX="21.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />
-                  <HBox alignment="CENTER" layoutX="62.0" layoutY="89.0" prefHeight="38.0" prefWidth="837.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Text fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Termékkísérő Lap">
-                           <font>
-                              <Font name="System Bold" size="33.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </HBox>
-                  <Line endX="100.0" layoutX="113.0" layoutY="51.0" startX="-100.0" />
-                  <Line endX="-18.5" endY="-90.5" layoutX="232.0" layoutY="142.0" startX="-18.5" startY="-10.0" />
-                  <Line endX="100.0" layoutX="113.0" layoutY="133.0" startX="-100.0" />
-                  <Line endX="-142.5" endY="-194.5" layoutX="155.0" layoutY="246.0" startX="-142.5" startY="-112.5" />
+                  <Label layoutX="171.0" layoutY="62.0" text="GI-PLAST Kft.">
+                     <font>
+                        <Font name="System Bold" size="9.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="143.0" layoutY="86.0" text="6230 Soltvadkert Liszt F. u. 24">
+                     <font>
+                        <Font name="System Bold" size="9.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="143.0" layoutY="100.0" text="E-mail:megrendeles@vadkert.net">
+                     <font>
+                        <Font name="System Bold" size="9.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="143.0" layoutY="113.0" text="Mobil:06-30/601-2943">
+                     <font>
+                        <Font name="System Bold" size="9.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="143.0" layoutY="126.0" text="Fax:06-78/481-440">
+                     <font>
+                        <Font name="System Bold" size="9.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imageView" fitHeight="71.0" fitWidth="114.0" layoutX="21.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+                  <Line endX="176.0" layoutX="115.0" layoutY="149.0" startX="-101.0" startY="1.0" />
+                  <Line endX="176.0" layoutX="115.0" layoutY="57.0" startX="-101.0" startY="0.5000152587890625" />
+                  <Line endX="40.5" endY="-196.0" layoutX="251.0" layoutY="254.0" startX="40.5" startY="-104.5" />
+                  <Line endX="-125.5" endY="-270.0" layoutX="139.0" layoutY="328.0" startX="-125.5" startY="-178.5" />
+                  <Label layoutX="319.0" layoutY="62.0" text="Megrendelő:">
+                     <font>
+                        <Font name="System Bold" size="9.0" />
+                     </font>
+                  </Label>
+                  <Line endX="176.0" layoutX="404.0" layoutY="150.0" startX="-91.0" />
+                  <Line endX="41.5" endY="-199.0" layoutX="539.0" layoutY="257.0" startX="41.5" startY="-106.5" />
+                  <Line endX="-109.5" endY="-268.0" layoutX="422.0" layoutY="327.0" startX="-109.5" startY="-176.5" />
+                  <Line endX="176.0" endY="5.5" layoutX="404.0" layoutY="53.0" startX="-91.0" startY="5.5" />
+                  <Text fontSmoothingType="LCD" layoutX="154.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Termékkísérő Lap">
+                     <font>
+                        <Font name="System Bold" size="33.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="381.0" layoutY="62.0" prefHeight="13.0" prefWidth="182.0" text="Valaki Péter">
+                     <font>
+                        <Font name="System Bold" size="9.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="327.0" layoutY="80.0" text="Azonosító:">
+                     <font>
+                        <Font name="System Bold" size="9.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="381.0" layoutY="80.0" prefHeight="13.0" prefWidth="114.0" text="2019GGMROX">
+                     <font>
+                        <Font name="System Bold" size="9.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="206.0" layoutY="169.0" prefHeight="25.0" prefWidth="182.0" text="2019. Március. 28">
+                     <font>
+                        <Font name="System Bold" size="9.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="204.0" prefHeight="25.0" prefWidth="46.0" text="Méret:">
+                     <font>
+                        <Font name="System Bold" size="9.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="55.0" layoutY="204.0" prefHeight="25.0" prefWidth="223.0" text="110*2*345*231*0,015">
+                     <font>
+                        <Font name="System Bold" size="9.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </children>
