@@ -15,192 +15,196 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: C0C0C0;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.production.transmissionfinished.extruder.controller.TransmissionFinishedController">
    <children>
-      <AnchorPane layoutX="355.0" layoutY="330.0" prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="printPane" prefHeight="632.0" prefWidth="594.0" visible="false">
          <children>
-            <HBox alignment="CENTER" layoutX="271.0" layoutY="159.0" prefHeight="60.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Label alignment="CENTER" layoutX="140.0" layoutY="65.0" prefHeight="20.0" prefWidth="149.0" text="GI-PLAST Kft.">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="143.0" layoutY="86.0" prefHeight="13.0" prefWidth="141.0" text="6230 Soltvadkert Liszt F. u. 24">
+               <font>
+                  <Font name="System Bold" size="9.0" />
+               </font>
+            </Label>
+            <Label layoutX="143.0" layoutY="100.0" text="E-mail:megrendeles@vadkert.net">
+               <font>
+                  <Font name="System Bold" size="9.0" />
+               </font>
+            </Label>
+            <Label layoutX="143.0" layoutY="113.0" prefHeight="13.0" prefWidth="141.0" text="Mobil:06-30/601-2943">
+               <font>
+                  <Font name="System Bold" size="9.0" />
+               </font>
+            </Label>
+            <Label layoutX="143.0" layoutY="126.0" prefHeight="13.0" prefWidth="141.0" text="Fax:06-78/481-440">
+               <font>
+                  <Font name="System Bold" size="9.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imageView" fitHeight="71.0" fitWidth="114.0" layoutX="21.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+            <Line endX="176.0" layoutX="115.0" layoutY="149.0" startX="-101.0" startY="1.0" />
+            <Line endX="176.0" layoutX="115.0" layoutY="57.0" startX="-101.0" startY="0.5000152587890625" />
+            <Line endX="40.5" endY="-196.0" layoutX="251.0" layoutY="254.0" startX="40.5" startY="-104.5" />
+            <Line endX="-125.5" endY="-270.0" layoutX="139.0" layoutY="328.0" startX="-125.5" startY="-178.5" />
+            <Label layoutX="319.0" layoutY="62.0" text="Megrendelő:">
+               <font>
+                  <Font name="System Bold" size="9.0" />
+               </font>
+            </Label>
+            <Line endX="176.0" layoutX="404.0" layoutY="150.0" startX="-91.0" />
+            <Line endX="41.5" endY="-199.0" layoutX="539.0" layoutY="257.0" startX="41.5" startY="-106.5" />
+            <Line endX="-109.5" endY="-268.0" layoutX="422.0" layoutY="327.0" startX="-109.5" startY="-176.5" />
+            <Line endX="176.0" endY="5.5" layoutX="404.0" layoutY="53.0" startX="-91.0" startY="5.5" />
+            <Text fontSmoothingType="LCD" layoutX="154.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Termékkísérő Lap">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Text>
+            <Label fx:id="printClientNameLbl" layoutX="381.0" layoutY="62.0" prefHeight="13.0" prefWidth="182.0" text="Valaki Péter">
+               <font>
+                  <Font name="System Bold" size="9.0" />
+               </font>
+            </Label>
+            <Label layoutX="327.0" layoutY="80.0" text="Azonosító:">
+               <font>
+                  <Font name="System Bold" size="9.0" />
+               </font>
+            </Label>
+            <Label fx:id="printIdentificationLbl" layoutX="381.0" layoutY="80.0" prefHeight="13.0" prefWidth="114.0" text="2019GGMROX">
+               <font>
+                  <Font name="System Bold" size="9.0" />
+               </font>
+            </Label>
+            <Label fx:id="printDateLbl" alignment="CENTER" layoutX="206.0" layoutY="523.0" prefHeight="25.0" prefWidth="182.0" text="2019. Március. 28">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="204.0" prefHeight="25.0" prefWidth="84.0" text="Termék adatok:">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="printActualSizeLbl" layoutX="104.0" layoutY="204.0" prefHeight="25.0" prefWidth="223.0" text="110*2*345*231*0,015">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="229.0" prefHeight="25.0" prefWidth="123.0" text="Rendelt mennyiség: ">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="printOrderKgLbl" layoutX="127.0" layoutY="229.0" prefHeight="25.0" prefWidth="223.0" text="1365 kg">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="254.0" prefHeight="25.0" prefWidth="84.0" text="Gép azonosító:">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="printExtruderNameLbl" layoutX="104.0" layoutY="254.0" prefHeight="25.0" prefWidth="223.0" text="CMG-1200">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="279.0" prefHeight="25.0" prefWidth="72.0" text="Bruttó súly:">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="304.0" prefHeight="25.0" prefWidth="72.0" text="Nettó súly:">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="331.0" prefHeight="25.0" prefWidth="84.0" text="Cséveszám:">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="printBKgLbl" layoutX="89.0" layoutY="279.0" prefHeight="25.0" prefWidth="223.0" text="650 kg">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="printNnKgLbl" layoutX="89.0" layoutY="304.0" prefHeight="25.0" prefWidth="223.0" text="632 kg">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="printSpoolLbl" layoutX="90.0" layoutY="331.0" prefHeight="25.0" prefWidth="223.0" text="24 db">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="356.0" prefHeight="25.0" prefWidth="72.0" text="Átadó neve:">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="printWorkerNameLbl" layoutX="89.0" layoutY="356.0" prefHeight="25.0" prefWidth="223.0" text="Valaki Béla">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="13.0" layoutY="592.0" prefHeight="31.0" prefWidth="568.0" text="Esetleges reklamációból származó visszárút, csak eredeti termékkísérő esetén tudunk fogadni. Kérjük a nyomtatványt örizze meg!" wrapText="true">
+               <font>
+                  <Font name="Arial" size="11.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imageView1" fitHeight="118.0" fitWidth="141.0" layoutX="438.0" layoutY="464.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: C0C0C0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label text="Késztermék leadás" textFill="#0a8a1d">
-                     <font>
-                        <Font name="System Bold" size="36.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets right="15.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label fx:id="actualKgLbl" textFill="#0a8a1d">
-                     <font>
-                        <Font name="System Bold" size="36.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="orderKgLbl" textFill="#8a170b">
-                     <font>
-                        <Font name="System Bold" size="36.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets right="15.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Button fx:id="printButton" mnemonicParsing="false" onAction="#printButton" text="Print" />
-               </children>
-            </HBox>
-            <AnchorPane layoutX="336.0" layoutY="57.0" prefHeight="643.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
-               <children>
-                  <TableView fx:id="transmissionFinishedTableView" layoutX="642.0" prefHeight="640.0" prefWidth="512.0" stylesheets="@../../../../main/view/css/tableextruder.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <HBox alignment="CENTER" layoutX="124.0" layoutY="246.0" prefHeight="31.0" prefWidth="488.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <HBox alignment="CENTER" layoutX="271.0" layoutY="159.0" prefHeight="60.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label fx:id="messageLbl" prefHeight="30.0" />
+                        <Label text="Késztermék leadás" textFill="#0a8a1d">
+                           <font>
+                              <Font name="System Bold" size="36.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="15.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="actualKgLbl" textFill="#0a8a1d">
+                           <font>
+                              <Font name="System Bold" size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="orderKgLbl" textFill="#8a170b">
+                           <font>
+                              <Font name="System Bold" size="36.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="15.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Button fx:id="printButton" mnemonicParsing="false" onAction="#printButton" text="Print" />
                      </children>
                   </HBox>
-                  <TextField fx:id="workerNameTxt" layoutX="260.0" layoutY="59.0" />
-                  <Label alignment="CENTER_RIGHT" layoutX="62.0" layoutY="59.0" prefHeight="25.0" prefWidth="182.0" text="Dolgozó kód:" />
-                  <TextArea fx:id="transmissionTxt" editable="false" layoutX="13.0" layoutY="206.0" prefHeight="426.0" prefWidth="455.0" />
-                  <TextField fx:id="transmissionActualKgTxt" editable="false" layoutX="260.0" layoutY="91.0" />
-                  <Label alignment="CENTER_RIGHT" layoutX="56.0" layoutY="91.0" prefHeight="25.0" prefWidth="182.0" text="Súly:" />
-                  <Button fx:id="saveDataBase" disable="true" layoutX="409.0" layoutY="150.0" mnemonicParsing="false" onAction="#saveDataBase" prefHeight="25.0" prefWidth="40.0" styleClass="saveButtonCenter" stylesheets="@../../../../main/view/css/button.css" />
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="printPane" layoutY="7.0" prefHeight="659.0" prefWidth="594.0" visible="false">
-               <children>
-                  <Label alignment="CENTER" layoutX="140.0" layoutY="65.0" prefHeight="20.0" prefWidth="149.0" text="GI-PLAST Kft.">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="143.0" layoutY="86.0" prefHeight="13.0" prefWidth="141.0" text="6230 Soltvadkert Liszt F. u. 24">
-                     <font>
-                        <Font name="System Bold" size="9.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="143.0" layoutY="100.0" text="E-mail:megrendeles@vadkert.net">
-                     <font>
-                        <Font name="System Bold" size="9.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="143.0" layoutY="113.0" prefHeight="13.0" prefWidth="141.0" text="Mobil:06-30/601-2943">
-                     <font>
-                        <Font name="System Bold" size="9.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="143.0" layoutY="126.0" prefHeight="13.0" prefWidth="141.0" text="Fax:06-78/481-440">
-                     <font>
-                        <Font name="System Bold" size="9.0" />
-                     </font>
-                  </Label>
-                  <ImageView fx:id="imageView" fitHeight="71.0" fitWidth="114.0" layoutX="21.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
-                  <Line endX="176.0" layoutX="115.0" layoutY="149.0" startX="-101.0" startY="1.0" />
-                  <Line endX="176.0" layoutX="115.0" layoutY="57.0" startX="-101.0" startY="0.5000152587890625" />
-                  <Line endX="40.5" endY="-196.0" layoutX="251.0" layoutY="254.0" startX="40.5" startY="-104.5" />
-                  <Line endX="-125.5" endY="-270.0" layoutX="139.0" layoutY="328.0" startX="-125.5" startY="-178.5" />
-                  <Label layoutX="319.0" layoutY="62.0" text="Megrendelő:">
-                     <font>
-                        <Font name="System Bold" size="9.0" />
-                     </font>
-                  </Label>
-                  <Line endX="176.0" layoutX="404.0" layoutY="150.0" startX="-91.0" />
-                  <Line endX="41.5" endY="-199.0" layoutX="539.0" layoutY="257.0" startX="41.5" startY="-106.5" />
-                  <Line endX="-109.5" endY="-268.0" layoutX="422.0" layoutY="327.0" startX="-109.5" startY="-176.5" />
-                  <Line endX="176.0" endY="5.5" layoutX="404.0" layoutY="53.0" startX="-91.0" startY="5.5" />
-                  <Text fontSmoothingType="LCD" layoutX="154.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Termékkísérő Lap">
-                     <font>
-                        <Font name="System Bold" size="33.0" />
-                     </font>
-                  </Text>
-                  <Label layoutX="381.0" layoutY="62.0" prefHeight="13.0" prefWidth="182.0" text="Valaki Péter">
-                     <font>
-                        <Font name="System Bold" size="9.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="327.0" layoutY="80.0" text="Azonosító:">
-                     <font>
-                        <Font name="System Bold" size="9.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="381.0" layoutY="80.0" prefHeight="13.0" prefWidth="114.0" text="2019GGMROX">
-                     <font>
-                        <Font name="System Bold" size="9.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" layoutX="206.0" layoutY="523.0" prefHeight="25.0" prefWidth="182.0" text="2019. Március. 28">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="14.0" layoutY="204.0" prefHeight="25.0" prefWidth="84.0" text="Termék adatok:">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="104.0" layoutY="204.0" prefHeight="25.0" prefWidth="223.0" text="110*2*345*231*0,015">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="14.0" layoutY="229.0" prefHeight="25.0" prefWidth="123.0" text="Rendelt mennyiség: ">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="127.0" layoutY="229.0" prefHeight="25.0" prefWidth="223.0" text="1365 kg">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="14.0" layoutY="254.0" prefHeight="25.0" prefWidth="84.0" text="Gép azonosító:">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="104.0" layoutY="254.0" prefHeight="25.0" prefWidth="223.0" text="CMG-1200">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="14.0" layoutY="279.0" prefHeight="25.0" prefWidth="72.0" text="Bruttó súly:">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="14.0" layoutY="304.0" prefHeight="25.0" prefWidth="72.0" text="Nettó súly:">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="14.0" layoutY="331.0" prefHeight="25.0" prefWidth="84.0" text="Cséveszám:">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="89.0" layoutY="279.0" prefHeight="25.0" prefWidth="223.0" text="650 kg">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="89.0" layoutY="304.0" prefHeight="25.0" prefWidth="223.0" text="632 kg">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="90.0" layoutY="331.0" prefHeight="25.0" prefWidth="223.0" text="24 db">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="14.0" layoutY="356.0" prefHeight="25.0" prefWidth="72.0" text="Átadó neve:">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="89.0" layoutY="356.0" prefHeight="25.0" prefWidth="223.0" text="Valaki Béla">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" layoutX="8.0" layoutY="624.0" prefHeight="31.0" prefWidth="568.0" text="Esetleges reklamációból származó visszárút, csak eredeti termékkísérő esetén tudunk fogadni. Kérjük a nyomtatványt örizze meg!" wrapText="true">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <ImageView fx:id="imageView1" fitHeight="118.0" fitWidth="141.0" layoutX="435.0" layoutY="489.0" pickOnBounds="true" preserveRatio="true" />
+                  <AnchorPane layoutX="336.0" layoutY="57.0" prefHeight="643.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                     <children>
+                        <TableView fx:id="transmissionFinishedTableView" layoutX="642.0" prefHeight="640.0" prefWidth="512.0" stylesheets="@../../../../main/view/css/tableextruder.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <HBox alignment="CENTER" layoutX="124.0" layoutY="246.0" prefHeight="31.0" prefWidth="488.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label fx:id="messageLbl" prefHeight="30.0" />
+                           </children>
+                        </HBox>
+                        <TextField fx:id="workerNameTxt" layoutX="260.0" layoutY="59.0" />
+                        <Label alignment="CENTER_RIGHT" layoutX="62.0" layoutY="59.0" prefHeight="25.0" prefWidth="182.0" text="Dolgozó kód:" />
+                        <TextArea fx:id="transmissionTxt" editable="false" layoutX="13.0" layoutY="206.0" prefHeight="426.0" prefWidth="455.0" />
+                        <TextField fx:id="transmissionActualKgTxt" editable="false" layoutX="260.0" layoutY="91.0" />
+                        <Label alignment="CENTER_RIGHT" layoutX="56.0" layoutY="91.0" prefHeight="25.0" prefWidth="182.0" text="Súly:" />
+                        <Button fx:id="saveDataBase" disable="true" layoutX="409.0" layoutY="150.0" mnemonicParsing="false" onAction="#saveDataBase" prefHeight="25.0" prefWidth="40.0" styleClass="saveButtonCenter" stylesheets="@../../../../main/view/css/button.css" />
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </children>

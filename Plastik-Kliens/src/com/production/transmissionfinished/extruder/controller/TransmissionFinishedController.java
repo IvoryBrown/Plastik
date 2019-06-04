@@ -9,8 +9,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import com.fazecast.jSerialComm.SerialPort;
 import com.google.zxing.BarcodeFormat;
@@ -77,6 +75,9 @@ public class TransmissionFinishedController implements Initializable {
 	private AnchorPane printPane;
 	@FXML
 	private ImageView imageView, imageView1;
+	@FXML
+	private Label printClientNameLbl, printIdentificationLbl, printActualSizeLbl, printOrderKgLbl, printExtruderNameLbl,
+			printBKgLbl, printNnKgLbl, printSpoolLbl, printWorkerNameLbl, printDateLbl;
 
 	private TransmissionExtruderDataBase transmissionExtruderDataBase = new TransmissionExtruderDataBase();
 	private final ObservableList<TransmissionFinished> dataTransmission = FXCollections.observableArrayList();
@@ -418,6 +419,9 @@ public class TransmissionFinishedController implements Initializable {
 
 	// print Pane
 	private void print(Node node) {
+		// set print Label and Pane visible
+		setPrintLabel();
+		printPane.setVisible(true);
 		Printer printer = Printer.getDefaultPrinter();
 		PageLayout pageLayout = printer.createPageLayout(Paper.A4, PageOrientation.PORTRAIT,
 				Printer.MarginType.HARDWARE_MINIMUM);
@@ -428,6 +432,7 @@ public class TransmissionFinishedController implements Initializable {
 		node.getTransforms().add(scale);
 
 		if (job != null && job.showPrintDialog(node.getScene().getWindow())) {
+			// QR code general
 			qRCodeWriter();
 			boolean success = job.printPage(pageLayout, node);
 			if (success) {
@@ -435,12 +440,26 @@ public class TransmissionFinishedController implements Initializable {
 			}
 		}
 		node.getTransforms().remove(scale);
+		printPane.setVisible(false);
 	}
 
+	// print page set label A/4
+	private void setPrintLabel() {
+		printClientNameLbl.setText(Transmission.getExtruderClientName());
+		printIdentificationLbl.setText(Transmission.getExtruderIdentification());
+		printActualSizeLbl.setText(Transmission.getExtruderActualSize());
+		printOrderKgLbl.setText(Transmission.getExtruderorderKg() + " kg");
+		printExtruderNameLbl.setText(Transmission.getExtruderName());
+	}
+
+	// QR code generator
 	private void qRCodeWriter() {
 
 		QRCodeWriter qrCodeWriter = new QRCodeWriter();
-		String myWeb = "Megrendelő: Valaki Péter; Azonosító: 2019GGMROX; Termék adatok: 110*2*345*231*0,015; Rendelt mennyiség: 1365 kg; Gép azonosító: CMG-1200;"
+		String myWeb = "Megrendelő: " + printClientNameLbl.getText() + "; Azonosító: "
+				+ printIdentificationLbl.getText() + "; Termék adatok: " + printActualSizeLbl.getText()
+				+ "; Rendelt mennyiség: " + printOrderKgLbl.getText() + " kg; Gép azonosító: "
+				+ printExtruderNameLbl.getText() + "; "
 				+ "Bruttó súly: 650 kg; Nettó súly: 632 kg; Cséveszám: 24 db; Átadó neve: Valaki Béla; 2019. Március. 28";
 		int width = 300;
 		int height = 300;
@@ -463,8 +482,6 @@ public class TransmissionFinishedController implements Initializable {
 					}
 				}
 			}
-
-			System.out.println("Success...");
 
 		} catch (WriterException ex) {
 		}
