@@ -441,6 +441,7 @@ public class TransmissionFinishedController implements Initializable {
 		}
 		node.getTransforms().remove(scale);
 		printPane.setVisible(false);
+		clearPrintLabel();
 	}
 
 	// print page set label A/4
@@ -450,6 +451,15 @@ public class TransmissionFinishedController implements Initializable {
 		printActualSizeLbl.setText(Transmission.getExtruderActualSize());
 		printOrderKgLbl.setText(Transmission.getExtruderorderKg() + " kg");
 		printExtruderNameLbl.setText(Transmission.getExtruderName());
+	}
+	
+	//clear label text
+	private void clearPrintLabel() {
+		printClientNameLbl.setText("");
+		printIdentificationLbl.setText("");
+		printActualSizeLbl.setText("");
+		printOrderKgLbl.setText("");
+		printExtruderNameLbl.setText("");
 	}
 
 	// QR code generator
