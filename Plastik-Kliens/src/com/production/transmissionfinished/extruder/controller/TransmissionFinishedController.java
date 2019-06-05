@@ -67,7 +67,7 @@ public class TransmissionFinishedController implements Initializable {
 	@FXML
 	private Label orderKgLbl, actualKgLbl, messageLbl;
 	@FXML
-	private TextField workerNameTxt, transmissionActualKgTxt;
+	private TextField workerNameTxt, transmissionActualKgTxt, maxKgPrintTxt, minKgPrintTxt, printSpoolTxt;
 	@FXML
 	private TextArea transmissionTxt;
 	@FXML
@@ -460,13 +460,15 @@ public class TransmissionFinishedController implements Initializable {
 		bruttoKg = printLabelBKg();
 		printBKgLbl.setText(bruttoKg + " kg");
 		printNnKgLbl.setText(converterBKgToNkg() + " kg");
+		printSpoolLbl.setText(printSpoolTxt.getText() + " db");
+		printWorkerNameLbl.setText("valaki");
 	}
 
 	// print brutto list
 	private ObservableList<TransmissionExtruder> printBKgData() {
 		dataBrutto.clear();
-		dataBrutto
-				.addAll(transmissionExtruderDataBase.getTransmisionLabelNKg(Transmission.getExtruderId(), "1", "130"));
+		dataBrutto.addAll(transmissionExtruderDataBase.getTransmisionLabelNKg(Transmission.getExtruderId(),
+				minKgPrintTxt.getText(), maxKgPrintTxt.getText()));
 		return dataBrutto;
 
 	}
@@ -506,11 +508,12 @@ public class TransmissionFinishedController implements Initializable {
 	private void qRCodeWriter() {
 
 		QRCodeWriter qrCodeWriter = new QRCodeWriter();
-		String myWeb = "Megrendelő: " + printClientNameLbl.getText() + "; Azonosító: "
+		String myWeb = "GI-PLAST Kft. -- > Megrendelő: " + printClientNameLbl.getText() + "; Azonosító: "
 				+ printIdentificationLbl.getText() + "; Termék adatok: " + printActualSizeLbl.getText()
 				+ "; Rendelt mennyiség: " + printOrderKgLbl.getText() + " kg; Gép azonosító: "
-				+ printExtruderNameLbl.getText() + "; " + "Bruttó súly: " + printBKgLbl.getText()
-				+ " kg; Nettó súly: 632 kg; Cséveszám: 24 db; Átadó neve: Valaki Béla; 2019. Március. 28";
+				+ printExtruderNameLbl.getText() + "; " + "Bruttó súly: " + printBKgLbl.getText() + " kg; Nettó súly: "
+				+ printNnKgLbl.getText() + " kg; Cséveszám: " + printSpoolLbl.getText()
+				+ " db; Átadó neve: Valaki Béla; 2019. Március. 28";
 		int width = 300;
 		int height = 300;
 

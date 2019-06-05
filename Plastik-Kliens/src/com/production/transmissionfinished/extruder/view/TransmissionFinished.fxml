@@ -186,7 +186,6 @@
                               <Insets right="15.0" />
                            </HBox.margin>
                         </Label>
-                        <Button fx:id="printButton" mnemonicParsing="false" onAction="#printButton" text="Print" />
                      </children>
                   </HBox>
                   <AnchorPane layoutX="336.0" layoutY="57.0" prefHeight="643.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
@@ -203,6 +202,11 @@
                         <TextField fx:id="transmissionActualKgTxt" editable="false" layoutX="260.0" layoutY="91.0" />
                         <Label alignment="CENTER_RIGHT" layoutX="56.0" layoutY="91.0" prefHeight="25.0" prefWidth="182.0" text="Súly:" />
                         <Button fx:id="saveDataBase" disable="true" layoutX="409.0" layoutY="150.0" mnemonicParsing="false" onAction="#saveDataBase" prefHeight="25.0" prefWidth="40.0" styleClass="saveButtonCenter" stylesheets="@../../../../main/view/css/button.css" />
+                        <Button fx:id="printButton" layoutX="232.0" layoutY="150.0" mnemonicParsing="false" onAction="#printButton" text="Print" />
+                        <TextField fx:id="minKgPrintTxt" alignment="CENTER" layoutX="24.0" layoutY="150.0" prefHeight="25.0" prefWidth="46.0" promptText="23" />
+                        <TextField fx:id="maxKgPrintTxt" alignment="CENTER" layoutX="94.0" layoutY="150.0" prefHeight="25.0" prefWidth="46.0" promptText="48" />
+                        <Line endX="-29.0" endY="34.0" layoutX="117.0" layoutY="129.0" startX="-40.0" startY="34.0" />
+                        <TextField fx:id="printSpoolTxt" alignment="CENTER" layoutX="174.0" layoutY="150.0" prefHeight="25.0" prefWidth="46.0" promptText="24" />
                      </children>
                   </AnchorPane>
                </children>
