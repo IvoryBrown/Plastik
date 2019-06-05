@@ -22,6 +22,14 @@ public class TransmissionExtruder {
 		this.extruderId = new SimpleStringProperty(String.valueOf(extruderId));
 	}
 
+	// print a4
+	public TransmissionExtruder(Integer transmissionId, double transmissionBKg, Integer extruderId) {
+		this.transmissionId = new SimpleStringProperty(String.valueOf(transmissionId));
+		this.transmissionBKg = new SimpleStringProperty(String.valueOf(transmissionBKg));
+		this.transmissionNKg = new SimpleStringProperty("");
+		this.extruderId = new SimpleStringProperty(String.valueOf(extruderId));
+	}
+
 	public SimpleStringProperty getTransmissionIdProperty() {
 		return this.transmissionId;
 	}

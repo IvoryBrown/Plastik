@@ -56,11 +56,11 @@ public class TransmissionExtruderDataBase {
 		return transmissionFinished;
 	}
 
-	
-	//nkg data tabel
+	// nkg data tabel
 	public ArrayList<TransmissionExtruder> getTransmisionNKg(Integer extruderId) {
-	
-		String sql = "SELECT * FROM `jo_leadas_extruder` WHERE `extruder_extruder_id` = " + extruderId + "&& `delete` = 0 || `delete` IS NULL ";
+
+		String sql = "SELECT * FROM `jo_leadas_extruder` WHERE `extruder_extruder_id` = " + extruderId
+				+ "&& `delete` = 0 || `delete` IS NULL ";
 		Connection con = DataBaseLocal.getConnection();
 		ArrayList<TransmissionExtruder> transmissionExtruder = null;
 		Statement createStatement = null;
@@ -96,46 +96,47 @@ public class TransmissionExtruderDataBase {
 		}
 		return transmissionExtruder;
 	}
-	
-	//nkg data label print
-		public ArrayList<TransmissionExtruder> getTransmisionLabelNKg(Integer extruderId, String minId, String maxId) {
-		
-			String sql = "SELECT * FROM `jo_leadas_extruder` WHERE `extruder_extruder_id` = " + extruderId+"&& ";
-			Connection con = DataBaseLocal.getConnection();
-			ArrayList<TransmissionExtruder> transmissionExtruder = null;
-			Statement createStatement = null;
-			ResultSet rs = null;
-			try {
-				createStatement = con.createStatement();
-				rs = createStatement.executeQuery(sql);
-				transmissionExtruder = new ArrayList<>();
 
-				while (rs.next()) {
-					TransmissionExtruder actualTransmissionExtruder = new TransmissionExtruder(rs.getDouble("b_kg"),
-							rs.getInt("extruder_extruder_id"));
-					transmissionExtruder.add(actualTransmissionExtruder);
-				}
-			} catch (SQLException ex) {
-				System.out.println("Valami baj van a userek kiolvasásakor");
-				System.out.println("" + ex);
-			} finally {
-				try {
-					if (rs != null) {
-						rs.close();
-					}
-					if (createStatement != null) {
-						createStatement.close();
-					}
-					if (con != null) {
-						con.close();
-					}
-				} catch (SQLException e) {
-					System.out.println("Valami baj van a userek kiolvasásakor");
-					System.out.println("" + e);
-				}
+	// nkg data label print
+	public ArrayList<TransmissionExtruder> getTransmisionLabelNKg(String extruderId, String min, String max) {
+
+		String sql = "SELECT * FROM `jo_leadas_extruder` WHERE " + "leadas_id BETWEEN " + min + " AND " + max
+				+ "&& `extruder_extruder_id` = " + extruderId + "&& `delete` = 0 || `delete` IS NULL ";
+		Connection con = DataBaseLocal.getConnection();
+		ArrayList<TransmissionExtruder> transmissionExtruder = null;
+		Statement createStatement = null;
+		ResultSet rs = null;
+		try {
+			createStatement = con.createStatement();
+			rs = createStatement.executeQuery(sql);
+			transmissionExtruder = new ArrayList<>();
+
+			while (rs.next()) {
+				TransmissionExtruder actualTransmissionExtruder = new TransmissionExtruder(rs.getInt("leadas_id"),
+						rs.getDouble("b_kg"), rs.getInt("extruder_extruder_id"));
+				transmissionExtruder.add(actualTransmissionExtruder);
 			}
-			return transmissionExtruder;
+		} catch (SQLException ex) {
+			System.out.println("Valami baj van a userek kiolvasásakor");
+			System.out.println("" + ex);
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (createStatement != null) {
+					createStatement.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (SQLException e) {
+				System.out.println("Valami baj van a userek kiolvasásakor");
+				System.out.println("" + e);
+			}
 		}
+		return transmissionExtruder;
+	}
 
 	public void addTransmission(TransmissionFinished transmissionFinished) {
 		Connection con = DataBaseLocal.getConnection();

@@ -17,6 +17,7 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.production.transmissionfinished.extruder.database.TransmissionExtruderDataBase;
 import com.production.transmissionfinished.extruder.pojo.Transmission;
+import com.production.transmissionfinished.extruder.pojo.TransmissionExtruder;
 import com.production.transmissionfinished.extruder.pojo.TransmissionFinished;
 import com.project.setting.worker.database.WorkersDataBase;
 import com.project.setting.worker.pojo.Workers;
@@ -84,6 +85,10 @@ public class TransmissionFinishedController implements Initializable {
 
 	private final ObservableList<Workers> dataWorkers = FXCollections.observableArrayList();
 	private WorkersDataBase workersDB = new WorkersDataBase();
+
+	private final ObservableList<TransmissionExtruder> dataBrutto = FXCollections.observableArrayList();
+
+	private String bruttoKg = null;
 
 	// Táblázat fel.
 	private ObservableList<TransmissionFinished> transmissionFinishedData() {
@@ -362,7 +367,7 @@ public class TransmissionFinishedController implements Initializable {
 					transmissionDate, workersData().get(0).getWorkersName(), Transmission.getExtruderClientName(),
 					Transmission.getExtruderActualSize(), Double.valueOf(transmissionActualKgTxt.getText()), n_kg1, "1",
 					Integer.valueOf(Transmission.getExtruderId())));
-
+			// 0 fell kell venni !!!!!!!!!!!!!!!!!!!!!!!!!
 			// táblázat update
 			transmissionFinishedData();
 			allExtruderKg();
@@ -451,15 +456,50 @@ public class TransmissionFinishedController implements Initializable {
 		printActualSizeLbl.setText(Transmission.getExtruderActualSize());
 		printOrderKgLbl.setText(Transmission.getExtruderorderKg() + " kg");
 		printExtruderNameLbl.setText(Transmission.getExtruderName());
+		printBKgData();
+		bruttoKg = printLabelBKg();
+		printBKgLbl.setText(bruttoKg + " kg");
+		printNnKgLbl.setText(converterBKgToNkg() + " kg");
 	}
-	
-	//clear label text
+
+	// print brutto list
+	private ObservableList<TransmissionExtruder> printBKgData() {
+		dataBrutto.clear();
+		dataBrutto
+				.addAll(transmissionExtruderDataBase.getTransmisionLabelNKg(Transmission.getExtruderId(), "1", "130"));
+		return dataBrutto;
+
+	}
+
+	// label brutto kg szam.
+	private String printLabelBKg() {
+		String f = null;
+		double sum = 0;
+		for (int i = 0; i < dataBrutto.size(); i++) {
+			double g = Double.valueOf(dataBrutto.get(i).getTransmissionBKg());
+			sum += g;
+		}
+		double n_kg1 = Math.round(sum * 1e2) / 1e2;
+		f = String.valueOf(n_kg1);
+		return f;
+	}
+
+	// brutto netto sum
+	private String converterBKgToNkg() {
+		double bKg = Double.valueOf(bruttoKg);
+		double nKg = bKg - 18;
+
+		return String.valueOf(nKg);
+	}
+
+	// clear label text
 	private void clearPrintLabel() {
 		printClientNameLbl.setText("");
 		printIdentificationLbl.setText("");
 		printActualSizeLbl.setText("");
 		printOrderKgLbl.setText("");
 		printExtruderNameLbl.setText("");
+		printBKgLbl.setText("");
 	}
 
 	// QR code generator
@@ -469,8 +509,8 @@ public class TransmissionFinishedController implements Initializable {
 		String myWeb = "Megrendelő: " + printClientNameLbl.getText() + "; Azonosító: "
 				+ printIdentificationLbl.getText() + "; Termék adatok: " + printActualSizeLbl.getText()
 				+ "; Rendelt mennyiség: " + printOrderKgLbl.getText() + " kg; Gép azonosító: "
-				+ printExtruderNameLbl.getText() + "; "
-				+ "Bruttó súly: 650 kg; Nettó súly: 632 kg; Cséveszám: 24 db; Átadó neve: Valaki Béla; 2019. Március. 28";
+				+ printExtruderNameLbl.getText() + "; " + "Bruttó súly: " + printBKgLbl.getText()
+				+ " kg; Nettó súly: 632 kg; Cséveszám: 24 db; Átadó neve: Valaki Béla; 2019. Március. 28";
 		int width = 300;
 		int height = 300;
 
@@ -508,6 +548,7 @@ public class TransmissionFinishedController implements Initializable {
 		setData();
 		Image image = new Image("/xxxx/logo.jpg");
 		imageView.setImage(image);
+
 	}
 
 }
