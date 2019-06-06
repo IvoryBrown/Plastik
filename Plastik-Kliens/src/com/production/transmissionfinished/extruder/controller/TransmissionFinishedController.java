@@ -7,6 +7,8 @@ import java.io.InputStream;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -414,6 +416,41 @@ public class TransmissionFinishedController implements Initializable {
 
 	}
 
+	// print number check
+	private boolean checkPrintNumber() {
+		if (maxKgPrintTxt.getText().trim().isEmpty()) {
+			maxKgPrintTxt.setStyle(" -fx-text-box-border: #CD5C5C; -fx-focus-color: #CD5C5C;");
+		} else {
+			maxKgPrintTxt.setStyle(null);
+		}
+		if (minKgPrintTxt.getText().trim().isEmpty()) {
+			minKgPrintTxt.setStyle(" -fx-text-box-border: #CD5C5C; -fx-focus-color: #CD5C5C;");
+		} else {
+			minKgPrintTxt.setStyle(null);
+		}
+		if (printSpoolTxt.getText().trim().isEmpty()) {
+			printSpoolTxt.setStyle(" -fx-text-box-border: #CD5C5C; -fx-focus-color: #CD5C5C;");
+		} else {
+			printSpoolTxt.setStyle(null);
+		}
+		if (maxKgPrintTxt.getText().trim().isEmpty() || minKgPrintTxt.getText().trim().isEmpty()
+				|| printSpoolTxt.getText().trim().isEmpty()) {
+
+			return false;
+		} else {
+
+			return true;
+		}
+
+	}
+
+	// print number formatum check
+	private void checkNumberFormat() {
+		setQuantityNumber(printSpoolTxt, messageLbl);
+		setQuantityNumber(minKgPrintTxt, messageLbl);
+		setQuantityNumber(maxKgPrintTxt, messageLbl);
+	}
+
 	// Print button
 	@FXML
 	private void printButton() {
@@ -425,28 +462,38 @@ public class TransmissionFinishedController implements Initializable {
 	// print Pane
 	private void print(Node node) {
 		// set print Label and Pane visible
-		setPrintLabel();
-		printPane.setVisible(true);
-		Printer printer = Printer.getDefaultPrinter();
-		PageLayout pageLayout = printer.createPageLayout(Paper.A4, PageOrientation.PORTRAIT,
-				Printer.MarginType.HARDWARE_MINIMUM);
-		PrinterJob job = PrinterJob.createPrinterJob();
-		double scaleX = pageLayout.getPrintableWidth() / node.getBoundsInParent().getWidth();
-		double scaleY = pageLayout.getPrintableHeight() / node.getBoundsInParent().getHeight();
-		Scale scale = new Scale(scaleX, scaleY);
-		node.getTransforms().add(scale);
+		if (checkPrintNumber()) {
+			setPrintLabel();
+			if (dataBrutto.size() == Integer.valueOf(printSpoolTxt.getText())) {
 
-		if (job != null && job.showPrintDialog(node.getScene().getWindow())) {
-			// QR code general
-			qRCodeWriter();
-			boolean success = job.printPage(pageLayout, node);
-			if (success) {
-				job.endJob();
+				printPane.setVisible(true);
+				Printer printer = Printer.getDefaultPrinter();
+				PageLayout pageLayout = printer.createPageLayout(Paper.A4, PageOrientation.PORTRAIT,
+						Printer.MarginType.HARDWARE_MINIMUM);
+				PrinterJob job = PrinterJob.createPrinterJob();
+				double scaleX = pageLayout.getPrintableWidth() / node.getBoundsInParent().getWidth();
+				double scaleY = pageLayout.getPrintableHeight() / node.getBoundsInParent().getHeight();
+				Scale scale = new Scale(scaleX, scaleY);
+				node.getTransforms().add(scale);
+
+				if (job != null) {
+					// QR code general
+					qRCodeWriter();
+					boolean success = job.printPage(pageLayout, node);
+					if (success) {
+						job.endJob();
+					}
+				}
+				node.getTransforms().remove(scale);
+				printPane.setVisible(false);
+				clearPrintLabel();
+				new MessageLabel().goodMessage("Sikeres nyomtatás", messageLbl);
+			} else {
+				new MessageLabel().errorMessage("Cséve szám nem egyezik mega darab számmal!!", messageLbl);
 			}
+		} else {
+			new MessageLabel().errorMessage("Nem lehet üres a mező", messageLbl);
 		}
-		node.getTransforms().remove(scale);
-		printPane.setVisible(false);
-		clearPrintLabel();
 	}
 
 	// print page set label A/4
@@ -461,7 +508,9 @@ public class TransmissionFinishedController implements Initializable {
 		printBKgLbl.setText(bruttoKg + " kg");
 		printNnKgLbl.setText(converterBKgToNkg() + " kg");
 		printSpoolLbl.setText(printSpoolTxt.getText() + " db");
-		printWorkerNameLbl.setText("valaki");
+		printWorkerNameLbl.setText(
+				transmissionFinishedData().get(transmissionFinishedData().size() - 1).getTransmissionWorkerName());
+		printDateLbl.setText(LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 	}
 
 	// print brutto list
@@ -512,8 +561,8 @@ public class TransmissionFinishedController implements Initializable {
 				+ printIdentificationLbl.getText() + "; Termék adatok: " + printActualSizeLbl.getText()
 				+ "; Rendelt mennyiség: " + printOrderKgLbl.getText() + " kg; Gép azonosító: "
 				+ printExtruderNameLbl.getText() + "; " + "Bruttó súly: " + printBKgLbl.getText() + " kg; Nettó súly: "
-				+ printNnKgLbl.getText() + " kg; Cséveszám: " + printSpoolLbl.getText()
-				+ " db; Átadó neve: Valaki Béla; 2019. Március. 28";
+				+ printNnKgLbl.getText() + " kg; Cséveszám: " + printSpoolLbl.getText() + " db; Átadó neve: "
+				+ printWorkerNameLbl.getText() + "; " + printDateLbl.getText();
 		int width = 300;
 		int height = 300;
 
@@ -549,6 +598,7 @@ public class TransmissionFinishedController implements Initializable {
 		transmissionFinishedTableView.setItems(dataTransmission);
 		allExtruderKg();
 		setData();
+		checkNumberFormat();
 		Image image = new Image("/xxxx/logo.jpg");
 		imageView.setImage(image);
 

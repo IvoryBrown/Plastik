@@ -196,17 +196,38 @@
                               <Label fx:id="messageLbl" prefHeight="30.0" />
                            </children>
                         </HBox>
-                        <TextField fx:id="workerNameTxt" layoutX="260.0" layoutY="59.0" />
-                        <Label alignment="CENTER_RIGHT" layoutX="62.0" layoutY="59.0" prefHeight="25.0" prefWidth="182.0" text="Dolgozó kód:" />
-                        <TextArea fx:id="transmissionTxt" editable="false" layoutX="13.0" layoutY="206.0" prefHeight="426.0" prefWidth="455.0" />
-                        <TextField fx:id="transmissionActualKgTxt" editable="false" layoutX="260.0" layoutY="91.0" />
-                        <Label alignment="CENTER_RIGHT" layoutX="56.0" layoutY="91.0" prefHeight="25.0" prefWidth="182.0" text="Súly:" />
-                        <Button fx:id="saveDataBase" disable="true" layoutX="409.0" layoutY="150.0" mnemonicParsing="false" onAction="#saveDataBase" prefHeight="25.0" prefWidth="40.0" styleClass="saveButtonCenter" stylesheets="@../../../../main/view/css/button.css" />
-                        <Button fx:id="printButton" layoutX="232.0" layoutY="150.0" mnemonicParsing="false" onAction="#printButton" text="Print" />
-                        <TextField fx:id="minKgPrintTxt" alignment="CENTER" layoutX="24.0" layoutY="150.0" prefHeight="25.0" prefWidth="46.0" promptText="23" />
-                        <TextField fx:id="maxKgPrintTxt" alignment="CENTER" layoutX="94.0" layoutY="150.0" prefHeight="25.0" prefWidth="46.0" promptText="48" />
-                        <Line endX="-29.0" endY="34.0" layoutX="117.0" layoutY="129.0" startX="-40.0" startY="34.0" />
-                        <TextField fx:id="printSpoolTxt" alignment="CENTER" layoutX="174.0" layoutY="150.0" prefHeight="25.0" prefWidth="46.0" promptText="24" />
+                        <TextArea fx:id="transmissionTxt" editable="false" layoutX="13.0" layoutY="206.0" prefHeight="426.0" prefWidth="471.0" />
+                        <AnchorPane layoutX="14.0" layoutY="37.0" prefHeight="159.0" prefWidth="210.0" style="-fx-border-color: black;">
+                           <children>
+                              <Label alignment="CENTER" layoutX="3.0" layoutY="2.0" prefHeight="25.0" prefWidth="204.0" text="Nyomtatás">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="printButton" layoutX="78.0" layoutY="118.0" mnemonicParsing="false" onAction="#printButton" prefHeight="25.0" prefWidth="40.0" styleClass="printButton" stylesheets="@../../../../main/view/css/button.css" />
+                              <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="76.0" prefHeight="25.0" prefWidth="46.0" text="Tekercs" />
+                              <TextField fx:id="printSpoolTxt" alignment="CENTER" layoutX="98.0" layoutY="76.0" prefHeight="25.0" prefWidth="46.0" promptText="24" />
+                              <Label alignment="CENTER_RIGHT" layoutX="11.0" layoutY="40.0" prefHeight="25.0" prefWidth="46.0" text="ID" />
+                              <TextField fx:id="minKgPrintTxt" alignment="CENTER" layoutX="61.0" layoutY="40.0" prefHeight="25.0" prefWidth="46.0" promptText="23" />
+                              <Line endX="8.0" endY="34.0" layoutX="107.0" layoutY="19.0" startX="19.0" startY="34.0" />
+                              <TextField fx:id="maxKgPrintTxt" alignment="CENTER" layoutX="133.0" layoutY="40.0" prefHeight="25.0" prefWidth="46.0" promptText="48" />
+                              <Label layoutX="150.0" layoutY="76.0" prefHeight="25.0" prefWidth="40.0" text="DB" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="244.0" layoutY="37.0" prefHeight="159.0" prefWidth="240.0" style="-fx-border-color: black;">
+                           <children>
+                              <Button fx:id="saveDataBase" disable="true" layoutX="87.0" layoutY="120.0" mnemonicParsing="false" onAction="#saveDataBase" prefHeight="25.0" prefWidth="40.0" styleClass="saveButtonCenter" stylesheets="@../../../../main/view/css/button.css" />
+                              <Label alignment="CENTER_RIGHT" layoutX="32.0" layoutY="80.0" prefHeight="25.0" prefWidth="54.0" text="Súly:" />
+                              <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="44.0" prefHeight="25.0" prefWidth="72.0" text="Dolgozó kód:" />
+                              <TextField fx:id="workerNameTxt" layoutX="87.0" layoutY="44.0" />
+                              <TextField fx:id="transmissionActualKgTxt" editable="false" layoutX="87.0" layoutY="80.0" />
+                              <Label alignment="CENTER" layoutX="18.0" layoutY="2.0" prefHeight="25.0" prefWidth="204.0" text="Leadás">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
                </children>

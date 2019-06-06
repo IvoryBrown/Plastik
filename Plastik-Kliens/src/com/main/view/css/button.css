@@ -289,6 +289,26 @@
     -fx-font-weight: bold;
 }
 
+.printButton {
+    -fx-background-color:  #616161;
+    -fx-background-image: url(/com/setting/icon/button/Print.png);
+    -fx-background-size: 16.0px 16.0px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-text-fill: whitesmoke;
+    -fx-font-weight: bold;
+}
+
+.printButton:hover {
+    -fx-background-color:  OLIVE;
+    -fx-background-image: url(/com/setting/icon/button/Print.png);
+    -fx-background-size: 16.0px 16.0px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-text-fill: whitesmoke;
+    -fx-font-weight: bold;
+}
+
 .extruderButton{
 	-fx-background-color:  #616161;
     -fx-background-size: 16.0px 16.0px;
