@@ -1,50 +1,50 @@
 package com.office.extruder.statistic.database;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 
-import com.production.transmission.extruder.pojo.TransmissionExtruder;
 import com.setting.database.DataBaseLocal;
 
 public class StatisticDataBase {
-	public ArrayList<TransmissionExtruder> getAllStatistic() {
-		String sql = "SELECT * FROM `jo_leadas_extruder` WHERE datum > DATE_SUB(NOW(), INTERVAL 1 MONTH)";
+
+	// All kg statistic
+	public double data(String name, String startDate, String endDate) {
+		double value = 0.0;
+		String sql = "SELECT  SUM(b_kg) FROM `jo_leadas_extruder` WHERE `delete` = 0 AND datum between '" + startDate
+				+ "' AND '" + endDate + "' AND extruder_gep = '" + name + "'";
 		Connection con = DataBaseLocal.getConnection();
-		ArrayList<TransmissionExtruder> transmissionExtruder = null;
-		Statement createStatement = null;
+		PreparedStatement statement = null;
 		ResultSet rs = null;
 		try {
-			createStatement = con.createStatement();
-			rs = createStatement.executeQuery(sql);
-			transmissionExtruder = new ArrayList<>();
+			statement = con.prepareStatement(sql);
+			rs = statement.executeQuery();
+			rs.next();
+			String sum = rs.getString(1);
+			System.out.println(sum + " : " + name + " ->" + startDate + " . " + endDate);
+			if (sum != null && !sum.trim().isEmpty()) {
+				value = Double.parseDouble(sum);
 
-			while (rs.next()) {
-				TransmissionExtruder actualTransmissionExtruder = new TransmissionExtruder(rs.getDouble("n_kg"),
-						rs.getInt("extruder_extruder_id"));
-				transmissionExtruder.add(actualTransmissionExtruder);
 			}
-		} catch (SQLException ex) {
-			System.out.println("Valami baj van a userek kiolvasásakor");
-			System.out.println("" + ex);
+		} catch (SQLException exc) {
+			System.out.println(exc.getMessage());
 		} finally {
 			try {
 				if (rs != null) {
 					rs.close();
 				}
-				if (createStatement != null) {
-					createStatement.close();
+				if (rs != null) {
+					rs.close();
 				}
 				if (con != null) {
 					con.close();
 				}
 			} catch (SQLException e) {
-				System.out.println("Valami baj van a userek kiolvasásakor");
-				System.out.println("" + e);
+				// System.out.println("Valami baj van a userek kiolvasásakor");
+				// System.out.println("" + e);
 			}
 		}
-		return transmissionExtruder;
+		return value;
 	}
 }

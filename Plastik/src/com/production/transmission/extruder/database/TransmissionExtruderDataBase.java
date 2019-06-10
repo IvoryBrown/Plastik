@@ -11,8 +11,11 @@ import com.setting.database.DataBaseLocal;
 
 public class TransmissionExtruderDataBase {
 
+	
+	//Table kg 
 	public ArrayList<TransmissionExtruder> getAllClient(Integer extruderId) {
-		String sql = "SELECT * FROM `jo_leadas_extruder` WHERE `extruder_extruder_id` = " + extruderId+"";
+		String sql = "SELECT * FROM `jo_leadas_extruder` WHERE `extruder_extruder_id` = " + extruderId
+				+ "&& `delete` = 0 || `delete` IS NULL ";
 		Connection con = DataBaseLocal.getConnection();
 		ArrayList<TransmissionExtruder> transmissionExtruder = null;
 		Statement createStatement = null;
@@ -23,7 +26,7 @@ public class TransmissionExtruderDataBase {
 			transmissionExtruder = new ArrayList<>();
 
 			while (rs.next()) {
-				TransmissionExtruder actualTransmissionExtruder = new TransmissionExtruder(rs.getDouble("n_kg"),
+				TransmissionExtruder actualTransmissionExtruder = new TransmissionExtruder(rs.getDouble("b_kg"),
 						rs.getInt("extruder_extruder_id"));
 				transmissionExtruder.add(actualTransmissionExtruder);
 			}

@@ -8,9 +8,9 @@ import java.sql.Statement;
 public class DBConnect {
 
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://10.10.10.105/new_gi_plast";
-	static final String USER = "test1";
-	static final String PASS = "1234";
+	static final String DB_URL = "jdbc:mysql://10.10.10.6/gi_plast";
+	static final String USER = "Norbi";
+	static final String PASS = "12345";
 
 	static Connection conn = null;
 	static Statement createStatement = null;

@@ -6,12 +6,14 @@ public class TransmissionExtruder {
 	private final SimpleStringProperty transmissionId;
 	private final SimpleStringProperty transmissionBKg;
 	private final SimpleStringProperty transmissionNKg;
+	private final SimpleStringProperty transmissionAllKg;
 	private final SimpleStringProperty extruderId;
 
 	public TransmissionExtruder() {
 		this.transmissionId = new SimpleStringProperty("");
 		this.transmissionBKg = new SimpleStringProperty("");
 		this.transmissionNKg = new SimpleStringProperty("");
+		this.transmissionAllKg = new SimpleStringProperty("");
 		this.extruderId = new SimpleStringProperty("");
 	}
 
@@ -19,6 +21,7 @@ public class TransmissionExtruder {
 		this.transmissionId = new SimpleStringProperty("");
 		this.transmissionBKg = new SimpleStringProperty("");
 		this.transmissionNKg = new SimpleStringProperty(String.valueOf(transmissionNKg));
+		this.transmissionAllKg = new SimpleStringProperty("");
 		this.extruderId = new SimpleStringProperty(String.valueOf(extruderId));
 	}
 
@@ -56,6 +59,18 @@ public class TransmissionExtruder {
 
 	public void setTransmissionNKg(String transmissionNKg) {
 		this.transmissionNKg.set(transmissionNKg);
+	}
+
+	public SimpleStringProperty getTransmissionAllKgProperty() {
+		return this.transmissionAllKg;
+	}
+
+	public String getTransmissionAllKg() {
+		return this.transmissionAllKg.get();
+	}
+
+	public void setTransmissionAllKg(String transmissionAllKg) {
+		this.transmissionAllKg.set(transmissionAllKg);
 	}
 
 	public SimpleStringProperty getExtruderIdProperty() {

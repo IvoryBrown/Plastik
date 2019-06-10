@@ -551,6 +551,9 @@ public class TransmissionFinishedController implements Initializable {
 		printOrderKgLbl.setText("");
 		printExtruderNameLbl.setText("");
 		printBKgLbl.setText("");
+		printSpoolTxt.clear();
+		minKgPrintTxt.clear();
+		maxKgPrintTxt.clear();
 	}
 
 	// QR code generator

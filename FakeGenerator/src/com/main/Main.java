@@ -36,7 +36,7 @@ public class Main {
 	private static void upDataBase() {
 		idClient++;
 		idExtruder++;
-		System.out.println(idClient +"<- ClientID");
+		System.out.println(idClient + "<- ClientID");
 		String extruderIdentification = extruder.getExtruderIdentification();
 		String extruderName = extruder.getExtruderName();
 		String clientName = nclient.getFullName();
@@ -91,16 +91,19 @@ public class Main {
 
 		}
 		try {
-			
+
 			for (int i = 0; i < 10; i++) {
-				String sql = "INSERT INTO `jo_leadas_extruder` (gyartas_azonosito,extruder_gep, megrendelo_nev,n_kg,extruder_extruder_id)"
-						+ " VALUES (?,?,?,?,?)";
+				String sql = "INSERT INTO `jo_leadas_extruder` (gyartas_azonosito,extruder_gep, megrendelo_nev,b_kg,n_kg,extruder_extruder_id)"
+						+ " VALUES (?,?,?,?,?,?)";
+				String s = leExtruder.getNnKg();
+				Integer g = Integer.valueOf(s);
 				preparedStatement = con.prepareStatement(sql);
 				preparedStatement.setString(1, extruderIdentification);
 				preparedStatement.setString(2, extruderName);
 				preparedStatement.setString(3, clientName);
-				preparedStatement.setString(4, leExtruder.getNnKg());
-				preparedStatement.setInt(5, idExtruder);
+				preparedStatement.setString(4, s);
+				preparedStatement.setString(5, String.valueOf(g - 12));
+				preparedStatement.setInt(6, idExtruder);
 				preparedStatement.execute();
 				Thread.sleep(30000);
 			}
