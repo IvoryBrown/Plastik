@@ -3,6 +3,8 @@ package com.main;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.concurrent.ThreadLocalRandom;
 
 import com.main.client.Client;
 import com.main.database.DBConnect;
@@ -93,17 +95,28 @@ public class Main {
 		try {
 
 			for (int i = 0; i < 10; i++) {
-				String sql = "INSERT INTO `jo_leadas_extruder` (gyartas_azonosito,extruder_gep, megrendelo_nev,b_kg,n_kg,extruder_extruder_id)"
-						+ " VALUES (?,?,?,?,?,?)";
+				String sql = "INSERT INTO jo_leadas_extruder (gyartas_azonosito, extruder_gep, datum, megrendelo_nev, b_kg, n_kg, extruder_extruder_id)"
+						+ " VALUES (?,?,?,?,?,?,?)";
 				String s = leExtruder.getNnKg();
 				Integer g = Integer.valueOf(s);
+				
+				LocalDate startDate = LocalDate.of(2018, 1, 1); //start date
+			    long start = startDate.toEpochDay();
+
+			    LocalDate endDate = LocalDate.now(); //end date
+			    long end = endDate.toEpochDay();
+
+			    long randomEpochDay = ThreadLocalRandom.current().longs(start, end).findAny().getAsLong();
+			    System.out.println(LocalDate.ofEpochDay(randomEpochDay));
+			    
 				preparedStatement = con.prepareStatement(sql);
 				preparedStatement.setString(1, extruderIdentification);
 				preparedStatement.setString(2, extruderName);
-				preparedStatement.setString(3, clientName);
-				preparedStatement.setString(4, s);
-				preparedStatement.setString(5, String.valueOf(g - 12));
-				preparedStatement.setInt(6, idExtruder);
+				preparedStatement.setString(3, String.valueOf(LocalDate.ofEpochDay(randomEpochDay)));
+				preparedStatement.setString(4, clientName);
+				preparedStatement.setString(5, s);
+				preparedStatement.setString(6, String.valueOf(g - 12));
+				preparedStatement.setInt(7, idExtruder);
 				preparedStatement.execute();
 				Thread.sleep(30000);
 			}

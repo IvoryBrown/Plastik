@@ -12,8 +12,10 @@ public class StatisticDataBase {
 	// All kg statistic
 	public double data(String name, String startDate, String endDate) {
 		double value = 0.0;
-		String sql = "SELECT  SUM(b_kg) FROM `jo_leadas_extruder` WHERE `delete` = 0 AND datum between '" + startDate
-				+ "' AND '" + endDate + "' AND extruder_gep = '" + name + "'";
+		String sql = "SELECT  SUM(b_kg) FROM `jo_leadas_extruder` WHERE `delete` IS NULL AND datum between '"
+				+ startDate + "' AND '" + endDate + "' AND extruder_gep = '" + name + "' || "
+				+ "`delete` = 0 AND datum between '" + startDate + "' AND '" + endDate + "' AND extruder_gep = '" + name
+				+ "'";
 		Connection con = DataBaseLocal.getConnection();
 		PreparedStatement statement = null;
 		ResultSet rs = null;
@@ -22,7 +24,7 @@ public class StatisticDataBase {
 			rs = statement.executeQuery();
 			rs.next();
 			String sum = rs.getString(1);
-			System.out.println(sum + " : " + name + " ->" + startDate + " . " + endDate);
+			// System.out.println(sum + " : " + name + " ->" + startDate + " . " + endDate);
 			if (sum != null && !sum.trim().isEmpty()) {
 				value = Double.parseDouble(sum);
 

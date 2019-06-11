@@ -18,7 +18,7 @@ import javafx.scene.chart.XYChart;
 public class SatisticController implements Initializable {
 
 	@FXML
-	private LineChart<String, Double> lineChartGood, lineChartError;
+	private LineChart<String, Double> lineChartGood;
 	private StatisticDataBase atatisticDataBase = new StatisticDataBase();
 	private ObservableList<Machine> dataExtruderName = FXCollections.observableArrayList();
 	private MachineDataBase machineDataBase = new MachineDataBase();
@@ -26,7 +26,6 @@ public class SatisticController implements Initializable {
 	@FXML
 	private void save() {
 		clearLineChart(lineChartGood);
-		clearLineChart(lineChartError);
 		extruderName();
 		extruderNameAlies();
 
@@ -51,8 +50,9 @@ public class SatisticController implements Initializable {
 
 	}
 
+	//statistic data
 	private void extruderNameAlies() {
-		String formattedString = String.valueOf(LocalDate.now().getYear());
+		String formattedString = String.valueOf(LocalDate.now().getYear()-1);
 		for (int i = 0; i < dataExtruderName.size(); i++) {
 			lineChartGood.getData().add(createChartSeriesGood(
 					extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-01-01",
@@ -87,10 +87,10 @@ public class SatisticController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		lineChartGood.setTitle("Késztermék");
-		lineChartError.setTitle("Hulladék");
 		lineChartGood.getData().add(createChartSeriesGood(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, ""));
 	}
 
+	//statistic 
 	private XYChart.Series<String, Double> createChartSeriesGood(Double jan, Double feb, Double mar, Double aprl,
 			Double maj, Double jun, Double jul, Double aug, Double sept, Double okt, Double nov, Double dec,
 			String extruderName) {
@@ -114,4 +114,16 @@ public class SatisticController implements Initializable {
 		return series;
 	}
 
+	//beack year
+	@FXML
+	private void beackYearBtn() {
+		// TODO Automatikusan előállított metóduscsonk
+
+	}
+	//next year
+	@FXML
+	private void nextYearBtn() {
+		// TODO Automatikusan előállított metóduscsonk
+		
+	}
 }
