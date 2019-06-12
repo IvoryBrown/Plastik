@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
 
 public class SatisticController implements Initializable {
 
@@ -22,12 +23,15 @@ public class SatisticController implements Initializable {
 	private StatisticDataBase atatisticDataBase = new StatisticDataBase();
 	private ObservableList<Machine> dataExtruderName = FXCollections.observableArrayList();
 	private MachineDataBase machineDataBase = new MachineDataBase();
+	@FXML
+	private Label yearLbl;
+	private LocalDate yearMonth = LocalDate.now();
 
 	@FXML
 	private void save() {
 		clearLineChart(lineChartGood);
 		extruderName();
-		extruderNameAlies();
+		extruderNameAlies(yearMonth);
 
 	}
 
@@ -50,36 +54,37 @@ public class SatisticController implements Initializable {
 
 	}
 
-	//statistic data
-	private void extruderNameAlies() {
-		String formattedString = String.valueOf(LocalDate.now().getYear()-1);
+	// statistic data
+	private void extruderNameAlies(LocalDate currentYear ) {
+		String formattedString = String.valueOf(currentYear.getYear());
 		for (int i = 0; i < dataExtruderName.size(); i++) {
-			lineChartGood.getData().add(createChartSeriesGood(
-					extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-01-01",
-							formattedString + "-02-01"),
-					extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-02-01",
-							formattedString + "-03-01"),
-					extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-03-01",
-							formattedString + "-04-01"),
-					extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-04-01",
-							formattedString + "-05-01"),
-					extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-05-01",
-							formattedString + "-06-01"),
-					extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-06-01",
-							formattedString + "-07-01"),
-					extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-07-01",
-							formattedString + "-08-01"),
-					extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-08-01",
-							formattedString + "-09-01"),
-					extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-09-01",
-							formattedString + "-10-01"),
-					extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-10-01",
-							formattedString + "-11-01"),
-					extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-11-01",
-							formattedString + "-12-01"),
-					extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-12-01",
-							String.valueOf(LocalDate.now().getYear() + 1) + "-01-01"),
-					dataExtruderName.get(i).getMachineName()));
+			lineChartGood.getData()
+					.add(createChartSeriesGood(
+							extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-01-01",
+									formattedString + "-02-01"),
+							extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-02-01",
+									formattedString + "-03-01"),
+							extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-03-01",
+									formattedString + "-04-01"),
+							extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-04-01",
+									formattedString + "-05-01"),
+							extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-05-01",
+									formattedString + "-06-01"),
+							extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-06-01",
+									formattedString + "-07-01"),
+							extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-07-01",
+									formattedString + "-08-01"),
+							extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-08-01",
+									formattedString + "-09-01"),
+							extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-09-01",
+									formattedString + "-10-01"),
+							extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-10-01",
+									formattedString + "-11-01"),
+							extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-11-01",
+									formattedString + "-12-01"),
+							extruderData(dataExtruderName.get(i).getMachineName(), formattedString + "-12-01",
+									String.valueOf(LocalDate.now().getYear() + 1) + "-01-01"),
+							dataExtruderName.get(i).getMachineName()));
 		}
 
 	}
@@ -87,10 +92,12 @@ public class SatisticController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		lineChartGood.setTitle("Késztermék");
-		lineChartGood.getData().add(createChartSeriesGood(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, ""));
+		lineChartGood.getData()
+				.add(createChartSeriesGood(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, ""));
+		getYear();
 	}
 
-	//statistic 
+	// statistic
 	private XYChart.Series<String, Double> createChartSeriesGood(Double jan, Double feb, Double mar, Double aprl,
 			Double maj, Double jun, Double jul, Double aug, Double sept, Double okt, Double nov, Double dec,
 			String extruderName) {
@@ -110,20 +117,34 @@ public class SatisticController implements Initializable {
 		series.getData().add(new XYChart.Data<String, Double>("NOVEMBER", nov));
 		series.getData().add(new XYChart.Data<String, Double>("DECEMBER", dec));
 		series.setName(extruderName);
-	
+
 		return series;
 	}
 
-	//beack year
+	private String getYear() {
+		String formattedString = String.valueOf(yearMonth.getYear());
+		yearLbl.setText(formattedString);
+		return formattedString;
+	}
+
+	// beack year Button
 	@FXML
 	private void beackYearBtn() {
-		// TODO Automatikusan előállított metóduscsonk
-
+		clearLineChart(lineChartGood);
+		yearMonth= yearMonth.minusYears(1);
+		yearLbl.setText(String.valueOf(yearMonth.getYear()));
+		extruderName();
+		extruderNameAlies(yearMonth);
 	}
-	//next year
+	
+
+	// next year
 	@FXML
 	private void nextYearBtn() {
-		// TODO Automatikusan előállított metóduscsonk
-		
+		clearLineChart(lineChartGood);
+		yearMonth= yearMonth.plusYears(1);
+		yearLbl.setText(String.valueOf(yearMonth.getYear()));
+		extruderName();
+		extruderNameAlies(yearMonth);
 	}
 }
