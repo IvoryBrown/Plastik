@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane stylesheets="@../../css/application.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+   <children>
+      <AnchorPane fx:id="clientAnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="710.0" prefWidth="1310.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="90.0" prefWidth="1300.0" styleClass="rootUp" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <HBox alignment="TOP_RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Text fill="#c9c3c3" strokeType="OUTSIDE" strokeWidth="0.0" text="Material" textAlignment="CENTER">
+                           <font>
+                              <Font name="Arial Bold" size="35.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="792.0" prefHeight="120.0" prefWidth="1300.0" styleClass="rootDown" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <GridPane prefHeight="120.0" prefWidth="1600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1236.0" minWidth="10.0" prefWidth="801.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="795.0" minWidth="10.0" prefWidth="499.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                           <children>
+                              <Button fx:id="saveButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" style="-fx-background-image: url(/application/setting/icon/button/Yes.png);" styleClass="downButton" text="F10">
+                                 <HBox.margin>
+                                    <Insets right="20.0" top="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="noButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" style="-fx-background-image: url(/application/setting/icon/button/No.png);" styleClass="downButton" text="ESC">
+                                 <HBox.margin>
+                                    <Insets right="20.0" top="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <HBox layoutY="90.0" prefHeight="33.0" prefWidth="1300.0">
+               <children>
+                  <Label prefHeight="25.0" text="Név:">
+                     <HBox.margin>
+                        <Insets left="100.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="clientCompanyTxt" prefHeight="25.0" prefWidth="300.0">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label fx:id="messageLbl" prefHeight="25.0" text="Mentés">
+                     <HBox.margin>
+                        <Insets left="500.0" top="1.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <AnchorPane layoutX="49.0" layoutY="128.0" prefHeight="164.0" prefWidth="529.0" style="-fx-border-color: #616161;">
+               <children>
+                  <VBox alignment="TOP_RIGHT" layoutX="3.0" layoutY="45.0" prefHeight="154.0" prefWidth="120.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="44.0">
+                     <children>
+                        <Label prefHeight="25.0" text="Ország">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="25.0" text="Irányítószám">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="25.0" text="Cím">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <TextField fx:id="clientCountyTxt" layoutX="135.0" layoutY="58.0" prefHeight="25.0" prefWidth="381.0" text="Magyarország" />
+                  <TextField fx:id="clientZipCodeTxt" layoutX="135.0" layoutY="90.0" prefHeight="25.0" prefWidth="120.0" />
+                  <Label layoutX="261.0" layoutY="90.0" prefHeight="25.0" text="Város:" />
+                  <TextField fx:id="clientCityTxt" layoutX="321.0" layoutY="90.0" prefHeight="25.0" prefWidth="194.0" />
+                  <TextField fx:id="clientAddressTxt" layoutX="135.0" layoutY="125.0" prefHeight="25.0" prefWidth="381.0" />
+                  <Label alignment="CENTER" layoutX="117.0" layoutY="16.0" prefHeight="25.0" prefWidth="282.0" text="Megrendelő adatai" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="711.0" layoutY="128.0" prefHeight="164.0" prefWidth="529.0" style="-fx-border-color: #616161;">
+               <children>
+                  <VBox alignment="TOP_RIGHT" layoutX="3.0" layoutY="45.0" prefHeight="154.0" prefWidth="120.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="44.0">
+                     <children>
+                        <Label prefHeight="25.0" text="Ország">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="25.0" text="Irányítószám">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="25.0" text="Cím">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <TextField fx:id="clientSCountyTxt" layoutX="135.0" layoutY="58.0" prefHeight="25.0" prefWidth="381.0" />
+                  <TextField fx:id="clientSZipCodeTxt" layoutX="135.0" layoutY="90.0" prefHeight="25.0" prefWidth="120.0" />
+                  <Label layoutX="261.0" layoutY="90.0" prefHeight="25.0" text="Város:" />
+                  <TextField fx:id="clientSCityTxt" layoutX="321.0" layoutY="90.0" prefHeight="25.0" prefWidth="194.0" />
+                  <TextField fx:id="clientSAddressTxt" layoutX="135.0" layoutY="125.0" prefHeight="25.0" prefWidth="381.0" />
+                  <Label alignment="CENTER" layoutX="117.0" layoutY="16.0" prefHeight="25.0" prefWidth="282.0" text="Szállítási cím" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="49.0" layoutY="300.0" prefHeight="211.0" prefWidth="590.0" style="-fx-border-color: #616161;">
+               <children>
+                  <VBox alignment="TOP_RIGHT" layoutX="4.0" layoutY="46.0" prefHeight="153.0" prefWidth="120.0" AnchorPane.bottomAnchor="67.0" AnchorPane.leftAnchor="3.0" AnchorPane.topAnchor="45.0">
+                     <children>
+                        <Label prefHeight="25.0" text="Kapcsolattartó">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="25.0" text="Telefonszám">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="25.0" text="Mail cím">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Label alignment="CENTER" layoutX="117.0" layoutY="16.0" prefHeight="25.0" prefWidth="282.0" text="Egyéb adatok" />
+                  <VBox alignment="TOP_RIGHT" layoutX="135.0" layoutY="45.0" prefHeight="150.0" prefWidth="440.0">
+                     <children>
+                        <TextField fx:id="clientNameTxt" prefHeight="25.0" prefWidth="381.0">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="clientPhoneTxt" prefHeight="25.0" prefWidth="381.0">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="clientEmailTxt" prefHeight="25.0" prefWidth="381.0">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="650.0" layoutY="300.0" prefHeight="209.0" prefWidth="590.0" style="-fx-border-color: #616161;">
+               <children>
+                  <VBox alignment="TOP_RIGHT" layoutX="5.0" layoutY="47.0" prefHeight="107.0" prefWidth="120.0" AnchorPane.bottomAnchor="102.0" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="46.0">
+                     <children>
+                        <Label prefHeight="25.0" text="Megjegyzés">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Label alignment="CENTER" layoutX="117.0" layoutY="16.0" prefHeight="25.0" prefWidth="282.0" text="Megjegyzés" />
+                  <VBox alignment="TOP_RIGHT" layoutX="135.0" layoutY="45.0" prefHeight="164.0" prefWidth="440.0">
+                     <children>
+                        <TextArea fx:id="clientCommentTxt" prefHeight="150.0" prefWidth="440.0" wrapText="true" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <Button fx:id="copyButton" layoutX="624.0" layoutY="185.0" mnemonicParsing="false" styleClass="downButton" text="&gt;&gt;" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="900.0" prefWidth="1610.0" stylesheets="@../../css/application.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="90.0" prefWidth="1600.0" styleClass="rootUp" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <GridPane prefHeight="90.0" prefWidth="1600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="1260.0" minWidth="10.0" prefWidth="342.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="1260.0" minWidth="10.0" prefWidth="741.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="438.0" minWidth="138.0" prefWidth="187.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Text fill="#c9c3c3" strokeType="OUTSIDE" strokeWidth="0.0" text="Material" textAlignment="CENTER" GridPane.columnIndex="2">
+                           <font>
+                              <Font name="Arial Bold" size="35.0" />
+                           </font>
+                        </Text>
+                        <Label fx:id="messageLbl" GridPane.columnIndex="1" />
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField fx:id="searchTxt" focusTraversable="false" />
+                              <Button focusTraversable="false" mnemonicParsing="false" prefHeight="41.0" prefWidth="51.0" style="-fx-background-image: url(/application/setting/icon/button/Search.png);" styleClass="searchButton" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+               </children></AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="792.0" prefHeight="120.0" prefWidth="1600.0" styleClass="rootDown" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <GridPane prefHeight="120.0" prefWidth="1600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1236.0" minWidth="10.0" prefWidth="1236.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="795.0" minWidth="10.0" prefWidth="364.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                           <children>
+                              <Button fx:id="exitButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" style="-fx-background-image: url(/application/setting/icon/button/Exit.png);" styleClass="downButton" text="ESC">
+                                 <HBox.margin>
+                                    <Insets right="20.0" top="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="newClientButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" style="-fx-background-image: url(/application/setting/icon/button/NewClient.png);" styleClass="downButton" text="F10">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" style="-fx-background-image: url(/application/setting/icon/button/Update.png);" styleClass="downButton" text="F11">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" style="-fx-background-image: url(/application/setting/icon/button/Delete.png);" styleClass="downButton" text="DEL">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" style="-fx-background-image: url(/application/setting/icon/button/Refresh.png);" styleClass="downButton" text="F5">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="246.0" layoutY="89.0" prefHeight="690.0" prefWidth="1600.0" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="90.0">
+               <children>
+                  <SplitPane dividerPositions="0.09156976744186046" orientation="VERTICAL" prefHeight="690.0" prefWidth="1600.0" styleClass="rootDown" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" SplitPane.resizableWithParent="false">
+                           <children>
+                              <HBox alignment="CENTER" styleClass="rootDown" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Button fx:id="clientButton1" alignment="CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" styleClass="downButton" text="1. GÉP" />
+                                    <Button fx:id="clientButton11" alignment="CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" styleClass="downButton" text="2. GÉP" />
+                                    <Button fx:id="clientButton12" alignment="CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" styleClass="downButton" text="MAM" />
+                                    <Button fx:id="clientButton13" alignment="CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" styleClass="downButton" text="NAGY" />
+                                    <Button fx:id="clientButton14" alignment="CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" styleClass="downButton" text="KICSI" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+                           <children>
+                              <TableView fx:id="extruderTableView" prefHeight="622.0" prefWidth="1598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn prefWidth="75.0" text="C1" />
+                                  <TableColumn prefWidth="75.0" text="C2" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

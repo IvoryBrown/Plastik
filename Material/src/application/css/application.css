@@ -1,0 +1,103 @@
+/* Home*/
+
+.root{
+	-fx-background-color: #DCDCDC;
+}
+
+.rootUp{
+	-fx-background-color: #2F4F4F;
+	-fx-border-color: transparent transparent #616161 transparent;
+	-fx-border-width: 20.0px;
+}
+
+
+.rootDown{
+	-fx-background-color: #2F4F4F;
+}
+
+/*Button */
+.downButton {
+	-fx-background-color: transparent;
+	-fx-border-radius: 10.0px;
+    -fx-background-position: bottom 40.0px right 43.0px;
+    -fx-background-size: 32.0px 32.0px;
+    -fx-background-repeat: no-repeat;
+    -fx-text-fill: whitesmoke;
+    -fx-font-size: 15.0px;
+    -fx-font-weight: bold;
+}
+
+.downButton:hover {
+    -fx-background-color:  #616161;
+    -fx-background-radius: 10.0px;
+    -fx-background-size: 33.0px 33.0px;
+    -fx-font-size: 16.0px;
+}
+
+.downButton:focused {
+	-fx-border-color: #616161;
+	}
+	
+.searchButton {
+	-fx-background-color: transparent;
+	-fx-border-radius: 10.0px;
+    -fx-background-position: bottom 13.0px right 16.0px;
+    -fx-background-size: 20.0px 20.0px;
+    -fx-background-repeat: no-repeat;
+    -fx-text-fill: whitesmoke;
+    -fx-font-size: 11.0px;
+    -fx-font-weight: bold;
+}
+
+.searchButton:hover {
+    -fx-background-color:  #616161;
+    -fx-background-radius: 13.0px;
+    -fx-background-size: 20.0px 20.0px;
+    -fx-font-size: 11.0px;
+}
+
+.searchButton:focused {
+	-fx-border-color: #616161;
+	}	
+	
+.button{
+	-fx-background-color: #2F4F4F;
+	-fx-background-radius: 10.0px;
+	-fx-font-weight: bold;
+	-fx-font-size: 15.0px;
+	-fx-text-fill: whitesmoke;
+	-fx-font-family:  Arial;
+}	
+
+
+
+/*Label */
+.label{
+	-fx-font-size: 15.0px;
+    -fx-font-weight: bold;
+}
+
+/*Textfield */
+.text-field {
+	-fx-background-color: #7de8e3;
+	-fx-font-weight: bold;
+	-fx-border-color: #2F4F4F
+
+}
+.text-field:focused {
+	-fx-background-color: #7de8e3;
+    -fx-border-color: #616161;
+}
+
+/*textarea */
+.text-area {
+    text-area-background: #DCDCDC ;
+    -fx-border-color: #2F4F4F;
+    -fx-font-weight: bold;
+}
+
+.text-area .content {
+    -fx-background-color: text-area-background ;
+    -fx-border-color: #616161;
+    -fx-font-weight: bold;
+}
